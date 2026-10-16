@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nanang Agus Subekti | Penyuluh Anti Korupsi</title>
-  <meta name="description" content="Website Profil Nanang Agus Subekti, Penyuluh Anti Korupsi, ASN Sekretariat Daerah Kabupaten Tulungagung, penyuluh anti korupsi dengan layanan penyuluhan gratis untuk masyarakat.">
+  <meta name="description" content="Website Profil Nanang Agus Subekti, Penyuluh Anti Korupsi, ASN Sekretariat Daerah Kabupaten Tulungagung, layanan penyuluhan gratis untuk masyarakat.">
   <style>
     :root {
       --primary: #0f2a4a;
@@ -60,6 +60,7 @@
       border: 2px solid transparent;
       cursor: pointer;
       font-size: 0.95rem;
+      font-family: inherit;
     }
 
     .btn-primary { background: var(--accent); color: #111; }
@@ -67,6 +68,18 @@
 
     .btn-outline { border-color: rgba(255, 255, 255, 0.6); color: #ffffff; }
     .btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-secondary:hover { background: var(--primary); color: #ffffff; }
+
+    .btn-large {
+      padding: 18px 36px;
+      font-size: 1.05rem;
+    }
 
     /* HEADER */
     .header {
@@ -89,27 +102,29 @@
 
     .logo {
       color: #ffffff;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 800;
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 8px;
+      white-space: nowrap;
     }
     .logo span { color: var(--accent); }
 
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 22px;
+      gap: 14px;
       align-items: center;
     }
     .nav-menu a {
       color: #e8eef7;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.92rem;
+      font-size: 0.85rem;
       transition: 0.2s;
+      white-space: nowrap;
     }
     .nav-menu a:hover { color: var(--accent); }
 
@@ -179,7 +194,6 @@
 
     .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* FOTO PROFIL HERO */
     .hero-photo-wrap {
       display: flex;
       justify-content: center;
@@ -231,7 +245,6 @@
       text-align: center;
     }
 
-    /* FOTO PROFIL ABOUT */
     .about-photo {
       width: 220px;
       height: 220px;
@@ -354,6 +367,133 @@
     .step h4 { color: var(--primary); margin-bottom: 8px; }
     .step p { color: var(--muted); font-size: 0.9rem; }
 
+    /* ACTION CARDS (untuk form/link) */
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .action-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .action-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+    .action-icon {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.1rem;
+      margin-bottom: 18px;
+    }
+    .action-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+    .action-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 22px;
+      flex-grow: 1;
+    }
+    .action-card .btn { margin-top: auto; }
+
+    /* E-BOOK */
+    .ebook-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 35px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    .ebook-cover {
+      width: 170px;
+      height: 230px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 15px 35px rgba(15, 42, 74, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .ebook-cover::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 100px; height: 100px;
+      background: rgba(242, 183, 5, 0.2);
+      border-radius: 50%;
+    }
+    .ebook-cover .icon { font-size: 3rem; margin-bottom: 10px; z-index: 1; }
+    .ebook-cover .title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      line-height: 1.25;
+      z-index: 1;
+    }
+    .ebook-cover .subtitle {
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-top: 8px;
+      font-weight: 700;
+      z-index: 1;
+    }
+    .ebook-info h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+    .ebook-info p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .ebook-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+      font-size: 0.82rem;
+    }
+    .ebook-meta span {
+      background: #eef4fb;
+      color: var(--primary);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
     /* FAQ */
     .faq-list { max-width: 800px; margin: 0 auto; }
     .faq-item {
@@ -376,6 +516,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-family: inherit;
     }
     .faq-question::after {
       content: '+';
@@ -391,7 +532,7 @@
       color: var(--muted);
     }
     .faq-item.active .faq-answer {
-      max-height: 300px;
+      max-height: 400px;
       padding-bottom: 20px;
     }
 
@@ -446,6 +587,8 @@
       font-size: 0.95rem;
       outline: none;
       transition: 0.2s;
+      background: #ffffff;
+      color: var(--text);
     }
     .form-group input:focus,
     .form-group textarea:focus,
@@ -507,18 +650,30 @@
         gap: 20px;
         transition: 0.3s;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+        align-items: flex-start;
+        overflow-y: auto;
       }
+      .nav-menu a { font-size: 1rem; }
       .nav-menu.active { right: 0; }
       .nav-toggle { display: block; }
 
       .grid-3,
       .topic-list,
       .steps,
-      .stats { grid-template-columns: 1fr; }
+      .stats,
+      .action-grid { grid-template-columns: 1fr; }
 
       .section { padding: 60px 0; }
       .hero { min-height: auto; padding: 120px 0 80px; }
       .footer-grid { grid-template-columns: 1fr; }
+
+      .ebook-card {
+        grid-template-columns: 1fr;
+        padding: 28px;
+        text-align: center;
+      }
+      .ebook-cover { margin: 0 auto; }
+      .ebook-meta { justify-content: center; }
     }
   </style>
 </head>
@@ -533,7 +688,10 @@
         <li><a href="#tentang">Tentang</a></li>
         <li><a href="#layanan">Layanan</a></li>
         <li><a href="#topik">Materi</a></li>
-        <li><a href="#metode">Metode</a></li>
+        <li><a href="#ebook">E-Book</a></li>
+        <li><a href="#tes">Tes</a></li>
+        <li><a href="#daftar-hadir">Daftar Hadir</a></li>
+        <li><a href="#pendapat">Pendapat</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#kontak">Kontak</a></li>
       </ul>
@@ -551,7 +709,7 @@
           <p>ASN Bagian Administrasi Pembangunan Sekretariat Daerah Kabupaten Tulungagung. Melayani penyuluhan anti korupsi secara <strong>gratis</strong> untuk sekolah, komunitas, organisasi, dan masyarakat umum di Tulungagung dan sekitarnya.</p>
           <div class="hero-buttons">
             <a href="#kontak" class="btn btn-primary">📅 Jadwalkan Penyuluhan</a>
-            <a href="#layanan" class="btn btn-outline">Lihat Layanan</a>
+            <a href="#ebook" class="btn btn-outline">📖 Download E-Book</a>
           </div>
           <div class="stats">
             <div class="stat"><strong>100%</strong><span>Gratis</span></div>
@@ -610,10 +768,10 @@
         <div class="grid-3">
           <div class="card"><div class="card-icon">🏫</div><h3>Penyuluhan Sekolah</h3><p>Untuk siswa SD, SMP, SMA/SMK, dan mahasiswa di wilayah Tulungagung. Materi disesuaikan dengan usia.</p></div>
           <div class="card"><div class="card-icon">🏘️</div><h3>Penyuluhan Masyarakat</h3><p>Untuk warga, karang taruna, PKK, majelis, dan komunitas lingkungan di Kabupaten Tulungagung.</p></div>
-          <div class="card"><div class="card-icon">🏢</div><h3>Organisasi & Instansi</h3><p>Untuk organisasi pemuda, lembaga sosial, lembaga swasta. instansi pemerintah dan kelompok masyarakat.</p></div>
+          <div class="card"><div class="card-icon">🏢</div><h3>Organisasi & Instansi</h3><p>Untuk organisasi pemuda, lembaga sosial, lembaga swasta, instansi pemerintah dan kelompok masyarakat.</p></div>
           <div class="card"><div class="card-icon">👨‍👩‍👧</div><h3>Parenting Integritas</h3><p>Menanamkan kejujuran pada anak di rumah dan keluarga.</p></div>
           <div class="card"><div class="card-icon">🎓</div><h3>Pelatihan Singkat</h3><p>Workshop, seminar, dan diskusi interaktif antikorupsi.</p></div>
-          <div class="card"><div class="card-icon">💬</div><h3>Konsultasi Gratis</h3><p>Tanya jawab seputar metode pencegahan korupsi dan penanaman nilai nilai integritas.</p></div>
+          <div class="card"><div class="card-icon">💬</div><h3>Konsultasi Gratis</h3><p>Tanya jawab seputar metode pencegahan korupsi dan penanaman nilai-nilai integritas.</p></div>
         </div>
       </div>
     </section>
@@ -626,8 +784,8 @@
           <p>Materi disusun sederhana, aplikatif, dan relevan dengan kehidupan sehari-hari.</p>
         </div>
         <div class="topic-list">
-         <div class="topic-item"><span class="num">1</span><div><h4>Mewujudkan Cita-Cita Kemerdekaan dengan Memberantas Korupsi</h4><p>Kemerdekaan bukan sekadar lepas dari penjajahan, tetapi terwujudnya kesejahteraan bagi seluruh rakyat. Topik ini menjelaskan mengapa pemberantasan korupsi adalah bagian dari cita-cita kemerdekaan itu sendiri.</p></div></div>
-          <div class="topic-item"><span class="num">2</span><div><h4>Menakar Keberhasilan Pemberantasan Korupsi</h4><p>Keberhasilan pemberantasan korupsi perlu diukur, bukan hanya dirasakan. Topik  ini memperkenalkan tiga indikator utama beserta penerbit, fungsi, dan cara membacanya</p></div></div>
+          <div class="topic-item"><span class="num">1</span><div><h4>Mewujudkan Cita-Cita Kemerdekaan dengan Memberantas Korupsi</h4><p>Kemerdekaan bukan sekadar lepas dari penjajahan, tetapi terwujudnya kesejahteraan bagi seluruh rakyat. Topik ini menjelaskan mengapa pemberantasan korupsi adalah bagian dari cita-cita kemerdekaan itu sendiri.</p></div></div>
+          <div class="topic-item"><span class="num">2</span><div><h4>Menakar Keberhasilan Pemberantasan Korupsi</h4><p>Keberhasilan pemberantasan korupsi perlu diukur, bukan hanya dirasakan. Topik ini memperkenalkan tiga indikator utama beserta penerbit, fungsi, dan cara membacanya.</p></div></div>
           <div class="topic-item"><span class="num">3</span><div><h4>Berkaca pada Negara-Negara yang Bersih dari Korupsi</h4><p>Negara yang bersih dari korupsi tidak muncul begitu saja. Topik ini melihat apa yang membuat negara-negara di peringkat atas Indeks Persepsi Korupsi (IPK) 2025 mampu menjaga integritasnya.</p></div></div>
           <div class="topic-item"><span class="num">4</span><div><h4>Apa Itu Korupsi?</h4><p>Pengertian, jenis, dan contoh korupsi di sekitar kita.</p></div></div>
           <div class="topic-item"><span class="num">5</span><div><h4>Korupsi Kecil di Sekolah</h4><p>Menyontek, titip absen, tidak jujur uang kas, dan manipulasi tugas.</p></div></div>
@@ -635,13 +793,6 @@
           <div class="topic-item"><span class="num">7</span><div><h4>Nilai Antikorupsi</h4><p>Jujur, disiplin, tanggung jawab, adil, peduli, dan sederhana.</p></div></div>
           <div class="topic-item"><span class="num">8</span><div><h4>Pencegahan Korupsi</h4><p>Langkah nyata mencegah korupsi dari lingkungan terkecil.</p></div></div>
           <div class="topic-item"><span class="num">9</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
-          <div class="topic-item"><span class="num">10</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
-          <div class="topic-item"><span class="num">11</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
-          <div class="topic-item"><span class="num">12</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
-          <div class="topic-item"><span class="num">13</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
-          <div class="topic-item"><span class="num">14</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
-          <div class="topic-item"><span class="num">15</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
-          <div class="topic-item"><span class="num">16</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
         </div>
       </div>
     </section>
@@ -680,6 +831,93 @@
       </div>
     </section>
 
+    <!-- E-BOOK -->
+    <section id="ebook" class="section alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Download E-Book Materi Anti Korupsi</h2>
+          <p>Materi lengkap penyuluhan anti korupsi dalam format PDF. Gratis untuk diunduh dan dipelajari.</p>
+        </div>
+        <div class="ebook-card">
+          <div class="ebook-cover">
+            <div class="icon">📖</div>
+            <div class="title">Materi Anti Korupsi</div>
+            <div class="subtitle">E-BOOK GRATIS</div>
+          </div>
+          <div class="ebook-info">
+            <h3>Modul Penyuluhan Anti Korupsi</h3>
+            <p>E-book ini berisi materi lengkap tentang pengertian korupsi, bentuk-bentuk korupsi di lingkungan sehari-hari, nilai-nilai anti korupsi, hingga cara berani menolak dan melaporkan dugaan korupsi.</p>
+            <div class="ebook-meta">
+              <span>📄 Format PDF</span>
+              <span>🆓 Gratis</span>
+              <span>📱 Mobile Friendly</span>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1z1gZKjjpz-u-Yv-Fj7RQK8NgDT1Q33DQ?usp=drive_link" target="_blank" rel="noopener" class="btn btn-primary">📥 Buka Folder E-Book di Google Drive</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TES ONLINE (PRE & POST TEST) -->
+    <section id="tes" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tes Pemahaman Anti Korupsi</h2>
+          <p>Ukur pemahaman Anda tentang anti korupsi. Pre-Test dilakukan sebelum penyuluhan, Post-Test dilakukan setelah penyuluhan.</p>
+        </div>
+        <div class="action-grid">
+          <div class="action-card">
+            <div class="action-icon">📝</div>
+            <h3>Pre-Test</h3>
+            <p>Tes awal untuk mengukur sejauh mana pemahaman Anda tentang anti korupsi sebelum mengikuti penyuluhan.</p>
+            <a href="https://forms.gle/HoBErAux6cfcvXYM6" target="_blank" rel="noopener" class="btn btn-primary btn-large">🚀 Mulai Pre-Test</a>
+          </div>
+          <div class="action-card">
+            <div class="action-icon">🎯</div>
+            <h3>Post-Test</h3>
+            <p>Tes akhir untuk mengukur peningkatan pemahaman Anda tentang anti korupsi setelah mengikuti penyuluhan.</p>
+            <a href="https://forms.gle/nP6GsYJfA66AS2q59" target="_blank" rel="noopener" class="btn btn-primary btn-large">🏁 Mulai Post-Test</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAFTAR HADIR -->
+    <section id="daftar-hadir" class="section alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Daftar Hadir Peserta</h2>
+          <p>Silakan isi daftar hadir kegiatan penyuluhan anti korupsi melalui formulir online berikut.</p>
+        </div>
+        <div class="action-grid" style="grid-template-columns: 1fr; max-width: 620px;">
+          <div class="action-card">
+            <div class="action-icon">✍️</div>
+            <h3>Formulir Daftar Hadir</h3>
+            <p>Klik tombol di bawah ini untuk mengisi daftar hadir kegiatan penyuluhan anti korupsi. Formulir akan terbuka di halaman baru.</p>
+            <a href="https://forms.gle/guG8EfHM4KxcUKgj9" target="_blank" rel="noopener" class="btn btn-primary btn-large">📋 Isi Daftar Hadir Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PENDAPAT ANDA -->
+    <section id="pendapat" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pendapat Anda</h2>
+          <p>Bagikan pendapat, saran, atau kritik Anda terhadap penyuluhan anti korupsi ini.</p>
+        </div>
+        <div class="action-grid" style="grid-template-columns: 1fr; max-width: 620px;">
+          <div class="action-card">
+            <div class="action-icon">💬</div>
+            <h3>Formulir Pendapat & Saran</h3>
+            <p>Masukan Anda sangat berharga untuk perbaikan kegiatan penyuluhan ke depan. Silakan isi formulir pendapat melalui tombol di bawah.</p>
+            <a href="https://forms.gle/tahixhxoPMmSmNbB8" target="_blank" rel="noopener" class="btn btn-primary btn-large">✉️ Kirim Pendapat Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section id="faq" class="section alt">
       <div class="container">
@@ -694,7 +932,7 @@
           </div>
           <div class="faq-item">
             <button class="faq-question">Siapa saja yang boleh mengundang?</button>
-            <div class="faq-answer"><p>Sekolah, kampus, komunitas, karang taruna, organisasi pemuda, lembaga sosial, dan masyarakat umum di wilayah Tulungagung dan sekitarnya.</p></div>
+            <div class="faq-answer"><p>Sekolah, kampus, komunitas, karang taruna, organisasi pemuda, lembaga sosial, instansi pemerintah, dan masyarakat umum di wilayah Tulungagung dan sekitarnya.</p></div>
           </div>
           <div class="faq-item">
             <button class="faq-question">Berapa lama durasi penyuluhan?</button>
@@ -778,16 +1016,18 @@
             <li><a href="#beranda">Beranda</a></li>
             <li><a href="#tentang">Tentang</a></li>
             <li><a href="#layanan">Layanan</a></li>
-            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#ebook">E-Book</a></li>
+            <li><a href="#tes">Tes Online</a></li>
           </ul>
         </div>
         <div>
-          <h4>Layanan</h4>
+          <h4>Akses Cepat</h4>
           <ul class="footer-links">
-            <li><a href="#layanan">Sekolah</a></li>
-            <li><a href="#layanan">Masyarakat</a></li>
-            <li><a href="#layanan">Organisasi</a></li>
-            <li><a href="#layanan">Konsultasi</a></li>
+            <li><a href="https://forms.gle/guG8EfHM4KxcUKgj9" target="_blank" rel="noopener">Daftar Hadir</a></li>
+            <li><a href="https://forms.gle/tahixhxoPMmSmNbB8" target="_blank" rel="noopener">Pendapat Anda</a></li>
+            <li><a href="https://forms.gle/HoBErAux6cfcvXYM6" target="_blank" rel="noopener">Pre-Test</a></li>
+            <li><a href="https://forms.gle/nP6GsYJfA66AS2q59" target="_blank" rel="noopener">Post-Test</a></li>
+            <li><a href="#kontak">Kontak</a></li>
           </ul>
         </div>
       </div>
@@ -798,6 +1038,9 @@
   </footer>
 
   <script>
+    const WA_NUMBER = '6285736411698';
+
+    // ============ NAV MENU ============
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -815,6 +1058,7 @@
       document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
     });
 
+    // ============ FAQ ============
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.parentElement;
@@ -825,23 +1069,21 @@
       });
     });
 
+    // ============ TAHUN ============
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ============ FORM JADWAL PENYULUHAN ============
     document.getElementById('waForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
       const nama = document.getElementById('nama').value.trim();
       const instansi = document.getElementById('instansi').value.trim();
       const topik = document.getElementById('topikPilihan').value;
       const tanggal = document.getElementById('tanggal').value;
       const pesan = document.getElementById('pesan').value.trim();
 
-      // Nomor WhatsApp Nanang Agus Subekti
-      const nomor = '6285736411698';
-
       const text = `Halo Bapak Nanang Agus Subekti, saya ingin mengajukan penyuluhan anti korupsi gratis.%0A%0ANama: ${encodeURIComponent(nama)}%0AInstansi: ${encodeURIComponent(instansi)}%0ATopik: ${encodeURIComponent(topik)}%0ATanggal: ${encodeURIComponent(tanggal)}%0APesan: ${encodeURIComponent(pesan)}`;
 
-      window.open(`https://wa.me/${nomor}?text=${text}`, '_blank');
+      window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
     });
   </script>
 
