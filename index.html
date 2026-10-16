@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanang Agus Subekti | Penyuluh Anti Korupsi</title>
+  <meta name="description" content="Web profil Nanang Agus Subekti, ASN Sekretariat Daerah Kabupaten Tulungagung, penyuluh anti korupsi dengan layanan penyuluhan gratis untuk masyarakat.">
+  <style>
+    :root {
+      --primary: #0f2a4a;
+      --primary-light: #1e4b7a;
+      --accent: #f2b705;
+      --accent-dark: #d99e00;
+      --bg: #f7f9fc;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5f6b7a;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    .section { padding: 80px 0; }
+    .section.alt { background: #ffffff; }
+
+    .section-title { text-align: center; margin-bottom: 48px; }
+    .section-title h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .section-title p {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+      border: 2px solid transparent;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary { background: var(--accent); color: #111; }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+
+    .btn-outline { border-color: rgba(255, 255, 255, 0.6); color: #ffffff; }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(15, 42, 74, 0.95);
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+    .header.scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo span { color: var(--accent); }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 22px;
+      align-items: center;
+    }
+    .nav-menu a {
+      color: #e8eef7;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      transition: 0.2s;
+    }
+    .nav-menu a:hover { color: var(--accent); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #0f2a4a 0%, #1e4b7a 60%, #2a6ba8 100%);
+      color: #ffffff;
+      padding-top: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; right: -50px;
+      width: 400px; height: 400px;
+      background: rgba(242, 183, 5, 0.12);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(242, 183, 5, 0.15);
+      color: var(--accent);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      border: 1px solid rgba(242, 183, 5, 0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #dbe7f5;
+      margin-bottom: 32px;
+      max-width: 620px;
+    }
+
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* FOTO PROFIL HERO */
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid var(--accent);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      background: #e2e8f0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .stat {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--accent);
+    }
+    .stat span { font-size: 0.85rem; color: #dbe7f5; }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-img {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: var(--radius);
+      padding: 40px 30px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    /* FOTO PROFIL ABOUT */
+    .about-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 5px solid var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      background: #e2e8f0;
+    }
+
+    .about-img h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .about-img .role {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .about-img .instansi {
+      font-size: 0.9rem;
+      color: #dbe7f5;
+      line-height: 1.5;
+    }
+
+    .about-text h3 {
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .values { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .value-tag {
+      background: #eef4fb;
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    /* CARDS */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: #cbd5e1;
+    }
+    .card-icon { font-size: 2rem; margin-bottom: 16px; }
+    .card h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.15rem; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+
+    /* TOPIK */
+    .topic-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .topic-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .topic-item .num {
+      background: var(--accent);
+      color: #111;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .topic-item h4 { color: var(--primary); margin-bottom: 4px; }
+    .topic-item p { color: var(--muted); font-size: 0.9rem; }
+
+    /* STEPS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .step { text-align: center; }
+    .step-num {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin: 0 auto 16px;
+      border: 4px solid #e8eef7;
+    }
+    .step h4 { color: var(--primary); margin-bottom: 8px; }
+    .step p { color: var(--muted); font-size: 0.9rem; }
+
+    /* FAQ */
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+    .faq-item.active .faq-question::after { content: '−'; }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 20px;
+      color: var(--muted);
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding-bottom: 20px;
+    }
+
+    /* KONTAK */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .contact-info {
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .contact-info h3 { color: var(--accent); margin-bottom: 20px; }
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .contact-item .icon { font-size: 1.4rem; }
+    .contact-item strong { display: block; margin-bottom: 4px; }
+    .contact-item a { color: #dbe7f5; text-decoration: none; }
+    .contact-item a:hover { color: var(--accent); }
+
+    .contact-form {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .contact-form h3 { color: var(--primary); margin-bottom: 20px; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(30, 75, 122, 0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-note { font-size: 0.8rem; color: var(--muted); margin-top: 10px; }
+
+    /* FOOTER */
+    .footer { background: #0a1f36; color: #9fb3c8; padding: 40px 0 20px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer h4 { color: #ffffff; margin-bottom: 16px; }
+    .footer p, .footer a {
+      color: #9fb3c8;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer a:hover { color: var(--accent); }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-content,
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+
+      .hero-photo-wrap { order: -1; margin-bottom: 20px; }
+      .hero-photo { width: 240px; height: 240px; }
+
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 72px;
+        right: -100%;
+        width: 260px;
+        height: calc(100vh - 72px);
+        background: var(--primary);
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+        transition: 0.3s;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+      }
+      .nav-menu.active { right: 0; }
+      .nav-toggle { display: block; }
+
+      .grid-3,
+      .topic-list,
+      .steps,
+      .stats { grid-template-columns: 1fr; }
+
+      .section { padding: 60px 0; }
+      .hero { min-height: auto; padding: 120px 0 80px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#beranda" class="logo">🛡️ <span>Penyuluh Anti Korupsi</span></a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#topik">Materi</a></li>
+        <li><a href="#metode">Metode</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="beranda" class="hero">
+      <div class="container hero-content">
+        <div>
+          <span class="hero-badge">Layanan 100% Gratis</span>
+          <h1>Nanang Agus Subekti<br><span>Penyuluh Anti Korupsi</span></h1>
+          <p>ASN Bagian Sekretariat Daerah (Setda) Kabupaten Tulungagung. Melayani penyuluhan anti korupsi secara <strong>gratis</strong> untuk sekolah, komunitas, organisasi, dan masyarakat umum di Tulungagung dan sekitarnya.</p>
+          <div class="hero-buttons">
+            <a href="#kontak" class="btn btn-primary">📅 Jadwalkan Penyuluhan</a>
+            <a href="#layanan" class="btn btn-outline">Lihat Layanan</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>100%</strong><span>Gratis</span></div>
+            <div class="stat"><strong>Rp0</strong><span>Biaya layanan</span></div>
+            <div class="stat"><strong>Semua</strong><span>Kalangan masyarakat</span></div>
+          </div>
+        </div>
+        <div class="hero-photo-wrap">
+          <img src="foto.jpg" alt="Nanang Agus Subekti" class="hero-photo">
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section id="tentang" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tentang Penyuluh</h2>
+          <p>Profil singkat penyuluh anti korupsi yang berkomitmen melayani masyarakat secara sukarela.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-img">
+            <img src="foto.jpg" alt="Nanang Agus Subekti" class="about-photo">
+            <h3>Nanang Agus Subekti</h3>
+            <p class="role">Penyuluh Anti Korupsi & Relawan Integritas</p>
+            <p class="instansi">ASN Bagian Sekretariat Daerah (Setda)<br>Kabupaten Tulungagung</p>
+          </div>
+          <div class="about-text">
+            <h3>Sukarela, Gratis, dan Berintegritas</h3>
+            <p>Saya <strong>Nanang Agus Subekti</strong>, seorang Aparatur Sipil Negara (ASN) yang bertugas di Bagian Sekretariat Daerah (Setda) Kabupaten Tulungagung. Saya memiliki kepedulian terhadap pemberantasan korupsi dan berkomitmen menanamkan nilai-nilai integritas kepada masyarakat.</p>
+            <p>Melalui layanan ini, saya menyediakan penyuluhan anti korupsi secara <strong>gratis</strong> untuk sekolah, kampus, komunitas, karang taruna, organisasi pemuda, dan masyarakat umum di wilayah Tulungagung dan sekitarnya.</p>
+            <p>Visi saya adalah membantu menciptakan generasi yang jujur, sadar hukum, dan berani menolak segala bentuk korupsi, dimulai dari hal-hal kecil di lingkungan sekitar.</p>
+            <div class="values">
+              <span class="value-tag">Kejujuran</span>
+              <span class="value-tag">Disiplin</span>
+              <span class="value-tag">Tanggung Jawab</span>
+              <span class="value-tag">Keadilan</span>
+              <span class="value-tag">Kepedulian</span>
+              <span class="value-tag">Transparansi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYANAN -->
+    <section id="layanan" class="section alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Layanan Penyuluhan</h2>
+          <p>Semua layanan diberikan secara gratis. Anda hanya perlu menghubungi untuk menjadwalkan.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">🏫</div><h3>Penyuluhan Sekolah</h3><p>Untuk siswa SD, SMP, SMA/SMK, dan mahasiswa di wilayah Tulungagung. Materi disesuaikan dengan usia.</p></div>
+          <div class="card"><div class="card-icon">🏘️</div><h3>Penyuluhan Masyarakat</h3><p>Untuk warga, karang taruna, PKK, majelis, dan komunitas lingkungan di Kabupaten Tulungagung.</p></div>
+          <div class="card"><div class="card-icon">🏢</div><h3>Organisasi & Instansi</h3><p>Untuk organisasi pemuda, lembaga sosial, dan kelompok masyarakat.</p></div>
+          <div class="card"><div class="card-icon">👨‍👩‍👧</div><h3>Parenting Integritas</h3><p>Menanamkan kejujuran pada anak di rumah dan keluarga.</p></div>
+          <div class="card"><div class="card-icon">🎓</div><h3>Pelatihan Singkat</h3><p>Workshop, seminar, dan diskusi interaktif antikorupsi.</p></div>
+          <div class="card"><div class="card-icon">💬</div><h3>Konsultasi Gratis</h3><p>Tanya jawab seputar pencegahan korupsi dan integritas.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPIK -->
+    <section id="topik" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Topik yang Disampaikan</h2>
+          <p>Materi disusun sederhana, aplikatif, dan relevan dengan kehidupan sehari-hari.</p>
+        </div>
+        <div class="topic-list">
+          <div class="topic-item"><span class="num">1</span><div><h4>Apa Itu Korupsi?</h4><p>Pengertian, jenis, dan contoh korupsi di sekitar kita.</p></div></div>
+          <div class="topic-item"><span class="num">2</span><div><h4>Korupsi Kecil di Sekolah</h4><p>Menyontek, titip absen, tidak jujur uang kas, dan manipulasi tugas.</p></div></div>
+          <div class="topic-item"><span class="num">3</span><div><h4>Dampak Korupsi</h4><p>Dampak bagi diri, keluarga, sekolah, masyarakat, dan negara.</p></div></div>
+          <div class="topic-item"><span class="num">4</span><div><h4>Nilai Antikorupsi</h4><p>Jujur, disiplin, tanggung jawab, adil, peduli, dan sederhana.</p></div></div>
+          <div class="topic-item"><span class="num">5</span><div><h4>Pencegahan Korupsi</h4><p>Langkah nyata mencegah korupsi dari lingkungan terkecil.</p></div></div>
+          <div class="topic-item"><span class="num">6</span><div><h4>Berani Menolak & Melapor</h4><p>Cara bersikap dan melaporkan dugaan korupsi dengan aman.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODE -->
+    <section id="metode" class="section alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Metode Penyuluhan</h2>
+          <p>Kegiatan dibuat menarik, interaktif, dan tidak membosankan.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">🎤</div><h3>Ceramah Interaktif</h3><p>Penyampaian materi dengan bahasa sederhana dan tanya jawab.</p></div>
+          <div class="card"><div class="card-icon">🎬</div><h3>Video & Animasi</h3><p>Menonton video pendek yang relevan dan mudah dipahami.</p></div>
+          <div class="card"><div class="card-icon">🎭</div><h3>Role Play</h3><p>Simulasi situasi nyata untuk melatih keberanian bersikap jujur.</p></div>
+          <div class="card"><div class="card-icon">🧩</div><h3>Permainan Edukatif</h3><p>Kuis, puzzle, dan games antikorupsi.</p></div>
+          <div class="card"><div class="card-icon">💬</div><h3>Diskusi Kelompok</h3><p>Membahas kasus dan solusi bersama peserta.</p></div>
+          <div class="card"><div class="card-icon">📝</div><h3>Deklarasi Komitmen</h3><p>Membuat komitmen bersama untuk hidup jujur dan berintegritas.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALUR -->
+    <section id="alur" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Alur Layanan Gratis</h2>
+          <p>Proses mudah, tanpa biaya, dan fleksibel.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><h4>Hubungi</h4><p>Kirim pesan melalui WhatsApp atau email.</p></div>
+          <div class="step"><div class="step-num">2</div><h4>Jadwalkan</h4><p>Tentukan tanggal, waktu, dan lokasi kegiatan.</p></div>
+          <div class="step"><div class="step-num">3</div><h4>Pelaksanaan</h4><p>Penyuluhan dilaksanakan sesuai kesepakatan.</p></div>
+          <div class="step"><div class="step-num">4</div><h4>Evaluasi</h4><p>Refleksi dan umpan balik untuk perbaikan.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pertanyaan Umum</h2>
+          <p>Beberapa pertanyaan yang sering diajukan.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">Apakah benar-benar gratis?</button>
+            <div class="faq-answer"><p>Ya, layanan penyuluhan ini 100% gratis. Tidak ada biaya yang dipungut kepada peserta, sekolah, komunitas, maupun instansi.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Siapa saja yang boleh mengundang?</button>
+            <div class="faq-answer"><p>Sekolah, kampus, komunitas, karang taruna, organisasi pemuda, lembaga sosial, dan masyarakat umum di wilayah Tulungagung dan sekitarnya.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Berapa lama durasi penyuluhan?</button>
+            <div class="faq-answer"><p>Fleksibel, mulai dari 60 menit hingga 3 jam, dapat disesuaikan dengan kebutuhan acara.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Apakah bisa untuk luar kota Tulungagung?</button>
+            <div class="faq-answer"><p>Bisa, dengan catatan jadwal dan teknis pelaksanaan dibicarakan terlebih dahulu. Layanan tetap gratis; jika memungkinkan, pemohon dapat membantu akomodasi secara sukarela.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Apakah kegiatan ini mewakili instansi tertentu?</button>
+            <div class="faq-answer"><p>Tidak. Kegiatan ini merupakan inisiatif pribadi sebagai bentuk pengabdian kepada masyarakat, tidak mewakili instansi manapun.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Hubungi Saya</h2>
+          <p>Jadwalkan penyuluhan gratis untuk sekolah, komunitas, atau organisasi Anda.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Informasi Kontak</h3>
+            <div class="contact-item"><span class="icon">📱</span><div><strong>WhatsApp</strong><a href="https://wa.me/6285736411698" target="_blank">+62 857-3641-1698</a></div></div>
+            <div class="contact-item"><span class="icon">✉️</span><div><strong>Email</strong><a href="mailto:nanang.agus.subekti@email.com">nanang.agus.subekti@email.com</a></div></div>
+            <div class="contact-item"><span class="icon">📍</span><div><strong>Domisili</strong><span>Kabupaten Tulungagung, Jawa Timur</span></div></div>
+            <div class="contact-item"><span class="icon">🕒</span><div><strong>Waktu Layanan</strong><span>Senin–Sabtu, 08.00–20.00 WIB</span></div></div>
+            <p style="margin-top:20px; font-size:.9rem; color:#dbe7f5;">Layanan ini tidak berbayar. Mari bersama membangun Tulungagung dan Indonesia yang jujur serta berintegritas.</p>
+          </div>
+          <form class="contact-form" id="waForm">
+            <h3>Formulir Jadwal Penyuluhan</h3>
+            <div class="form-group">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" required placeholder="Nama Anda">
+            </div>
+            <div class="form-group">
+              <label for="instansi">Instansi/Komunitas</label>
+              <input type="text" id="instansi" required placeholder="Nama sekolah/komunitas">
+            </div>
+            <div class="form-group">
+              <label for="topikPilihan">Topik yang Diinginkan</label>
+              <select id="topikPilihan">
+                <option>Penyuluhan Anti Korupsi Umum</option>
+                <option>Korupsi di Lingkungan Sekolah</option>
+                <option>Nilai Integritas untuk Anak</option>
+                <option>Parenting Antikorupsi</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tanggal">Usulan Tanggal</label>
+              <input type="date" id="tanggal">
+            </div>
+            <div class="form-group">
+              <label for="pesan">Pesan Tambahan</label>
+              <textarea id="pesan" placeholder="Tulis lokasi, jumlah peserta, atau pertanyaan..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Kirim via WhatsApp</button>
+            <p class="form-note">Dengan mengirim, Anda akan diarahkan ke WhatsApp untuk konfirmasi jadwal.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>🛡️ Nanang Agus Subekti</h4>
+          <p>Penyuluh Anti Korupsi asal Kabupaten Tulungagung. Layanan penyuluhan gratis untuk masyarakat. Membangun budaya jujur, transparan, dan berintegritas.</p>
+        </div>
+        <div>
+          <h4>Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Layanan</h4>
+          <ul class="footer-links">
+            <li><a href="#layanan">Sekolah</a></li>
+            <li><a href="#layanan">Masyarakat</a></li>
+            <li><a href="#layanan">Organisasi</a></li>
+            <li><a href="#layanan">Konsultasi</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Nanang Agus Subekti. Layanan Gratis untuk Masyarakat Tulungagung.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        document.querySelectorAll('.faq-item').forEach(i => {
+          if (i !== item) i.classList.remove('active');
+        });
+        item.classList.toggle('active');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('waForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById('nama').value.trim();
+      const instansi = document.getElementById('instansi').value.trim();
+      const topik = document.getElementById('topikPilihan').value;
+      const tanggal = document.getElementById('tanggal').value;
+      const pesan = document.getElementById('pesan').value.trim();
+
+      // Nomor WhatsApp Nanang Agus Subekti
+      const nomor = '6285736411698';
+
+      const text = `Halo Bapak Nanang Agus Subekti, saya ingin mengajukan penyuluhan anti korupsi gratis.%0A%0ANama: ${encodeURIComponent(nama)}%0AInstansi: ${encodeURIComponent(instansi)}%0ATopik: ${encodeURIComponent(topik)}%0ATanggal: ${encodeURIComponent(tanggal)}%0APesan: ${encodeURIComponent(pesan)}`;
+
+      window.open(`https://wa.me/${nomor}?text=${text}`, '_blank');
+    });
+  </script>
+
+</body>
+</html>
