@@ -526,7 +526,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             </div>
             <div class="form-group">
               <label for="tanggal">Usulan Tanggal</label>
-              <input type="date" id="tanggal">
+              <!-- PERUBAHAN DI SINI: Ditambahkan atribut required -->
+              <input type="date" id="tanggal" required>
             </div>
             <div class="form-group">
               <label for="pesan">Pesan Tambahan</label>
@@ -621,18 +622,38 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     // ============ TAHUN ============
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ============ FORM JADWAL PENYULUHAN ============
+    // ============ FORM JADWAL (KALENDER + WHATSAPP) ============
     document.getElementById('waForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      
+      // 1. Ambil Data
       const nama = document.getElementById('nama').value.trim();
       const instansi = document.getElementById('instansi').value.trim();
       const topik = document.getElementById('topikPilihan').value;
       const tanggal = document.getElementById('tanggal').value;
       const pesan = document.getElementById('pesan').value.trim();
 
+      // 2. SINKRONISASI KE GOOGLE KALENDER (Background)
+      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmozZ3anWmicbU6qb-4brrUDpUzwLBnXaHJaUjoU3TJkjcUYJnnftFkFV-Bg9H4EKixw/exec';
+      
+      const formData = { nama, instansi, topik, tanggal, pesan };
+
+      // Kirim ke Google Apps Script tanpa menunggu (fire and forget)
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        // Gunakan text/plain agar tidak memicu error CORS preflight di browser
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+        body: JSON.stringify(formData)
+      }).catch(error => console.log('Sinkronisasi kalender tertunda:', error));
+
+      // 3. KIRIM KE WHATSAPP (Langsung dieksekusi)
       const text = `Halo Bapak Nanang Agus Subekti, saya ingin mengajukan penyuluhan anti korupsi gratis.%0A%0ANama: ${encodeURIComponent(nama)}%0AInstansi: ${encodeURIComponent(instansi)}%0ATopik: ${encodeURIComponent(topik)}%0ATanggal: ${encodeURIComponent(tanggal)}%0APesan: ${encodeURIComponent(pesan)}`;
 
+      // Buka tab baru untuk WhatsApp
       window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
+      
+      // Reset form setelah dikirim (Opsional)
+      this.reset();
     });
   </script>
 
