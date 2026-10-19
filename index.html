@@ -526,8 +526,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             </div>
             <div class="form-group">
               <label for="tanggal">Usulan Tanggal</label>
-              <!-- PERUBAHAN DI SINI: Ditambahkan atribut required -->
               <input type="date" id="tanggal" required>
+            </div>
+            <!-- INPUT JAM DITAMBAHKAN DI SINI -->
+            <div class="form-group">
+              <label for="jam">Usulan Jam (WIB)</label>
+              <input type="time" id="jam" required>
             </div>
             <div class="form-group">
               <label for="pesan">Pesan Tambahan</label>
@@ -626,17 +630,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     document.getElementById('waForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // 1. Ambil Data
+      // 1. Ambil Data (Termasuk Jam)
       const nama = document.getElementById('nama').value.trim();
       const instansi = document.getElementById('instansi').value.trim();
       const topik = document.getElementById('topikPilihan').value;
       const tanggal = document.getElementById('tanggal').value;
+      const jam = document.getElementById('jam').value; // Ambil nilai jam
       const pesan = document.getElementById('pesan').value.trim();
 
       // 2. SINKRONISASI KE GOOGLE KALENDER (Background)
-      const APPS_SCRIPT_URL = 'https://script.google.com/macros/library/d/1EWvNc4G7tG7DVaKpIBtsZBH92yk92JV572jl4CgP9Pzhrkx2vz3-USAG/2';
+      // Pastikan URL di bawah ini adalah URL Web App (/exec) dari Google Apps Script Anda
+      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmozZ3anWmicbU6qb-4brrUDpUzwLBnXaHJaUjoU3TJkjcUYJnnftFkFV-Bg9H4EKixw/exec';
       
-      const formData = { nama, instansi, topik, tanggal, pesan };
+      // Masukkan 'jam' ke dalam objek yang dikirim ke Apps Script
+      const formData = { nama, instansi, topik, tanggal, jam, pesan };
 
       // Kirim ke Google Apps Script tanpa menunggu (fire and forget)
       fetch(APPS_SCRIPT_URL, {
@@ -647,7 +654,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       }).catch(error => console.log('Sinkronisasi kalender tertunda:', error));
 
       // 3. KIRIM KE WHATSAPP (Langsung dieksekusi)
-      const text = `Halo Bapak Nanang Agus Subekti, saya ingin mengajukan penyuluhan anti korupsi gratis.%0A%0ANama: ${encodeURIComponent(nama)}%0AInstansi: ${encodeURIComponent(instansi)}%0ATopik: ${encodeURIComponent(topik)}%0ATanggal: ${encodeURIComponent(tanggal)}%0APesan: ${encodeURIComponent(pesan)}`;
+      // Tambahkan %0AJam: ... ke dalam teks WhatsApp
+      const text = `Halo Bapak Nanang Agus Subekti, saya ingin mengajukan penyuluhan anti korupsi gratis.%0A%0ANama: ${encodeURIComponent(nama)}%0AInstansi: ${encodeURIComponent(instansi)}%0ATopik: ${encodeURIComponent(topik)}%0ATanggal: ${encodeURIComponent(tanggal)}%0AJam: ${encodeURIComponent(jam)} WIB%0APesan: ${encodeURIComponent(pesan)}`;
 
       // Buka tab baru untuk WhatsApp
       window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
