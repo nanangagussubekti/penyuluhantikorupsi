@@ -132,6 +132,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ebook-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;font-size:.82rem}
 .ebook-meta span{background:var(--tint);color:var(--navy);padding:5px 13px;border-radius:999px;font-weight:700}
 
+/* YOUTUBE */
+.youtube-card{max-width:800px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s}
+.youtube-card:hover{transform:translateY(-4px)}
+.youtube-banner{height:200px;background:linear-gradient(135deg,#ff0000 0%,#cc0000 50%,#8b0000 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.youtube-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,.18),transparent 60%);pointer-events:none}
+.youtube-banner::after{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:rgba(255,255,255,.06);border-radius:50%;pointer-events:none}
+.youtube-play{width:88px;height:88px;background:rgba(255,255,255,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;color:#ff0000;box-shadow:0 12px 40px rgba(0,0,0,.4);z-index:1;position:relative;animation:pulseYT 2.2s infinite}
+@keyframes pulseYT{0%,100%{transform:scale(1);box-shadow:0 12px 40px rgba(0,0,0,.4)}50%{transform:scale(1.06);box-shadow:0 12px 50px rgba(255,0,0,.5)}}
+.youtube-body{padding:clamp(22px,3vw,32px);display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.youtube-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(160deg,var(--navy),var(--navy-2));color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0;border:3px solid var(--gold);box-shadow:0 8px 20px -8px rgba(12,35,64,.4)}
+.youtube-info{flex:1;min-width:220px}
+.youtube-info h3{font-family:var(--head);color:var(--navy);font-size:1.4rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.youtube-info h3 .verified{color:#2a6ba8;font-size:1.1rem}
+.youtube-info p{color:var(--muted);font-size:.93rem;margin:0 0 4px}
+.youtube-info .sub-count{color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.youtube-info .sub-count b{color:var(--navy)}
+.youtube-actions{display:flex;flex-direction:column;gap:10px;min-width:200px;flex-shrink:0}
+.btn-youtube{background:#ff0000;color:#fff;padding:13px 24px;border-radius:999px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 20px -8px rgba(255,0,0,.6);transition:.2s;border:none;cursor:pointer;font-family:inherit;font-size:.95rem}
+.btn-youtube:hover{background:#cc0000;transform:translateY(-2px)}
+.btn-youtube-outline{background:transparent;color:#ff0000;border:2px solid #ff0000;padding:11px 22px;border-radius:999px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s;font-family:inherit;font-size:.92rem}
+.btn-youtube-outline:hover{background:#ff0000;color:#fff}
+
 /* FAQ */
 .faq-list{max-width:800px;margin:0 auto}
 .faq-item{background:var(--paper);border:1px solid var(--line);border-radius:16px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
@@ -203,6 +225,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .ebook-info .btn,.contact-form .btn,.action-card .btn{width:100%}
   .footer-grid{grid-template-columns:1fr}
   .logo{font-size:.92rem}
+  .youtube-body{flex-direction:column;text-align:center}
+  .youtube-info h3{justify-content:center}
+  .youtube-actions{width:100%}
+  .youtube-actions .btn-youtube,.youtube-actions .btn-youtube-outline{width:100%}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
   </style>
@@ -219,6 +245,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <li><a href="#layanan">Layanan</a></li>
         <li><a href="#topik">Materi</a></li>
         <li><a href="#ebook">E-Book</a></li>
+        <li><a href="#youtube">YouTube</a></li>
         <li><a href="#tes">Tes</a></li>
         <li><a href="#daftar-hadir">Daftar Hadir</a></li>
         <li><a href="#pendapat">Pendapat</a></li>
@@ -395,8 +422,41 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       </div>
     </section>
 
+    <!-- YOUTUBE -->
+    <section id="youtube" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Kanal YouTube</h2>
+          <p>Tonton video penyuluhan, materi anti korupsi, dan konten edukatif lainnya di kanal YouTube kami.</p>
+        </div>
+        <div class="youtube-card">
+          <div class="youtube-banner">
+            <div class="youtube-play">▶</div>
+          </div>
+          <div class="youtube-body">
+            <div class="youtube-avatar">🛡️</div>
+            <div class="youtube-info">
+              <h3>Penyuluh Anti Korupsi <span class="verified" title="Kanal Resmi">✔</span></h3>
+              <p>Nanang Agus Subekti</p>
+              <div class="sub-count">
+                <span>🎬 Video Edukasi</span> · <span>📚 Materi Penyuluhan</span> · <span>🇮🇩 Konten Integritas</span>
+              </div>
+            </div>
+            <div class="youtube-actions">
+              <a href="https://www.youtube.com/channel/UCCvcLJxcIlGtzGm-xPhA2UA" target="_blank" rel="noopener" class="btn-youtube">
+                🔔 Subscribe Kanal
+              </a>
+              <a href="https://www.youtube.com/channel/UCCvcLJxcIlGtzGm-xPhA2UA" target="_blank" rel="noopener" class="btn-youtube-outline">
+                ▶ Kunjungi YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- TES ONLINE (PRE & POST TEST) -->
-    <section id="tes" class="section">
+    <section id="tes" class="section alt">
       <div class="container">
         <div class="section-title">
           <h2>Tes Pemahaman Anti Korupsi</h2>
@@ -420,7 +480,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </section>
 
     <!-- DAFTAR HADIR -->
-    <section id="daftar-hadir" class="section alt">
+    <section id="daftar-hadir" class="section">
       <div class="container">
         <div class="section-title">
           <h2>Daftar Hadir Peserta</h2>
@@ -438,7 +498,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </section>
 
     <!-- PENDAPAT ANDA -->
-    <section id="pendapat" class="section">
+    <section id="pendapat" class="section alt">
       <div class="container">
         <div class="section-title">
           <h2>Pendapat Anda</h2>
@@ -456,7 +516,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="section alt">
+    <section id="faq" class="section">
       <div class="container">
         <div class="section-title">
           <h2>Pertanyaan Umum</h2>
@@ -488,7 +548,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </section>
 
     <!-- KONTAK -->
-    <section id="kontak" class="section">
+    <section id="kontak" class="section alt">
       <div class="container">
         <div class="section-title">
           <h2>Hubungi Saya</h2>
@@ -499,6 +559,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <h3>Informasi Kontak</h3>
             <div class="contact-item"><span class="icon" aria-hidden="true">📱</span><div><strong>WhatsApp</strong><a href="https://wa.me/6285736411698" target="_blank">+62 857-3641-1698</a></div></div>
             <div class="contact-item"><span class="icon" aria-hidden="true">✉️</span><div><strong>Email</strong><a href="mailto:nanangagussubekti@gmail.com">nanangagussubekti@gmail.com</a></div></div>
+            <div class="contact-item"><span class="icon" aria-hidden="true">🎥</span><div><strong>YouTube</strong><a href="https://www.youtube.com/channel/UCCvcLJxcIlGtzGm-xPhA2UA" target="_blank" rel="noopener">Penyuluh Anti Korupsi</a></div></div>
             <div class="contact-item"><span class="icon" aria-hidden="true">📍</span><div><strong>Domisili</strong><span>Kabupaten Tulungagung, Jawa Timur</span></div></div>
             <div class="contact-item"><span class="icon" aria-hidden="true">🕒</span><div><strong>Waktu Layanan</strong><span>Senin–Sabtu, 08.00–16.00 WIB</span></div></div>
             <p style="margin-top:20px; font-size:.9rem; color:#dbe7f5;">Layanan ini tidak berbayar. Mari bersama membangun Tulungagung dan Indonesia yang jujur serta berintegritas.</p>
@@ -528,7 +589,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
               <label for="tanggal">Usulan Tanggal</label>
               <input type="date" id="tanggal" required>
             </div>
-            <!-- INPUT JAM DITAMBAHKAN DI SINI -->
             <div class="form-group">
               <label for="jam">Usulan Jam (WIB)</label>
               <input type="time" id="jam" required>
@@ -560,6 +620,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <li><a href="#tentang">Tentang</a></li>
             <li><a href="#layanan">Layanan</a></li>
             <li><a href="#ebook">E-Book</a></li>
+            <li><a href="#youtube">YouTube</a></li>
             <li><a href="#tes">Tes Online</a></li>
           </ul>
         </div>
@@ -570,6 +631,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <li><a href="https://forms.gle/tahixhxoPMmSmNbB8" target="_blank" rel="noopener">Pendapat Anda</a></li>
             <li><a href="https://forms.gle/HoBErAux6cfcvXYM6" target="_blank" rel="noopener">Pre-Test</a></li>
             <li><a href="https://forms.gle/nP6GsYJfA66AS2q59" target="_blank" rel="noopener">Post-Test</a></li>
+            <li><a href="https://www.youtube.com/channel/UCCvcLJxcIlGtzGm-xPhA2UA" target="_blank" rel="noopener">YouTube Channel</a></li>
             <li><a href="#kontak">Kontak</a></li>
           </ul>
         </div>
@@ -630,37 +692,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     document.getElementById('waForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // 1. Ambil Data (Termasuk Jam)
       const nama = document.getElementById('nama').value.trim();
       const instansi = document.getElementById('instansi').value.trim();
       const topik = document.getElementById('topikPilihan').value;
       const tanggal = document.getElementById('tanggal').value;
-      const jam = document.getElementById('jam').value; // Ambil nilai jam
+      const jam = document.getElementById('jam').value;
       const pesan = document.getElementById('pesan').value.trim();
 
-      // 2. SINKRONISASI KE GOOGLE KALENDER (Background)
-      // Pastikan URL di bawah ini adalah URL Web App (/exec) dari Google Apps Script Anda
       const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmozZ3anWmicbU6qb-4brrUDpUzwLBnXaHJaUjoU3TJkjcUYJnnftFkFV-Bg9H4EKixw/exec';
       
-      // Masukkan 'jam' ke dalam objek yang dikirim ke Apps Script
       const formData = { nama, instansi, topik, tanggal, jam, pesan };
 
-      // Kirim ke Google Apps Script tanpa menunggu (fire and forget)
       fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        // Gunakan text/plain agar tidak memicu error CORS preflight di browser
         headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
         body: JSON.stringify(formData)
       }).catch(error => console.log('Sinkronisasi kalender tertunda:', error));
 
-      // 3. KIRIM KE WHATSAPP (Langsung dieksekusi)
-      // Tambahkan %0AJam: ... ke dalam teks WhatsApp
       const text = `Halo Bapak Nanang Agus Subekti, saya ingin mengajukan penyuluhan anti korupsi gratis.%0A%0ANama: ${encodeURIComponent(nama)}%0AInstansi: ${encodeURIComponent(instansi)}%0ATopik: ${encodeURIComponent(topik)}%0ATanggal: ${encodeURIComponent(tanggal)}%0AJam: ${encodeURIComponent(jam)} WIB%0APesan: ${encodeURIComponent(pesan)}`;
 
-      // Buka tab baru untuk WhatsApp
       window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
       
-      // Reset form setelah dikirim (Opsional)
       this.reset();
     });
   </script>
