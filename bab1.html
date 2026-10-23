@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume: Wujudkan Cita-Cita Kemerdekaan dengan Berantas Korupsi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0c2340;
+      --navy-light: #16406b;
+      --gold: #f2b705;
+      --red: #C8102E;
+      --paper: #f6f4ee;
+      --white: #ffffff;
+      --ink: #16202c;
+      --muted: #566272;
+      --line: #e3e0d6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--paper);
+      color: var(--ink);
+      line-height: 1.8;
+      padding: 40px 20px;
+    }
+
+    .article-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px -20px rgba(12, 35, 64, 0.2);
+      overflow: hidden;
+    }
+
+    /* HEADER ARTIKEL */
+    .article-header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 50px 40px;
+      color: var(--white);
+      position: relative;
+    }
+
+    .article-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--gold) 100%);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(242, 183, 5, 0.15);
+      color: var(--gold);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(242, 183, 5, 0.3);
+    }
+
+    .article-header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .meta-info {
+      font-size: 0.9rem;
+      color: #d3e0f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-info a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .meta-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* KONTEN ARTIKEL */
+    .article-content {
+      padding: 40px;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .article-content h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .article-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .article-content ol, .article-content ul {
+      margin-bottom: 24px;
+      padding-left: 24px;
+      color: var(--muted);
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
+    .article-content strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: #fff8e6;
+      border-left: 5px solid var(--gold);
+      padding: 24px;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .highlight-box a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* CARD KONDISI IDEAL */
+    .ideal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .ideal-card {
+      background: var(--paper);
+      padding: 20px;
+      border-radius: 14px;
+      border-left: 4px solid #1B8A5A;
+    }
+
+    .ideal-card h4 {
+      font-family: 'Fraunces', serif;
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .ideal-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* FOOTER */
+    .article-footer {
+      background: var(--paper);
+      padding: 30px 40px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .article-footer a {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .article-footer a:hover {
+      background: var(--gold);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .source {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .article-header {
+        padding: 30px 24px;
+      }
+      .article-content {
+        padding: 24px;
+      }
+      .ideal-grid {
+        grid-template-columns: 1fr;
+      }
+      .article-footer {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="article-container">
+
+    <!-- HEADER -->
+    <header class="article-header">
+      <span class="badge">RESUME ARTIKEL</span>
+      <h1>Wujudkan Cita-Cita Kemerdekaan dengan Berantas Korupsi</h1>
+      <div class="meta-info">
+        <span>📅 18 Mei 2022</span> &bull;
+        <span>Sumber: <a href="https://aclc.kpk.go.id/aksi-informasi/Eksplorasi/20220518-wujudkan-cita-cita-kemerdekaan-dengan-berantas-korupsi" target="_blank" rel="noopener">ACLC KPK</a></span>
+      </div>
+    </header>
+
+    <!-- KONTEN -->
+    <main class="article-content">
+
+      <p>Pemberantasan korupsi di Indonesia tidak bisa hanya dilakukan oleh Komisi Pemberantasan Korupsi (KPK), melainkan harus melibatkan <strong>seluruh lapisan masyarakat</strong>. Sebab, memberantas korupsi adalah upaya untuk mewujudkan <strong>kepentingan bersama (common interest)</strong> dan cita-cita kemerdekaan seluruh anak bangsa. Kepentingan bersama inilah yang menjadi tujuan akhir dari pemberantasan korupsi, dan telah dirumuskan secara tegas dalam <strong>Alinea Keempat Pembukaan UUD 1945</strong>.</p>
+
+      <div class="highlight-box">
+        <p>“Alinea keempat Pembukaan UUD 1945 adalah tujuan akhir dari pemberantasan korupsi, cita-cita bangsa, dan idealisme yang dipegang teguh oleh kita semua.”</p>
+      </div>
+
+      <h2>Landasan Konstitusi: Empat Fungsi dan Tujuan Negara</h2>
+      <p>Alinea Keempat Pembukaan UUD 1945 menegaskan empat fungsi sekaligus tujuan negara Indonesia setelah merdeka, yaitu:</p>
+      <ol>
+        <li><strong>Melindungi segenap bangsa Indonesia</strong> dan seluruh tumpah darah Indonesia.</li>
+        <li><strong>Memajukan kesejahteraan umum.</strong></li>
+        <li><strong>Mencerdaskan kehidupan bangsa.</strong></li>
+        <li><strong>Melaksanakan ketertiban dunia</strong> yang berdasarkan kemerdekaan, perdamaian abadi, dan keadilan sosial.</li>
+      </ol>
+      <p>Keempat tujuan ini <strong>mustahil terwujud</strong> jika korupsi masih merajalela di negeri ini.</p>
+
+      <h2>Dampak Korupsi: Kesejahteraan, Hukum, dan Pendidikan Terancam</h2>
+      <p>Korupsi memiliki daya rusak yang sistemik terhadap berbagai sektor kehidupan berbangsa:</p>
+      <ul>
+        <li><strong>Kesejahteraan Umum Terampas:</strong> Kesejahteraan hanya dinikmati oleh segelintir orang yang memiliki kuasa dan akses kebijakan. Contoh nyatanya adalah kasus suap pengadaan bansos COVID-19 yang menjerat Menteri Sosial Juliari Batubara. Ia divonis <strong>12 tahun penjara</strong> karena suap <strong>Rp17 miliar</strong>, padahal dana tersebut sangat dibutuhkan rakyat di masa sulit. Korupsi semacam ini memperparah kemiskinan dan melebarkan jurang ketimpangan.</li>
+        <li><strong>Keadilan Berat Sebelah:</strong> Data KPK mencatat lebih dari <strong>30 hakim dan jaksa</strong> terjerat korupsi sejak 2004 hingga 2021. Mereka yang seharusnya menegakkan keadilan justru berkhianat, membuat hukum bisa diperjualbelikan. Rakyat kecil yang menjadi korban.</li>
+        <li><strong>Pendidikan Terhambat:</strong> Indonesia Corruption Watch (ICW) mencatat negara merugi hingga <strong>Rp1,6 triliun</strong> akibat korupsi di sektor pendidikan sepanjang 2016–September 2021. Dana sebesar itu seharusnya bisa digunakan untuk memperbaiki mutu pendidikan dan prasarana sekolah.</li>
+      </ul>
+
+      <h2>Kesimpulan dan Ajakan Aksi</h2>
+      <p>KPK menegaskan bahwa <strong>Alinea Keempat Pembukaan UUD 1945 adalah tujuan akhir dari pemberantasan korupsi</strong>, cita-cita bangsa, dan idealisme yang harus dipegang teguh oleh seluruh masyarakat. Upaya ini membutuhkan partisipasi semua pihak, dimulai dari <strong>diri sendiri</strong> untuk membangun integritas, hingga <strong>berani melaporkan</strong> jika melihat tindak pidana korupsi.</p>
+
+      <p>Jika Indonesia bebas dari korupsi, setidaknya ada <strong>empat kondisi ideal</strong> yang akan terwujud:</p>
+
+      <div class="ideal-grid">
+        <div class="ideal-card">
+          <h4>1. Pembangunan Berjalan Lancar</h4>
+          <p>Infrastruktur dan fasilitas publik terbangun merata tanpa kebocoran anggaran.</p>
+        </div>
+        <div class="ideal-card">
+          <h4>2. Pendidikan Maju Pesat</h4>
+          <p>Akses dan kualitas pendidikan yang adil bagi seluruh anak bangsa.</p>
+        </div>
+        <div class="ideal-card">
+          <h4>3. Pelayanan Kesehatan Baik</h4>
+          <p>Sistem jaminan dan pelayanan kesehatan masyarakat yang prima serta terjangkau.</p>
+        </div>
+        <div class="ideal-card">
+          <h4>4. Lingkungan Terawat Indah</h4>
+          <p>Tata kelola alam yang lestari, bersih, dan bebas dari masalah sampah.</p>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="article-footer">
+      <a href="https://aclc.kpk.go.id/aksi-informasi/Eksplorasi/20220518-wujudkan-cita-cita-kemerdekaan-dengan-berantas-korupsi" target="_blank" rel="noopener">Baca Artikel Asli di ACLC KPK</a>
+      <p class="source">Resume ini disusun berdasarkan artikel ACLC KPK (2022).</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
