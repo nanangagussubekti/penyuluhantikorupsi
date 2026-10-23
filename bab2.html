@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume: Menakar Keberhasilan Pemberantasan Korupsi dari Tiga Indikator Utama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0c2340;
+      --navy-light: #16406b;
+      --gold: #f2b705;
+      --red: #C8102E;
+      --paper: #f6f4ee;
+      --white: #ffffff;
+      --ink: #16202c;
+      --muted: #566272;
+      --line: #e3e0d6;
+      --green: #1B8A5A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--paper);
+      color: var(--ink);
+      line-height: 1.8;
+      padding: 80px 20px 40px;
+    }
+
+    /* TOMBOL KEMBALI */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .back-button:hover {
+      background: var(--gold);
+      color: var(--ink);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(242, 183, 5, 0.4);
+    }
+
+    .article-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px -20px rgba(12, 35, 64, 0.2);
+      overflow: hidden;
+    }
+
+    /* HEADER ARTIKEL */
+    .article-header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 50px 40px;
+      color: var(--white);
+      position: relative;
+    }
+
+    .article-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--gold) 100%);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(242, 183, 5, 0.15);
+      color: var(--gold);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(242, 183, 5, 0.3);
+    }
+
+    .article-header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .meta-info {
+      font-size: 0.9rem;
+      color: #d3e0f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .meta-info a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .meta-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* KONTEN ARTIKEL */
+    .article-content {
+      padding: 40px;
+    }
+
+    .article-content > p {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .article-content h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .article-content h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin: 28px 0 12px;
+    }
+
+    .article-content strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* KARTU INDIKATOR */
+    .indicator-card {
+      background: var(--paper);
+      border-radius: 18px;
+      padding: 28px 26px;
+      margin: 24px 0;
+      border-left: 6px solid var(--navy);
+      position: relative;
+    }
+
+    .indicator-card.spi { border-left-color: var(--navy); }
+    .indicator-card.ipk { border-left-color: var(--red); }
+    .indicator-card.ipak { border-left-color: var(--green); }
+
+    .indicator-card .score {
+      display: inline-block;
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .indicator-card.spi .score { color: var(--navy); }
+    .indicator-card.ipk .score { color: var(--red); }
+    .indicator-card.ipak .score { color: var(--green); }
+
+    .indicator-card .score-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .indicator-card p {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .indicator-card ul {
+      margin: 10px 0 0 20px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .indicator-card li {
+      margin-bottom: 8px;
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: #fff8e6;
+      border-left: 5px solid var(--gold);
+      padding: 24px;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* KESIMPULAN BOX */
+    .conclusion-box {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+
+    .conclusion-box h3 {
+      color: var(--gold);
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+    }
+
+    .conclusion-box p {
+      color: #d3e0f0;
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    /* FOOTER */
+    .article-footer {
+      background: var(--paper);
+      padding: 30px 40px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .article-footer a {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .article-footer a:hover {
+      background: var(--gold);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .source {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      body {
+        padding-top: 70px;
+      }
+      .back-button {
+        top: 15px;
+        left: 15px;
+        padding: 10px 18px;
+        font-size: 0.85rem;
+      }
+      .article-header {
+        padding: 30px 24px;
+      }
+      .article-content {
+        padding: 24px;
+      }
+      .indicator-card {
+        padding: 22px 20px;
+      }
+      .article-footer {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOMBOL KEMBALI -->
+  <a href="https://penyuluhantikorupsi.vercel.app/" class="back-button">
+    ⬅️ Kembali ke Beranda
+  </a>
+
+  <div class="article-container">
+
+    <!-- HEADER -->
+    <header class="article-header">
+      <span class="badge">RESUME ARTIKEL</span>
+      <h1>Menakar Keberhasilan Pemberantasan Korupsi dari Tiga Indikator Utama</h1>
+      <div class="meta-info">
+        <span>📅 31 Maret 2026</span> &bull;
+        <span>Sumber: <a href="https://aclc.kpk.go.id/aksi-informasi/Eksplorasi/20260331-menakar-keberhasilan-pemberantasan-korupsi-dari-tiga-indikator-utama" target="_blank" rel="noopener">ACLC KPK</a></span>
+      </div>
+    </header>
+
+    <!-- KONTEN -->
+    <main class="article-content">
+
+      <p>Korupsi bukan hanya soal kerugian keuangan negara, tetapi merupakan <strong>persoalan struktural</strong> yang menghambat kemajuan pembangunan bangsa dan merusak fondasi tata kelola pemerintahan yang bersih[reference:29]. Berbagai upaya pencegahan telah dilakukan—mulai dari edukasi antikorupsi, penguatan sistem, hingga pengawasan—namun efektivitasnya perlu diukur sebagai bahan refleksi[reference:30].</p>
+
+      <p>Untuk mengukurnya, Indonesia menggunakan <strong>tiga indikator utama</strong>: <strong>Survei Penilaian Integritas (SPI)</strong>, <strong>Indeks Perilaku Antikorupsi (IPAK)</strong>, dan <strong>Indeks Persepsi Korupsi (IPK)</strong>[reference:31]. Ketiga indikator ini diperbarui setiap tahun untuk memberikan potret terkini tentang titik rentan korupsi dan persepsi masyarakat[reference:32].</p>
+
+      <h2>1. Survei Penilaian Integritas (SPI) 2025</h2>
+      <div class="indicator-card spi">
+        <div class="score">72,32</div>
+        <div class="score-label">Skor SPI Nasional 2025 · Kategori: Rentan</div>
+        <p>SPI dirilis setiap tahun oleh <strong>KPK</strong> untuk memetakan risiko korupsi dan menilai upaya pencegahan di Kementerian, Lembaga, dan Pemerintah Daerah (K/L/PD)[reference:33]. Berbeda dari penilaian administratif, SPI mengandalkan suara <strong>pegawai internal, pengguna layanan, mitra kerja, dan para ahli</strong> untuk menangkap realitas lapangan[reference:34].</p>
+        <p>Penilaian mencakup empat dimensi: <strong>budaya organisasi, pengelolaan SDM, pengelolaan anggaran, dan sistem antikorupsi internal</strong>[reference:35]. Pada 2025, SPI menjangkau <strong>657 instansi</strong> dengan <strong>lebih dari 837 ribu responden</strong>—salah satu survei integritas terbesar di Indonesia[reference:36].</p>
+        <p>Namun, dari 657 instansi: <strong>353 kategori rentan</strong>, 199 waspada, dan hanya <strong>105 yang tergolong terjaga</strong>[reference:37]. Ini menunjukkan implementasi kebijakan antikorupsi belum optimal dan nilai integritas belum menjadi budaya kerja[reference:38].</p>
+        <p><strong>Rekomendasi:</strong> penguatan kerangka kebijakan nasional, perbaikan celah praktis di tingkat instansi, serta pembangunan <strong>infrastruktur etik</strong> yang memaksa kepatuhan—bukan sekadar imbauan[reference:39].</p>
+      </div>
+
+      <h2>2. Indeks Perilaku Antikorupsi (IPAK) 2024</h2>
+      <div class="indicator-card ipak">
+        <div class="score">3,85 <span style="font-size:1rem; font-weight:600; color:var(--muted);">/ 5,00</span></div>
+        <div class="score-label">Skor IPAK 2024 · Turun dari 3,92 (2023)</div>
+        <p>IPAK diterbitkan setiap tahun oleh <strong>Badan Pusat Statistik (BPS)</strong> untuk melihat bagaimana nilai-nilai antikorupsi hidup dalam keseharian masyarakat[reference:40]. IPAK tidak mengukur kasus besar, melainkan <strong>hal-hal kecil yang sering dianggap sepele</strong>—seperti memberi “uang pelicin” atau gratifikasi kecil—yang justru membentuk budaya[reference:41].</p>
+        <p>Skala <strong>0–5</strong>: semakin mendekati 5, semakin tinggi perilaku antikorupsi[reference:42]. IPAK disusun dari dua dimensi: <strong>persepsi</strong> (pandangan terhadap perilaku di sekitar) dan <strong>pengalaman</strong> (kejadian nyata seperti diminta imbalan saat mengakses layanan publik)[reference:43].</p>
+        <p>Penurunan IPAK memberi sinyal bahwa masyarakat masih cukup <strong>permisif terhadap petty corruption</strong>[reference:44]. Artinya, kesadaran antikorupsi meningkat, tetapi <strong>perubahan perilaku belum konsisten</strong>[reference:45]. Artikel menegaskan bahwa perubahan harus tumbuh dari <strong>kebiasaan sehari-hari</strong>, dan <strong>kolaborasi multipihak</strong> (pemerintah, pelaku usaha, masyarakat) menjadi kunci[reference:46].</p>
+      </div>
+
+      <h2>3. Indeks Persepsi Korupsi (IPK) 2025</h2>
+      <div class="indicator-card ipk">
+        <div class="score">34 <span style="font-size:1rem; font-weight:600; color:var(--muted);">/ 100</span></div>
+        <div class="score-label">Skor IPK 2025 · Peringkat 109 dari 182 negara · Turun 3 poin dari 2024</div>
+        <p>IPK atau <strong>Corruption Perceptions Index (CPI)</strong> adalah “rapor tahunan” persepsi kebersihan sebuah negara dari korupsi, dirilis oleh <strong>Transparency International</strong>[reference:47]. IPK tidak mengukur pengalaman langsung warga, melainkan <strong>persepsi pelaku bisnis dan pakar</strong> yang bersinggungan dengan sistem pemerintahan[reference:48]. Data digabung dari sekitar <strong>12 lembaga global</strong> (World Bank, World Economic Forum, dll.) dengan skor <strong>0–100</strong>: semakin tinggi, semakin bersih[reference:49].</p>
+        <p>Penurunan IPK 2025 disoroti Transparency International karena: <strong>kualitas kepemimpinan melemah</strong>, <strong>independensi lembaga pengawas berkurang</strong>, dan <strong>ruang kebebasan sipil semakin terbatas</strong>[reference:50]. Ini adalah sinyal bahwa kepercayaan global terhadap upaya pemberantasan korupsi Indonesia sedang melemah[reference:51], serta mencerminkan penegakan hukum yang belum optimal, konflik kepentingan, dan korupsi di sektor strategis yang masih menjadi tantangan[reference:52].</p>
+      </div>
+
+      <div class="highlight-box">
+        <p>💡 <strong>Membaca ketiga indikator secara bersama:</strong> SPI mengukur <strong>kondisi internal birokrasi</strong>, IPAK mengukur <strong>perilaku masyarakat</strong>, dan IPK mengukur <strong>persepsi dunia internasional</strong>. Ketiganya saling melengkapi untuk memberikan gambaran utuh tentang keberhasilan pemberantasan korupsi.</p>
+      </div>
+
+      <h2>Kesimpulan</h2>
+      <div class="conclusion-box">
+        <h3>Pekerjaan Rumah yang Belum Selesai</h3>
+        <p>Ketiga indikator—<strong>SPI, IPAK, dan IPK</strong>—menggambarkan bahwa tantangan pemberantasan korupsi di Indonesia masih menjadi <strong>pekerjaan rumah besar</strong>[reference:53]. Perbaikan tidak cukup hanya melalui <strong>penegakan hukum</strong>, tetapi harus menyentuh <strong>reformasi sistem</strong>, <strong>penguatan pengawasan</strong>, serta <strong>perubahan mindset</strong> di kalangan aparatur negara dan masyarakat[reference:54]. Arah kebijakan ini sejalan dengan visi pemerintahan saat ini, menandakan bahwa upaya antikorupsi memerlukan <strong>konsistensi dan kolaborasi lintas sektor</strong>[reference:55].</p>
+      </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="article-footer">
+      <a href="https://aclc.kpk.go.id/aksi-informasi/Eksplorasi/20260331-menakar-keberhasilan-pemberantasan-korupsi-dari-tiga-indikator-utama" target="_blank" rel="noopener">Baca Artikel Asli di ACLC KPK</a>
+      <p class="source">Resume ini disusun berdasarkan artikel ACLC KPK (31 Maret 2026).</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
