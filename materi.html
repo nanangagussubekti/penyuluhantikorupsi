@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kumpulan Materi | Penyuluh Anti Korupsi</title>
+<meta name="theme-color" content="#09090b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--card:rgba(255,255,255,.035);--bd:rgba(255,255,255,.09);--red:#ef4444;--glow:rgba(239,68,68,.4);--gold:#f59e0b;--tx:#fafafa;--mu:#a1a1aa}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;line-height:1.5}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;mask-image:linear-gradient(#000,transparent 80%);-webkit-mask-image:linear-gradient(#000,transparent 80%)}
+body::after{content:'';position:fixed;width:720px;height:720px;top:-320px;right:-220px;background:radial-gradient(circle,var(--glow),transparent 70%);filter:blur(100px);opacity:.5;pointer-events:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+.wrap{position:relative;z-index:1;width:min(1280px,100% - 40px);margin:0 auto}
+.top{padding:max(20px,env(safe-area-inset-top)) 0 0}
+.back{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid var(--bd);color:var(--tx);padding:11px 20px;border-radius:100px;text-decoration:none;font-weight:600;font-size:.9rem;backdrop-filter:blur(10px);transition:.3s}
+.back:hover{background:var(--red);border-color:var(--red);transform:translateX(-3px)}
+/* HERO */
+.hero{text-align:center;padding:56px 0 36px}
+.badge{display:inline-block;padding:8px 20px;border-radius:100px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:var(--red);font-weight:600;font-size:12px;letter-spacing:3px;margin-bottom:22px;text-transform:uppercase}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:18px}
+.hero h1 .hl{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--mu);font-size:1.1rem;max-width:620px;margin:0 auto}
+.stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px}
+.stat{min-width:140px;padding:16px 22px;border:1px solid var(--bd);background:var(--card);border-radius:18px;text-align:left}
+.stat b{display:block;font-size:2rem;font-weight:800;line-height:1.1}
+.stat span{font-size:.82rem;color:var(--mu)}
+.prog{margin:22px auto 0;max-width:420px;text-align:left}
+.prog div{display:flex;justify-content:space-between;font-size:.85rem;color:var(--mu);margin-bottom:8px}
+.prog i{display:block;height:8px;border-radius:8px;background:rgba(255,255,255,.08);overflow:hidden}
+.prog i b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:8px;transition:width .6s}
+/* TOOLBAR */
+.bar{position:sticky;top:0;z-index:20;padding:12px 0;background:linear-gradient(var(--bg) 70%,transparent);margin-bottom:18px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search{flex:1 1 280px;position:relative}
+.search input{width:100%;height:50px;padding:0 84px 0 48px;border-radius:14px;border:1px solid var(--bd);background:rgba(255,255,255,.05);color:var(--tx);font:inherit;font-size:1rem;transition:.25s}
+.search input::placeholder{color:#71717a}
+.search input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 4px rgba(239,68,68,.18)}
+.search svg{position:absolute;left:16px;top:15px;width:20px;height:20px;stroke:var(--mu);fill:none;stroke-width:2}
+.search kbd{position:absolute;right:14px;top:14px;font:600 .75rem inherit;font-family:inherit;color:var(--mu);border:1px solid var(--bd);border-radius:6px;padding:2px 8px}
+.ctl{display:flex;gap:8px}
+.sel,.seg button{height:50px;border-radius:14px;border:1px solid var(--bd);background:rgba(255,255,255,.05);color:var(--tx);font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
+.sel{padding:0 14px;appearance:none;-webkit-appearance:none}
+.sel option{background:#18181b}
+.seg{display:flex;border:1px solid var(--bd);border-radius:14px;overflow:hidden}
+.seg button{border:0;border-radius:0;width:50px;font-size:1.1rem;color:var(--mu)}
+.seg button[aria-pressed=true]{background:var(--red);color:#fff}
+.chips{display:flex;gap:10px;margin-top:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:100px;border:1px solid var(--bd);background:rgba(255,255,255,.035);color:var(--mu);font:inherit;font-weight:600;font-size:.88rem;cursor:pointer;transition:.25s}
+.chip:hover{background:rgba(255,255,255,.09);color:var(--tx)}
+.chip em{font-style:normal;font-size:.75rem;background:rgba(255,255,255,.1);padding:1px 8px;border-radius:100px}
+.chip.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 6px 20px var(--glow)}
+.chip.on em{background:rgba(0,0,0,.25)}
+.meta{display:flex;justify-content:space-between;color:var(--mu);font-size:.88rem;margin:6px 2px 14px}
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:22px}
+.card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--bd);border-radius:24px;overflow:hidden;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s,box-shadow .3s}
+.card::before{content:'';position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.1),transparent 45%)}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.22);box-shadow:0 24px 50px rgba(0,0,0,.55)}
+.card:hover::before{opacity:1}
+.card.pop{animation:up .5s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(min(var(--i),12)*40ms)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.vis{position:relative;height:150px;display:grid;place-items:center;overflow:hidden}
+.vis::before{content:'';position:absolute;inset:0;background:var(--g)}
+.vis::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 18%,rgba(255,255,255,.25),transparent 50%),radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.5px) 0 0/16px 16px}
+.red{--g:linear-gradient(135deg,#ef4444,#991b1b)}.blue{--g:linear-gradient(135deg,#3b82f6,#1e3a8a)}.green{--g:linear-gradient(135deg,#10b981,#065f46)}.purple{--g:linear-gradient(135deg,#a855f7,#581c87)}.gold{--g:linear-gradient(135deg,#f59e0b,#b45309)}
+.ico{position:relative;z-index:2;font-size:3.5rem;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.card:hover .ico{transform:scale(1.15) rotate(-6deg)}
+.tagb{position:absolute;top:14px;left:14px;z-index:3;background:rgba(0,0,0,.42);backdrop-filter:blur(10px);padding:6px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1px;border:1px solid rgba(255,255,255,.18)}
+.fav{position:absolute;top:10px;right:10px;z-index:6;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.42);backdrop-filter:blur(10px);color:#fff;font-size:1.15rem;cursor:pointer;transition:.25s}
+.fav:hover{transform:scale(1.12)}
+.fav[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#1a1100}
+.body{padding:22px 24px 22px;flex:1;display:flex;flex-direction:column}
+.body h3{font-size:1.15rem;font-weight:700;line-height:1.3;letter-spacing:-.4px;margin-bottom:8px}
+.body h3 a{color:inherit;text-decoration:none}
+.body h3 a::after{content:'';position:absolute;inset:0;z-index:3}
+.body p{font-size:.9rem;color:var(--mu);margin-bottom:18px;flex:1}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:14px;border-top:1px solid var(--bd)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font-size:11px;background:rgba(255,255,255,.07);padding:4px 10px;border-radius:6px;color:var(--mu);font-weight:500}
+.tags .seen{background:rgba(16,185,129,.16);color:#34d399;font-weight:600}
+.go{font-size:.85rem;font-weight:700;color:var(--red);white-space:nowrap;transition:letter-spacing .3s}
+.card:hover .go{letter-spacing:.04em}
+.card.soon .vis,.card.soon .body{opacity:.62}
+.card.soon .go{color:var(--mu)}
+.card.soon:hover{transform:none}
+/* LIST */
+.grid.list{grid-template-columns:1fr;gap:12px}
+.list .card{flex-direction:row;border-radius:18px}
+.list .vis{width:140px;height:auto;flex-shrink:0}
+.list .ico{font-size:2.6rem}
+.list .tagb{display:none}
+.list .fav{top:auto;bottom:10px;right:auto;left:10px;width:36px;height:36px}
+.list .body{padding:16px 20px;justify-content:center}
+.list .body p{margin-bottom:10px;flex:0}
+.empty{text-align:center;padding:60px 20px;border:1px dashed var(--bd);border-radius:24px;color:var(--mu)}
+.empty b{display:block;font-size:1.3rem;color:var(--tx);margin-bottom:6px}
+.empty button{margin-top:18px;padding:11px 24px;border:0;border-radius:100px;background:var(--red);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.note{margin:56px 0 40px;text-align:center;padding:28px;background:var(--card);border:1px solid var(--bd);border-radius:20px;color:var(--mu);font-size:.92rem}
+.note a{color:var(--gold);font-weight:600;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translate(-50%,30px);background:#18181b;border:1px solid var(--bd);padding:12px 22px;border-radius:100px;font-weight:600;font-size:.9rem;opacity:0;pointer-events:none;transition:.35s;z-index:50;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.up{position:fixed;right:18px;bottom:max(18px,env(safe-area-inset-bottom));width:48px;height:48px;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 24px var(--glow);opacity:0;transform:scale(.6);pointer-events:none;transition:.3s;z-index:30}
+.up.on{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:640px){.hero{padding-top:36px}.ctl{width:100%}.sel{flex:1}.vis{height:130px}.list .vis{width:96px}.list .body p{display:none}.stat{min-width:0;flex:1 1 30%;padding:14px}.stat b{font-size:1.6rem}.search kbd{display:none}.search input{padding-right:16px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="https://penyuluhantikorupsi.vercel.app/">← Kembali ke Beranda</a></div>
+  <header class="hero">
+    <div class="badge">📚 Pusat Materi</div>
+    <h1>Kumpulan <span class="hl">Materi Penyuluhan</span></h1>
+    <p>Pilih materi yang ingin Anda pelajari atau paparkan. Semua materi disusun berdasarkan kurikulum pendidikan antikorupsi.</p>
+    <div class="stats" id="stats"></div>
+    <div class="prog" id="prog"><div><span>Slide yang sudah dibuka</span><span id="pt"></span></div><i><b id="pb"></b></i></div>
+  </header>
+
+  <div class="bar">
+    <div class="row">
+      <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Cari materi, mis. gratifikasi, KPK, integritas…" autocomplete="off" aria-label="Cari materi"><kbd aria-hidden="true">/</kbd></label>
+      <div class="ctl">
+        <select class="sel" id="sort" aria-label="Urutkan"><option value="def">Urutan awal</option><option value="az">A → Z</option><option value="za">Z → A</option></select>
+        <div class="seg" role="group" aria-label="Tampilan"><button id="vg" aria-pressed="true" aria-label="Tampilan kartu" title="Kartu">▦</button><button id="vl" aria-pressed="false" aria-label="Tampilan daftar" title="Daftar">☰</button></div>
+      </div>
+    </div>
+    <div class="chips" id="chips" role="tablist" aria-label="Kategori"></div>
+  </div>
+
+  <div class="meta"><span id="cnt"></span><span id="hint">Ketuk ☆ untuk menyimpan favorit</span></div>
+  <main class="grid" id="grid"></main>
+  <div class="empty" id="empty" hidden><b>Materi tidak ditemukan</b>Coba kata kunci lain atau tampilkan semua materi.<br><button id="reset">Tampilkan semua</button></div>
+
+  <div class="note">📢 Materi akan terus diperbarui secara berkala. Ingin mengusulkan topik materi baru? <a href="https://penyuluhantikorupsi.vercel.app/#pendapat">Kirim saran Anda di sini</a>.</div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="up" id="up" aria-label="Kembali ke atas">↑</button>
+
+<script>
+const D=[{"h": "bab1-slide.html", "x": false, "c": "slide", "k": "red", "b": "BAB 1", "i": "🇮🇩", "t": "Mewujudkan Cita-Cita Kemerdekaan", "p": "Menjabarkan korelasi Alinea Ke-4 UUD 1945 dengan pemberantasan korupsi.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab2-slide.html", "x": false, "c": "slide", "k": "blue", "b": "BAB 2", "i": "📊", "t": "Menakar Keberhasilan Pemberantasan Korupsi", "p": "Memahami 3 indikator utama: SPI, IPAK, dan IPK.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab3-slide.html", "x": false, "c": "slide", "k": "green", "b": "BAB 3", "i": "🌍", "t": "Berkaca pada Negara Bersih Korupsi", "p": "Pelajaran dari Denmark, Singapura, dan Selandia Baru.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab4-slide.html", "x": false, "c": "slide", "k": "purple", "b": "BAB 4", "i": "⚠️", "t": "Korupsi di Sektor Vital", "p": "Ancaman nyata pada pangan, kesehatan, pendidikan, dan SDA.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab5-slide.html", "x": false, "c": "slide", "k": "gold", "b": "BAB 5", "i": "💸", "t": "Biaya Sosial Korupsi", "p": "Kerugian tidak terlihat yang harus ditanggung oleh rakyat.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab6-slide.html", "x": false, "c": "slide", "k": "red", "b": "BAB 6", "i": "🔗", "t": "Biaya Sosial, Dampak & Kepercayaan Global", "p": "Hubungan antara kerugian domestik dengan penilaian internasional.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab7-slide.html", "x": false, "c": "slide", "k": "blue", "b": "BAB 7", "i": "📖", "t": "Pengertian Korupsi & Antikorupsi", "p": "Definisi dasar dan perbedaan mendasar antara keduanya.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab8-slide.html", "x": false, "c": "slide", "k": "green", "b": "BAB 8", "i": "🤔", "t": "Mengapa Orang Melakukan Korupsi?", "p": "Faktor internal, eksternal, dan kesempatan yang memicu korupsi.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab9-slide.html", "x": false, "c": "slide", "k": "purple", "b": "BAB 9", "i": "📑", "t": "Memahami Jenis Korupsi", "p": "7 kelompok tindak pidana korupsi menurut hukum Indonesia.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab10-slide.html", "x": false, "c": "slide", "k": "gold", "b": "BAB 10", "i": "⚖️", "t": "Perbedaan Tindak Pidana Korupsi", "p": "Membedakan Gratifikasi, Suap, Pemerasan, dan Uang Pelicin.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab11-slide.html", "x": false, "c": "slide", "k": "red", "b": "BAB 11", "i": "🔱", "t": "Trisula KPK", "p": "Strategi pemberantasan: Pendidikan, Pencegahan, Penindakan.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab12-slide.html", "x": false, "c": "slide", "k": "blue", "b": "BAB 12", "i": "💎", "t": "Sembilan Nilai Integritas", "p": "Nilai-nilai antikorupsi dari ACLC KPK yang wajib ditanamkan.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab13-slide.html", "x": false, "c": "slide", "k": "green", "b": "BAB 13", "i": "🌟", "t": "Kisah Teladan Berintegritas", "p": "Belajar dari keteladanan tokoh-tokoh bangsa Indonesia.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab14-slide.html", "x": false, "c": "slide", "k": "purple", "b": "BAB 14", "i": "🎁", "t": "Gratifikasi & Konflik Kepentingan", "p": "Bahaya pemberian kecil yang dapat merusak netralitas.", "g": ["Slide"], "o": "Buka →"}, {"h": "bab15-slide.html", "x": false, "c": "slide", "k": "gold", "b": "BAB 15", "i": "🪞", "t": "Cermin Integritas", "p": "Refleksi diri: benarkah perilaku kita sudah antikorupsi?", "g": ["Slide"], "o": "Buka →"}, {"h": "bab16-slide.html", "x": false, "c": "slide", "k": "red", "b": "BAB 16", "i": "📜", "t": "Gratifikasi yang Tidak Wajib Dilaporkan", "p": "Pengecualian pelaporan berdasarkan Peraturan KPK No. 2/2019.", "g": ["Slide"], "o": "Buka →"}, {"h": "resume-artikel.html", "x": false, "c": "artikel", "k": "blue", "b": "RESUME ARTIKEL", "i": "📰", "t": "Wujudkan Cita-Cita Kemerdekaan dengan Berantas Korupsi", "p": "Resume dari artikel ACLC KPK (2022) yang membahas korelasi filosofis antara kemerdekaan dan pemberantasan korupsi.", "g": ["ACLC KPK", "2022"], "o": "Baca →"}, {"h": "resume-tiga-indikator.html", "x": false, "c": "artikel", "k": "gold", "b": "RESUME ARTIKEL", "i": "📊", "t": "Menakar Keberhasilan Pemberantasan Korupsi", "p": "Ringkasan tiga indikator utama: SPI 2025 (KPK), IPAK 2024 (BPS), dan IPK 2025 (Transparency International).", "g": ["ACLC KPK", "2026"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "purple", "b": "RESUME ARTIKEL", "i": "🎁", "t": "Mengenal Gratifikasi dan Sanksinya", "p": "Penjelasan mendalam tentang apa itu gratifikasi, batasannya, dan sanksi hukum bagi pelanggarnya.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "red", "b": "RESUME ARTIKEL", "i": "👥", "t": "Peran Serta Masyarakat dalam Pemberantasan Korupsi", "p": "Bagaimana masyarakat awam dapat berkontribusi aktif mengawasi dan melaporkan dugaan korupsi.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "green", "b": "RESUME ARTIKEL", "i": "🏫", "t": "Korupsi di Sektor Pendidikan: Akar Masalah", "p": "Membedah berbagai praktik korupsi yang terjadi di lingkungan sekolah dan kampus beserta solusinya.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "blue", "b": "RESUME ARTIKEL", "i": "🧑‍🎓", "t": "Mengapa Integritas Penting bagi Generasi Muda?", "p": "Menanamkan nilai kejujuran sejak dini sebagai fondasi utama membangun bangsa yang bersih.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "gold", "b": "RESUME ARTIKEL", "i": "📜", "t": "Mengenal Tindak Pidana Korupsi Menurut UU", "p": "Dasar hukum pemberantasan korupsi di Indonesia, mulai dari UU 31/1999 hingga UU 19/2019.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "purple", "b": "RESUME ARTIKEL", "i": "🏢", "t": "Bahaya Laten Korupsi di Pelayanan Publik", "p": "Praktik pungutan liar dan suap yang sering dianggap wajar namun sangat merugikan rakyat.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "red", "b": "RESUME ARTIKEL", "i": "🌍", "t": "Kisah Sukses Negara Bebas Korupsi", "p": "Studi kasus tentang bagaimana negara seperti Denmark dan Singapura membangun sistem antikorupsi.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "green", "b": "RESUME ARTIKEL", "i": "📊", "t": "Pencegahan Korupsi Melalui Transparansi Anggaran", "p": "Pentingnya keterbukaan informasi publik dalam mencegah penyelewengan dana APBN/APBD.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "blue", "b": "RESUME ARTIKEL", "i": "📣", "t": "Peran Whistleblower dalam Mengungkap Korupsi", "p": "Siapa itu whistleblower dan bagaimana perlindungan hukum bagi pelapor tindak pidana korupsi.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "gold", "b": "RESUME ARTIKEL", "i": "👔", "t": "Bagaimana Menjadi ASN yang Berintegritas?", "p": "Panduan dan tips bagi Aparatur Sipil Negara untuk menjauhi praktik korupsi dan gratifikasi.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "purple", "b": "RESUME ARTIKEL", "i": "💸", "t": "Dampak Korupsi terhadap Perekonomian Negara", "p": "Analisis bagaimana korupsi menghambat pertumbuhan ekonomi, investasi, dan menciptakan kemiskinan.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "red", "b": "RESUME ARTIKEL", "i": "⚖️", "t": "Memahami Konflik Kepentingan dalam Birokrasi", "p": "Definisi dan contoh nyata konflik kepentingan yang sering menjerat pejabat publik.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "green", "b": "RESUME ARTIKEL", "i": "🔱", "t": "Strategi KPK dalam Memberantas Korupsi", "p": "Penjelasan rinci mengenai Trisula KPK: Pendidikan, Pencegahan, dan Penindakan.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "blue", "b": "RESUME ARTIKEL", "i": "🧸", "t": "Pendidikan Antikorupsi Sejak Dini", "p": "Mengapa mengenalkan nilai kejujuran dan integritas pada anak usia dini sangat krusial.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "gold", "b": "RESUME ARTIKEL", "i": "✊", "t": "Korupsi dan Pelanggaran HAM", "p": "Bagaimana tindak pidana korupsi secara langsung mencabut hak asasi manusia rakyat banyak.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "purple", "b": "RESUME ARTIKEL", "i": "🤝", "t": "Membangun Budaya Antikorupsi di Tempat Kerja", "p": "Langkah-langkah menciptakan lingkungan kerja yang bersih, jujur, dan transparan.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "red", "b": "RESUME ARTIKEL", "i": "📄", "t": "Pentingnya Laporan Harta Kekayaan (LHKPN)", "p": "Fungsi LHKPN sebagai alat pengawasan kekayaan penyelenggara negara dari praktik korupsi.", "g": ["Artikel"], "o": "Baca →"}, {"h": "#", "x": false, "c": "artikel", "k": "green", "b": "RESUME ARTIKEL", "i": "📺", "t": "Peran Media Massa dalam Pengawasan Korupsi", "p": "Bagaimana pers dan jurnalis menjadi pilar keempat demokrasi dalam mengungkap kasus korupsi.", "g": ["Artikel"], "o": "Baca →"}, {"h": "https://drive.google.com/drive/folders/1z1gZKjjpz-u-Yv-Fj7RQK8NgDT1Q33DQ?usp=drive_link", "x": true, "c": "ebook", "k": "green", "b": "E-BOOK GRATIS", "i": "📖", "t": "Modul Lengkap Anti Korupsi", "p": "E-book berisi materi lengkap tentang pengertian korupsi, bentuk-bentuknya, hingga cara berani menolak dan melaporkan.", "g": ["PDF", "Gratis"], "o": "Unduh →"}];
+const CAT={all:'Semua Materi',slide:'Slide Presentasi',artikel:'Resume Artikel',ebook:'E-Book',fav:'★ Favorit'};
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ls={get(k){try{return new Set(JSON.parse(localStorage.getItem(k)||'[]'))}catch(e){return new Set()}},set(k,v){try{localStorage.setItem(k,JSON.stringify([...v]))}catch(e){}}};
+const key=d=>d.h!=='#'?d.h:d.t;
+let fav=ls.get('pm_fav'),seen=ls.get('pm_seen'),st={q:'',f:'all',sort:'def'};
+
+D.forEach((d,n)=>d.n=n);
+$('grid').innerHTML=D.map(d=>{const soon=d.h==='#',k=esc(key(d));
+ return `<article class="card${soon?' soon':''}" data-n="${d.n}" data-k="${k}" data-c="${d.c}">
+ <div class="vis ${d.k}"><span class="tagb">${esc(d.b)}</span><span class="ico" aria-hidden="true">${d.i}</span>
+ <button class="fav" aria-pressed="false" aria-label="Simpan ke favorit: ${esc(d.t)}">☆</button></div>
+ <div class="body"><h3><a href="${esc(d.h)}"${d.x?' target="_blank" rel="noopener"':''}>${esc(d.t)}</a></h3><p>${esc(d.p)}</p>
+ <div class="foot"><div class="tags">${d.g.map(x=>`<span>${esc(x)}</span>`).join('')}${soon?'<span>Segera hadir</span>':''}<span class="seen" hidden>✓ Dibuka</span></div><span class="go">${soon?'Segera':esc(d.o)}</span></div></div></article>`}).join('');
+const cards=[...document.querySelectorAll('.card')];
+
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2200)}
+function counts(){const c={all:D.length,slide:0,artikel:0,ebook:0,fav:fav.size};D.forEach(d=>c[d.c]++);return c}
+function chips(){const c=counts();$('chips').innerHTML=Object.keys(CAT).map(f=>`<button class="chip${st.f===f?' on':''}" role="tab" aria-selected="${st.f===f}" data-f="${f}">${CAT[f]}<em>${c[f]}</em></button>`).join('')}
+function stats(){const c=counts();$('stats').innerHTML=[['slide','Slide presentasi'],['artikel','Resume artikel'],['ebook','E-book gratis']].map(([k,l])=>`<div class="stat"><b data-to="${c[k]}">0</b><span>${l}</span></div>`).join('');
+ document.querySelectorAll('.stat b').forEach(b=>{const to=+b.dataset.to,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/900);b.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)})}
+function progress(){const s=D.filter(d=>d.c==='slide'&&d.h!=='#'),n=s.filter(d=>seen.has(key(d))).length;$('pt').textContent=n+' dari '+s.length;$('pb').style.width=(s.length?n/s.length*100:0)+'%'}
+function mark(){cards.forEach(el=>{const k=el.dataset.k,on=fav.has(k),b=el.querySelector('.fav');b.setAttribute('aria-pressed',on);b.textContent=on?'★':'☆';el.querySelector('.seen').hidden=!seen.has(k)})}
+function apply(){
+ const q=st.q.trim().toLowerCase();let n=0;
+ const order=[...cards].sort((a,b)=>st.sort==='def'?a.dataset.n-b.dataset.n:(D[a.dataset.n].t.localeCompare(D[b.dataset.n].t,'id'))*(st.sort==='az'?1:-1));
+ order.forEach(el=>{const d=D[el.dataset.n];$('grid').appendChild(el);
+  const ok=(st.f==='all'||(st.f==='fav'?fav.has(el.dataset.k):d.c===st.f))&&(!q||(d.t+' '+d.p+' '+d.g.join(' ')+' '+d.b).toLowerCase().includes(q));
+  el.hidden=!ok;if(ok){el.style.setProperty('--i',n++);el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop')}});
+ $('cnt').textContent=n+' materi ditampilkan';$('empty').hidden=n>0;$('grid').hidden=n===0;chips();
+ $('hint').textContent=st.f==='fav'&&!fav.size?'Belum ada favorit — ketuk ☆ pada kartu':'Ketuk ☆ untuk menyimpan favorit'}
+
+$('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b){st.f=b.dataset.f;apply()}});
+$('q').addEventListener('input',e=>{st.q=e.target.value;apply()});
+$('sort').addEventListener('change',e=>{st.sort=e.target.value;apply()});
+$('reset').onclick=()=>{st={q:'',f:'all',sort:'def'};$('q').value='';$('sort').value='def';apply()};
+function view(l){$('grid').classList.toggle('list',l);$('vl').setAttribute('aria-pressed',l);$('vg').setAttribute('aria-pressed',!l);try{localStorage.setItem('pm_view',l?'l':'g')}catch(e){}}
+$('vg').onclick=()=>view(false);$('vl').onclick=()=>view(true);
+$('grid').addEventListener('click',e=>{
+ const fb=e.target.closest('.fav');
+ if(fb){const el=fb.closest('.card'),k=el.dataset.k;fav.has(k)?(fav.delete(k),toast('Dihapus dari favorit')):(fav.add(k),toast('Disimpan ke favorit ★'));ls.set('pm_fav',fav);mark();if(st.f==='fav')apply();else chips();return}
+ const a=e.target.closest('h3 a');
+ if(a){const el=a.closest('.card');if(el.classList.contains('soon')){e.preventDefault();toast('Materi ini segera hadir');return}seen.add(el.dataset.k);ls.set('pm_seen',seen);mark();progress()}});
+$('grid').addEventListener('pointermove',e=>{const c=e.target.closest('.card');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')});
+addEventListener('keydown',e=>{const typing=/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName);
+ if(e.key==='/'&&!typing){e.preventDefault();$('q').focus()}
+ else if(e.key==='Escape'&&document.activeElement===$('q')){$('q').value='';st.q='';apply();$('q').blur()}});
+const up=$('up');addEventListener('scroll',()=>up.classList.toggle('on',scrollY>700),{passive:true});
+up.onclick=()=>scrollTo({top:0});
+
+stats();mark();progress();
+try{view(localStorage.getItem('pm_view')==='l')}catch(e){}
+apply();
+</script>
+</body>
+</html>
