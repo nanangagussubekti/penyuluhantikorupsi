@@ -144,7 +144,6 @@ body::after{content:'';position:fixed;width:720px;height:720px;top:-320px;right:
 <button class="up" id="up" aria-label="Kembali ke atas">↑</button>
 
 <script>
-// Hanya menyisakan 16 data slide presentasi
 const D = [
   {"h": "bab1-slide.html", "x": false, "c": "slide", "k": "red", "b": "BAB 1", "i": "🇮🇩", "t": "Mewujudkan Cita-Cita Kemerdekaan", "p": "Menjabarkan korelasi Alinea Ke-4 UUD 1945 dengan pemberantasan korupsi.", "g": ["Slide"], "o": "Buka →"},
   {"h": "bab2-slide.html", "x": false, "c": "slide", "k": "blue", "b": "BAB 2", "i": "📊", "t": "Menakar Keberhasilan Pemberantasan Korupsi", "p": "Memahami 3 indikator utama: SPI, IPAK, dan IPK.", "g": ["Slide"], "o": "Buka →"},
@@ -161,10 +160,11 @@ const D = [
   {"h": "bab13-slide.html", "x": false, "c": "slide", "k": "green", "b": "BAB 13", "i": "🌟", "t": "Kisah Teladan Berintegritas", "p": "Belajar dari keteladanan tokoh-tokoh bangsa Indonesia.", "g": ["Slide"], "o": "Buka →"},
   {"h": "bab14-slide.html", "x": false, "c": "slide", "k": "purple", "b": "BAB 14", "i": "🎁", "t": "Gratifikasi & Konflik Kepentingan", "p": "Bahaya pemberian kecil yang dapat merusak netralitas.", "g": ["Slide"], "o": "Buka →"},
   {"h": "bab15-slide.html", "x": false, "c": "slide", "k": "gold", "b": "BAB 15", "i": "🪞", "t": "Cermin Integritas", "p": "Refleksi diri: benarkah perilaku kita sudah antikorupsi?", "g": ["Slide"], "o": "Buka →"},
-  {"h": "bab16-slide.html", "x": false, "c": "slide", "k": "red", "b": "BAB 16", "i": "📜", "t": "Gratifikasi yang Tidak Wajib Dilaporkan", "p": "Pengecualian pelaporan berdasarkan Peraturan KPK No. 2/2019.", "g": ["Slide"], "o": "Buka →"}
+  {"h": "bab16-slide.html", "x": false, "c": "slide", "k": "red", "b": "BAB 16", "i": "📜", "t": "Gratifikasi yang Tidak Wajib Dilaporkan", "p": "Pengecualian pelaporan berdasarkan Peraturan KPK No. 2/2019.", "g": ["Slide"], "o": "Buka →"},
+  // Tambahan Bab 17 dengan tautan absolut (dibuka di tab baru)
+  {"h": "https://penyuluhantikorupsi.vercel.app/slide-politik-uang-pilkades.html", "x": true, "c": "slide", "k": "gold", "b": "BAB 17", "i": "🗳️", "t": "Dampak Politik Uang dalam Pilkades", "p": "Memahami bahaya dan dampak praktik politik uang terhadap demokrasi dan kesejahteraan desa.", "g": ["Slide"], "o": "Buka →"}
 ];
 
-// Kategori disesuaikan (Hanya All, Slide, Favorit)
 const CAT={all:'Semua Materi',slide:'Slide Presentasi',fav:'★ Favorit'};
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -183,7 +183,6 @@ const cards=[...document.querySelectorAll('.card')];
 
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2200)}
 
-// Penyesuaian fungsi count: Menghapus artikel & ebook
 function counts(){
   const c={all:D.length,slide:0,fav:fav.size};
   D.forEach(d=>c[d.c]++);
@@ -195,7 +194,6 @@ function chips(){
   $('chips').innerHTML=Object.keys(CAT).map(f=>`<button class="chip${st.f===f?' on':''}" role="tab" aria-selected="${st.f===f}" data-f="${f}">${CAT[f]}<em>${c[f]}</em></button>`).join('');
 }
 
-// Penyesuaian statistik: Hanya menampilkan Total Materi & Slide Presentasi
 function stats(){
   const c=counts();
   $('stats').innerHTML=[
