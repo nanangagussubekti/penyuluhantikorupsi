@@ -186,6 +186,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .footer{background:#081a30;color:#9fb3c8;padding:52px 0 22px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:30px}
 .footer h4{color:#fff;margin-bottom:14px;font-family:var(--head)}
+/* Tambahan CSS untuk Link di Footer */
+.footer h4 a{color:#fff;text-decoration:none;transition:color .2s}
+.footer h4 a:hover{color:var(--gold)}
 .footer p,.footer a{color:#9fb3c8;text-decoration:none;font-size:.9rem}
 .footer a:hover{color:var(--gold)}
 .footer-links{list-style:none}
@@ -610,7 +613,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="container">
       <div class="footer-grid">
         <div>
-          <h4>🛡️ Nanang Agus Subekti</h4>
+          <!-- PERUBAHAN DI SINI: Menambahkan tautan ke materi.html -->
+          <h4>🛡️ <a href="https://penyuluhantikorupsi.vercel.app/materi.html">Nanang Agus Subekti</a></h4>
           <p>Penyuluh Anti Korupsi asal Kabupaten Tulungagung. Layanan penyuluhan gratis untuk masyarakat. Membangun budaya jujur, transparan, dan berintegritas.</p>
         </div>
         <div>
@@ -637,7 +641,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Nanang Agus Subekti. Layanan Gratis untuk Masyarakat Tulungagung.</p>
+        <!-- PERUBAHAN DI SINI: Menambahkan tautan ke materi.html -->
+        <p>&copy; <span id="year"></span> <a href="https://penyuluhantikorupsi.vercel.app/materi.html" style="color: inherit; text-decoration: none; font-weight: 600;">Nanang Agus Subekti</a>. Layanan Gratis untuk Masyarakat Tulungagung.</p>
       </div>
     </div>
   </footer>
