@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio Penyuluhan | Penyuluh Anti Korupsi</title>
+<meta name="theme-color" content="#09090b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #09090b; --card: rgba(255,255,255,.035); --bd: rgba(255,255,255,.09);
+    --red: #ef4444; --glow: rgba(239,68,68,.4); --gold: #f59e0b; --tx: #fafafa; --mu: #a1a1aa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--tx); min-height: 100vh; overflow-x: hidden; line-height: 1.5; }
+  
+  /* Background Efek */
+  body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: linear-gradient(#000, transparent 80%); -webkit-mask-image: linear-gradient(#000, transparent 80%); }
+  body::after { content: ''; position: fixed; width: 720px; height: 720px; top: -320px; right: -220px; background: radial-gradient(circle, var(--glow), transparent 70%); filter: blur(100px); opacity: .5; pointer-events: none; }
+  
+  .wrap { position: relative; z-index: 1; width: min(1200px, 100% - 40px); margin: 0 auto; padding-bottom: 80px; }
+  
+  /* Header & Back Button */
+  .top { padding: max(20px, env(safe-area-inset-top)) 0 0; }
+  .back { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.05); border: 1px solid var(--bd); color: var(--tx); padding: 11px 20px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: .9rem; backdrop-filter: blur(10px); transition: .3s; }
+  .back:hover { background: var(--red); border-color: var(--red); transform: translateX(-3px); }
+  
+  /* Hero Section */
+  .hero { text-align: center; padding: 50px 0 40px; }
+  .badge { display: inline-block; padding: 8px 20px; border-radius: 100px; background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: var(--red); font-weight: 600; font-size: 12px; letter-spacing: 3px; margin-bottom: 22px; text-transform: uppercase; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 18px; }
+  .hero h1 .hl { background: linear-gradient(135deg, var(--red), var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { color: var(--mu); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+
+  /* Filter Tabs */
+  .tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+  .tab { padding: 10px 24px; border-radius: 100px; background: rgba(255,255,255,.03); border: 1px solid var(--bd); color: var(--mu); font-family: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; transition: .3s; }
+  .tab:hover { background: rgba(255,255,255,.08); color: var(--tx); }
+  .tab.active { background: var(--red); border-color: var(--red); color: white; box-shadow: 0 6px 20px var(--glow); }
+
+  /* Grid Portofolio */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 24px; }
+  
+  /* Kartu Media */
+  .media-card { position: relative; background: var(--card); border: 1px solid var(--bd); border-radius: 20px; overflow: hidden; transition: transform .3s, box-shadow .3s; cursor: pointer; aspect-ratio: 16/9; }
+  .media-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.5); border-color: rgba(255,255,255,.2); }
+  
+  .media-thumb { width: 100%; height: 100%; object-fit: cover; display: block; background: #1a1a1a; }
+  
+  /* Tombol Play Video */
+  .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(239,68,68,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: .3s; pointer-events: none; }
+  .media-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); background: rgba(239,68,68,1); }
+
+  /* Label Tipe Media */
+  .badge-type { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,.6); backdrop-filter: blur(8px); padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 1px; border: 1px solid rgba(255,255,255,.15); z-index: 2; }
+
+  /* Iframe yang muncul setelah video diklik */
+  .video-iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; z-index: 10; }
+
+  /* Lightbox / Modal untuk Foto */
+  .modal { display: none; position: fixed; z-index: 9999; inset: 0; background: rgba(0,0,0,.9); backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity .3s; }
+  .modal.show { display: flex; opacity: 1; }
+  .modal-img { max-width: 100%; max-height: 90vh; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  .modal-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; transition: .2s; }
+  .modal-close:hover { color: var(--red); }
+
+  /* Animasi Fade In */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <a href="https://penyuluhantikorupsi.vercel.app/" class="back">← Kembali ke Beranda</a>
+  </div>
+
+  <header class="hero">
+    <div class="badge">📸 Galeri Kegiatan</div>
+    <h1>Portofolio <span class="hl">Penyuluhan</span></h1>
+    <p>Dokumentasi foto dan video kegiatan penyuluhan anti korupsi di lapangan.</p>
+  </header>
+
+  <!-- Filter Tabs -->
+  <div class="tabs">
+    <button class="tab active" data-filter="all">Semua Media</button>
+    <button class="tab" data-filter="video">Video YouTube</button>
+    <button class="tab" data-filter="foto">Foto Kegiatan</button>
+  </div>
+
+  <!-- Grid Portofolio -->
+  <div class="grid" id="galleryGrid"></div>
+</div>
+
+<!-- Modal Lightbox Foto -->
+<div class="modal" id="imageModal">
+  <span class="modal-close" id="closeModal">&times;</span>
+  <img class="modal-img" id="modalImg" src="" alt="Zoom Foto">
+</div>
+
+<script>
+  // =====================================================================
+  // CARA MENAMBAH MEDIA BARU:
+  // Cukup tambahkan baris baru di dalam array di bawah ini.
+  // Pisahkan dengan tanda koma ( , ) jika menambah lebih dari satu.
+  // =====================================================================
+  
+  const daftarMedia = [
+    // --- DAFTAR VIDEO YOUTUBE ---
+    "https://youtu.be/n8G2jQaxYWc",
+    "https://youtu.be/BxEt_06BZL4",
+    "https://www.youtube.com/watch?v=O-jTcGgOoYw",
+    "https://youtu.be/JJ9V0coJZts",
+    
+    // --- DAFTAR FOTO KEGIATAN ---
+    "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop"
+  ];
+
+  // =====================================================================
+  // LOGIKA SISTEM (Tidak perlu diubah)
+  // =====================================================================
+
+  const grid = document.getElementById('galleryGrid');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+  const closeModal = document.getElementById('closeModal');
+  
+  // Fungsi untuk mendeteksi dan mengambil ID Video YouTube
+  function getYouTubeID(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  }
+
+  // Render Media ke HTML
+  function renderGallery() {
+    grid.innerHTML = ''; // Kosongkan grid
+    
+    daftarMedia.forEach((url, index) => {
+      const ytID = getYouTubeID(url);
+      const isVideo = ytID !== null;
+      
+      const card = document.createElement('div');
+      card.className = 'media-card';
+      card.dataset.type = isVideo ? 'video' : 'foto';
+      card.style.animation = `fadeInUp 0.4s ease forwards`;
+      card.style.animationDelay = `${index * 0.05}s`;
+      
+      if (isVideo) {
+        // JIKA MEDIA ADALAH VIDEO YOUTUBE
+        // Gunakan maxresdefault, jika gagal fallback ke hqdefault
+        const thumbnailUrl = `https://img.youtube.com/vi/${ytID}/maxresdefault.jpg`;
+        
+        card.innerHTML = `
+          <div class="badge-type" style="color: #ef4444;">▶ VIDEO</div>
+          <img src="${thumbnailUrl}" class="media-thumb" alt="Thumbnail Video" loading="lazy" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${ytID}/hqdefault.jpg';">
+          <div class="play-btn">▶</div>
+        `;
+        
+        // Saat diklik, ganti thumbnail dengan Iframe Video (Auto-play di halaman)
+        card.addEventListener('click', () => {
+          // Parameter rel=0 & modestbranding=1 meminimalisir tautan keluar YouTube
+          card.innerHTML = `
+            <iframe class="video-iframe" src="https://www.youtube.com/embed/${ytID}?autoplay=1&rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          `;
+        });
+        
+      } else {
+        // JIKA MEDIA ADALAH FOTO
+        card.innerHTML = `
+          <div class="badge-type" style="color: #3b82f6;">📷 FOTO</div>
+          <img src="${url}" class="media-thumb" alt="Foto Kegiatan" loading="lazy">
+        `;
+        
+        // Saat diklik, buka Lightbox (Zoom foto)
+        card.addEventListener('click', () => {
+          modalImg.src = url;
+          modal.classList.add('show');
+        });
+      }
+      
+      grid.appendChild(card);
+    });
+  }
+
+  // Fungsi Filter Kategori
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      e.target.classList.add('active');
+      
+      const filter = e.target.dataset.filter;
+      const cards = document.querySelectorAll('.media-card');
+      
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.type === filter) {
+          card.style.display = 'block';
+          card.style.animation = 'none';
+          card.offsetHeight; // trigger reflow
+          card.style.animation = 'fadeInUp 0.4s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Tutup Modal Foto
+  closeModal.addEventListener('click', () => {
+    modal.classList.remove('show');
+    modalImg.src = '';
+  });
+  
+  // Tutup Modal jika klik di luar gambar
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+      modalImg.src = '';
+    }
+  });
+
+  // Jalankan Render saat halaman dimuat
+  renderGallery();
+</script>
+
+</body>
+</html>
