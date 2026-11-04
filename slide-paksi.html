@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PAKSI | Penyuluh Antikorupsi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--red:#b3261e;--green:#1f7a5a;--paper:#f6f4ee;--ink:#16202c;--muted:#566272;--line:#e0dccf;
+--head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--navy);font-family:var(--body);color:var(--ink);-webkit-text-size-adjust:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transform:translateX(3%);transition:opacity .45s,transform .45s,visibility .45s}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-3%)}
+.slide.dark{color:#fff;background:radial-gradient(900px 520px at 90% 10%,rgba(42,107,168,.5),transparent 60%),linear-gradient(160deg,#091b33,var(--navy) 55%,var(--navy2))}
+.tag{position:absolute;top:max(18px,env(safe-area-inset-top));left:6vw;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.dark .tag{color:#b9c9dd}
+.tag i{width:22px;height:14px;border-radius:2px;background:linear-gradient(#d52b1e 50%,#fff 50%);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.frame{position:absolute;top:56px;bottom:84px;left:6vw;right:6vw;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.inner{width:100%;max-width:1100px;font-size:22px;line-height:1.55;margin:auto}
+h1,h2{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:2.5em;font-weight:800}
+h1.sec{font-size:2.1em;margin-bottom:.5em}
+h2{font-size:1.75em;font-weight:700;color:var(--navy);margin-bottom:.55em;display:flex;gap:.5em;align-items:baseline}
+.dark h2{color:#fff}
+.no{font-family:var(--head);color:var(--navy);background:var(--gold);min-width:1.6em;height:1.6em;border-radius:.45em;display:inline-grid;place-items:center;font-size:.75em;flex-shrink:0;transform:translateY(-.1em)}
+.kick{color:var(--gold);font-weight:700;font-size:.9em;margin-bottom:.8em}
+.lead{font-size:1.08em;color:var(--muted);margin-bottom:.9em}
+.dark .lead{color:#dbe6f3;border-left:4px solid var(--gold);padding-left:.9em}
+.dark p{color:#c9d8ea;margin-bottom:.8em}
+.hint{font-size:.8em;margin-top:2em}
+.cover .inner{max-width:900px;position:relative}
+.cover h1{margin-bottom:.5em}
+.ghost{position:absolute;right:-.1em;top:-.55em;z-index:-1;font-family:var(--head);font-weight:800;font-size:22em;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(242,183,5,.28);pointer-events:none}
+.cover .frame{overflow:hidden}
+.agenda{list-style:none;counter-reset:a;display:grid;gap:.6em}
+.agenda li{counter-increment:a;display:flex;gap:.9em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7em 1em;font-weight:600;color:var(--navy)}
+.agenda li::before{content:counter(a);font-family:var(--head);font-weight:800;background:var(--navy);color:var(--gold);width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.quote blockquote{font-family:var(--head);font-size:1.25em;line-height:1.6;color:var(--navy);border-left:6px solid var(--gold);padding:.3em 0 .3em 1em}
+.grid{display:grid;gap:14px}
+.n2{grid-template-columns:repeat(2,1fr)}.n3{grid-template-columns:repeat(3,1fr)}.n4{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 18px 18px 18px;padding:1em 1.1em;font-size:.92em}
+.card.bad{border-top-color:var(--red)}.card.sol{border-top-color:var(--green)}
+.card h3{font-family:var(--head);font-size:1.08em;color:var(--navy);margin-bottom:.35em;line-height:1.3}
+.card.bad h3{color:var(--red)}.card.sol h3{color:var(--green)}
+.card p{color:#2c3744}
+.big{font-family:var(--head);font-weight:800;font-size:2em;line-height:1;color:var(--gold);display:block;margin-bottom:.15em}
+.kids{margin-top:.8em}.kids .card{font-size:.95em;background:var(--paper)}
+.pts{list-style:none;display:grid;gap:.7em}
+.pts li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px 14px 14px 6px;padding:.8em 1.1em}
+.kes .lead{font-size:1.12em}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px max(5vw,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));z-index:5}
+.prog{flex:1;height:6px;border-radius:6px;background:rgba(120,130,150,.35);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.cnt{font-size:.85rem;font-weight:700;min-width:4.5em;text-align:center;color:#fff;mix-blend-mode:difference}
+.nb{width:46px;height:46px;border-radius:12px;border:none;background:var(--navy);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 0 0 2px rgba(242,183,5,.7)}
+.nb:hover{background:var(--navy2)}.nb:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.n3,.n2,.n4{grid-template-columns:1fr}.ghost{font-size:14em}.tag{left:5vw}.frame{left:5vw;right:5vw}}
+@media (max-height:520px){.frame{top:44px;bottom:70px}.nb{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}}
+.ghost.w{font-size:9em;right:0;top:-.3em;-webkit-text-stroke-width:1.5px}
+.card.one{font-size:1.05em;padding:1.2em 1.4em}.card.one p+p{margin-top:.7em}
+.cta .inner{text-align:center}.cta h1{margin-bottom:.6em}.cta .lead{border:0;padding:0;font-size:1.4em;color:var(--gold)}
+@media (max-width:820px){.ghost.w{font-size:5em}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark cover"><div class="tag"><i></i>PAKSI</div><div class="frame"><div class="inner"><p class="kick">Penyuluh Antikorupsi</p><h1>PAKSI: Penyuluh Antikorupsi</h1><p class="lead">Apa itu Paksi, apa tugas Paksi, dan mengapa harus menjadi PAKSI.</p><p class="hint">Tekan tombol panah atau geser layar untuk lanjut</p><div class="ghost w">PAKSI</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Peta Materi</div><div class="frame"><div class="inner"><h2>Peta Materi</h2><ol class="agenda"><li>Apa itu Paksi dan Apa Tugas Paksi?</li><li>Tugas Paksi</li><li>Mengapa harus menjadi PAKSI?</li></ol></div></div></section>
+<section class="slide "><div class="tag"><i></i>Apa itu PAKSI</div><div class="frame"><div class="inner"><h2>Apa itu Paksi dan Apa Tugas Paksi?</h2><p class="lead">PAKSI sebagai akronim dari Penyuluh Antikorupsi</p><div class="grid n2"><div class="card one neu"><p>PAKSI adalah individu atau agen perubahan yang bertugas menanamkan nilai-nilai integritas dan memberikan edukasi pencegahan korupsi kepada masyarakat umum maupun lembaga pemerintah</p></div><div class="card one neu"><p>Paksi adalah relawan, namun bukan sekadar relawan biasa, melainkan para profesional yang telah lulus uji kompetensi dan tersertifikasi resmi oleh Lembaga Sertifikasi Profesi (LSP) KPK yang berlisensi Badan Nasional Sertifikasi Profesi (BNSP). Para penyuluh ini berasal dari berbagai kalangan seperti Guru, Dosen, ASN, jurnalis, hingga masyarakat umum</p></div></div></div></div></section>
+<section class="slide dark intro"><div class="tag"><i></i>Tugas PAKSI</div><div class="frame"><div class="inner"><h1 class="sec">Tugas Paksi</h1><p class="lead">Tugas utama seorang PAKSI (Penyuluh Antikorupsi) adalah melakukan edukasi, sosialisasi, dan penanaman nilai-nilai integritas untuk mencegah terjadinya tindak pidana korupsi di masyarakat maupun lingkungan pemerintahan</p></div></div></section>
+<section class="slide "><div class="tag"><i></i>Tugas PAKSI</div><div class="frame"><div class="inner"><h2><span class="no">1</span>Sebagai Edukator (Educator)</h2><div class="grid n3"><div class="card neu"><h3>Memberikan pemahaman mendalam</h3><p>Menyampaikan edukasi mengenai dampak buruk korupsi bagi perekonomian, sosial, dan negara.</p></div><div class="card neu"><h3>Menjelaskan delik korupsi</h3><p>Mengajarkan batasan dan perbedaan antara praktik suap, pemerasan, hingga pemanfaatan sistem pelaporan internal.</p></div><div class="card neu"><h3>Menyebarkan nilai integritas</h3><p>Menanamkan 9 nilai antikorupsi (Jujur, Peduli, Mandiri, Disiplin, Tanggung Jawab, Kerja Keras, Sederhana, Berani, dan Adil) ke berbagai lapisan, mulai dari sekolah, kampus, ASN, hingga organisasi masyarakat</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Tugas PAKSI</div><div class="frame"><div class="inner"><h2><span class="no">2</span>Sebagai Penggerak Perubahan (Agent of Change)</h2><div class="grid n3"><div class="card neu"><h3>Membangun budaya antikorupsi</h3><p>Menggerakkan perubahan perilaku masyarakat dari yang semula permisif terhadap korupsi kecil (seperti pungli atau melanggar aturan) menjadi budaya tertib dan jujur.</p></div><div class="card neu"><h3>Pencegahan pelanggaran</h3><p>Mendorong pengelolaan dan pencegahan gratifikasi secara mandiri di instansi tempat mereka bekerja.</p></div><div class="card neu"><h3>Memperkuat kolaborasi</h3><p>Berperan aktif dalam forum komunitas guna menyinergikan program pencegahan korupsi antara KPK dan pemerintah daerah</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Tugas PAKSI</div><div class="frame"><div class="inner"><h2><span class="no">3</span>Sebagai Motivator (Motivator)</h2><div class="grid n2"><div class="card neu"><h3>Menginspirasi lingkungan sekitar</h3><p>Menjadi teladan integritas di tempat kerja atau komunitasnya masing-masing.</p></div><div class="card neu"><h3>Mendorong keberanian publik</h3><p>Mengajak dan memotivasi masyarakat agar berani menolak gratifikasi ilegal serta aktif memanfaatkan Whistleblowing System atau sarana pengaduan untuk melaporkan kecurangan secara aman.</p></div></div></div></div></section>
+<section class="slide dark kes"><div class="tag"><i></i>Tugas PAKSI</div><div class="frame"><div class="inner"><p class="lead">Secara ringkas, PAKSI bertindak sebagai perpanjangan tangan KPK di lapangan yang berfokus pada strategi pencegahan berbasis edukasi, memastikan bahwa nilai-nilai kebaikan tidak sekadar menjadi slogan melainkan mewujud dalam tindakan nyata sehari-hari.</p></div></div></section>
+<section class="slide dark intro"><div class="tag"><i></i>Mengapa PAKSI</div><div class="frame"><div class="inner"><h1 class="sec">Mengapa harus menjadi PAKSI?</h1></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mengapa PAKSI</div><div class="frame"><div class="inner"><h2><span class="no">1</span>Mengalami Perubahan Perilaku Positif dalam Diri</h2><div class="card one neu"><p>Menjadi PAKSI menuntut seseorang untuk menjadi role model (teladan yang baik) di masyarakat. Tuntutan profesi ini secara alami mendorong kesesuaian antara perkataan dan perbuatan, sehingga integritas pribadi kita akan semakin kuat dan terjaga dalam kehidupan sehari-hari.</p></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mengapa PAKSI</div><div class="frame"><div class="inner"><h2><span class="no">2</span>Memperluas Wawasan dan Kompetensi</h2><div class="card one neu"><p>Sebelum mendapatkan sertifikasi resmi dari Lembaga Sertifikasi Profesi (LSP) KPK, calon PAKSI diwajibkan mengikuti pelatihan mendalam. Anda akan mendapatkan peningkatan pengetahuan yang signifikan mengenai regulasi hukum, pencegahan gratifikasi, hingga teknik komunikasi publik yang efektif.</p></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mengapa PAKSI</div><div class="frame"><div class="inner"><h2><span class="no">3</span>Menjadi Bagian dari Solusi Nyata Bangsa</h2><div class="card one neu"><p>Pemberantasan korupsi di Indonesia tidak akan bisa selesai jika hanya mengandalkan aparat penegak hukum. Dengan menjadi PAKSI, Anda ikut mengambil tanggung jawab nyata sebagai perpanjangan tangan KPK untuk menyelamatkan masa depan bangsa melalui jalur edukasi.</p></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mengapa PAKSI</div><div class="frame"><div class="inner"><h2><span class="no">4</span>Memiliki Jejaring Nasional yang Kuat</h2><div class="card one neu"><p>Setelah lulus sertifikasi, Anda akan bergabung ke dalam forum komunitas nasional seperti Forum PAKSI atau KOMPAK. Hal ini membuka kesempatan emas untuk berjejaring, bertukar pikiran, dan berkolaborasi dengan ribuan profesional berintegritas tinggi dari berbagai latar belakang di seluruh Indonesia.</p></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mengapa PAKSI</div><div class="frame"><div class="inner"><h2><span class="no">5</span>Pengakuan Kompetensi Resmi (Sertifikasi BNSP)</h2><div class="card one neu"><p>Gelar Profesi CAI dan Panggilan "Master" yang diberikan kepada PAKSI bukan sekadar julukan sosial. Ini adalah pengakuan kompetensi profesi yang resmi berskala nasional karena dikeluarkan oleh LSP KPK dan berlisensi dari Badan Nasional Sertifikasi Profesi (BNSP).</p></div></div></div></section>
+<section class="slide dark cta"><div class="tag"><i></i>Gabung PAKSI</div><div class="frame"><div class="inner"><h1>Tertarik gabung dengan PAKSI?</h1><p class="lead">Kami siap mendampingi anda!</p></div></div></section>
+</main>
+<nav class="bar" aria-label="Navigasi slide">
+  <button class="nb" id="prev" aria-label="Slide sebelumnya">&#8592;</button>
+  <div class="prog"><b id="pb"></b></div>
+  <span class="cnt" id="cnt"></span>
+  <button class="nb" id="fs" aria-label="Layar penuh">&#9974;</button>
+  <button class="nb" id="next" aria-label="Slide berikutnya">&#8594;</button>
+</nav>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(s){const f=s.querySelector('.frame'),n=s.querySelector('.inner');let z=Math.max(14,Math.min(26,innerWidth/58));if(innerHeight<520)z=Math.min(z,innerHeight/22);n.style.fontSize=z+'px';while(n.offsetHeight>f.clientHeight&&z>11){z-=.5;n.style.fontSize=z+'px'}}
+function fitAll(){S.forEach(fit)}
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});
+ document.getElementById('cnt').textContent=(i+1)+' / '+S.length;document.getElementById('pb').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();go(i-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);else if(k==='f'||k==='F')document.getElementById('fs').click()});
+let x0=null;
+addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',fitAll);
+fitAll();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitAll);
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
