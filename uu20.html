@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UU No. 20 Tahun 2001 — Pemberantasan Tindak Pidana Korupsi</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --card2:#273449;
+    --accent:#38bdf8; --accent2:#fbbf24; --danger:#f87171;
+    --text:#e2e8f0; --muted:#94a3b8; --border:#334155;
+    --green:#34d399; --purple:#a78bfa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);
+    color:var(--text); line-height:1.65; min-height:100vh;
+  }
+  header{
+    background:linear-gradient(90deg,#1e3a8a,#7c3aed);
+    padding:28px 20px; text-align:center;
+    border-bottom:3px solid var(--accent);
+    box-shadow:0 4px 20px rgba(0,0,0,.4);
+  }
+  header h1{font-size:1.5rem;margin-bottom:6px}
+  header p{color:#cbd5e1;font-size:.9rem}
+  .badge{
+    display:inline-block;background:var(--accent2);color:#000;
+    padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:700;
+    margin-top:8px;
+  }
+  .container{max-width:1100px;margin:0 auto;padding:20px}
+  /* Search */
+  .search-box{
+    display:flex;gap:10px;margin:20px 0;flex-wrap:wrap;
+  }
+  .search-box input{
+    flex:1;min-width:200px;padding:12px 16px;border-radius:10px;
+    border:1px solid var(--border);background:var(--card);color:var(--text);
+    font-size:1rem;outline:none;
+  }
+  .search-box input:focus{border-color:var(--accent)}
+  /* Tabs */
+  .tabs{
+    display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;
+    position:sticky;top:0;background:rgba(15,23,42,.95);
+    padding:10px 0;z-index:10;backdrop-filter:blur(6px);
+  }
+  .tab-btn{
+    padding:10px 16px;border-radius:8px;border:1px solid var(--border);
+    background:var(--card);color:var(--muted);cursor:pointer;
+    font-size:.85rem;font-weight:600;transition:.2s;
+  }
+  .tab-btn:hover{border-color:var(--accent);color:var(--text)}
+  .tab-btn.active{
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:#fff;border-color:transparent;
+  }
+  .panel{display:none;animation:fade .3s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  /* Cards */
+  .card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:14px;padding:20px;margin-bottom:16px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+  }
+  .card h3{
+    color:var(--accent);margin-bottom:10px;font-size:1.1rem;
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .card h3 .pasal{
+    background:var(--accent);color:#000;padding:2px 10px;
+    border-radius:6px;font-size:.8rem;font-weight:800;
+  }
+  .card p{margin-bottom:8px;color:#cbd5e1}
+  .card ul{margin:8px 0 8px 22px;color:#cbd5e1}
+  .card li{margin-bottom:6px}
+  .highlight{color:var(--accent2);font-weight:700}
+  .danger{color:var(--danger);font-weight:700}
+  .green{color:var(--green);font-weight:700}
+  .purple{color:var(--purple);font-weight:700}
+  /* Grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  /* Table */
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.88rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+  th{background:#0b1220;color:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+  tr:hover td{background:rgba(56,189,248,.05)}
+  /* Pill */
+  .pill{
+    display:inline-block;padding:3px 10px;border-radius:20px;
+    font-size:.72rem;font-weight:700;margin:2px 2px 2px 0;
+  }
+  .pill.blue{background:#1e3a8a;color:#93c5fd}
+  .pill.gold{background:#78350f;color:#fcd34d}
+  .pill.red{background:#7f1d1d;color:#fca5a5}
+  .pill.green{background:#064e3b;color:#6ee7b7}
+  .pill.purple{background:#4c1d95;color:#c4b5fd}
+  /* Flow */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .flow-step{
+    display:flex;gap:14px;align-items:flex-start;position:relative;
+    padding-bottom:18px;
+  }
+  .flow-step:not(:last-child)::before{
+    content:'';position:absolute;left:17px;top:36px;bottom:0;
+    width:2px;background:var(--border);
+  }
+  .flow-num{
+    flex-shrink:0;width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.9rem;color:#fff;
+  }
+  .flow-content{flex:1}
+  .flow-content h4{color:var(--accent);font-size:.98rem;margin-bottom:4px}
+  .flow-content p{font-size:.87rem;color:var(--muted)}
+  /* Note */
+  .note{
+    background:rgba(251,191,36,.08);border-left:4px solid var(--accent2);
+    padding:12px 16px;border-radius:8px;margin:12px 0;font-size:.88rem;
+  }
+  .note.danger{background:rgba(248,113,113,.08);border-left-color:var(--danger)}
+  .note.green{background:rgba(52,211,153,.08);border-left-color:var(--green)}
+  /* Stat */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+  .stat{
+    background:var(--card2);border-radius:12px;padding:16px;text-align:center;
+    border:1px solid var(--border);
+  }
+  .stat .num{font-size:1.6rem;font-weight:800;color:var(--accent)}
+  .stat .lbl{font-size:.75rem;color:var(--muted);margin-top:4px}
+  /* Footer */
+  footer{
+    text-align:center;padding:24px;color:var(--muted);
+    font-size:.8rem;border-top:1px solid var(--border);margin-top:30px;
+  }
+  /* No result */
+  .no-result{text-align:center;padding:40px;color:var(--muted);display:none}
+  /* Print */
+  @media print{
+    body{background:#fff;color:#000}
+    .tabs,.search-box{display:none}
+    .panel{display:block!important}
+    .card{border:1px solid #ccc;background:#fff}
+  }
+  @media(max-width:600px){
+    header h1{font-size:1.15rem}
+    .container{padding:12px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚖️ UU No. 20 Tahun 2001</h1>
+  <p>Perubahan atas UU No. 31 Tahun 1999 tentang Pemberantasan Tindak Pidana Korupsi</p>
+  <span class="badge">Disahkan 21 November 2001 · LN 2001/134 · TLN 4150</span>
+</header>
+
+<div class="container">
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Cari pasal, kata kunci (mis: gratifikasi, penyuapan, perampasan)...">
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="ringkasan">📋 Ringkasan</button>
+    <button class="tab-btn" data-tab="pasal">📖 Pasal-Pasal</button>
+    <button class="tab-btn" data-tab="tabel">📊 Tabel Sanksi</button>
+    <button class="tab-btn" data-tab="alur">🔄 Alur Pembuktian</button>
+    <button class="tab-btn" data-tab="peralihan">⏳ Peralihan</button>
+  </div>
+
+  <!-- ================= RINGKASAN ================= -->
+  <section class="panel active" id="ringkasan">
+    <div class="stats">
+      <div class="stat"><div class="num">8</div><div class="lbl">Angka Perubahan (Pasal I)</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Pasal Baru (12A, 12B, 12C)</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Pasal Perampasan (38A–C)</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Pasal Peralihan (43A, 43B)</div></div>
+    </div>
+
+    <div class="card">
+      <h3>🎯 Latar Belakang & Tujuan</h3>
+      <p>Korupsi dianggap sebagai <span class="danger">kejahatan luar biasa</span> (extraordinary crime) karena:</p>
+      <ul>
+        <li>Terjadi secara <b>meluas dan sistematis</b></li>
+        <li>Merugikan <b>keuangan negara</b></li>
+        <li>Melanggar <b>hak sosial & ekonomi</b> masyarakat luas</li>
+      </ul>
+      <p>Sehingga pemberantasannya harus dilakukan dengan <span class="highlight">cara yang luar biasa</span> — antara lain melalui <b>pembuktian terbalik</b>, perluasan alat bukti, dan perampasan aset.</p>
+    </div>
+
+    <div class="card">
+      <h3>✨ 6 Perubahan Kunci</h3>
+      <div class="grid">
+        <div>
+          <span class="pill blue">1. Rumusan Langsung</span>
+          <p style="font-size:.86rem;color:var(--muted)">Pasal 5–12 tidak lagi mengacu KUHP, tapi langsung menyebut unsur-unsurnya → menghindari multi-tafsir.</p>
+        </div>
+        <div>
+          <span class="pill gold">2. Gratifikasi</span>
+          <p style="font-size:.86rem;color:var(--muted)">Pasal 12B: gratifikasi dianggap suap jika berhubungan jabatan & berlawanan kewajiban.</p>
+        </div>
+        <div>
+          <span class="pill purple">3. Pembuktian Terbalik</span>
+          <p style="font-size:.86rem;color:var(--muted)">Terdakwa wajib buktikan harta yang diduga dari korupsi (Pasal 37A, 38B).</p>
+        </div>
+        <div>
+          <span class="pill green">4. Alat Bukti Elektronik</span>
+          <p style="font-size:.86rem;color:var(--muted)">Pasal 26A: data elektronik & dokumen digital sah sebagai petunjuk.</p>
+        </div>
+        <div>
+          <span class="pill blue">5. Korupsi Nilai Kecil</span>
+          <p style="font-size:.86rem;color:var(--muted)">Pasal 12A: < Rp5 juta → pidana khusus maks. 3 tahun, denda maks. Rp50 juta.</p>
+        </div>
+        <div>
+          <span class="pill red">6. Perampasan & Gugatan</span>
+          <p style="font-size:.86rem;color:var(--muted)">Pasal 38B–C: negara rampas harta & gugat perdata harta tersembunyi.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📌 Definisi Penting</h3>
+      <p><b class="highlight">Gratifikasi:</b> pemberian dalam arti luas — uang, barang, rabat/diskon, komisi, pinjaman tanpa bunga, tiket perjalanan, fasilitas penginapan, perjalanan wisata, pengobatan cuma-cuma, dan fasilitas lain — baik di dalam/luar negeri, dengan/tanpa sarana elektronik.</p>
+      <p><b class="highlight">Penyelenggara Negara:</b> sebagaimana dimaksud Pasal 2 UU No. 28/1999 tentang Penyelenggara Negara yang Bersih dan Bebas dari KKN.</p>
+      <p><b class="highlight">Advokat:</b> orang yang berprofesi memberi jasa hukum baik di dalam maupun di luar pengadilan sesuai peraturan perundang-undangan.</p>
+    </div>
+  </section>
+
+  <!-- ================= PASAL ================= -->
+  <section class="panel" id="pasal">
+    <div class="card searchable" data-keywords="pasal 5 suap pegawai negeri penyelenggara negara memberi menjanjikan">
+      <h3><span class="pasal">Pasal 5</span> Penyuapan Pegawai Negeri</h3>
+      <p>Setiap orang yang:</p>
+      <ul>
+        <li><b>a.</b> memberi/menjanjikan sesuatu kepada pegawai negeri/penyelenggara negara agar berbuat/tidak berbuat sesuatu yang bertentangan dengan kewajiban;</li>
+        <li><b>b.</b> memberi sesuatu karena/berhubungan dengan perbuatan yang bertentangan dengan kewajiban.</li>
+      </ul>
+      <p><b>Penerima</b> (ayat 2) dipidana sama.</p>
+      <p><span class="pill blue">Penjara 1–5 tahun</span> <span class="pill gold">Denda Rp50 jt – Rp250 jt</span></p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 6 suap hakim advokat mempengaruhi putusan nasihat">
+      <h3><span class="pasal">Pasal 6</span> Penyuapan Hakim & Advokat</h3>
+      <p>Memberi/menjanjikan sesuatu kepada:</p>
+      <ul>
+        <li><b>a.</b> <b>Hakim</b> — untuk mempengaruhi putusan perkara;</li>
+        <li><b>b.</b> <b>Advokat</b> — untuk mempengaruhi nasihat/pendapat dalam sidang.</li>
+      </ul>
+      <p><b>Penerima</b> (ayat 2) dipidana sama.</p>
+      <p><span class="pill red">Penjara 3–15 tahun</span> <span class="pill gold">Denda Rp150 jt – Rp750 jt</span></p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 7 pemborong ahli bangunan curang TNI Polri perang pengawas">
+      <h3><span class="pasal">Pasal 7</span> Perbuatan Curang Konstruksi & Pengadaan</h3>
+      <ul>
+        <li><b>a.</b> Pemborong/ahli bangunan/penjual bahan bangunan berbuat curang yang membahayakan keamanan/k3selamatan negara dalam perang;</li>
+        <li><b>b.</b> Pengawas sengaja membiarkan perbuatan curang;</li>
+        <li><b>c.</b> Penyerah barang keperluan TNI/Polri berbuat curang;</li>
+        <li><b>d.</b> Pengawas penyerahan barang TNI/Polri membiarkan kecurangan.</li>
+      </ul>
+      <p><b>Penerima</b> yang membiarkan (ayat 2) dipidana sama.</p>
+      <p><span class="pill blue">Penjara 2–7 tahun</span> <span class="pill gold">Denda Rp100 jt – Rp350 jt</span></p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 8 penggelapan uang surat berharga jabatan pegawai negeri">
+      <h3><span class="pasal">Pasal 8</span> Penggelapan Uang/Surat Berharga Jabatan</h3>
+      <p>Pegawai negeri/orang yang menjalankan jabatan umum yang dengan sengaja:</p>
+      <ul>
+        <li>Menggelapkan uang/surat berharga yang disimpan karena jabatannya;</li>
+        <li>Membiarkan diambil/digelapkan orang lain;</li>
+        <li>Membantu perbuatan tersebut.</li>
+      </ul>
+      <p><span class="pill red">Penjara 3–15 tahun</span> <span class="pill gold">Denda Rp150 jt – Rp750 jt</span></p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 9 pemalsuan buku daftar administrasi">
+      <h3><span class="pasal">Pasal 9</span> Pemalsuan Buku/Daftar Administrasi</h3>
+      <p>Pegawai negeri/orang yang menjalankan jabatan umum dengan sengaja <b>memalsu buku-buku atau daftar-daftar</b> khusus untuk pemeriksaan administrasi.</p>
+      <p><span class="pill blue">Penjara 1–5 tahun</span> <span class="pill gold">Denda Rp50 jt – Rp250 jt</span></p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 10 menghancurkan merusak barang akta surat daftar">
+      <h3><span class="pasal">Pasal 10</span> Perusakan Barang/Akta/Surat Bukti</h3>
+      <p>Dengan sengaja:</p>
+      <ul>
+        <li><b>a.</b> Menggelapkan/menghancurkan/merusak/membuat tidak dapat dipakai barang, akta, surat, daftar yang dikuasai karena jabatan;</li>
+        <li><b>b.</b> Membiarkan orang lain melakukannya;</li>
+        <li><b>c.</b> Membantu orang lain melakukannya.</li>
+      </ul>
+      <p><span class="pill blue">Penjara 2–7 tahun</span> <span class="pill gold">Denda Rp100 jt – Rp350 jt</span></p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 11 hadiah janji kekuasaan jabatan">
+      <h3><span class="pasal">Pasal 11</span> Menerima Hadiah karena Kekuasaan Jabatan</h3>
+      <p>Pegawai negeri/penyelenggara negara yang menerima hadiah/janji padahal <b>diketahui atau patut diduga</b> diberikan karena kekuasaan/kewenangan jabatannya.</p>
+      <p><span class="pill blue">Penjara 1–5 tahun</span> <span class="pill gold">Denda Rp50 jt – Rp250 jt</span></p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 12 korupsi berat seumur hidup memaksa memotong tanah negara pemborongan pengadaan">
+      <h3><span class="pasal">Pasal 12</span> Bentuk-Bentuk Korupsi Berat</h3>
+      <ul>
+        <li><b>a.</b> Menerima hadiah/janji untuk menggerakkan perbuatan melawan kewajiban;</li>
+        <li><b>b.</b> Menerima hadiah akibat perbuatan melawan kewajiban;</li>
+        <li><b>c.</b> Hakim menerima hadiah untuk mempengaruhi putusan;</li>
+        <li><b>d.</b> Advokat menerima hadiah untuk mempengaruhi nasihat;</li>
+        <li><b>e.</b> Memaksa memberi/membayar/menerima potongan untuk keuntungan sendiri;</li>
+        <li><b>f.</b> Meminta/memotong pembayaran seolah-olah utang;</li>
+        <li><b>g.</b> Meminta pekerjaan/penyerahan barang seolah-olah utang;</li>
+        <li><b>h.</b> Menggunakan tanah negara yang ada hak pakai secara melawan hukum;</li>
+        <li><b>i.</b> Turut serta dalam pemborongan/pengadaan/persewaan saat menjalankan tugas.</li>
+      </ul>
+      <p><span class="pill red">Penjara seumur hidup atau 4–20 tahun</span> <span class="pill gold">Denda Rp200 jt – Rp1 M</span></p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 12A korupsi nilai kecil lima juta">
+      <h3><span class="pasal">Pasal 12A</span> Korupsi Nilai Kecil (&lt; Rp5 juta)</h3>
+      <ul>
+        <li><b>(1)</b> Ketentuan pidana Pasal 5–12 <b>tidak berlaku</b> untuk korupsi <b>&lt; Rp5.000.000</b>.</li>
+        <li><b>(2)</b> Pelakunya dipidana <b>maksimal 3 tahun</b> dan denda <b>maksimal Rp50 juta</b>.</li>
+      </ul>
+      <div class="note green">Tujuan: menghilangkan rasa ketidakadilan bagi korupsi nilai relatif kecil.</div>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 12B gratifikasi suap sepuluh juta pembuktian terbalik">
+      <h3><span class="pasal">Pasal 12B</span> Gratifikasi</h3>
+      <p><b>(1)</b> Setiap gratifikasi kepada pegawai negeri/penyelenggara negara <b>dianggap suap</b> apabila berhubungan dengan jabatan dan berlawanan dengan kewajiban/tugas, dengan ketentuan:</p>
+      <ul>
+        <li><b>a.</b> Nilai <b>≥ Rp10 juta</b> → <span class="highlight">penerima</span> wajib membuktikan bukan suap (pembuktian terbalik);</li>
+        <li><b>b.</b> Nilai <b>&lt; Rp10 juta</b> → <span class="highlight">penuntut umum</span> wajib membuktikan itu suap.</li>
+      </ul>
+      <p><b>(2)</b> Pidana: <span class="pill red">seumur hidup atau 4–20 tahun</span> <span class="pill gold">Denda Rp200 jt – Rp1 M</span></p>
+      <div class="note">
+        <b>Definisi Gratifikasi:</b> pemberian dalam arti luas — uang, barang, rabat/diskon, komisi, pinjaman tanpa bunga, tiket perjalanan, fasilitas penginapan, perjalanan wisata, pengobatan cuma-cuma, dan fasilitas lainnya, baik di dalam/luar negeri, dengan/tanpa sarana elektronik.
+      </div>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 12C laporan gratifikasi KPK tiga puluh hari kerja">
+      <h3><span class="pasal">Pasal 12C</span> Pelaporan Gratifikasi ke KPK</h3>
+      <ul>
+        <li><b>(1)</b> Pasal 12B ayat (1) <b>tidak berlaku</b> jika penerima <b>melaporkan</b> gratifikasi kepada <b>KPK</b>.</li>
+        <li><b>(2)</b> Laporan wajib disampaikan <b>paling lambat 30 hari kerja</b> sejak gratifikasi diterima.</li>
+        <li><b>(3)</b> KPK wajib menetapkan status gratifikasi (milik penerima/negara) <b>paling lambat 30 hari kerja</b> sejak laporan diterima.</li>
+        <li><b>(4)</b> Tata cara diatur dalam UU tentang KPK.</li>
+      </ul>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 26A alat bukti elektronik petunjuk dokumen CD-ROM email">
+      <h3><span class="pasal">Pasal 26A</span> Alat Bukti Elektronik</h3>
+      <p>Alat bukti sah berupa <b>petunjuk</b> (Pasal 188 ayat (2) KUHAP) untuk korupsi juga dapat diperoleh dari:</p>
+      <ul>
+        <li><b>a.</b> Informasi yang diucapkan/dikirim/diterima/disimpan secara elektronik dengan alat optik atau serupa (mikro film, CD-ROM, WORM, e-mail, telegram, teleks, faksimili);</li>
+        <li><b>b.</b> <b>Dokumen</b> — rekaman data/informasi yang dapat dilihat/dibaca/didengar, baik di kertas, benda fisik selain kertas, maupun terekam elektronik (tulisan, suara, gambar, peta, rancangan, foto, huruf, tanda, angka, perforasi yang bermakna).</li>
+      </ul>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 37 hak terdakwa membuktikan tidak korupsi">
+      <h3><span class="pasal">Pasal 37</span> Hak Terdakwa</h3>
+      <ul>
+        <li><b>(1)</b> Terdakwa <b>berhak</b> membuktikan ia tidak melakukan tindak pidana korupsi.</li>
+        <li><b>(2)</b> Jika berhasil, pembuktian itu <b>digunakan pengadilan sebagai dasar menyatakan dakwaan tidak terbukti</b>.</li>
+      </ul>
+      <div class="note">Konsekuensi berimbang atas pembuktian terbalik; tetap melindungi <b>asas praduga tak bersalah</b> dan <b>non-self-incrimination</b>. Tidak menganut sistem pembuktian negatif menurut UU (negatief wettelijk).</div>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 37A kewajiban terdakwa harta benda istri anak korporasi">
+      <h3><span class="pasal">Pasal 37A</span> Kewajiban Terdakwa</h3>
+      <ul>
+        <li><b>(1)</b> Terdakwa <b>wajib</b> memberi keterangan seluruh harta bendanya, harta istri/suami, anak, dan setiap orang/korporasi yang diduga berhubungan dengan perkara.</li>
+        <li><b>(2)</b> Jika tidak dapat membuktikan kekayaan tidak seimbang dengan penghasilan, keterangan itu <b>memperkuat alat bukti</b> bahwa terdakwa korupsi.</li>
+        <li><b>(3)</b> Ketentuan ini berlaku untuk perkara pokok Pasal 2, 3, 4, 13–16 UU 31/1999 dan Pasal 5–12 UU ini; <b>penuntut umum tetap wajib membuktikan dakwaan</b>.</li>
+      </ul>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 38A pembuktian gratifikasi sidang pengadilan">
+      <h3><span class="pasal">Pasal 38A</span> Pembuktian Gratifikasi di Sidang</h3>
+      <p>Pembuktian Pasal 12B ayat (1) dilakukan <b>pada saat pemeriksaan di sidang pengadilan</b>.</p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 38B perampasan harta benda pembuktian terbalik hakim">
+      <h3><span class="pasal">Pasal 38B</span> Perampasan Harta Benda</h3>
+      <ul>
+        <li><b>(1)</b> Terdakwa <b>wajib membuktikan sebaliknya</b> terhadap harta miliknya yang belum didakwakan tapi diduga dari korupsi.</li>
+        <li><b>(2)</b> Jika gagal, harta <b>dianggap dari korupsi</b> dan hakim berwenang <b>merampas seluruh/sebagian untuk negara</b>.</li>
+        <li><b>(3)</b> Tuntutan perampasan diajukan penuntut umum saat membacakan tuntutan perkara pokok.</li>
+        <li><b>(4)</b> Pembuktian oleh terdakwa saat pembelaan; dapat diulang di memori banding & kasasi.</li>
+        <li><b>(5)</b> Hakim <b>wajib membuka persidangan khusus</b> untuk memeriksa pembuktian tersebut.</li>
+        <li><b>(6)</b> Jika terdakwa dibebaskan/lepas, tuntutan perampasan <b>harus ditolak</b>.</li>
+      </ul>
+      <div class="note">Perampasan diserahkan kepada hakim dengan pertimbangan <b>prikemanusiaan & jaminan hidup</b> terdakwa.</div>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 38C gugatan perdata harta terpidana ahli waris">
+      <h3><span class="pasal">Pasal 38C</span> Gugatan Perdata</h3>
+      <p>Jika setelah putusan <b>inkracht</b> masih ada harta terpidana yang diduga dari korupsi dan belum dirampas, <b>negara dapat mengajukan gugatan perdata</b> terhadap terpidana dan/atau ahli warisnya.</p>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 43A ketentuan peralihan UU 3 1971 lex favor reo">
+      <h3><span class="pasal">Pasal 43A</span> Ketentuan Peralihan</h3>
+      <ul>
+        <li><b>(1)</b> Korupsi <b>sebelum UU 31/1999</b> → diperiksa berdasarkan <b>UU 3/1971</b>, dengan maksimum pidana yang menguntungkan terdakwa berlaku Pasal 5–10 UU ini & Pasal 13 UU 31/1999.</li>
+        <li><b>(2)</b> Ketentuan <b>minimum</b> pidana Pasal 5–10 UU ini & Pasal 13 UU 31/1999 <b>tidak berlaku</b> untuk korupsi sebelum UU 31/1999.</li>
+        <li><b>(3)</b> Korupsi <b>sebelum UU ini</b> → diperiksa berdasarkan UU 31/1999, dengan maksimum pidana untuk korupsi <b>&lt; Rp5 juta</b> berlaku Pasal 12A ayat (2) UU ini.</li>
+      </ul>
+      <div class="note green">Sesuai asas umum hukum pidana <b>Pasal 1 ayat (2) KUHP</b> — lex favor reo (hukum yang menguntungkan terdakwa).</div>
+    </div>
+
+    <div class="card searchable" data-keywords="pasal 43B pencabutan KUHP 209 210 387 388 415 416 417 418 419 420 423 425 435">
+      <h3><span class="pasal">Pasal 43B</span> Pencabutan Pasal KUHP</h3>
+      <p>Pada saat UU ini berlaku, pasal-pasal KUHP berikut <b>dinyatakan tidak berlaku</b>:</p>
+      <p><span class="pill red">Pasal 209</span> <span class="pill red">210</span> <span class="pill red">387</span> <span class="pill red">388</span> <span class="pill red">415</span> <span class="pill red">416</span> <span class="pill red">417</span> <span class="pill red">418</span> <span class="pill red">419</span> <span class="pill red">420</span> <span class="pill red">423</span> <span class="pill red">425</span> <span class="pill red">435</span></p>
+      <p style="font-size:.85rem;color:var(--muted)">jo. UU No. 1/1946 jo. UU No. 73/1958 jo. UU No. 27/1999.</p>
+    </div>
+
+    <div class="no-result" id="noResult">😕 Tidak ada pasal yang cocok dengan pencarian Anda.</div>
+  </section>
+
+  <!-- ================= TABEL ================= -->
+  <section class="panel" id="tabel">
+    <div class="card">
+      <h3>📊 Tabel Sanksi Pidana</h3>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr><th>Pasal</th><th>Perbuatan</th><th>Pidana Penjara</th><th>Denda</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>5</b></td><td>Menyuap pegawai negeri/penyelenggara negara</td><td>1–5 tahun</td><td>Rp50 jt – Rp250 jt</td></tr>
+            <tr><td><b>6</b></td><td>Menyuap hakim/advokat</td><td>3–15 tahun</td><td>Rp150 jt – Rp750 jt</td></tr>
+            <tr><td><b>7</b></td><td>Curang dalam konstruksi/pengadaan TNI-Polri</td><td>2–7 tahun</td><td>Rp100 jt – Rp350 jt</td></tr>
+            <tr><td><b>8</b></td><td>Menggelapkan uang/surat berharga jabatan</td><td>3–15 tahun</td><td>Rp150 jt – Rp750 jt</td></tr>
+            <tr><td><b>9</b></td><td>Memalsu buku/daftar administrasi</td><td>1–5 tahun</td><td>Rp50 jt – Rp250 jt</td></tr>
+            <tr><td><b>10</b></td><td>Merusak barang/akta/surat bukti</td><td>2–7 tahun</td><td>Rp100 jt – Rp350 jt</td></tr>
+            <tr><td><b>11</b></td><td>Menerima hadiah karena kekuasaan jabatan</td><td>1–5 tahun</td><td>Rp50 jt – Rp250 jt</td></tr>
+            <tr><td><b>12</b></td><td>Korupsi berat (9 bentuk)</td><td>Seumur hidup / 4–20 tahun</td><td>Rp200 jt – Rp1 M</td></tr>
+            <tr style="background:rgba(251,191,36,.07)"><td><b>12A</b></td><td>Korupsi nilai &lt; Rp5 juta</td><td>Maks. 3 tahun</td><td>Maks. Rp50 jt</td></tr>
+            <tr style="background:rgba(248,113,113,.07)"><td><b>12B</b></td><td>Gratifikasi (dianggap suap)</td><td>Seumur hidup / 4–20 tahun</td><td>Rp200 jt – Rp1 M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ALUR ================= -->
+  <section class="panel" id="alur">
+    <div class="card">
+      <h3>🔄 Alur Pembuktian Gratifikasi (Pasal 12B & 12C)</h3>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <h4>Gratifikasi Diterima</h4>
+            <p>Pegawai negeri/penyelenggara negara menerima gratifikasi yang berhubungan dengan jabatan & berlawanan dengan kewajiban.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <h4>Cek Nilai Gratifikasi</h4>
+            <p><span class="pill gold">≥ Rp10 juta</span> → beban pembuktian pada <b>penerima</b>.<br>
+               <span class="pill blue">&lt; Rp10 juta</span> → beban pembuktian pada <b>penuntut umum</b>.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <h4>Opsi Pelaporan ke KPK</h4>
+            <p>Penerima dapat <b>melaporkan ke KPK</b> dalam <b>30 hari kerja</b> sejak diterima → Pasal 12B ayat (1) <b>tidak berlaku</b>.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <h4>KPK Menetapkan Status</h4>
+            <p>Dalam <b>30 hari kerja</b> sejak laporan, KPK menetapkan gratifikasi menjadi <b>milik penerima</b> atau <b>milik negara</b>.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-content">
+            <h4>Jika Tidak Dilaporkan / Terbukti Suap</h4>
+            <p>Dianggap suap → pidana <span class="danger">seumur hidup atau 4–20 tahun</span> + denda Rp200 jt – Rp1 M.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚖️ Alur Perampasan Harta (Pasal 38B)</h3>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-content"><h4>Dakwaan Pokok</h4><p>Terdakwa didakwa Pasal 2, 3, 4, 13–16 UU 31/1999 atau Pasal 5–12 UU ini.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-content"><h4>Harta Belum Didakwakan</h4><p>Ada harta milik terdakwa yang belum didakwakan tapi diduga dari korupsi.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-content"><h4>Terdakwa Wajib Buktikan Sebaliknya</h4><p>Diajukan saat pembelaan; dapat diulang di memori banding & kasasi.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-content"><h4>Hakim Buka Sidang Khusus</h4><p>Hakim <b>wajib</b> membuka persidangan khusus untuk memeriksa pembuktian tersebut.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-content"><h4>Putusan</h4><p>Gagal buktikan → harta <b>dirampas untuk negara</b> (seluruh/sebagian).<br>Dibebaskan/lepas → tuntutan perampasan <b>ditolak</b>.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">6</div>
+          <div class="flow-content"><h4>Gugatan Perdata (Pasal 38C)</h4><p>Jika setelah inkracht masih ada harta tersembunyi → negara gugat perdata terpidana/ahli waris.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PERALIHAN ================= -->
+  <section class="panel" id="peralihan">
+    <div class="card">
+      <h3>⏳ Ketentuan Peralihan (Pasal 43A)</h3>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr><th>Waktu Korupsi</th><th>Dasar Hukum</th><th>Ketentuan Pidana</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Sebelum UU 31/1999</b></td>
+              <td>UU 3/1971</td>
+              <td>Maksimum pidana yang menguntungkan terdakwa berlaku Pasal 5–10 UU ini & Pasal 13 UU 31/1999. <b>Minimum tidak berlaku.</b></td>
+            </tr>
+            <tr>
+              <td><b>Setelah UU 31/1999, sebelum UU ini</b></td>
+              <td>UU 31/1999</td>
+              <td>Untuk korupsi &lt; Rp5 juta, maksimum pidana berlaku Pasal 12A ayat (2) UU ini (maks. 3 tahun).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note green">Asas <b>lex favor reo</b> — Pasal 1 ayat (2) KUHP: ketentuan pidana yang menguntungkan terdakwa diberlakukan.</div>
+    </div>
+
+    <div class="card">
+      <h3>🚫 Pencabutan Pasal KUHP (Pasal 43B)</h3>
+      <p>Pasal KUHP yang <b>tidak berlaku lagi</b> sejak UU ini diundangkan:</p>
+      <p>
+        <span class="pill red">209</span><span class="pill red">210</span>
+        <span class="pill red">387</span><span class="pill red">388</span>
+        <span class="pill red">415</span><span class="pill red">416</span>
+        <span class="pill red">417</span><span class="pill red">418</span>
+        <span class="pill red">419</span><span class="pill red">420</span>
+        <span class="pill red">423</span><span class="pill red">425</span>
+        <span class="pill red">435</span>
+      </p>
+      <p style="font-size:.85rem;color:var(--muted)">jo. UU No. 1/1946 jo. UU No. 73/1958 jo. UU No. 27/1999.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  📚 Sumber: UU RI No. 20 Tahun 2001 · LN 2001/134 · TLN 4150 · Disahkan 21 November 2001<br>
+  Dibuat untuk mempermudah pemahaman — bukan pengganti teks resmi.
+</footer>
+
+<script>
+  // ===== Tab Navigation =====
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+      // reset search saat pindah tab
+      document.getElementById('searchInput').value = '';
+      filterCards('');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+
+  // ===== Search =====
+  const searchInput = document.getElementById('searchInput');
+  const noResult = document.getElementById('noResult');
+
+  function filterCards(query){
+    const q = query.toLowerCase().trim();
+    const cards = document.querySelectorAll('#pasal .searchable');
+    let visible = 0;
+    cards.forEach(card => {
+      const text = (card.textContent + ' ' + (card.dataset.keywords||'')).toLowerCase();
+      const match = text.includes(q);
+      card.style.display = match ? '' : 'none';
+      if(match) visible++;
+    });
+    noResult.style.display = (q && visible === 0) ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input', e => {
+    const q = e.target.value;
+    // otomatis pindah ke tab pasal saat mengetik
+    if(q.trim()){
+      const pasalBtn = document.querySelector('.tab-btn[data-tab="pasal"]');
+      if(!pasalBtn.classList.contains('active')){
+        tabBtns.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        pasalBtn.classList.add('active');
+        document.getElementById('pasal').classList.add('active');
+      }
+    }
+    filterCards(q);
+  });
+</script>
+
+</body>
+</html>
