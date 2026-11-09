@@ -214,6 +214,80 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .footer-links li{margin-bottom:9px}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;font-size:.85rem}
 
+/* ============ KOMITMEN BERSAMA ============ */
+.commitment-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.commitment-card:hover {
+  transform: translateY(-4px);
+}
+.commitment-image-wrap {
+  width: 100%;
+  background: linear-gradient(135deg, #0c2340 0%, #16406b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.commitment-image-wrap img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.commitment-body {
+  padding: clamp(24px, 4vw, 40px);
+  text-align: center;
+}
+.commitment-body h3 {
+  font-family: var(--head);
+  color: var(--navy);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  margin-bottom: 12px;
+}
+.commitment-body p {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 650px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+.btn-commitment {
+  background: var(--navy);
+  color: #fff;
+  padding: 16px 36px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 20px -8px rgba(12, 35, 64, 0.6);
+  transition: background 0.2s, transform 0.2s;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-commitment:hover {
+  background: var(--navy-2);
+  transform: translateY(-2px);
+  color: #fff;
+}
+/* ============ END KOMITMEN BERSAMA ============ */
+
 /* RESPONSIVE */
 @media (max-width:1100px){
   .nav-toggle{display:block}
@@ -251,6 +325,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .youtube-info h3,.portfolio-info h3{justify-content:center}
   .youtube-actions,.portfolio-actions{width:100%}
   .youtube-actions .btn-youtube,.youtube-actions .btn-youtube-outline,.portfolio-actions .btn-portfolio,.portfolio-actions .btn-portfolio-outline{width:100%}
+  .btn-commitment{width:100%;}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
   </style>
@@ -268,10 +343,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <li><a href="#topik">Materi</a></li>
         <li><a href="#ebook">E-Book</a></li>
         <li><a href="#youtube">YouTube</a></li>
-        <li><a href="#portofolio">Portofolio</a></li> <!-- MENU BARU -->
+        <li><a href="#portofolio">Portofolio</a></li>
         <li><a href="#tes">Tes</a></li>
         <li><a href="#daftar-hadir">Daftar Hadir</a></li>
         <li><a href="#pendapat">Pendapat</a></li>
+        <li><a href="#komitmen">Komitmen</a></li> <!-- MENU BARU -->
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#kontak">Kontak</a></li>
       </ul>
@@ -564,8 +640,31 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       </div>
     </section>
 
+    <!-- KOMITMEN BERSAMA (SECTION BARU) -->
+    <section id="komitmen" class="section alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Komitmen Bersama</h2>
+          <p>Mari bersatu padu menegakkan integritas dan memberantas korupsi demi masa depan Indonesia yang lebih baik.</p>
+        </div>
+        <div class="commitment-card">
+          <div class="commitment-image-wrap">
+            <!-- Ganti "komitmen.jpg" dengan path gambar yang Anda simpan -->
+            <img src="komitmen.jpg" alt="Komitmen Bersama: Berani Jujur Hebat - Penegakan Integritas & Anti-Korupsi">
+          </div>
+          <div class="commitment-body">
+            <h3>Sudah Siap Berkomitmen?</h3>
+            <p>Tunjukkan dukungan Anda dengan mengisi formulir komitmen secara online. Suara Anda sangat berarti untuk perubahan yang lebih baik.</p>
+            <a href="https://forms.gle/9Exoc6VHdhzEAQqg7" target="_blank" rel="noopener" class="btn-commitment">
+              ✍️ Isi Formulir Komitmen
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
-    <section id="faq" class="section alt">
+    <section id="faq" class="section">
       <div class="container">
         <div class="section-title">
           <h2>Pertanyaan Umum</h2>
@@ -597,7 +696,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </section>
 
     <!-- KONTAK -->
-    <section id="kontak" class="section">
+    <section id="kontak" class="section alt">
       <div class="container">
         <div class="section-title">
           <h2>Hubungi Saya</h2>
@@ -673,6 +772,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <li><a href="#youtube">YouTube</a></li>
             <li><a href="#portofolio">Portofolio</a></li>
             <li><a href="#tes">Tes Online</a></li>
+            <li><a href="#komitmen">Komitmen Bersama</a></li>
           </ul>
         </div>
         <div>
@@ -680,6 +780,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <ul class="footer-links">
             <li><a href="https://forms.gle/guG8EfHM4KxcUKgj9" target="_blank" rel="noopener">Daftar Hadir</a></li>
             <li><a href="https://forms.gle/tahixhxoPMmSmNbB8" target="_blank" rel="noopener">Pendapat Anda</a></li>
+            <li><a href="https://forms.gle/9Exoc6VHdhzEAQqg7" target="_blank" rel="noopener">Komitmen Bersama</a></li> <!-- MENU BARU -->
             <li><a href="https://forms.gle/HoBErAux6cfcvXYM6" target="_blank" rel="noopener">Pre-Test</a></li>
             <li><a href="https://forms.gle/nP6GsYJfA66AS2q59" target="_blank" rel="noopener">Post-Test</a></li>
             <li><a href="https://www.youtube.com/channel/UCCvcLJxcIlGtzGm-xPhA2UA" target="_blank" rel="noopener">YouTube Channel</a></li>
