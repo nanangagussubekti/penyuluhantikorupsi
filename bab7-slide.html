@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bab 7 | Mengenal Pengertian Korupsi dan Antikorupsi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--red:#b3261e;--green:#1f7a5a;--paper:#f6f4ee;--ink:#16202c;--muted:#566272;--line:#e0dccf;
+--head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--navy);font-family:var(--body);color:var(--ink);-webkit-text-size-adjust:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transform:translateX(3%);transition:opacity .45s,transform .45s,visibility .45s}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-3%)}
+.slide.dark{color:#fff;background:radial-gradient(900px 520px at 90% 10%,rgba(42,107,168,.5),transparent 60%),linear-gradient(160deg,#091b33,var(--navy) 55%,var(--navy2))}
+.tag{position:absolute;top:max(18px,env(safe-area-inset-top));left:6vw;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.dark .tag{color:#b9c9dd}
+.tag i{width:22px;height:14px;border-radius:2px;background:linear-gradient(#d52b1e 50%,#fff 50%);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.frame{position:absolute;top:56px;bottom:84px;left:6vw;right:6vw;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.inner{width:100%;max-width:1100px;font-size:22px;line-height:1.55;margin:auto}
+h1,h2{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:2.5em;font-weight:800}
+h1.sec{font-size:2.1em;margin-bottom:.5em}
+h2{font-size:1.75em;font-weight:700;color:var(--navy);margin-bottom:.55em;display:flex;gap:.5em;align-items:baseline}
+.dark h2{color:#fff}
+.no{font-family:var(--head);color:var(--navy);background:var(--gold);min-width:1.6em;height:1.6em;border-radius:.45em;display:inline-grid;place-items:center;font-size:.75em;flex-shrink:0;transform:translateY(-.1em)}
+.kick{color:var(--gold);font-weight:700;font-size:.9em;margin-bottom:.8em}
+.lead{font-size:1.08em;color:var(--muted);margin-bottom:.9em}
+.dark .lead{color:#dbe6f3;border-left:4px solid var(--gold);padding-left:.9em}
+.dark p{color:#c9d8ea;margin-bottom:.8em}
+.hint{font-size:.8em;margin-top:2em}
+.cover .inner{max-width:900px;position:relative}
+.cover h1{margin-bottom:.5em}
+.ghost{position:absolute;right:-.1em;top:-.55em;z-index:-1;font-family:var(--head);font-weight:800;font-size:22em;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(242,183,5,.28);pointer-events:none}
+.cover .frame{overflow:hidden}
+.agenda{list-style:none;counter-reset:a;display:grid;gap:.6em}
+.agenda li{counter-increment:a;display:flex;gap:.9em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7em 1em;font-weight:600;color:var(--navy)}
+.agenda li::before{content:counter(a);font-family:var(--head);font-weight:800;background:var(--navy);color:var(--gold);width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.quote blockquote{font-family:var(--head);font-size:1.25em;line-height:1.6;color:var(--navy);border-left:6px solid var(--gold);padding:.3em 0 .3em 1em}
+.grid{display:grid;gap:14px}
+.n2{grid-template-columns:repeat(2,1fr)}.n3{grid-template-columns:repeat(3,1fr)}.n4{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 18px 18px 18px;padding:1em 1.1em;font-size:.92em}
+.card.bad{border-top-color:var(--red)}.card.sol{border-top-color:var(--green)}
+.card h3{font-family:var(--head);font-size:1.08em;color:var(--navy);margin-bottom:.35em;line-height:1.3}
+.card.bad h3{color:var(--red)}.card.sol h3{color:var(--green)}
+.card p{color:#2c3744}
+.big{font-family:var(--head);font-weight:800;font-size:2em;line-height:1;color:var(--gold);display:block;margin-bottom:.15em}
+.kids{margin-top:.8em}.kids .card{font-size:.95em;background:var(--paper)}
+.pts{list-style:none;display:grid;gap:.7em}
+.pts li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px 14px 14px 6px;padding:.8em 1.1em}
+.kes .lead{font-size:1.12em}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px max(5vw,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));z-index:5}
+.prog{flex:1;height:6px;border-radius:6px;background:rgba(120,130,150,.35);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.cnt{font-size:.85rem;font-weight:700;min-width:4.5em;text-align:center;color:#fff;mix-blend-mode:difference}
+.nb{width:46px;height:46px;border-radius:12px;border:none;background:var(--navy);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 0 0 2px rgba(242,183,5,.7)}
+.nb:hover{background:var(--navy2)}.nb:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.n3,.n2,.n4{grid-template-columns:1fr}.ghost{font-size:14em}.tag{left:5vw}.frame{left:5vw;right:5vw}}
+@media (max-height:520px){.frame{top:44px;bottom:70px}.nb{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}}
+.slide{isolation:isolate}
+.inner{position:relative}
+.ghost.n{font-size:13em;right:0;top:-.3em}
+.kick2{color:#b9c9dd;font-weight:700;letter-spacing:.08em;font-size:.85em;margin:-.5em 0 1em}
+.card.t-g{border-top-color:#c0392b}.t-g h3{color:#c0392b}
+.card.t-n{border-top-color:#d99a00}.t-n h3{color:#a86f00}
+.card.t-o{border-top-color:#2a6ba8}.t-o h3{color:#1e4b7a}
+.card.t-e{border-top-color:#1f7a5a}.t-e h3{color:#1f7a5a}
+.card.neu .big{color:#c99600;font-size:1.8em}
+.xl .card{font-size:1.15em;padding:1.3em 1.4em}
+.qmark{font-family:var(--head);font-size:7em;line-height:.6;color:var(--gold);margin-bottom:.1em}
+.bq{font-family:var(--head);font-size:1.8em;font-weight:700;line-height:1.3;margin-bottom:.5em;color:#fff}
+.by{color:#b9c9dd;font-weight:700;margin-bottom:1.2em}
+.kes .lead{color:var(--gold);border-left-color:var(--gold)}
+@media (max-width:820px){.ghost.n{font-size:6em}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark cover"><div class="tag"><i></i>Bab 7</div><div class="frame"><div class="inner"><p class="kick">BAB 7</p><p class="kick2">MATERI ANTI KORUPSI DASAR</p><h1>Mengenal Pengertian Korupsi dan Antikorupsi</h1><p class="lead">Memahami Anatomi Kejahatan Jabatan dan Benteng Integritas Moral</p><p class="hint">Tekan tombol panah atau geser layar untuk lanjut</p><div class="ghost n">07</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 7</div><div class="frame"><div class="inner"><h2>Definisi Korupsi: Perspektif Global</h2><div class="grid n3"><div class="card t-n"><h3>Etimologi</h3><p>Berasal dari kata Latin <em>corruptio</em> yang berarti kebusukan, keburukan, kebejatan, atau tindakan merusak.</p></div><div class="card t-o"><h3>Standar Dunia (World Bank)</h3><p>Korupsi didefinisikan sebagai penyalahgunaan kekuasaan publik untuk keuntungan pribadi.</p></div><div class="card t-g"><h3>Pandangan PBB (UNODC)</h3><p>Korupsi merupakan fenomena sosial, politik, dan ekonomi kompleks yang meruntuhkan institusi demokrasi dan memperlambat pertumbuhan ekonomi.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 7</div><div class="frame"><div class="inner"><h2>Lima Komponen Utama Korupsi</h2><div class="grid n3"><div class="card neu"><span class="big">1</span><h3>Bentuk Perilaku</h3><p>Merupakan suatu tindakan nyata yang dilakukan oleh individu atau kelompok.</p></div><div class="card neu"><span class="big">2</span><h3>Penyalahgunaan Wewenang</h3><p>Memanfaatkan jabatan, kekuasaan, atau posisi khusus yang dipercayakan.</p></div><div class="card neu"><span class="big">3</span><h3>Tujuan Finansial</h3><p>Dilakukan secara sengaja untuk mendapatkan keuntungan pribadi atau golongan.</p></div><div class="card neu"><span class="big">4</span><h3>Pelanggaran Hukum</h3><p>Menyimpang secara terang-terangan dari aturan hukum, norma, serta moral masyarakat.</p></div><div class="card neu"><span class="big">5</span><h3>Lokasi Transaksi</h3><p>Dapat terjadi atau dilakukan di lingkup lembaga pemerintahan maupun sektor swasta.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 7</div><div class="frame"><div class="inner"><h2>Tujuh Jenis Korupsi di Indonesia (UU Tipikor)</h2><div class="grid n3"><div class="card neu"><h3>Kerugian Keuangan Negara</h3><p>Merugikan finansial atau perekonomian negara secara langsung.</p></div><div class="card neu"><h3>Suap-Menyuap &amp; Pemerasan</h3><p>Transaksi jual-beli kewenangan dan pemaksaan setoran materi.</p></div><div class="card neu"><h3>Penggelapan dalam Jabatan</h3><p>Penyalahgunaan dana atau dokumen oleh pejabat penanggung jawab.</p></div><div class="card neu"><h3>Perbuatan Curang</h3><p>Manipulasi fisik atau administratif yang merugikan pihak lain.</p></div><div class="card neu"><h3>Benturan Kepentingan dalam Pengadaan</h3><p>Memanfaatkan posisi untuk memenangkan proyek pribadi.</p></div><div class="card neu"><h3>Gratifikasi</h3><p>Pemberian hadiah tidak sah yang berhubungan dengan jabatan atau tugas resmi.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 7</div><div class="frame"><div class="inner"><h2>Dua Kategorisasi Korupsi (Skala &amp; Pelaku)</h2><div class="grid n2 xl"><div class="card t-n"><h3>Bureaucratic Corruption (Petty Corruption)</h3><p>Terjadi di lingkungan birokrasi, melibatkan birokrat atau pegawai rendahan. Bentuknya berupa penerimaan/permintaan suap atau pungli dalam jumlah relatif kecil dari masyarakat.</p></div><div class="card t-g"><h3>Political Corruption (Grand Corruption)</h3><p>Melibatkan politisi di parlemen, pejabat tinggi pemerintahan, serta penegak hukum. Transaksi ini melibatkan perputaran uang yang sangat besar dan kedudukan politik yang tinggi.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 7</div><div class="frame"><div class="inner"><h2>Antikorupsi &amp; Sembilan Nilai Integritas</h2><div class="grid n3"><div class="card t-o"><h3>Definisi Antikorupsi</h3><p>Semua tindakan, perkataan, atau perbuatan yang menentang korupsi dan segala macam bentuknya.</p></div><div class="card t-e"><h3>Prinsip Dasar</h3><p>Bersandar penuh pada penanaman nilai integritas sebagai benteng moral diri.</p></div><div class="card t-n"><h3>Formula "Jumat Bersepeda KK"</h3><p>Rumus sembilan nilai utama antikorupsi dari KPK: Jujur, Mandiri, Tanggung Jawab, Berani, Sederhana, Peduli, Didisiplin, Adil, dan Kerja Keras.</p></div></div></div></div></section>
+<section class="slide dark kes"><div class="tag"><i></i>Bab 7</div><div class="frame"><div class="inner"><div class="qmark">“</div><p class="bq">Korupsi adalah wabah mengerikan yang menyebabkan pelanggaran HAM, merusak pasar, mengikis kualitas hidup, dan memunculkan kejahatan terorganisir.</p><p class="by">— Kofi Annan (Sekjen PBB 1997-2006)</p><p class="lead">Tegakkan Integritas Sejak Dini, Putus Siklus Korupsi!</p></div></div></section>
+</main>
+<nav class="bar" aria-label="Navigasi slide">
+  <button class="nb" id="prev" aria-label="Slide sebelumnya">&#8592;</button>
+  <div class="prog"><b id="pb"></b></div>
+  <span class="cnt" id="cnt"></span>
+  <button class="nb" id="fs" aria-label="Layar penuh">&#9974;</button>
+  <button class="nb" id="next" aria-label="Slide berikutnya">&#8594;</button>
+</nav>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(s){const f=s.querySelector('.frame'),n=s.querySelector('.inner');let z=Math.max(14,Math.min(26,innerWidth/58));if(innerHeight<520)z=Math.min(z,innerHeight/22);n.style.fontSize=z+'px';while(n.offsetHeight>f.clientHeight&&z>11){z-=.5;n.style.fontSize=z+'px'}}
+function fitAll(){S.forEach(fit)}
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});
+ document.getElementById('cnt').textContent=(i+1)+' / '+S.length;document.getElementById('pb').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();go(i-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);else if(k==='f'||k==='F')document.getElementById('fs').click()});
+let x0=null;
+addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',fitAll);
+fitAll();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitAll);
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
