@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bab 10 | Memahami Perbedaan Tindak Pidana Korupsi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--red:#b3261e;--green:#1f7a5a;--paper:#f6f4ee;--ink:#16202c;--muted:#566272;--line:#e0dccf;
+--head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--navy);font-family:var(--body);color:var(--ink);-webkit-text-size-adjust:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transform:translateX(3%);transition:opacity .45s,transform .45s,visibility .45s}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-3%)}
+.slide.dark{color:#fff;background:radial-gradient(900px 520px at 90% 10%,rgba(42,107,168,.5),transparent 60%),linear-gradient(160deg,#091b33,var(--navy) 55%,var(--navy2))}
+.tag{position:absolute;top:max(18px,env(safe-area-inset-top));left:6vw;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.dark .tag{color:#b9c9dd}
+.tag i{width:22px;height:14px;border-radius:2px;background:linear-gradient(#d52b1e 50%,#fff 50%);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.frame{position:absolute;top:56px;bottom:84px;left:6vw;right:6vw;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.inner{width:100%;max-width:1100px;font-size:22px;line-height:1.55;margin:auto}
+h1,h2{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:2.5em;font-weight:800}
+h1.sec{font-size:2.1em;margin-bottom:.5em}
+h2{font-size:1.75em;font-weight:700;color:var(--navy);margin-bottom:.55em;display:flex;gap:.5em;align-items:baseline}
+.dark h2{color:#fff}
+.no{font-family:var(--head);color:var(--navy);background:var(--gold);min-width:1.6em;height:1.6em;border-radius:.45em;display:inline-grid;place-items:center;font-size:.75em;flex-shrink:0;transform:translateY(-.1em)}
+.kick{color:var(--gold);font-weight:700;font-size:.9em;margin-bottom:.8em}
+.lead{font-size:1.08em;color:var(--muted);margin-bottom:.9em}
+.dark .lead{color:#dbe6f3;border-left:4px solid var(--gold);padding-left:.9em}
+.dark p{color:#c9d8ea;margin-bottom:.8em}
+.hint{font-size:.8em;margin-top:2em}
+.cover .inner{max-width:900px;position:relative}
+.cover h1{margin-bottom:.5em}
+.ghost{position:absolute;right:-.1em;top:-.55em;z-index:-1;font-family:var(--head);font-weight:800;font-size:22em;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(242,183,5,.28);pointer-events:none}
+.cover .frame{overflow:hidden}
+.agenda{list-style:none;counter-reset:a;display:grid;gap:.6em}
+.agenda li{counter-increment:a;display:flex;gap:.9em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7em 1em;font-weight:600;color:var(--navy)}
+.agenda li::before{content:counter(a);font-family:var(--head);font-weight:800;background:var(--navy);color:var(--gold);width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.quote blockquote{font-family:var(--head);font-size:1.25em;line-height:1.6;color:var(--navy);border-left:6px solid var(--gold);padding:.3em 0 .3em 1em}
+.grid{display:grid;gap:14px}
+.n2{grid-template-columns:repeat(2,1fr)}.n3{grid-template-columns:repeat(3,1fr)}.n4{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 18px 18px 18px;padding:1em 1.1em;font-size:.92em}
+.card.bad{border-top-color:var(--red)}.card.sol{border-top-color:var(--green)}
+.card h3{font-family:var(--head);font-size:1.08em;color:var(--navy);margin-bottom:.35em;line-height:1.3}
+.card.bad h3{color:var(--red)}.card.sol h3{color:var(--green)}
+.card p{color:#2c3744}
+.big{font-family:var(--head);font-weight:800;font-size:2em;line-height:1;color:var(--gold);display:block;margin-bottom:.15em}
+.kids{margin-top:.8em}.kids .card{font-size:.95em;background:var(--paper)}
+.pts{list-style:none;display:grid;gap:.7em}
+.pts li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px 14px 14px 6px;padding:.8em 1.1em}
+.kes .lead{font-size:1.12em}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px max(5vw,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));z-index:5}
+.prog{flex:1;height:6px;border-radius:6px;background:rgba(120,130,150,.35);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.cnt{font-size:.85rem;font-weight:700;min-width:4.5em;text-align:center;color:#fff;mix-blend-mode:difference}
+.nb{width:46px;height:46px;border-radius:12px;border:none;background:var(--navy);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 0 0 2px rgba(242,183,5,.7)}
+.nb:hover{background:var(--navy2)}.nb:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.n3,.n2,.n4{grid-template-columns:1fr}.ghost{font-size:14em}.tag{left:5vw}.frame{left:5vw;right:5vw}}
+@media (max-height:520px){.frame{top:44px;bottom:70px}.nb{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}}
+.slide{isolation:isolate}
+.inner{position:relative}
+.ghost.n{font-size:13em;right:0;top:-.3em}
+.kick2{color:#b9c9dd;font-weight:700;letter-spacing:.08em;font-size:.85em;margin:-.5em 0 1em}
+.card.t-g{border-top-color:#c0392b}.t-g h3{color:#c0392b}
+.card.t-n{border-top-color:#d99a00}.t-n h3{color:#a86f00}
+.card.t-o{border-top-color:#2a6ba8}.t-o h3{color:#1e4b7a}
+.card.t-e{border-top-color:#1f7a5a}.t-e h3{color:#1f7a5a}
+.card.one{padding:1.05em 1.3em}
+.cols2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.col{display:grid;gap:12px;align-content:start}
+.colhead{font-family:var(--head);font-weight:700;color:#fff;background:#a86f00;padding:.6em 1em;border-radius:12px;font-size:1.1em;line-height:1.3}
+.colhead.r{background:#b3261e}.colhead.b{background:#1e4b7a}.colhead.g{background:#1f7a5a}
+.col .card{margin:0;font-size:.95em}
+.tbl{width:100%;border-collapse:separate;border-spacing:0 8px;font-size:.98em}
+.tbl th{background:var(--navy);color:#fff;padding:.7em 1em;text-align:left;font-family:var(--head)}
+.tbl th:first-child{border-radius:12px 0 0 12px}.tbl th:last-child{border-radius:0 12px 12px 0}
+.tbl td{background:#fff;padding:.8em 1em;vertical-align:top;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tbl td:first-child{color:var(--navy);border-left:1px solid var(--line);border-radius:12px 0 0 12px}
+.tbl td:last-child{border-right:1px solid var(--line);border-radius:0 12px 12px 0}
+.cta .inner{text-align:center}.cta h1{margin-bottom:.4em}
+.cta .lead{border:0;padding:0;font-size:1.3em;color:var(--gold)}
+@media (max-width:820px){.cols2{grid-template-columns:1fr}.ghost.n{font-size:6em}
+.tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}.tbl thead{display:none}.tbl tr{margin-bottom:12px}
+.tbl td{border-radius:0!important;border:1px solid var(--line);border-top:0}.tbl td:first-child{border-radius:12px 12px 0 0!important;border-top:1px solid var(--line)}.tbl td:last-child{border-radius:0 0 12px 12px!important}
+.tbl td[data-l]:not(:first-child)::before{content:attr(data-l);display:block;font-size:.78em;font-weight:700;color:var(--muted);margin-bottom:.15em}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark cover"><div class="tag"><i></i>Bab 10</div><div class="frame"><div class="inner"><p class="kick">BAB 10</p><p class="kick2">MATERI ANTI KORUPSI DASAR</p><h1>MEMAHAMI PERBEDAAN TINDAK PIDANA KORUPSI</h1><p class="lead">Gratifikasi, Suap, Pemerasan, dan Uang Pelicin Berdasarkan Definisi KPK</p><p class="hint">Tekan tombol panah atau geser layar untuk lanjut</p><div class="ghost n">10</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 10</div><div class="frame"><div class="inner"><h2>Persamaan &amp; Landasan Hukum</h2><div class="cols2"><div class="col"><div class="colhead ">Landasan Hukum</div><div class="card one t-n"><p>UU Nomor 20 Tahun 2001 jo UU No. 31/1999 tentang Pemberantasan Tindak Pidana Korupsi.</p></div><div class="card one t-n"><p>Korupsi dirumuskan ke dalam 30 bentuk yang dikelompokkan menjadi 7 kategori utama.</p></div></div><div class="col"><div class="colhead b">Persamaan Keempat Istilah</div><div class="card one t-o"><p>Sama-sama merupakan bentuk tindak pidana korupsi.</p></div><div class="card one t-o"><p>Telah diatur kepastian hukumannya dalam undang-undang.</p></div><div class="card one t-o"><p>Merupakan kejahatan serius yang merugikan negara dan masyarakat.</p></div><div class="card one t-o"><p>Menjadi fokus utama edukasi antikorupsi oleh KPK.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 10</div><div class="frame"><div class="inner"><h2>Tabel Perbandingan Dasar</h2><table class="tbl"><thead><tr><th>Istilah</th><th>Inisiatif Utama</th><th>Unsur Transaksi / Janji</th><th>Tujuan Utama</th></tr></thead><tbody><tr><td data-l="Istilah"><strong>Suap</strong></td><td data-l="Inisiatif Utama">Pengguna Jasa (Masyarakat / Pengusaha)</td><td data-l="Unsur Transaksi / Janji">Ada kesepakatan di awal antara kedua belah pihak</td><td data-l="Tujuan Utama">Melanggar prosedur demi mempercepat urusan</td></tr><tr><td data-l="Istilah"><strong>Pemerasan</strong></td><td data-l="Inisiatif Utama">Petugas Layanan (Pegawai Negeri / Pejabat)</td><td data-l="Unsur Transaksi / Janji">Dipaksa oleh petugas secara sepihak</td><td data-l="Tujuan Utama">Mencari keuntungan dengan menyalahgunakan jabatan</td></tr><tr><td data-l="Istilah"><strong>Uang Pelicin</strong></td><td data-l="Inisiatif Utama">Pengguna Jasa / Petugas (Gabungan)</td><td data-l="Unsur Transaksi / Janji">Ada kesepakatan (Masuk kategori suap)</td><td data-l="Tujuan Utama">Memastikan prosedur / layanan berjalan lancar</td></tr><tr><td data-l="Istilah"><strong>Gratifikasi</strong></td><td data-l="Inisiatif Utama">Pengguna Jasa (Memberi sukarela)</td><td data-l="Unsur Transaksi / Janji">Tidak ada kesepakatan atau janji di awal</td><td data-l="Tujuan Utama">Tanam budi agar urusan di masa depan dipermudah</td></tr></tbody></table></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 10</div><div class="frame"><div class="inner"><h2>Bedah Istilah: Suap vs Pemerasan</h2><div class="cols2"><div class="col"><div class="colhead b">Suap (Bribery)</div><div class="card t-o"><h3>Aktor Aktif</h3><p>Pengguna Jasa.</p></div><div class="card t-o"><h3>Kondisi</h3><p>Pengguna jasa menawarkan imbalan agar urusannya lebih cepat meskipun melanggar prosedur.</p></div><div class="card t-o"><h3>Inti Tindakan</h3><p>Terjadi transaksi atau kesepakatan (deal) di awal oleh kedua belah pihak.</p></div></div><div class="col"><div class="colhead r">Pemerasan (Extortion)</div><div class="card t-g"><h3>Aktor Aktif</h3><p>Petugas Layanan.</p></div><div class="card t-g"><h3>Kondisi</h3><p>Petugas memaksa atau meminta imbalan kepada pengguna jasa untuk mempercepat layanan.</p></div><div class="card t-g"><h3>Inti Tindakan</h3><p>Ada unsur paksaan sepihak dari pejabat publik dengan memanfaatkan kekuasaan jabatan.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 10</div><div class="frame"><div class="inner"><h2>Uang Pelicin &amp; Gratifikasi</h2><div class="cols2"><div class="col"><div class="colhead ">Uang Pelicin (Grease Payment)</div><div class="card one t-n"><p>Bagian dari kategori suap-menyuap.</p></div><div class="card one t-n"><p>Bisa berupa gabungan dari tindakan suap dan pemerasan.</p></div><div class="card one t-n"><p>Diberikan untuk mengamankan atau memperlancar layanan birokrasi yang seharusnya memang didapatkan.</p></div></div><div class="col"><div class="colhead g">Gratifikasi (Hadiah)</div><div class="card one t-e"><p>Pemberian dalam arti luas (uang, barang, diskon, tiket, fasilitas penginapan, dll).</p></div><div class="card one t-e"><p>Diberikan tanpa ada transaksi, janji, atau permintaan eksplisit di awal.</p></div><div class="card one t-e"><p>Bersifat 'tanam budi' untuk menggerakkan hati petugas agar urusan di masa depan dimudahkan.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Materi Anti Korupsi Dasar • Bab 10</div><div class="frame"><div class="inner"><h2>Konsekuensi Hukum &amp; Sanksi Pidana</h2><div class="cols2"><div class="col"><div class="colhead b">Suap, Uang Pelicin, &amp; Pemerasan</div><div class="card one t-o"><p>Diatur dalam Pasal 5 ayat (1) UU Tipikor.</p></div><div class="card one t-o"><p>Pidana penjara maksimal 5 tahun.</p></div><div class="card one t-o"><p>Dan / atau denda maksimal Rp250.000.000.</p></div></div><div class="col"><div class="colhead r">Gratifikasi Jabatan</div><div class="card one t-g"><p>Diatur dalam Pasal 12 UU Tipikor (Sanksi lebih berat).</p></div><div class="card one t-g"><p>Pidana penjara seumur hidup ATAU minimal 4 tahun hingga maksimal 20 tahun.</p></div><div class="card one t-g"><p>Denda minimal Rp200 Juta s.d. maksimal Rp1 Miliar.</p></div><div class="card t-g"><h3>Pengecualian</h3><p>Bebas hukum jika penerima melaporkan gratifikasi ke KPK dalam 30 hari kerja.</p></div></div></div></div></div></section>
+<section class="slide dark cta"><div class="tag"><i></i>Bab 10</div><div class="frame"><div class="inner"><h1>TERIMA KASIH</h1><p class="lead">Mari Bersama Bangun Budaya Antikorupsi</p><p>Unduh panduan lengkap di aclc.kpk.go.id</p></div></div></section>
+</main>
+<nav class="bar" aria-label="Navigasi slide">
+  <button class="nb" id="prev" aria-label="Slide sebelumnya">&#8592;</button>
+  <div class="prog"><b id="pb"></b></div>
+  <span class="cnt" id="cnt"></span>
+  <button class="nb" id="fs" aria-label="Layar penuh">&#9974;</button>
+  <button class="nb" id="next" aria-label="Slide berikutnya">&#8594;</button>
+</nav>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(s){const f=s.querySelector('.frame'),n=s.querySelector('.inner');let z=Math.max(14,Math.min(26,innerWidth/58));if(innerHeight<520)z=Math.min(z,innerHeight/22);n.style.fontSize=z+'px';while(n.offsetHeight>f.clientHeight&&z>11){z-=.5;n.style.fontSize=z+'px'}}
+function fitAll(){S.forEach(fit)}
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});
+ document.getElementById('cnt').textContent=(i+1)+' / '+S.length;document.getElementById('pb').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();go(i-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);else if(k==='f'||k==='F')document.getElementById('fs').click()});
+let x0=null;
+addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',fitAll);
+fitAll();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitAll);
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
