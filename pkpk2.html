@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume: Peraturan KPK No. 2 Tahun 2019 tentang Pelaporan Gratifikasi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f0f2f5;
+            padding: 30px 15px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a3a5c 0%, #2c6aa0 100%);
+            color: #ffffff;
+            padding: 35px 40px;
+        }
+        .header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .header h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+        .header .meta {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px 40px 40px;
+        }
+        .section {
+            margin-bottom: 28px;
+        }
+        .section h2 {
+            font-size: 1.2rem;
+            color: #1a3a5c;
+            border-left: 4px solid #2c6aa0;
+            padding-left: 12px;
+            margin-bottom: 12px;
+        }
+        .section h3 {
+            font-size: 1rem;
+            color: #2c6aa0;
+            margin: 16px 0 8px;
+        }
+        .section p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        .section ul, .section ol {
+            margin: 8px 0 12px 22px;
+        }
+        .section li {
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+        .highlight-box {
+            background: #eaf4fb;
+            border-left: 4px solid #2c6aa0;
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            margin: 12px 0;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th, td {
+            border: 1px solid #d0d7de;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background: #1a3a5c;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background: #f7f9fb;
+        }
+        .tag {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #1a3a5c;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 6px;
+            margin-bottom: 4px;
+        }
+
+        /* ===== BAGIAN KHUSUS: PENECUALIAN GRATIFIKASI (DIBUAT MENONJOL) ===== */
+        .exception-block {
+            margin: 30px 0;
+            border: 2px solid #e67e22;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.15);
+            background: #fffdf9;
+        }
+        .exception-header {
+            background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+            color: #ffffff;
+            padding: 20px 26px;
+        }
+        .exception-header .icon-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+        .exception-header .icon-circle {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .exception-header h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0;
+            border: none;
+            padding: 0;
+            color: #ffffff;
+        }
+        .exception-header p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.95;
+            padding-left: 54px;
+        }
+        .exception-body {
+            padding: 22px 26px 26px;
+        }
+        .exception-note {
+            background: #fdebd0;
+            border-left: 4px solid #e67e22;
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 22px;
+            font-size: 0.9rem;
+            color: #7e4a0e;
+        }
+        .exception-note strong {
+            color: #b35c00;
+        }
+        .exception-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .exception-card {
+            background: #ffffff;
+            border: 1px solid #f0d5b0;
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            position: relative;
+        }
+        .exception-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.18);
+            border-color: #e67e22;
+        }
+        .exception-card .card-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .exception-card .letter-badge {
+            width: 26px;
+            height: 26px;
+            background: #e67e22;
+            color: #ffffff;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .exception-card .card-title {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: #7e4a0e;
+            line-height: 1.35;
+        }
+        .exception-card .card-desc {
+            font-size: 0.85rem;
+            color: #5a6572;
+            margin-left: 36px;
+            line-height: 1.55;
+        }
+        .exception-card .value-chip {
+            display: inline-block;
+            background: #fff3e0;
+            color: #b35c00;
+            border: 1px dashed #e67e22;
+            border-radius: 12px;
+            padding: 1px 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-left: 36px;
+            margin-top: 6px;
+        }
+        .exception-card.full-width {
+            grid-column: 1 / -1;
+        }
+        .exception-warning {
+            margin-top: 20px;
+            background: #fdecea;
+            border: 1px solid #f5b7b1;
+            border-left: 5px solid #c0392b;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 0.9rem;
+            color: #922b21;
+        }
+        .exception-warning strong {
+            color: #c0392b;
+        }
+
+        .footer {
+            background: #f0f2f5;
+            padding: 18px 40px;
+            font-size: 0.82rem;
+            color: #6b7c8c;
+            border-top: 1px solid #e0e4e8;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .header { padding: 24px 20px; }
+            .header h1 { font-size: 1.3rem; }
+            .content { padding: 20px; }
+            .footer { padding: 14px 20px; }
+            .exception-body { padding: 16px; }
+            .exception-grid { grid-template-columns: 1fr; }
+            .exception-header p { padding-left: 0; margin-top: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="badge">Berita Negara RI No. 1438 Tahun 2019</span>
+            <h1>Peraturan Komisi Pemberantasan Korupsi Republik Indonesia Nomor 2 Tahun 2019 tentang Pelaporan Gratifikasi</h1>
+            <div class="subtitle">Resume / Ringkasan Peraturan</div>
+            <div class="meta">
+                <span>📅 Ditetapkan: 5 November 2019</span>
+                <span>📅 Diundangkan: 11 November 2019</span>
+                <span>🏛️ Penandatangan: Agus Rahardo (Ketua KPK)</span>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <!-- Latar Belakang -->
+            <div class="section">
+                <h2>1. Latar Belakang dan Tujuan</h2>
+                <p>Peraturan ini dibentuk untuk menggantikan Peraturan KPK Nomor 02 Tahun 2014 sebagaimana diubah dengan Peraturan KPK Nomor 06 Tahun 2015 tentang Pedoman Pelaporan dan Penetapan Status Gratifikasi, yang sudah tidak sesuai dengan kebutuhan dan perkembangan dalam pelaporan gratifikasi.</p>
+                <p>Dasar hukum utama:</p>
+                <ul>
+                    <li>Pasal 12C UU No. 20 Tahun 2001 tentang Perubahan atas UU No. 31 Tahun 1999 tentang Pemberantasan Tindak Pidana Korupsi</li>
+                    <li>Pasal 16 s.d. Pasal 18 UU No. 30 Tahun 2002 tentang KPK sebagaimana terakhir diubah dengan UU No. 19 Tahun 2019</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Tujuan:</strong> Mengatur kewenangan KPK dalam menerima laporan gratifikasi serta kewajiban menetapkan status gratifikasi yang diterima oleh Pegawai Negeri atau Penyelenggara Negara.</p>
+                </div>
+            </div>
+
+            <!-- Definisi -->
+            <div class="section">
+                <h2>2. Definisi Penting (Pasal 1)</h2>
+                <ul>
+                    <li><strong>Gratifikasi:</strong> Pemberian dalam arti luas meliputi uang, barang, rabat (discount), komisi, pinjaman tanpa bunga, tiket perjalanan, fasilitas penginapan, perjalanan wisata, pengobatan cuma-cuma, dan fasilitas lainnya, baik diterima di dalam maupun luar negeri, dengan atau tanpa sarana elektronik.</li>
+                    <li><strong>Penerima Gratifikasi:</strong> Pegawai Negeri atau Penyelenggara Negara yang menerima Gratifikasi.</li>
+                    <li><strong>Pelapor:</strong> Penerima Gratifikasi yang menyampaikan laporan Gratifikasi.</li>
+                    <li><strong>Pegawai Negeri:</strong> Mencakup pegawai negeri menurut UU Kepegawaian/ASN, KUHP, orang yang menerima gaji/upah dari keuangan negara/daerah, korporasi penerima bantuan keuangan negara/daerah, atau korporasi lain yang menggunakan modal/fasilitas negara/masyarakat.</li>
+                    <li><strong>Penyelenggara Negara:</strong> Pejabat Negara yang menjalankan fungsi eksekutif, legislatif, atau yudikatif, serta pejabat lain yang fungsi dan tugas pokoknya berkaitan dengan penyelenggaraan negara.</li>
+                    <li><strong>Berlaku Umum:</strong> Kondisi pemberian yang diberlakukan sama untuk semua dalam hal jenis, bentuk, persyaratan atau nilai, sesuai standar biaya yang berlaku, dan memenuhi kewajaran/kepatutan.</li>
+                    <li><strong>UPG (Unit Pengendalian Gratifikasi):</strong> Unit yang dibentuk/ditunjuk oleh pejabat berwenang pada lembaga negara, kementerian, lembaga pemerintah non-kementerian, lembaga nonstruktural, pemerintah daerah, dan organ lainnya yang mengelola keuangan negara/daerah untuk melakukan fungsi pengendalian gratifikasi.</li>
+                </ul>
+            </div>
+
+            <!-- Kewajiban Melapor -->
+            <div class="section">
+                <h2>3. Kewajiban Melaporkan dan Menolak Gratifikasi (Pasal 2)</h2>
+                <ul>
+                    <li>Pegawai Negeri atau Penyelenggara Negara yang menerima Gratifikasi <strong>wajib melaporkan</strong> Gratifikasi yang diterima.</li>
+                    <li>Apabila Gratifikasi dianggap berhubungan dengan jabatan dan berlawanan dengan kewajiban/tugasnya, maka <strong>wajib menolak</strong> Gratifikasi tersebut.</li>
+                </ul>
+            </div>
+
+            <!-- ===== BAGIAN MENONJOL: GRATIFIKASI TIDAK WAJIB DILAPORKAN ===== -->
+            <div class="exception-block">
+                <div class="exception-header">
+                    <div class="icon-row">
+                        <div class="icon-circle">✅</div>
+                        <h2>Gratifikasi yang TIDAK Wajib Dilaporkan</h2>
+                    </div>
+                    <p>Pasal 2 ayat (3) — Terdapat 17 jenis gratifikasi yang dikecualikan dari kewajiban pelaporan</p>
+                </div>
+                <div class="exception-body">
+
+                    <div class="exception-note">
+                        <strong>Perhatian:</strong> Pengecualian ini <u>tidak berlaku</u> apabila gratifikasi tersebut dilarang menurut peraturan yang berlaku di instansi Penerima Gratifikasi (Pasal 2 ayat 4).
+                    </div>
+
+                    <div class="exception-grid">
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">a</span>
+                                <span class="card-title">Pemberian dalam Keluarga</span>
+                            </div>
+                            <div class="card-desc">Kakek/nenek, bapak/ibu/mertua, suami/istri, anak/menantu, anak angkat/wali sah, cucu, besan, paman/bibi, kakak/adik/ipar, sepupu, keponakan.</div>
+                            <span class="value-chip">Syarat: tidak ada konflik kepentingan</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">b</span>
+                                <span class="card-title">Keuntungan Investasi Pribadi</span>
+                            </div>
+                            <div class="card-desc">Keuntungan atau bunga dari penempatan dana, investasi, atau kepemilikan saham pribadi.</div>
+                            <span class="value-chip">Syarat: berlaku umum</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">c</span>
+                                <span class="card-title">Manfaat Koperasi / Organisasi</span>
+                            </div>
+                            <div class="card-desc">Manfaat dari koperasi, organisasi kepegawaian, atau organisasi sejenis berdasarkan keanggotaan.</div>
+                            <span class="value-chip">Syarat: berlaku umum</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">d</span>
+                                <span class="card-title">Perlengkapan Kegiatan Kedinasan</span>
+                            </div>
+                            <div class="card-desc">Perangkat/perlengkapan peserta seminar, workshop, konferensi, pelatihan, atau kegiatan sejenis.</div>
+                            <span class="value-chip">Syarat: berlaku umum</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">e</span>
+                                <span class="card-title">Hadiah Promosi / Sosialisasi</span>
+                            </div>
+                            <div class="card-desc">Hadiah bukan uang/alat tukar, sebagai alat promosi atau sosialisasi dengan logo/pesan sosialisasi.</div>
+                            <span class="value-chip">Syarat: tidak ada konflik kepentingan & berlaku umum</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">f</span>
+                                <span class="card-title">Hadiah Kejuaraan / Lomba</span>
+                            </div>
+                            <div class="card-desc">Hadiah, apresiasi, atau penghargaan dari kejuaraan/perlombaan/kompetisi.</div>
+                            <span class="value-chip">Syarat: biaya sendiri & tidak terkait kedinasan</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">g</span>
+                                <span class="card-title">Penghargaan Prestasi Kerja</span>
+                            </div>
+                            <div class="card-desc">Penghargaan berupa uang atau barang dari pemerintah atas peningkatan prestasi kerja.</div>
+                            <span class="value-chip">Syarat: sesuai peraturan perundang-undangan</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">h</span>
+                                <span class="card-title">Hadiah Langsung / Diskon / Voucher</span>
+                            </div>
+                            <div class="card-desc">Hadiah langsung/undian, diskon/rabat, voucher, point rewards, atau suvenir.</div>
+                            <span class="value-chip">Syarat: berlaku umum & tidak terkait kedinasan</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">i</span>
+                                <span class="card-title">Honor Profesi di Luar Kedinasan</span>
+                            </div>
+                            <div class="card-desc">Kompensasi atau honor atas profesi di luar kegiatan kedinasan yang tidak terkait tugas dan kewajiban.</div>
+                            <span class="value-chip">Syarat: tidak ada konflik kepentingan & tidak melanggar kode etik</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">j</span>
+                                <span class="card-title">Kompensasi Kegiatan Kedinasan</span>
+                            </div>
+                            <div class="card-desc">Honorarium, transportasi, akomodasi, dan pembiayaan yang telah ditetapkan dalam standar biaya instansi.</div>
+                            <span class="value-chip">Syarat: tidak ada pembiayaan ganda, konflik kepentingan & pelanggaran ketentuan</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">k</span>
+                                <span class="card-title">Karangan Bunga Ucapan</span>
+                            </div>
+                            <div class="card-desc">Untuk acara pertunangan, pernikahan, kelahiran, kematian, akikah, baptis, khitanan, potong gigi, upacara adat/agama, pisah sambut, pensiun, promosi jabatan.</div>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">l</span>
+                                <span class="card-title">Pemberian Acara Adat / Keluarga</span>
+                            </div>
+                            <div class="card-desc">Terkait pertunangan, pernikahan, kelahiran, akikah, baptis, khitanan, potong gigi, atau upacara adat/agama lainnya.</div>
+                            <span class="value-chip">Batas nilai: Rp1.000.000 per pemberi</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">m</span>
+                                <span class="card-title">Pemberian Musibah / Bencana</span>
+                            </div>
+                            <div class="card-desc">Dialami oleh penerima Gratifikasi, suami/istri, anak, bapak/ibu, mertua, dan/atau menantu.</div>
+                            <span class="value-chip">Syarat: tidak ada konflik kepentingan & memenuhi kepatutan</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">n</span>
+                                <span class="card-title">Pemberian Sesama Rekan Kerja (Acara Khusus)</span>
+                            </div>
+                            <div class="card-desc">Dalam rangka pisah sambut, pensiun, mutasi jabatan, atau ulang tahun. <strong>Bukan uang/alat tukar.</strong></div>
+                            <span class="value-chip">Maks. Rp300.000/pemberian/orang · total maks. Rp1.000.000/tahun dari pemberi sama</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">o</span>
+                                <span class="card-title">Pemberian Sesama Rekan Kerja (Umum)</span>
+                            </div>
+                            <div class="card-desc">Pemberian antar rekan kerja yang tidak terkait kedinasan. <strong>Bukan uang/alat tukar.</strong></div>
+                            <span class="value-chip">Maks. Rp200.000/pemberian/orang · total maks. Rp1.000.000/tahun dari pemberi sama</span>
+                        </div>
+
+                        <div class="exception-card">
+                            <div class="card-head">
+                                <span class="letter-badge">p</span>
+                                <span class="card-title">Hidangan / Sajian</span>
+                            </div>
+                            <div class="card-desc">Pemberian berupa hidangan atau sajian.</div>
+                            <span class="value-chip">Syarat: berlaku umum</span>
+                        </div>
+
+                        <div class="exception-card full-width">
+                            <div class="card-head">
+                                <span class="letter-badge">q</span>
+                                <span class="card-title">Cenderamata / Plakat untuk Instansi</span>
+                            </div>
+                            <div class="card-desc">Pemberian cenderamata/plakat kepada instansi dalam rangka hubungan kedinasan dan kenegaraan, baik di dalam maupun luar negeri. <strong>Tidak diberikan kepada individu pegawai negeri/penyelenggara negara.</strong></div>
+                        </div>
+
+                    </div>
+
+                    <div class="exception-warning">
+                        <strong>⚠️ Pengecualian Tidak Berlaku:</strong> Apabila gratifikasi tersebut dilarang menurut peraturan yang berlaku di instansi Penerima Gratifikasi (Pasal 2 ayat 4).
+                    </div>
+
+                </div>
+            </div>
+            <!-- ===== AKHIR BAGIAN MENONJOL ===== -->
+
+            <!-- Tata Cara Pelaporan -->
+            <div class="section">
+                <h2>4. Tata Cara Pelaporan (Pasal 3–6)</h2>
+                <h3>Batas Waktu Pelaporan</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tujuan Laporan</th>
+                                <th>Batas Waktu</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>UPG (Unit Pengendalian Gratifikasi)</td>
+                                <td>Paling lama <strong>10 hari kerja</strong> sejak tanggal Gratifikasi diterima</td>
+                                <td>UPG wajib meneruskan laporan ke KPK paling lama 10 hari kerja sejak laporan diterima</td>
+                            </tr>
+                            <tr>
+                                <td>KPK langsung</td>
+                                <td>Paling lama <strong>30 hari kerja</strong> sejak tanggal Gratifikasi diterima</td>
+                                <td>—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Isi Formulir Laporan (Pasal 4)</h3>
+                <p>Laporan disampaikan dengan mengisi formulir yang paling sedikit memuat:</p>
+                <ol type="a">
+                    <li>Identitas penerima: NIK, nama, alamat lengkap, dan nomor telepon</li>
+                    <li>Informasi pemberi Gratifikasi</li>
+                    <li>Jabatan penerima Gratifikasi</li>
+                    <li>Tempat dan waktu penerimaan Gratifikasi</li>
+                    <li>Uraian jenis Gratifikasi yang diterima</li>
+                    <li>Nilai Gratifikasi yang diterima</li>
+                    <li>Kronologis peristiwa penerimaan gratifikasi</li>
+                    <li>Bukti, dokumen, atau data pendukung terkait laporan</li>
+                </ol>
+                <p>Formulir disampaikan dalam bentuk tertulis, surat elektronik, atau aplikasi sesuai mekanisme yang berlaku.</p>
+
+                <h3>Kewajiban Menyertakan Objek Gratifikasi (Pasal 5)</h3>
+                <p>Pelapor wajib menyertakan objek Gratifikasi dalam laporan apabila laporan tersebut:</p>
+                <ul>
+                    <li>Memerlukan uji orisinalitas; dan/atau</li>
+                    <li>Untuk kepentingan verifikasi dan analisis.</li>
+                </ul>
+
+                <h3>Gratifikasi Berupa Makanan/Minuman Mudah Rusak (Pasal 6)</h3>
+                <ul>
+                    <li>Objek Gratifikasi dapat ditolak untuk dikembalikan oleh Pelapor atau UPG kepada pihak pemberi.</li>
+                    <li>Apabila tidak dapat ditolak untuk dikembalikan, objek Gratifikasi dapat disalurkan sebagai bantuan sosial.</li>
+                </ul>
+            </div>
+
+            <!-- Penanganan Laporan -->
+            <div class="section">
+                <h2>5. Penanganan Laporan Gratifikasi (Pasal 7–16)</h2>
+                <p>Penanganan laporan dilaksanakan oleh <strong>Direktorat Gratifikasi</strong> melalui tiga tahapan:</p>
+                <ol>
+                    <li><strong>Verifikasi Laporan</strong> — memeriksa kelengkapan laporan (informasi formulir dan objek gratifikasi). Jika tidak lengkap, laporan dikembalikan kepada Pelapor untuk dilengkapi paling lama 30 hari kerja sejak objek gratifikasi diterima; jika tidak dilengkapi, laporan dapat tidak ditindaklanjuti.</li>
+                    <li><strong>Analisis Laporan</strong> — menelaah informasi untuk memperoleh akurasi dan menentukan tindak lanjut. Direktorat Gratifikasi berwenang melakukan pemanggilan, meminta keterangan, serta meminta/memeriksa data dan dokumen pendukung dari Pelapor, pemberi Gratifikasi, perwakilan instansi, dan/atau pihak lain terkait. Keterangan dapat diberikan secara tertulis, lisan (berita acara), atau wawancara langsung yang direkam audiovisual.</li>
+                    <li><strong>Penetapan Status Kepemilikan</strong> — dilakukan setelah analisis lebih lanjut.</li>
+                </ol>
+
+                <h3>Laporan yang Tidak Ditindaklanjuti (Pasal 14)</h3>
+                <p>Laporan tidak ditindaklanjuti dalam hal:</p>
+                <ul>
+                    <li>Telah lewat 30 hari kerja sejak tanggal Gratifikasi diterima Pelapor;</li>
+                    <li>Tidak dilaporkan secara lengkap dan/atau benar;</li>
+                    <li>Sedang dilakukan penyelidikan, penyidikan, atau penuntutan tindak pidana oleh aparat penegak hukum;</li>
+                    <li>Telah menjadi temuan pengawas internal di instansi asal penerima Gratifikasi; dan/atau</li>
+                    <li>Patut diduga terkait tindak pidana lainnya (dalam hal ini KPK meneruskan kepada pihak berwenang).</li>
+                </ul>
+                <p>Terhadap laporan yang tidak ditindaklanjuti, KPK menyampaikan surat pemberitahuan kepada Penerima Gratifikasi.</p>
+
+                <h3>Koreksi Nilai Objek Gratifikasi (Pasal 16)</h3>
+                <p>Apabila nilai objek Gratifikasi tidak diketahui atau tidak sesuai harga sebenarnya, Direktorat Gratifikasi dapat melakukan koreksi nilai sesuai harga pasar melalui pencarian data/informasi relevan atau penilaian ahli/pejabat berwenang. Nilai hasil koreksi menjadi dasar nilai objektif dalam penetapan status kepemilikan.</p>
+            </div>
+
+            <!-- Penetapan Status -->
+            <div class="section">
+                <h2>6. Penetapan Status Kepemilikan Gratifikasi (Pasal 17–23)</h2>
+                <p>Status kepemilikan Gratifikasi yang dilaporkan kepada KPK berupa:</p>
+                <ul>
+                    <li><strong>Gratifikasi milik Penerima</strong>; atau</li>
+                    <li><strong>Gratifikasi milik Negara</strong>.</li>
+                </ul>
+                <p>Penetapan dilakukan berdasarkan Laporan Hasil Analisis, paling lama <strong>30 hari kerja</strong> sejak laporan diterima dan dinyatakan lengkap. Keputusan disampaikan kepada Penerima Gratifikasi paling lama <strong>7 hari kerja</strong> sejak tanggal ditetapkan.</p>
+
+                <h3>Kewenangan Penetapan (Pasal 19)</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nilai Gratifikasi</th>
+                                <th>Penetapan</th>
+                                <th>Penandatangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lebih dari Rp10.000.000,00</td>
+                                <td>Keputusan Pimpinan</td>
+                                <td>Pimpinan</td>
+                            </tr>
+                            <tr>
+                                <td>Rp5.000.000,00 – Rp10.000.000,00</td>
+                                <td>Keputusan Pimpinan</td>
+                                <td>Deputi Bidang Pencegahan a.n. Pimpinan</td>
+                            </tr>
+                            <tr>
+                                <td>Kurang dari Rp5.000.000,00</td>
+                                <td>Keputusan Pimpinan</td>
+                                <td>Direktur Gratifikasi a.n. Pimpinan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Gratifikasi Milik Penerima (Pasal 20)</h3>
+                <ul>
+                    <li>Objek Gratifikasi dikembalikan kepada Pelapor melalui pengambilan langsung atau melalui UPG.</li>
+                    <li>Apabila tidak diambil dalam 1 tahun sejak ditetapkan, objek diserahkan kepada Negara untuk kemanfaatan publik setelah diinformasikan secara patut kepada Pelapor.</li>
+                </ul>
+
+                <h3>Gratifikasi Milik Negara (Pasal 21–22)</h3>
+                <ul>
+                    <li>Objek Gratifikasi diserahkan kepada kementerian yang menyelenggarakan urusan pemerintahan di bidang keuangan, dituangkan dalam berita acara, paling lama 7 hari kerja sejak tanggal penetapan.</li>
+                    <li>Apabila objek tidak disertakan dalam laporan, Pelapor wajib menyerahkannya kepada KPK atau kementerian keuangan berdasarkan permintaan, paling lambat 7 hari kerja sejak keputusan ditetapkan.</li>
+                    <li>Jika Pelapor tidak menyerahkan, KPK mengajukan permintaan kepada instansi berwenang sebagai piutang negara. Apabila tetap tidak diserahkan setelah penagihan dan/atau patut diduga terjadi tindak pidana korupsi, keputusan penetapan dicabut dan diteruskan untuk penanganan perkara.</li>
+                </ul>
+
+                <h3>Pengumuman (Pasal 23)</h3>
+                <p>Setiap Gratifikasi yang ditetapkan menjadi milik negara wajib diumumkan dalam Berita Negara RI oleh KPK, paling sedikit 1 kali dalam setahun berupa rekapitulasi Keputusan Pimpinan.</p>
+            </div>
+
+            <!-- Kompensasi -->
+            <div class="section">
+                <h2>7. Kompensasi (Pasal 24)</h2>
+                <ul>
+                    <li>Pelapor dapat menyampaikan permohonan kompensasi atas objek Gratifikasi yang dilaporkannya kepada KPK.</li>
+                    <li>Atas persetujuan Pimpinan, objek Gratifikasi dapat dikompensasi dengan syarat:
+                        <ol type="a">
+                            <li>Objek Gratifikasi berbentuk barang atau fasilitas;</li>
+                            <li>Pelapor kooperatif dan beritikad baik; dan</li>
+                            <li>Pelapor bersedia mengganti objek gratifikasi dengan sejumlah uang senilai barang yang dikompensasikan.</li>
+                        </ol>
+                    </li>
+                    <li>Nilai kompensasi ditentukan berdasarkan taksiran tim penilai yang ditunjuk Pimpinan atau instansi berwenang.</li>
+                    <li>Permohonan yang disetujui ditetapkan dalam Keputusan Pimpinan termasuk nilai kompensasi.</li>
+                    <li>Pelapor berhak atas objek Gratifikasi setelah membayar kompensasi sesuai Keputusan Pimpinan.</li>
+                </ul>
+            </div>
+
+            <!-- UPG -->
+            <div class="section">
+                <h2>8. Unit Pengendalian Gratifikasi (UPG) (Pasal 25–28)</h2>
+                <ul>
+                    <li>Instansi Pemerintahan, BUMN, dan BUMD <strong>wajib membentuk UPG</strong>.</li>
+                    <li>Instansi Pejabat Publik lainnya membentuk UPG di lingkungan kerja masing-masing.</li>
+                    <li>UPG berkedudukan pada unit kerja yang melaksanakan tugas dan fungsi di bidang kepatuhan atau pengawasan.</li>
+                </ul>
+                <h3>Tugas UPG (Pasal 27)</h3>
+                <ol type="a">
+                    <li>Menerima, menganalisis, dan mengadministrasikan laporan penerimaan Gratifikasi dari Pegawai Negeri, Penyelenggara Negara, atau pejabat publik lainnya;</li>
+                    <li>Menerima dan mengadministrasikan laporan penolakan Gratifikasi;</li>
+                    <li>Meneruskan laporan penerimaan Gratifikasi kepada KPK;</li>
+                    <li>Melaporkan rekapitulasi laporan penerimaan dan penolakan Gratifikasi secara periodik kepada KPK;</li>
+                    <li>Menyampaikan hasil pengelolaan laporan dan usulan kebijakan Pengendalian Gratifikasi kepada pimpinan instansi;</li>
+                    <li>Melakukan sosialisasi ketentuan Gratifikasi kepada pihak internal dan eksternal;</li>
+                    <li>Melakukan pemeliharaan barang Gratifikasi sampai dengan penetapan status; dan</li>
+                    <li>Melakukan pemantauan dan evaluasi dalam rangka pengendalian Gratifikasi.</li>
+                </ol>
+            </div>
+
+            <!-- Hak dan Perlindungan -->
+            <div class="section">
+                <h2>9. Hak dan Perlindungan Pelapor (Pasal 29–30)</h2>
+                <p>Pelapor yang beritikad baik berhak untuk:</p>
+                <ul>
+                    <li>Memperoleh penjelasan terkait hak dan kewajibannya dalam pelaporan Gratifikasi;</li>
+                    <li>Memperoleh informasi perkembangan laporan Gratifikasi; dan</li>
+                    <li>Memperoleh perlindungan.</li>
+                </ul>
+                <p>Perlindungan meliputi:</p>
+                <ul>
+                    <li>Kerahasiaan identitas Pelapor dalam hal diperlukan; dan</li>
+                    <li>Perlindungan atas keamanan pribadi, keluarga, dan harta benda berkaitan dengan laporan Gratifikasi.</li>
+                </ul>
+                <p>Perlindungan dilaksanakan berdasarkan permohonan Pelapor dan sesuai ketentuan peraturan perundang-undangan. KPK dapat melaksanakan sendiri atau berkoordinasi dengan instansi terkait.</p>
+            </div>
+
+            <!-- Ketentuan Lain -->
+            <div class="section">
+                <h2>10. Ketentuan Lain dan Peralihan (Pasal 31–34)</h2>
+                <ul>
+                    <li><strong>Objek Gratifikasi tanpa identitas:</strong> Apabila objek Gratifikasi disampaikan kepada KPK tanpa informasi/keterangan lengkap sehingga tidak diketahui nama dan alamat Pelapor, dalam jangka waktu 1 tahun sejak diterima KPK, objek diserahkan kepada Negara untuk kemanfaatan publik dengan Keputusan Pimpinan.</li>
+                    <li><strong>Ketentuan Peralihan:</strong> Laporan Gratifikasi yang telah diterima dan masih dalam proses penanganan di UPG atau KPK sebelum Peraturan ini berlaku, diselesaikan sesuai Peraturan KPK No. 02 Tahun 2014 sebagaimana diubah dengan Peraturan KPK No. 06 Tahun 2015.</li>
+                    <li><strong>Pencabutan:</strong> Pada saat Peraturan ini berlaku, Peraturan KPK No. 02 Tahun 2014 tentang Pedoman Pelaporan dan Penetapan Status Gratifikasi (Berita Negara RI Tahun 2014 No. 2101) sebagaimana diubah dengan Peraturan KPK No. 06 Tahun 2015 (Berita Negara RI Tahun 2015 No. 1863) dicabut dan dinyatakan tidak berlaku.</li>
+                    <li><strong>Mulai Berlaku:</strong> Peraturan ini mulai berlaku pada tanggal diundangkan (11 November 2019).</li>
+                </ul>
+            </div>
+
+            <!-- Ringkasan Cepat -->
+            <div class="section">
+                <h2>11. Ringkasan Cepat (Key Takeaways)</h2>
+                <div class="highlight-box">
+                    <p><span class="tag">Wajib Lapor</span> Pegawai Negeri/Penyelenggara Negara wajib melaporkan gratifikasi yang diterima.</p>
+                    <p><span class="tag">Batas Waktu</span> 10 hari kerja (via UPG) atau 30 hari kerja (langsung ke KPK).</p>
+                    <p><span class="tag">Pengecualian</span> 17 jenis gratifikasi tidak wajib dilaporkan (keluarga, hadiah kedinasan, apresiasi, dll.) dengan batasan nilai tertentu.</p>
+                    <p><span class="tag">Status</span> Gratifikasi ditetapkan sebagai milik Penerima atau milik Negara.</p>
+                    <p><span class="tag">UPG</span> Instansi pemerintah, BUMN, dan BUMD wajib membentuk Unit Pengendalian Gratifikasi.</p>
+                    <p><span class="tag">Perlindungan</span> Pelapor beritikad baik berhak atas kerahasiaan identitas dan perlindungan keamanan.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Resume ini disusun berdasarkan Peraturan KPK Nomor 2 Tahun 2019 tentang Pelaporan Gratifikasi (Berita Negara RI No. 1438 Tahun 2019).<br>
+            Dokumen asli: 20 halaman · Ditetapkan 5 November 2019 · Diundangkan 11 November 2019.
+        </div>
+    </div>
+</body>
+</html>
