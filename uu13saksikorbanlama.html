@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume UU No. 13 Tahun 2006 - Perlindungan Saksi & Korban</title>
+<style>
+  :root {
+    --primary: #0369a1; /* Biru langit tua */
+    --primary-light: #0ea5e9;
+    --accent: #0d9488; /* Toska/Hijau */
+    --accent-light: #14b8a6;
+    --bg: #f0f9ff;
+    --card: #ffffff;
+    --text: #0f172a;
+    --text-light: #475569;
+    --border: #e2e8f0;
+    --danger: #b91c1c;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(3, 105, 161, 0.08);
+    --shadow-hover: 0 8px 30px rgba(3, 105, 161, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 60px 24px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(20, 184, 166, 0.2);
+    border: 1px solid var(--accent-light);
+    color: #ccfbf1;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .meta-chip {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .meta-chip strong { color: var(--accent-light); }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1050px;
+    margin: -50px auto 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== NAV TABS ===== */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: var(--card);
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+    position: sticky;
+    top: 12px;
+    z-index: 50;
+  }
+  .tab-btn {
+    flex: 1 1 auto;
+    min-width: 130px;
+    padding: 12px 18px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { background: var(--bg); color: var(--primary); }
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(3, 105, 161, 0.3);
+  }
+
+  /* ===== PANELS ===== */
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    border-left: 5px solid var(--primary-light);
+    transition: box-shadow 0.3s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .card.accent { border-left-color: var(--accent); }
+  .card.danger { border-left-color: var(--danger); }
+
+  .card h2 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+  .card h2 .icon {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .card h3 {
+    font-size: 1.02rem;
+    color: var(--primary-light);
+    margin: 18px 0 8px;
+    font-weight: 700;
+  }
+  .card p { margin-bottom: 10px; color: var(--text); }
+  .card ul, .card ol { padding-left: 22px; margin-bottom: 10px; }
+  .card li { margin-bottom: 6px; }
+  .card li::marker { color: var(--primary-light); font-weight: 700; }
+
+  /* ===== GRID ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  /* ===== MINI CARD ===== */
+  .mini-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    border-top: 4px solid var(--primary-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .mini-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .mini-card .num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .mini-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 6px; }
+  .mini-card p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+    border: 1px solid #5eead4;
+    border-left: 5px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .callout strong { color: #115e59; }
+  .callout.info {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-color: #7dd3fc;
+    border-left-color: var(--primary-light);
+  }
+  .callout.info strong { color: var(--primary); }
+  .callout.danger {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border-color: #fca5a5;
+    border-left-color: var(--danger);
+  }
+  .callout.danger strong { color: var(--danger); }
+
+  /* ===== TABLE ===== */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 500px;
+  }
+  thead { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; }
+  th, td { padding: 13px 16px; text-align: left; }
+  th { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.4px; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:hover { background: #f0fdfa; }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::after {
+    content: '🛡️';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-size: 7rem;
+    opacity: 0.1;
+  }
+  .highlight-box h3 { color: var(--accent-light); font-size: 1.1rem; margin-bottom: 10px; }
+  .highlight-box p { color: rgba(255,255,255,0.95); margin: 0; font-size: 0.98rem; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 32px 20px 48px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer strong { color: var(--primary); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 44px 18px 80px; }
+    .container { margin-top: -40px; padding: 0 14px; }
+    .card { padding: 22px 20px; }
+    .tab-btn { min-width: 100%; font-size: 0.85rem; padding: 10px 14px; }
+    .tabs { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Lembaran Negara No. 64 Tahun 2006</span>
+    <h1>UU No. 13 Tahun 2006<br><span>Perlindungan Saksi & Korban</span></h1>
+    <p>Landasan hukum untuk memberikan rasa aman dan perlindungan kepada Saksi dan Korban dalam proses peradilan pidana.</p>
+    <div class="hero-meta">
+      <div class="meta-chip">📅 <span>Disahkan <strong>11 Agustus 2006</strong></span></div>
+      <div class="meta-chip">✍️ <span>Presiden <strong>Susilo Bambang Yudhoyono</strong></span></div>
+      <div class="meta-chip">📜 <span>Tambahan LN No. <strong>4635</strong></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<div class="container">
+
+  <!-- TABS -->
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-panel="ringkasan">📋 Ringkasan</button>
+    <button class="tab-btn" data-panel="hak">🛡️ Hak Saksi & Korban</button>
+    <button class="tab-btn" data-panel="lpsk">🏛️ LPSK</button>
+    <button class="tab-btn" data-panel="pidana">🚨 Ketentuan Pidana</button>
+  </nav>
+
+  <!-- ===== PANEL: RINGKASAN ===== -->
+  <section class="panel active" id="ringkasan">
+
+    <div class="highlight-box">
+      <h3>🔑 Inti Undang-Undang</h3>
+      <p>Keberhasilan proses peradilan pidana sangat bergantung pada keberadaan Saksi dan Korban. UU ini hadir untuk mengatasi masalah klasik: <strong>Saksi/Korban enggan bersaksi karena takut diancam</strong>. Dengan UU ini, negara wajib memberikan perlindungan hukum, rasa aman, dan hak-hak lainnya melalui lembaga khusus bernama LPSK.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="num">7</div>
+        <h3>Anggota LPSK</h3>
+        <p>Berasal dari unsur profesional dan masyarakat.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">5</div>
+        <h3>Tahun Masa Jabatan</h3>
+        <p>Dapat dipilih kembali untuk 1 kali masa jabatan.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">7</div>
+        <h3>Hari Kerja</h3>
+        <p>Batas waktu LPSK memutus permohonan perlindungan.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📌</span> Definisi Penting</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Saksi</h3>
+          <p>Orang yang dapat memberikan keterangan guna kepentingan penyelidikan, penyidikan, penuntutan, dan pemeriksaan di sidang pengadilan tentang suatu perkara pidana yang ia <strong>dengar, lihat, dan/atau alami sendiri</strong>.</p>
+        </div>
+        <div>
+          <h3>Korban</h3>
+          <p>Seseorang yang mengalami <strong>penderitaan fisik, mental, dan/atau kerugian ekonomi</strong> yang diakibatkan oleh suatu tindak pidana.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">🎯</span> Asas & Tujuan (Pasal 3-4)</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Asas</h3>
+          <ul>
+            <li>Penghargaan atas harkat dan martabat manusia</li>
+            <li>Rasa aman</li>
+            <li>Keadilan</li>
+            <li>Tidak diskriminatif</li>
+            <li>Kepastian hukum</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Tujuan</h3>
+          <p>Memberikan <strong>rasa aman</strong> kepada Saksi dan/atau Korban dalam memberikan keterangan pada setiap proses peradilan pidana.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📅</span> Ruang Lingkup Perlindungan (Pasal 2, 8)</h2>
+      <ul>
+        <li>Perlindungan diberikan pada Saksi dan Korban dalam <strong>semua tahap proses peradilan pidana</strong> di lingkungan peradilan.</li>
+        <li>Perlindungan dan hak diberikan <strong>sejak tahap penyelidikan dimulai</strong> dan berakhir sesuai ketentuan UU.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: HAK ===== -->
+  <section class="panel" id="hak">
+
+    <div class="card">
+      <h2><span class="icon">🛡️</span> 13 Hak Saksi dan Korban (Pasal 5)</h2>
+      <p>Seorang Saksi dan Korban berhak:</p>
+      <div class="grid-2">
+        <ul>
+          <li>Memperoleh perlindungan atas keamanan pribadi, keluarga, dan harta benda.</li>
+          <li>Ikut serta dalam proses memilih dan menentukan bentuk perlindungan.</li>
+          <li>Memberikan keterangan tanpa tekanan.</li>
+          <li>Mendapat penerjemah.</li>
+          <li>Bebas dari pertanyaan yang menjerat.</li>
+          <li>Mendapatkan informasi mengenai perkembangan kasus.</li>
+          <li>Mendapatkan informasi mengenai putusan pengadilan.</li>
+        </ul>
+        <ul>
+          <li>Mengetahui jika terpidana dibebaskan.</li>
+          <li>Mendapat identitas baru.</li>
+          <li>Mendapatkan tempat kediaman baru.</li>
+          <li>Memperoleh penggantian biaya transportasi.</li>
+          <li>Mendapat nasihat hukum.</li>
+          <li>Memperoleh bantuan biaya hidup sementara.</li>
+        </ul>
+      </div>
+      <div class="callout info" style="margin-top:14px;">
+        <strong>💡 Catatan:</strong> Hak-hak ini diberikan kepada Saksi/Korban dalam kasus-kasus tertentu sesuai dengan keputusan LPSK (misalnya korupsi, narkotika, terorisme).
+      </div>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">➕</span> Hak Tambahan untuk Korban HAM Berat (Pasal 6)</h2>
+      <p>Korban pelanggaran HAM berat selain berhak atas hak di atas, juga berhak mendapatkan:</p>
+      <ul>
+        <li>Bantuan medis.</li>
+        <li>Bantuan rehabilitasi psiko-sosial.</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">💰</span> Hak atas Kompensasi & Restitusi (Pasal 7)</h2>
+      <p>Korban melalui LPSK berhak mengajukan ke pengadilan berupa:</p>
+      <ul>
+        <li><strong>Kompensasi:</strong> Dalam kasus pelanggaran HAM berat.</li>
+        <li><strong>Restitusi:</strong> Ganti kerugian yang menjadi tanggung jawab pelaku tindak pidana.</li>
+      </ul>
+      <p>Keputusan mengenai kompensasi dan restitusi diberikan oleh <strong>Pengadilan</strong>.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">⚖️</span> Kesaksian Tanpa Hadir Langsung (Pasal 9)</h2>
+      <p>Jika Saksi/Korban berada dalam ancaman yang sangat besar, atas persetujuan hakim, mereka dapat memberikan kesaksian:</p>
+      <ul>
+        <li>Tanpa hadir langsung di pengadilan.</li>
+        <li>Secara tertulis di hadapan pejabat berwenang.</li>
+        <li>Melalui sarana elektronik dengan didampingi pejabat berwenang.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🚫</span> Perlindungan Hukum bagi Pelapor (Pasal 10)</h2>
+      <ul>
+        <li>Saksi, Korban, dan Pelapor <strong>tidak dapat dituntut</strong> secara pidana maupun perdata atas laporan/kesaksian yang diberikan.</li>
+        <li>Pengecualian: Jika memberikan keterangan <strong>tidak dengan itikad baik</strong> (keterangan palsu, sumpah palsu, permufakatan jahat).</li>
+        <li>Jika Saksi juga tersangka dalam kasus yang sama, ia tidak dibebaskan dari tuntutan pidana, tetapi kesaksiannya dapat meringankan pidana.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: LPSK ===== -->
+  <section class="panel" id="lpsk">
+
+    <div class="highlight-box">
+      <h3>🏛️ Lembaga Perlindungan Saksi dan Korban (LPSK)</h3>
+      <p>LPSK adalah lembaga <strong>mandiri</strong> yang berkedudukan di Ibu Kota Negara, bertanggung jawab kepada Presiden, dan bertugas memberikan perlindungan serta hak-hak lain kepada Saksi dan Korban.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="margin-bottom:0;">
+        <h2><span class="icon">👥</span> Keanggotaan (Pasal 14-17)</h2>
+        <ul>
+          <li>Berasal dari <strong>7 orang</strong> unsur profesional.</li>
+          <li>Berpengalaman di bidang HAM, penegakan hukum, kepolisian, kejaksaan, akademisi, advokat, atau LSM.</li>
+          <li>Masa jabatan <strong>5 tahun</strong>, dapat dipilih kembali <strong>1 kali</strong>.</li>
+          <li>Terdiri dari Pimpinan (Ketua & Wakil Ketua) dan Anggota.</li>
+          <li>Pimpinan dipilih dari dan oleh anggota LPSK.</li>
+        </ul>
+      </div>
+      <div class="card accent" style="margin-bottom:0;">
+        <h2><span class="icon">📋</span> Persyaratan Anggota (Pasal 23)</h2>
+        <ul>
+          <li>WNI, sehat jasmani dan rohani.</li>
+          <li>Tidak pernah dipidana dengan ancaman ≥ 5 tahun.</li>
+          <li>Usia <strong>40–65 tahun</strong> saat proses pemilihan.</li>
+          <li>Pendidikan minimal <strong>S1</strong>.</li>
+          <li>Berpengalaman di bidang hukum dan HAM <strong>min. 10 tahun</strong>.</li>
+          <li>Berintegritas dan tidak tercela.</li>
+          <li>Memiliki NPWP.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h2><span class="icon">🗳️</span> Seleksi & Pengangkatan (Pasal 19-22)</h2>
+      <ol>
+        <li>Presiden membentuk <strong>panitia seleksi</strong> (2 unsur pemerintah + 3 unsur masyarakat).</li>
+        <li>Panitia seleksi mengusulkan <strong>21 calon</strong> kepada Presiden.</li>
+        <li>Presiden memilih <strong>14 calon</strong> untuk diajukan ke DPR.</li>
+        <li>DPR memilih dan menyetujui <strong>7 orang</strong> anggota LPSK.</li>
+        <li>Presiden menetapkan anggota LPSK terpilih.</li>
+      </ol>
+      <div class="callout info" style="margin-top:10px;">
+        <strong>💡 Catatan:</strong> DPR wajib memberikan persetujuan dalam waktu <strong>30 hari</strong> sejak pengajuan calon diterima. Jika tidak disetujui, Presiden mengajukan calon pengganti sebanyak 2 kali jumlah calon yang tidak disetujui.
+      </div>
+    </div>
+
+    <div class="card danger">
+      <h2><span class="icon">🚪</span> Pemberhentian Anggota (Pasal 24)</h2>
+      <p>Anggota LPSK diberhentikan karena:</p>
+      <ul>
+        <li>Meninggal dunia.</li>
+        <li>Masa tugas berakhir.</li>
+        <li>Atas permintaan sendiri.</li>
+        <li>Sakit jasmani/rohani yang mengakibatkan tidak dapat menjalankan tugas selama <strong>30 hari</strong> terus-menerus.</li>
+        <li>Melakukan perbuatan tercela yang mencemarkan martabat LPSK.</li>
+        <li>Dipidana karena kejahatan dengan ancaman ≥ 5 tahun.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PIDANA ===== -->
+  <section class="panel" id="pidana">
+
+    <div class="card danger">
+      <h2><span class="icon">🚨</span> Syarat Pemberian Perlindungan (Pasal 28)</h2>
+      <p>LPSK memberikan perlindungan dengan mempertimbangkan:</p>
+      <ul>
+        <li>Sifat pentingnya keterangan Saksi/Korban.</li>
+        <li>Tingkat ancaman yang membahayakan.</li>
+        <li>Hasil analisis tim medis atau psikolog.</li>
+        <li>Rekam jejak kejahatan yang pernah dilakukan Saksi/Korban.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📝</span> Tata Cara Memperoleh Perlindungan (Pasal 29)</h2>
+      <ol>
+        <li>Saksi/Korban mengajukan permohonan tertulis kepada LPSK (atas inisiatif sendiri atau permintaan pejabat berwenang).</li>
+        <li>LPSK segera melakukan pemeriksaan.</li>
+        <li>Keputusan LPSK diberikan secara tertulis paling lambat <strong>7 hari</strong> sejak permohonan diajukan.</li>
+      </ol>
+    </div>
+
+    <div class="card danger">
+      <h2><span class="icon">⚖️</span> Ketentuan Pidana (Pasal 37-43)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pasal</th>
+              <th>Perbuatan</th>
+              <th>Pidana Penjara</th>
+              <th>Denda</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pasal 37 (1)</strong></td>
+              <td>Memaksakan kehendak dengan kekerasan sehingga Saksi/Korban tidak memberikan kesaksian.</td>
+              <td>1 – <strong>5 tahun</strong></td>
+              <td>Rp40 jt – <strong>Rp200 jt</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 37 (2)</strong></td>
+              <td>Pemaksaan yang menimbulkan <strong>luka berat</strong> pada Saksi/Korban.</td>
+              <td>2 – <strong>7 tahun</strong></td>
+              <td>Rp80 jt – <strong>Rp500 jt</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 37 (3)</strong></td>
+              <td>Pemaksaan yang mengakibatkan <strong>matinya</strong> Saksi/Korban.</td>
+              <td>5 tahun – <strong>seumur hidup</strong></td>
+              <td>Rp80 jt – <strong>Rp500 jt</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 38</strong></td>
+              <td>Menghalang-halangi Saksi/Korban memperoleh perlindungan atau bantuan.</td>
+              <td>2 – <strong>7 tahun</strong></td>
+              <td>Rp80 jt – <strong>Rp500 jt</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 39</strong></td>
+              <td>Menyebabkan Saksi/Korban kehilangan pekerjaan karena memberikan kesaksian benar.</td>
+              <td>2 – <strong>7 tahun</strong></td>
+              <td>Rp80 jt – <strong>Rp500 jt</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 40</strong></td>
+              <td>Merugikan/mengurangi hak Saksi/Korban karena memberikan kesaksian benar.</td>
+              <td>1 – <strong>3 tahun</strong></td>
+              <td>Rp30 jt – <strong>Rp100 jt</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 41</strong></td>
+              <td>Memberitahukan keberadaan Saksi/Korban yang tengah dilindungi di tempat rahasia.</td>
+              <td>3 – <strong>7 tahun</strong></td>
+              <td>Rp80 jt – <strong>Rp500 jt</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout danger" style="margin-top:16px;">
+        <strong>⚠️ Pemberatan (Pasal 42):</strong> Jika perbuatan dilakukan oleh <strong>pejabat publik</strong>, ancaman pidana ditambah <strong>1/3 (sepertiga)</strong>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🔄</span> Ketentuan Peralihan & Penutup</h2>
+      <ul>
+        <li><strong>Pasal 44:</strong> Peraturan perundang-undangan yang mengatur perlindungan Saksi/Korban tetap berlaku sepanjang tidak bertentangan dengan UU ini.</li>
+        <li><strong>Pasal 45:</strong> LPSK harus dibentuk paling lambat <strong>1 tahun</strong> setelah UU diundangkan.</li>
+        <li><strong>Pasal 46:</strong> UU ini mulai berlaku pada tanggal diundangkan (<strong>11 Agustus 2006</strong>).</li>
+      </ul>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Resume <strong>UU No. 13 Tahun 2006</strong> tentang Perlindungan Saksi dan Korban</p>
+  <p style="margin-top:6px;">Lembaran Negara RI No. 64 Tahun 2006 • Tambahan Lembaran Negara No. 4635 • Disahkan 11 Agustus 2006</p>
+  <p style="margin-top:6px; font-size:0.8rem; opacity:0.7;">Dokumen ini merupakan ringkasan untuk memudahkan pemahaman, bukan pengganti teks resmi undang-undang.</p>
+</footer>
+
+<script>
+  // Tab navigation logic
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.panel;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+
+      if (window.innerWidth < 640) {
+        document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
