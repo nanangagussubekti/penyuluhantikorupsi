@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata | Nanang Agus Subekti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0c2340;
+      --navy-light: #16406b;
+      --gold: #f2b705;
+      --gold-dark: #c99600;
+      --paper: #f6f4ee;
+      --white: #ffffff;
+      --ink: #16202c;
+      --muted: #566272;
+      --line: #e3e0d6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      padding: 80px 20px 60px;
+    }
+
+    /* Tombol Kembali */
+    .back-btn {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      z-index: 100;
+    }
+    .back-btn:hover {
+      background: var(--gold);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* Kontainer Biodata */
+    .cv-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(12, 35, 64, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header (Banner Atas) */
+    .cv-header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 50px 40px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+    }
+    .cv-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 6px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dark) 100%);
+    }
+
+    .cv-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--gold);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      background: #cbd5e1;
+      flex-shrink: 0;
+    }
+
+    .cv-title h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cv-title h1 .gelar {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .cv-title h2 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #d3e0f0;
+      line-height: 1.5;
+      border-left: 3px solid var(--gold);
+      padding-left: 15px;
+      margin-top: 15px;
+    }
+
+    /* Body Layout (2 Kolom) */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 0;
+    }
+
+    /* Kolom Kiri (Sidebar) */
+    .sidebar {
+      background: #faf9f6;
+      padding: 40px;
+      border-right: 1px solid var(--line);
+    }
+    .sidebar-section {
+      margin-bottom: 35px;
+    }
+    .sidebar-section h3 {
+      font-family: 'Fraunces', serif;
+      color: var(--navy);
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+    .sidebar-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 40px; height: 3px;
+      background: var(--gold);
+      border-radius: 3px;
+    }
+
+    /* Kontak Item */
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 15px;
+      align-items: flex-start;
+      font-size: 0.9rem;
+    }
+    .contact-item .icon {
+      font-size: 1.2rem;
+      color: var(--gold-dark);
+      min-width: 24px;
+    }
+    .contact-item div {
+      word-break: break-word;
+    }
+    .contact-item a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* QR Code di Sidebar (DIPERBESAR) */
+    .qr-wrapper {
+      margin-top: 30px;
+      text-align: center;
+      padding-top: 25px;
+      border-top: 1px dashed var(--line);
+    }
+    .qr-wrapper img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      background: var(--white);
+      padding: 10px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border: 1px solid var(--line);
+      transition: transform 0.3s;
+      margin-bottom: 12px;
+    }
+    .qr-wrapper img:hover {
+      transform: scale(1.03);
+    }
+    .qr-wrapper p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Kolom Kanan (Konten Utama) */
+    .main-content {
+      padding: 40px;
+    }
+    .main-section {
+      margin-bottom: 40px;
+    }
+    .main-section:last-child {
+      margin-bottom: 0;
+    }
+    .main-section h3 {
+      font-family: 'Fraunces', serif;
+      color: var(--navy);
+      font-size: 1.4rem;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .main-section h3::before {
+      content: '■';
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    /* Biodata list */
+    .bio-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .bio-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      font-size: 0.95rem;
+    }
+    .bio-row .bio-label {
+      min-width: 170px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .bio-row .bio-value {
+      color: var(--muted);
+      flex: 1;
+    }
+    .bio-row .bio-value strong {
+      color: var(--ink);
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .cv-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      .cv-title h1 {
+        justify-content: center;
+      }
+      .cv-title h2 {
+        border-left: none;
+        padding-left: 0;
+        border-top: 2px solid var(--gold);
+        padding-top: 15px;
+        margin-top: 15px;
+      }
+      .cv-body {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+      .cv-title h1 { font-size: 1.8rem; }
+      .cv-title h1 .gelar { font-size: 0.95rem; }
+      
+      /* QR Code di HP juga tetap besar */
+      .qr-wrapper img {
+        width: 220px; 
+        height: 220px;
+      }
+
+      /* Biodata rows stack on mobile */
+      .bio-row {
+        flex-direction: column;
+        gap: 2px;
+      }
+      .bio-row .bio-label {
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOMBOL KEMBALI KE BERANDA -->
+  <a href="https://penyuluhantikorupsi.vercel.app/" class="back-btn">
+    ⬅️ Kembali ke Beranda
+  </a>
+
+  <div class="cv-container">
+    
+    <!-- HEADER BIODATA -->
+    <header class="cv-header">
+      <img src="https://i.postimg.cc/Bn6X6F2q/NANANG-FOTO-ROMPI-PAKSI.jpg" alt="Foto Nanang Agus Subekti" class="cv-photo">
+      <div class="cv-title">
+        <h1>Nanang Agus Subekti <span class="gelar">S.A.P, CAI</span></h1>
+        <h2>Penyuluh Anti Korupsi Pertama / Penelaah Teknis Kebijakan</h2>
+      </div>
+    </header>
+
+    <!-- BODY BIODATA -->
+    <div class="cv-body">
+      
+      <!-- KOLOM KIRI (KONTAK & QR) -->
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3>Informasi Kontak</h3>
+          
+          <div class="contact-item">
+            <span class="icon">📱</span>
+            <div><a href="https://wa.me/6285736411698" target="_blank">0857-3641-1698</a></div>
+          </div>
+          
+          <div class="contact-item">
+            <span class="icon">✉️</span>
+            <div><a href="mailto:nanangagussubekti@gmail.com">nanangagussubekti@gmail.com</a></div>
+          </div>
+          
+          <div class="contact-item">
+            <span class="icon">🌐</span>
+            <div><a href="https://penyuluhantikorupsi.vercel.app" target="_blank">penyuluhantikorupsi.vercel.app</a></div>
+          </div>
+
+          <!-- QR CODE DIPERBESAR -->
+          <div class="qr-wrapper">
+            <img src="https://i.postimg.cc/RVRqTdvg/qr-code.jpg" alt="QR Code Website Penyuluh Anti Korupsi">
+            <p>Scan Website</p>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- KOLOM KANAN (BIODATA) -->
+      <main class="main-content">
+        
+        <section class="main-section">
+          <h3>Biodata</h3>
+          <div class="bio-list">
+            <div class="bio-row">
+              <div class="bio-label">Nama Lengkap</div>
+              <div class="bio-value"><strong>Nanang Agus Subekti, S.A.P, CAI</strong></div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">Jabatan</div>
+              <div class="bio-value">Penyuluh Anti Korupsi Pertama / Penelaah Teknis Kebijakan</div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">NIP</div>
+              <div class="bio-value">200908282009011003</div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">Pangkat</div>
+              <div class="bio-value">Penata Muda</div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">Golongan Ruang</div>
+              <div class="bio-value">III a</div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">NPWP</div>
+              <div class="bio-value">362748543629000</div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">No. Rekening</div>
+              <div class="bio-value">0152284071 (Bank Jatim)</div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">No. Telepon</div>
+              <div class="bio-value">0857-3641-1698</div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">Email</div>
+              <div class="bio-value">nanangagussubekti@gmail.com</div>
+            </div>
+            <div class="bio-row">
+              <div class="bio-label">Website</div>
+              <div class="bio-value">penyuluhantikorupsi.vercel.app</div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+</body>
+</html>
