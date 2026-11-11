@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume KUHP Lama - Pasal-Pasal Penjeratan Terdakwa</title>
+<style>
+  :root {
+    --primary: #334155; /* Slate/Abu tua */
+    --primary-light: #475569;
+    --accent: #b45309; /* Emas/Coklat */
+    --accent-light: #f59e0b;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #0f172a;
+    --text-light: #475569;
+    --border: #e2e8f0;
+    --danger: #b91c1c;
+    --danger-bg: #fef2f2;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(51, 65, 85, 0.08);
+    --shadow-hover: 0 8px 30px rgba(51, 65, 85, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 60px 24px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid var(--accent-light);
+    color: #fef3c7;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .meta-chip {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .meta-chip strong { color: var(--accent-light); }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1050px;
+    margin: -50px auto 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== NAV TABS ===== */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: var(--card);
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+    position: sticky;
+    top: 12px;
+    z-index: 50;
+  }
+  .tab-btn {
+    flex: 1 1 auto;
+    min-width: 130px;
+    padding: 12px 18px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { background: var(--bg); color: var(--primary); }
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(51, 65, 85, 0.3);
+  }
+
+  /* ===== PANELS ===== */
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    border-left: 5px solid var(--primary-light);
+    transition: box-shadow 0.3s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .card.accent { border-left-color: var(--accent); }
+
+  .card h2 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+  .card h2 .icon {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .card p { margin-bottom: 10px; color: var(--text); }
+  .card ul, .card ol { padding-left: 22px; margin-bottom: 10px; }
+  .card li { margin-bottom: 6px; }
+  .card li::marker { color: var(--primary-light); font-weight: 700; }
+
+  /* ===== GRID ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  /* ===== MINI CARD ===== */
+  .mini-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    border-top: 4px solid var(--primary-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .mini-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .mini-card .num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .mini-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 6px; }
+  .mini-card p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::after {
+    content: '📜';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-size: 7rem;
+    opacity: 0.1;
+  }
+  .highlight-box h3 { color: var(--accent-light); font-size: 1.1rem; margin-bottom: 10px; }
+  .highlight-box p { color: rgba(255,255,255,0.95); margin: 0; font-size: 0.98rem; }
+
+  /* ===== TABLE ===== */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 500px;
+  }
+  thead { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; }
+  th, td { padding: 13px 16px; text-align: left; }
+  th { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.4px; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:hover { background: #f1f5f9; }
+
+  /* ===== PASAL BADGE ===== */
+  .pasal-badge {
+    display: inline-block;
+    background: #eff6ff;
+    color: var(--primary);
+    border: 1px solid #bfdbfe;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .pasal-badge.red {
+    background: #fee2e2;
+    color: var(--danger);
+    border-color: #fca5a5;
+  }
+
+  /* ===== PASAL CARD (KHUSUS DAFTAR PASAL) ===== */
+  .pasal-section {
+    background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+    border: 2px solid var(--primary-light);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(51, 65, 85, 0.1);
+  }
+  .pasal-section::before {
+    content: 'PASAL KUNCI';
+    position: absolute;
+    top: -12px; left: 20px;
+    background: var(--primary);
+    color: #fff;
+    padding: 2px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .pasal-section h2 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pasal-section h2 .icon {
+    background: var(--primary);
+    color: #fff;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pasal-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    border-left: 4px solid var(--primary-light);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  .pasal-card.red {
+    border-left-color: var(--danger);
+    background: var(--danger-bg);
+  }
+  .pasal-card h3 {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .pasal-card.red h3 { color: var(--danger); }
+  .pasal-card p { font-size: 0.92rem; margin-bottom: 4px; color: var(--text); }
+  .pasal-card .ancaman {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    margin-top: 6px;
+  }
+  .pasal-card.red .ancaman { color: var(--danger); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 32px 20px 48px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer strong { color: var(--primary); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 44px 18px 80px; }
+    .container { margin-top: -40px; padding: 0 14px; }
+    .card { padding: 22px 20px; }
+    .tab-btn { min-width: 100%; font-size: 0.85rem; padding: 10px 14px; }
+    .tabs { position: static; }
+    .pasal-section { padding: 20px; }
+    .pasal-card h3 { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Wetboek van Strafrecht (Staatsblad 1915: 732)</span>
+    <h1>KUHP Lama<br><span>Pasal-Pasal Penjeratan Terdakwa</span></h1>
+    <p>Resume lengkap KUHP Lama beserta daftar pasal kunci yang sering digunakan untuk menjerat terdakwa dalam berbagai kasus pidana.</p>
+    <div class="hero-meta">
+      <div class="meta-chip">📅 <span>Berlaku sejak <strong>1946</strong></span></div>
+      <div class="meta-chip">⚖️ <span>Digantikan <strong>UU No. 1/2023</strong></span></div>
+      <div class="meta-chip">📜 <span>3 Buku Utama</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<div class="container">
+
+  <!-- TABS -->
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-panel="ringkasan">📋 Ringkasan</button>
+    <button class="tab-btn" data-panel="pidana">🔨 Jenis Pidana</button>
+    <button class="tab-btn" data-panel="pasal-umum">🚨 Pasal Delik Umum</button>
+    <button class="tab-btn" data-panel="pasal-khusus">⚖️ Pasal Delik Khusus</button>
+    <button class="tab-btn" data-panel="penyertaan">🔗 Penyertaan & Perbarengan</button>
+    <button class="tab-btn" data-panel="status">📅 Status & Peralihan</button>
+  </nav>
+
+  <!-- ===== PANEL: RINGKASAN ===== -->
+  <section class="panel active" id="ringkasan">
+
+    <div class="highlight-box">
+      <h3>🔑 Inti KUHP Lama</h3>
+      <p>KUHP Lama adalah <strong>Wetboek van Strafrecht</strong> (WvS) yang diberlakukan di Indonesia melalui UU No. 1 Tahun 1946 dan diperluas ke seluruh Indonesia dengan UU No. 73 Tahun 1958. Meskipun warisan kolonial, KUHP ini telah mengalami berbagai perubahan dan menjadi dasar hukum pidana Indonesia selama lebih dari 75 tahun sebelum akhirnya digantikan oleh KUHP Baru pada tahun 2026.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="num">3</div>
+        <h3>Buku Utama</h3>
+        <p>Buku I (Aturan Umum), Buku II (Kejahatan), Buku III (Pelanggaran).</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">5</div>
+        <h3>Pidana Pokok</h3>
+        <p>Mati, Penjara, Kurungan, Denda, dan Tutupan.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">2</div>
+        <h3>Klasifikasi Delik</h3>
+        <p>Kejahatan (Rechtsdelict) dan Pelanggaran (Wetsdelict).</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📜</span> Sejarah Singkat</h2>
+      <ul>
+        <li>Berasal dari <strong>Wetboek van Strafrecht voor Nederlandsch-Indie</strong> (Staatsblad 1915: 732).</li>
+        <li>Setelah kemerdekaan, diberlakukan melalui <strong>UU No. 1 Tahun 1946</strong> tentang Peraturan Hukum Pidana.</li>
+        <li>Baru berlaku seragam untuk seluruh Indonesia setelah <strong>UU No. 73 Tahun 1958</strong>.</li>
+        <li>Telah mengalami berbagai perubahan, antara lain:
+          <ul>
+            <li>UU No. 1/1960 (kenaikan ancaman pidana)</li>
+            <li>UU No. 16/Prp/1960 (perubahan frasa denda)</li>
+            <li>UU No. 18/Prp/1960 (perubahan jumlah denda)</li>
+            <li>UU No. 7/1974 (penertiban perjudian)</li>
+            <li>UU No. 4/1976 (kejahatan penerbangan)</li>
+            <li>UU No. 27/1999 (kejahatan keamanan negara)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">⚠️</span> Status Saat Ini</h2>
+      <p>KUHP Lama <strong>telah dicabut dan dinyatakan tidak berlaku</strong> oleh <strong>UU No. 1 Tahun 2023 tentang KUHP Baru</strong> (Pasal 622). Namun, KUHP Baru baru mulai berlaku efektif pada <strong>2 Januari 2026</strong> (3 tahun setelah diundangkan). Sampai tanggal tersebut, KUHP Lama masih menjadi hukum pidana materiel yang berlaku di Indonesia.</p>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PIDANA ===== -->
+  <section class="panel" id="pidana">
+
+    <div class="card">
+      <h2><span class="icon">🔨</span> Jenis-Jenis Pidana (Pasal 10 KUHP)</h2>
+      <p>Berdasarkan Pasal 10 KUHP Lama, pidana terdiri atas dua kelompok besar:</p>
+
+      <h3 style="color: var(--primary); margin: 16px 0 10px;">A. Pidana Pokok</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Jenis Pidana</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><strong>Pidana Mati</strong></td>
+              <td>Pidana terberat, dilaksanakan oleh algojo. Eksekusi menunggu penolakan grasi dari Presiden.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>Pidana Penjara</strong></td>
+              <td>Pidana perampasan kemerdekaan. Dapat berupa penjara seumur hidup atau sementara (maks. 20 tahun).</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><strong>Pidana Kurungan</strong></td>
+              <td>Lebih ringan dari penjara. Minimal 1 hari, maksimal 1 tahun. Biasanya untuk pelanggaran.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><strong>Pidana Denda</strong></td>
+              <td>Berupa sejumlah uang. Jika tidak dibayar, diganti dengan pidana kurungan (kurungan pengganti denda).</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><strong>Pidana Tutupan</strong></td>
+              <td>Ditambahkan melalui UU No. 20 Tahun 1946. Dijatuhkan kepada terdakwa yang melakukan tindak pidana karena maksud yang patut dihormati.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="color: var(--primary); margin: 20px 0 10px;">B. Pidana Tambahan</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Jenis Pidana</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><strong>Pencabutan Hak-Hak Tertentu</strong></td>
+              <td>Misalnya hak memilih, hak memegang jabatan, hak menjadi wali, dll.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>Perampasan Barang-Barang Tertentu</strong></td>
+              <td>Barang yang digunakan untuk melakukan kejahatan atau hasil kejahatan.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><strong>Pengumuman Putusan Hakim</strong></td>
+              <td>Biaya pengumuman ditanggung oleh terpidana.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout" style="margin-top:16px; background: #f8fafc; border-left: 4px solid var(--primary-light); padding: 14px 18px; border-radius: 8px;">
+        <strong>💡 Catatan:</strong> Pidana tambahan <strong>tidak dapat dijatuhkan secara mandiri</strong>; harus menyertai pidana pokok. Pengecualian untuk perampasan barang tertentu terhadap anak-anak yang diserahkan kepada pemerintah.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PASAL DELIK UMUM ===== -->
+  <section class="panel" id="pasal-umum">
+
+    <div class="pasal-section">
+      <h2><span class="icon">🚨</span> Pasal-Pasal Kunci Delik Umum (Buku II)</h2>
+      <p style="margin-bottom: 16px;">Berikut adalah pasal-pasal yang paling sering digunakan untuk menjerat terdakwa dalam kasus pidana umum:</p>
+
+      <!-- Kejahatan terhadap Nyawa -->
+      <div class="pasal-card red">
+        <h3>Kejahatan terhadap Nyawa <span class="pasal-badge red">Pasal 338-350</span></h3>
+        <p><strong>Pasal 338:</strong> Pembunuhan — "Barang siapa dengan sengaja merampas nyawa orang lain..."</p>
+        <p><strong>Pasal 340:</strong> Pembunuhan berencana — diancam pidana mati atau penjara seumur hidup.</p>
+        <div class="ancaman">⚖️ Ancaman: Pasal 338 (maks. 15 tahun), Pasal 340 (mati/seumur hidup/maks. 20 tahun).</div>
+      </div>
+
+      <!-- Penganiayaan -->
+      <div class="pasal-card red">
+        <h3>Penganiayaan <span class="pasal-badge red">Pasal 351-358</span></h3>
+        <p><strong>Pasal 351:</strong> Penganiayaan — maks. 2 tahun 8 bulan.</p>
+        <p><strong>Pasal 353:</strong> Penganiayaan dengan rencana — maks. 4 tahun.</p>
+        <p><strong>Pasal 354:</strong> Penganiayaan berat — maks. 8 tahun.</p>
+        <p><strong>Pasal 355:</strong> Penganiayaan berat dengan rencana — maks. 12 tahun.</p>
+        <div class="ancaman">⚖️ Jika mengakibatkan luka berat atau kematian, ancaman pidana diperberat.</div>
+      </div>
+
+      <!-- Pencurian -->
+      <div class="pasal-card red">
+        <h3>Pencurian <span class="pasal-badge red">Pasal 362-367</span></h3>
+        <p><strong>Pasal 362:</strong> Pencurian biasa — maks. 5 tahun.</p>
+        <p><strong>Pasal 363:</strong> Pencurian dengan pemberatan (malam hari, membongkar, dsb.) — maks. 7 tahun.</p>
+        <p><strong>Pasal 365:</strong> Pencurian dengan kekerasan — maks. 9 tahun; jika mengakibatkan kematian maks. 15 tahun.</p>
+        <div class="ancaman">⚖️ Pasal 365 ayat (4): jika mengakibatkan kematian, diancam pidana mati/seumur hidup/maks. 20 tahun.</div>
+      </div>
+
+      <!-- Penipuan & Penggelapan -->
+      <div class="pasal-card red">
+        <h3>Penipuan & Penggelapan <span class="pasal-badge red">Pasal 372, 378</span></h3>
+        <p><strong>Pasal 372:</strong> Penggelapan — maks. 4 tahun.</p>
+        <p><strong>Pasal 378:</strong> Penipuan — maks. 4 tahun.</p>
+        <p><strong>Pasal 374:</strong> Penggelapan dalam jabatan — maks. 5 tahun.</p>
+        <div class="ancaman">⚖️ Sering dikombinasikan dengan Pasal 55 atau 56 KUHP jika ada penyertaan.</div>
+      </div>
+
+      <!-- Pemerasan & Pengancaman -->
+      <div class="pasal-card red">
+        <h3>Pemerasan & Pengancaman <span class="pasal-badge red">Pasal 368-369</span></h3>
+        <p><strong>Pasal 368:</strong> Pemerasan — maks. 9 tahun.</p>
+        <p><strong>Pasal 369:</strong> Pengancaman — maks. 4 tahun.</p>
+        <div class="ancaman">⚖️ Pemerasan dengan kekerasan dapat dikombinasikan dengan Pasal 365 (pencurian dengan kekerasan).</div>
+      </div>
+
+      <!-- Pemalsuan -->
+      <div class="pasal-card red">
+        <h3>Pemalsuan <span class="pasal-badge red">Pasal 263-276</span></h3>
+        <p><strong>Pasal 263:</strong> Pemalsuan surat — maks. 6 tahun.</p>
+        <p><strong>Pasal 264:</strong> Pemalsuan surat terhadap akta autentik — maks. 8 tahun.</p>
+        <p><strong>Pasal 266:</strong> Keterangan palsu dalam akta autentik — maks. 7 tahun.</p>
+        <div class="ancaman">⚖️ Sering digunakan untuk menjerat pelaku pemalsuan dokumen, ijazah, atau akta.</div>
+      </div>
+
+      <!-- Penghinaan -->
+      <div class="pasal-card red">
+        <h3>Penghinaan <span class="pasal-badge red">Pasal 310-321</span></h3>
+        <p><strong>Pasal 310 ayat (1):</strong> Pencemaran — maks. 9 bulan.</p>
+        <p><strong>Pasal 310 ayat (2):</strong> Pencemaran tertulis — maks. 1 tahun 4 bulan.</p>
+        <p><strong>Pasal 311:</strong> Fitnah — maks. 4 tahun.</p>
+        <div class="ancaman">⚖️ Delik aduan (Pasal 319 KUHP): hanya dapat dituntut atas pengaduan korban.</div>
+      </div>
+
+      <!-- Kesusilaan -->
+      <div class="pasal-card red">
+        <h3>Kejahatan Kesusilaan <span class="pasal-badge red">Pasal 281-303</span></h3>
+        <p><strong>Pasal 285:</strong> Perkosaan — maks. 12 tahun.</p>
+        <p><strong>Pasal 286:</strong> Persetubuhan dengan perempuan pingsan/tidak berdaya — maks. 9 tahun.</p>
+        <p><strong>Pasal 287:</strong> Persetubuhan dengan anak di bawah umur — maks. 9 tahun.</p>
+        <p><strong>Pasal 290:</strong> Perbuatan cabul terhadap anak — maks. 7 tahun.</p>
+        <div class="ancaman">⚖️ Sering dikombinasikan dengan UU No. 23/2002 tentang Perlindungan Anak (sebelum berlakunya KUHP Baru).</div>
+      </div>
+
+      <!-- Keamanan Negara -->
+      <div class="pasal-card red">
+        <h3>Kejahatan terhadap Keamanan Negara <span class="pasal-badge red">Pasal 104-129</span></h3>
+        <p><strong>Pasal 104:</strong> Makar terhadap Presiden/Wakil Presiden — pidana mati/seumur hidup/maks. 20 tahun.</p>
+        <p><strong>Pasal 106:</strong> Makar menggulingkan pemerintah — maks. 15 tahun.</p>
+        <p><strong>Pasal 107:</strong> Pemberontakan — maks. 15 tahun.</p>
+        <div class="ancaman">⚖️ Sering dikombinasikan dengan UU No. 27/1999 tentang Perubahan KUHP Bidang Keamanan Negara.</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PASAL DELIK KHUSUS ===== -->
+  <section class="panel" id="pasal-khusus">
+
+    <div class="pasal-section">
+      <h2><span class="icon">⚖️</span> Pasal-Pasal Delik Khusus (Di Luar KUHP)</h2>
+      <p style="margin-bottom: 16px;">Selain KUHP, terdapat UU khusus yang sering digunakan untuk menjerat terdakwa dalam kasus-kasus tertentu:</p>
+
+      <!-- Tipikor -->
+      <div class="pasal-card red">
+        <h3>Tindak Pidana Korupsi <span class="pasal-badge red">UU No. 31/1999 jo. UU No. 20/2001</span></h3>
+        <p><strong>Pasal 2:</strong> Memperkaya diri sendiri/orang lain/korporasi secara melawan hukum — penjara seumur hidup/2-20 tahun + denda Rp200 juta - Rp1 miliar.</p>
+        <p><strong>Pasal 3:</strong> Menyalahgunakan kewenangan — penjara 1-20 tahun + denda Rp50 juta - Rp1 miliar.</p>
+        <p><strong>Pasal 5:</strong> Memberi/menerima hadiah terkait jabatan — penjara 1-5 tahun + denda Rp50 juta - Rp250 juta.</p>
+        <p><strong>Pasal 11:</strong> Pegawai negeri menerima hadiah — penjara 1-5 tahun + denda Rp50 juta - Rp250 juta.</p>
+        <p><strong>Pasal 12:</strong> Suap-menyuap — penjara 1-20 tahun + denda Rp50 juta - Rp1 miliar.</p>
+        <div class="ancaman">⚖️ Pasal 2 dan 3 sering digunakan sebagai "pasal karet" untuk menjerat pelaku korupsi.</div>
+      </div>
+
+      <!-- Pencucian Uang -->
+      <div class="pasal-card red">
+        <h3>Tindak Pidana Pencucian Uang <span class="pasal-badge red">UU No. 8/2010</span></h3>
+        <p><strong>Pasal 3:</strong> Menempatkan, mentransfer, mengalihkan harta kekayaan hasil tindak pidana — maks. 20 tahun + denda Rp10 miliar.</p>
+        <p><strong>Pasal 4:</strong> Menyembunyikan/menyamarkan asal usul harta kekayaan — maks. 20 tahun + denda Rp5 miliar.</p>
+        <p><strong>Pasal 5:</strong> Menerima/menguasai harta kekayaan hasil tindak pidana — maks. 5 tahun + denda Rp1 miliar.</p>
+        <div class="ancaman">⚖️ Sering dikombinasikan dengan pasal Tipikor (Pasal 2/3 UU Tipikor).</div>
+      </div>
+
+      <!-- Narkotika -->
+      <div class="pasal-card red">
+        <h3>Tindak Pidana Narkotika <span class="pasal-badge red">UU No. 35/2009</span></h3>
+        <p><strong>Pasal 111:</strong> Memiliki/menyimpan/menguasai narkotika Gol. I — penjara 4-12 tahun + denda Rp800 juta - Rp8 miliar.</p>
+        <p><strong>Pasal 112:</strong> Memiliki/menyimpan/menguasai narkotika Gol. I (bukan tanaman) — penjara 4-12 tahun.</p>
+        <p><strong>Pasal 114:</strong> Menawarkan/menjual/mengedarkan narkotika Gol. I — penjara 5-20 tahun + denda Rp1 miliar - Rp10 miliar.</p>
+        <p><strong>Pasal 127:</strong> Penyalahguna narkotika — penjara maks. 4 tahun (dapat direhabilitasi).</p>
+        <div class="ancaman">⚖️ Pasal 114 sering digunakan untuk menjerat pengedar, sedangkan Pasal 127 untuk pengguna.</div>
+      </div>
+
+      <!-- Terorisme -->
+      <div class="pasal-card red">
+        <h3>Tindak Pidana Terorisme <span class="pasal-badge red">UU No. 15/2003 jo. UU No. 5/2018</span></h3>
+        <p><strong>Pasal 6:</strong> Melakukan tindak pidana terorisme — penjara 5-20 tahun/seumur hidup/mati.</p>
+        <p><strong>Pasal 7:</strong> Menggunakan kekerasan untuk menimbulkan suasana teror — penjara 3-20 tahun/seumur hidup.</p>
+        <p><strong>Pasal 13:</strong> Memberikan bantuan kepada teroris — penjara 3-15 tahun.</p>
+        <div class="ancaman">⚖️ Sering dikombinasikan dengan UU No. 9/2013 tentang Pendanaan Terorisme.</div>
+      </div>
+
+      <!-- ITE -->
+      <div class="pasal-card red">
+        <h3>Tindak Pidana ITE <span class="pasal-badge red">UU No. 11/2008 jo. UU No. 19/2016</span></h3>
+        <p><strong>Pasal 27 ayat (1):</strong> Mendistribusikan/mentransmisikan informasi kesusilaan — maks. 6 tahun + denda Rp1 miliar.</p>
+        <p><strong>Pasal 27 ayat (3):</strong> Pencemaran nama baik melalui ITE — maks. 4 tahun + denda Rp750 juta.</p>
+        <p><strong>Pasal 28 ayat (2):</strong> Menyebarkan kebencian berdasarkan SARA — maks. 6 tahun + denda Rp1 miliar.</p>
+        <p><strong>Pasal 30:</strong> Mengakses komputer/sistem elektronik secara ilegal — maks. 6-8 tahun.</p>
+        <p><strong>Pasal 35:</strong> Manipulasi data elektronik — maks. 12 tahun + denda Rp12 miliar.</p>
+        <div class="ancaman">⚖️ Pasal 27 ayat (3) sering digunakan dalam kasus UU ITE, namun dapat dikombinasikan dengan Pasal 310 KUHP.</div>
+      </div>
+
+      <!-- Perlindungan Anak -->
+      <div class="pasal-card red">
+        <h3>Tindak Pidana Perlindungan Anak <span class="pasal-badge red">UU No. 23/2002 jo. UU No. 17/2016</span></h3>
+        <p><strong>Pasal 76C:</strong> Kekerasan terhadap anak — penjara 3-15 tahun + denda Rp3,6 miliar.</p>
+        <p><strong>Pasal 76D:</strong> Kekerasan seksual terhadap anak — penjara 5-15 tahun + denda Rp5 miliar.</p>
+        <p><strong>Pasal 76E:</strong> Perbuatan cabul terhadap anak — penjara 5-15 tahun + denda Rp5 miliar.</p>
+        <p><strong>Pasal 81:</strong> Persetubuhan dengan anak — penjara 5-15 tahun + denda Rp5 miliar.</p>
+        <div class="ancaman">⚖️ Sering dikombinasikan dengan Pasal 287 KUHP (persetubuhan dengan anak di bawah umur).</div>
+      </div>
+
+      <!-- KDRT -->
+      <div class="pasal-card red">
+        <h3>Kekerasan Dalam Rumah Tangga <span class="pasal-badge red">UU No. 23/2004</span></h3>
+        <p><strong>Pasal 5:</strong> Kekerasan fisik — penjara maks. 5 tahun + denda Rp15 juta.</p>
+        <p><strong>Pasal 6:</strong> Kekerasan psikis — penjara maks. 3 tahun + denda Rp9 juta.</p>
+        <p><strong>Pasal 7:</strong> Kekerasan seksual — penjara maks. 12 tahun + denda Rp36 juta.</p>
+        <p><strong>Pasal 8:</strong> Penelantaran — penjara maks. 3 tahun + denda Rp15 juta.</p>
+        <div class="ancaman">⚖️ KDRT merupakan delik aduan, kecuali kekerasan fisik/psikis yang mengakibatkan luka berat.</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PENYERTAAN ===== -->
+  <section class="panel" id="penyertaan">
+
+    <div class="card">
+      <h2><span class="icon">🔗</span> Pasal-Pasal Penyertaan (Pasal 55-56 KUHP)</h2>
+      <p>Pasal-pasal ini digunakan untuk menjerat terdakwa yang <strong>tidak melakukan sendiri</strong> tindak pidana, tetapi terlibat di dalamnya:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pasal</th>
+              <th>Bentuk Penyertaan</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pasal 55 ayat (1) ke-1</strong></td>
+              <td><em>Pleger</em> (Pelaku)</td>
+              <td>Orang yang melakukan sendiri tindak pidana.</td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 55 ayat (1) ke-2</strong></td>
+              <td><em>Doenpleger</em> (Menyuruh)</td>
+              <td>Orang yang menyuruh orang lain melakukan tindak pidana, tetapi orang yang disuruh tidak dapat dipertanggungjawabkan.</td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 55 ayat (1) ke-3</strong></td>
+              <td><em>Medepleger</em> (Turut Serta)</td>
+              <td>Orang yang turut serta melakukan tindak pidana secara bersama-sama.</td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 55 ayat (1) ke-4</strong></td>
+              <td><em>Uitlokker</em> (Penganjur)</td>
+              <td>Orang yang menggerakkan orang lain untuk melakukan tindak pidana dengan cara memberi/menjanjikan sesuatu, kekerasan, ancaman, dsb.</td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 56</strong></td>
+              <td><em>Medeplichtige</em> (Pembantu)</td>
+              <td>Orang yang membantu melakukan tindak pidana (memberi kesempatan, sarana, atau keterangan).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout" style="margin-top:16px; background: #f8fafc; border-left: 4px solid var(--primary-light); padding: 14px 18px; border-radius: 8px;">
+        <strong>💡 Catatan:</strong> Pasal 55 sering digunakan untuk menjerat <em>otak pelaku</em> yang tidak hadir di TKP. Pasal 56 digunakan untuk menjerat pihak yang <em>membantu</em> pelaku utama (misalnya menyediakan senjata atau kendaraan).
+      </div>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">📚</span> Pasal-Pasal Perbarengan (Pasal 63-71 KUHP)</h2>
+      <p>Digunakan jika terdakwa melakukan <strong>beberapa tindak pidana</strong> sekaligus:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pasal</th>
+              <th>Jenis Perbarengan</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pasal 63</strong></td>
+              <td><em>Concursus Idealis</em></td>
+              <td>Satu perbuatan melanggar beberapa aturan pidana — hanya dijatuhi <strong>satu pidana yang terberat</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 64</strong></td>
+              <td><em>Perbuatan Berlanjut</em></td>
+              <td>Beberapa perbuatan sejenis yang dipandang sebagai satu perbuatan berlanjut — dijatuhi <strong>satu pidana</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 65-71</strong></td>
+              <td><em>Concursus Realis</em></td>
+              <td>Beberapa perbuatan berdiri sendiri — sistem <strong>kumulasi terbatas</strong> (maksimum pidana terberat + 1/3).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🚫</span> Pasal-Pasal Alasan Penghapus Pidana</h2>
+      <p>Pasal-pasal yang dapat digunakan oleh <strong>penasihat hukum</strong> untuk membela terdakwa:</p>
+      <ul>
+        <li><strong>Pasal 44:</strong> Gangguan jiwa (tidak dapat dipertanggungjawabkan).</li>
+        <li><strong>Pasal 48:</strong> Daya paksa (<em>overmacht</em>).</li>
+        <li><strong>Pasal 49 ayat (1):</strong> Pembelaan terpaksa (<em>noodweer</em>).</li>
+        <li><strong>Pasal 49 ayat (2):</strong> Pembelaan terpaksa melampaui batas (<em>noodweer exces</em>).</li>
+        <li><strong>Pasal 50:</strong> Melaksanakan ketentuan undang-undang.</li>
+        <li><strong>Pasal 51 ayat (1):</strong> Melaksanakan perintah jabatan yang sah.</li>
+        <li><strong>Pasal 51 ayat (2):</strong> Perintah jabatan tanpa wewenang (dengan iktikad baik).</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: STATUS ===== -->
+  <section class="panel" id="status">
+
+    <div class="card">
+      <h2><span class="icon">📅</span> Status KUHP Lama Saat Ini</h2>
+      <p>KUHP Lama (Wetboek van Strafrecht) <strong>telah dicabut dan dinyatakan tidak berlaku</strong> oleh <strong>UU No. 1 Tahun 2023 tentang Kitab Undang-Undang Hukum Pidana (KUHP Baru)</strong>.</p>
+      <p>Namun, berdasarkan <strong>Pasal 624 UU No. 1/2023</strong>, KUHP Baru baru <strong>mulai berlaku 3 (tiga) tahun</strong> setelah tanggal diundangkan, yaitu pada <strong>2 Januari 2026</strong>.</p>
+      <p>Artinya:</p>
+      <ul>
+        <li><strong>Sampai 2 Januari 2026:</strong> KUHP Lama masih berlaku dan digunakan untuk menjerat terdakwa.</li>
+        <li><strong>Setelah 2 Januari 2026:</strong> KUHP Baru berlaku, tetapi untuk tindak pidana yang terjadi sebelum tanggal tersebut, digunakan ketentuan yang <strong>paling menguntungkan</strong> bagi terdakwa (Pasal 618 KUHP Baru).</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">🔄</span> Pasal-Pasal yang Dicabut oleh KUHP Baru</h2>
+      <p>KUHP Baru mencabut beberapa pasal dalam UU khusus, antara lain:</p>
+      <ul>
+        <li>Pasal 2, 3, 5, 11, 13 UU Tipikor (diganti Pasal 603-606 KUHP Baru).</li>
+        <li>Pasal 8, 9, 36-40 UU Pengadilan HAM.</li>
+        <li>Pasal 81, 82 UU Perlindungan Anak.</li>
+        <li>Pasal 6, 7 UU Terorisme.</li>
+        <li>Pasal 27, 45 UU ITE (terkait kesusilaan).</li>
+        <li>Pasal 37-41 UU Perlindungan Saksi dan Korban.</li>
+      </ul>
+      <p style="margin-top:10px;">Selama masa peralihan, pasal-pasal tersebut masih berlaku sepanjang belum diganti atau dinyatakan tidak berlaku oleh KUHP Baru.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📌</span> Tips Praktis Menjerat Terdakwa</h2>
+      <ol>
+        <li><strong>Identifikasi perbuatan</strong> terdakwa terlebih dahulu (apakah termasuk delik umum atau khusus).</li>
+        <li><strong>Pilih pasal yang paling tepat</strong> — utamakan pasal khusus (<em>lex specialis</em>) jika ada UU khusus yang mengatur.</li>
+        <li><strong>Gunakan pasal penyertaan</strong> (Pasal 55/56) jika terdakwa tidak melakukan sendiri.</li>
+        <li><strong>Kombinasikan dengan pasal perbarengan</strong> (Pasal 63-71) jika ada beberapa tindak pidana.</li>
+        <li><strong>Perhatikan asas lex mitior</strong> — jika terjadi perubahan UU, gunakan ketentuan yang paling menguntungkan terdakwa.</li>
+      </ol>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Resume <strong>KUHP Lama (Wetboek van Strafrecht)</strong> & Pasal-Pasal Penjeratan Terdakwa</p>
+  <p style="margin-top:6px;">Berlaku berdasarkan UU No. 1 Tahun 1946 jo. UU No. 73 Tahun 1958 • Dicabut oleh UU No. 1 Tahun 2023 (KUHP Baru)</p>
+  <p style="margin-top:6px; font-size:0.8rem; opacity:0.7;">Dokumen ini merupakan ringkasan untuk memudahkan pemahaman, bukan pengganti teks resmi undang-undang.</p>
+</footer>
+
+<script>
+  // Tab navigation logic
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.panel;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+
+      if (window.innerWidth < 640) {
+        document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
