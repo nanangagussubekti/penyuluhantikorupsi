@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume UU No. 19 Tahun 2019 - Perubahan Kedua UU KPK</title>
+<style>
+  :root {
+    --primary: #1a3a6b;
+    --primary-light: #2c5aa0;
+    --accent: #e8a020;
+    --accent-light: #f5c542;
+    --bg: #f4f6fa;
+    --card: #ffffff;
+    --text: #2d3748;
+    --text-light: #5a6a7e;
+    --border: #e2e8f0;
+    --success: #2f855a;
+    --danger: #c53030;
+    --radius: 14px;
+    --shadow: 0 4px 20px rgba(26, 58, 107, 0.08);
+    --shadow-hover: 0 8px 30px rgba(26, 58, 107, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 60%, #3d6fb8 100%);
+    color: #fff;
+    padding: 60px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(232,160,32,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; right: -5%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(232,160,32,0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent-light);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .meta-chip {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .meta-chip strong { color: var(--accent-light); }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1100px;
+    margin: -60px auto 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== NAV TABS ===== */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: var(--card);
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+    position: sticky;
+    top: 12px;
+    z-index: 50;
+  }
+  .tab-btn {
+    flex: 1 1 auto;
+    min-width: 130px;
+    padding: 12px 18px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { background: var(--bg); color: var(--primary); }
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(26,58,107,0.3);
+  }
+
+  /* ===== PANELS ===== */
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    border-left: 5px solid var(--primary-light);
+    transition: box-shadow 0.3s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .card.accent { border-left-color: var(--accent); }
+  .card.success { border-left-color: var(--success); }
+  .card.danger { border-left-color: var(--danger); }
+
+  .card h2 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+  .card h2 .icon {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .card h3 {
+    font-size: 1.02rem;
+    color: var(--primary-light);
+    margin: 18px 0 8px;
+    font-weight: 700;
+  }
+  .card p { margin-bottom: 10px; color: var(--text); }
+  .card ul, .card ol { padding-left: 22px; margin-bottom: 10px; }
+  .card li { margin-bottom: 6px; }
+  .card li::marker { color: var(--primary-light); font-weight: 700; }
+
+  /* ===== GRID ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  /* ===== MINI CARD ===== */
+  .mini-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    border-top: 4px solid var(--primary-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .mini-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .mini-card .num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .mini-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 6px; }
+  .mini-card p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 34px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 11px; top: 6px; bottom: 6px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-light), var(--accent));
+    border-radius: 3px;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 26px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 6px;
+    width: 14px; height: 14px;
+    background: var(--accent);
+    border: 3px solid var(--card);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--accent-light);
+  }
+  .timeline-item h3 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .timeline-item p { font-size: 0.92rem; color: var(--text-light); margin: 0; }
+
+  /* ===== TABLE ===== */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 560px;
+  }
+  thead { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; }
+  th, td { padding: 13px 16px; text-align: left; }
+  th { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.4px; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f8fafd; }
+  tbody tr:hover { background: #eef3fb; }
+
+  /* ===== BADGE ===== */
+  .badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .badge-bar u { background: #ebf8ff; color: #2b6cb0; }
+  .badge-acc { background: #fefcbf; color: #975a16; }
+  .badge-suc { background: #f0fff4; color: var(--success); }
+  .badge-red { background: #fff5f5; color: var(--danger); }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    background: linear-gradient(135deg, #fffaf0, #fff7e6);
+    border: 1px solid #f6d365;
+    border-left: 5px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .callout strong { color: #975a16; }
+  .callout.info {
+    background: linear-gradient(135deg, #ebf8ff, #e6f4ff);
+    border-color: #90cdf4;
+    border-left-color: var(--primary-light);
+  }
+  .callout.info strong { color: var(--primary); }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::after {
+    content: '\201C';
+    position: absolute;
+    top: -20px; right: 20px;
+    font-size: 8rem;
+    opacity: 0.12;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .highlight-box h3 { color: var(--accent-light); font-size: 1.1rem; margin-bottom: 10px; }
+  .highlight-box p { color: rgba(255,255,255,0.94); margin: 0; font-size: 0.98rem; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 32px 20px 48px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer strong { color: var(--primary); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 44px 18px 80px; }
+    .container { margin-top: -50px; padding: 0 14px; }
+    .card { padding: 22px 20px; }
+    .tab-btn { min-width: 100%; font-size: 0.85rem; padding: 10px 14px; }
+    .tabs { position: static; }
+  }
+
+  @media print {
+    .tabs { display: none; }
+    .panel { display: block !important; }
+    .hero { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card, .mini-card { box-shadow: none; border: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Lembaran Negara No. 197 Tahun 2019</span>
+    <h1>UU No. 19 Tahun 2019<br><span>Perubahan Kedua UU KPK</span></h1>
+    <p>Ringkasan perubahan atas Undang-Undang Nomor 30 Tahun 2002 tentang Komisi Pemberantasan Tindak Pidana Korupsi</p>
+    <div class="hero-meta">
+      <div class="meta-chip">📅 <span>Diundangkan <strong>17 Oktober 2019</strong></span></div>
+      <div class="meta-chip">🏛️ <span><strong>32 Halaman</strong> • 37 Butir Perubahan</span></div>
+      <div class="meta-chip">📜 <span>Tambahan LN No. <strong>6409</strong></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<div class="container">
+
+  <!-- TABS -->
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-panel="ringkasan">📋 Ringkasan</button>
+    <button class="tab-btn" data-panel="struktur">🏛️ Struktur</button>
+    <button class="tab-btn" data-panel="wewenang">⚖️ Wewenang</button>
+    <button class="tab-btn" data-panel="pengawasan">🛡️ Pengawasan</button>
+    <button class="tab-btn" data-panel="peralihan">🔄 Peralihan</button>
+  </nav>
+
+  <!-- ===== PANEL: RINGKASAN ===== -->
+  <section class="panel active" id="ringkasan">
+
+    <div class="highlight-box">
+      <h3>🔑 Inti Perubahan</h3>
+      <p>UU ini menempatkan KPK secara eksplisit dalam <strong>rumpun kekuasaan eksekutif</strong>, membentuk <strong>Dewan Pengawas</strong> sebagai organ baru, dan membatasi sejumlah kewenangan penindakan (penyadapan, penggeledahan, penyitaan) dengan mekanisme izin Dewan Pengawas.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="num">5</div>
+        <h3>Anggota Dewan Pengawas</h3>
+        <p>Organ baru yang mengawasi pelaksanaan tugas dan wewenang KPK.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">5</div>
+        <h3>Pimpinan KPK</h3>
+        <p>1 Ketua + 4 Wakil Ketua, bersifat kolektif kolegial, pejabat negara.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">2</div>
+        <h3>Tahun Batas Penyidikan</h3>
+        <p>Penyidikan/penuntutan yang tak selesai 2 tahun dapat dihentikan.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">6</div>
+        <h3>Bulan Maks. Penyadapan</h3>
+        <p>Dapat diperpanjang 1 kali untuk jangka waktu yang sama.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">Rp1 M</div>
+        <h3>Ambang Kerugian Negara</h3>
+        <p>Syarat kewenangan penindakan KPK (selain keterlibatan penegak hukum/penyelenggara negara).</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">5</div>
+        <h3>Tahun Larangan Jabatan Publik</h3>
+        <p>Bagi pimpinan/Dewan Pengawas yang mengundurkan diri.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📌</span> Latar Belakang & Tujuan</h2>
+      <ul>
+        <li>Mewujudkan penyelenggaraan negara yang <strong>bersih dari KKN</strong> berdasarkan Pancasila dan UUD 1945.</li>
+        <li>Meningkatkan <strong>sinergitas</strong> kepolisian, kejaksaan, dan KPK berdasarkan asas kesetaraan kewenangan dan perlindungan HAM.</li>
+        <li>Mendorong strategi pencegahan dan pemberantasan korupsi yang <strong>komprehensif dan sinergis</strong>.</li>
+        <li>Menyesuaikan ketentuan lama dengan perkembangan ketatanegaraan, hukum, dan kebutuhan masyarakat.</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">✅</span> Asas KPK (Pasal 5)</h2>
+      <div class="grid-3" style="margin-top:8px;">
+        <div><span class="badge badge-bar u">1</span> Kepastian hukum</div>
+        <div><span class="badge badge-bar u">2</span> Keterbukaan</div>
+        <div><span class="badge badge-bar u">3</span> Akuntabilitas</div>
+        <div><span class="badge badge-bar u">4</span> Kepentingan umum</div>
+        <div><span class="badge badge-bar u">5</span> Proporsionalitas</div>
+        <div><span class="badge badge-bar u">6</span> Penghormatan HAM</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: STRUKTUR ===== -->
+  <section class="panel" id="struktur">
+
+    <div class="card">
+      <h2><span class="icon">🏗️</span> Struktur Organisasi KPK (Pasal 21)</h2>
+      <div class="grid-3" style="margin-top:12px;">
+        <div class="mini-card" style="border-top-color: var(--accent);">
+          <h3>🛡️ Dewan Pengawas</h3>
+          <p><strong>5 orang</strong> • masa jabatan 4 tahun • dapat dipilih kembali 1 kali.</p>
+        </div>
+        <div class="mini-card">
+          <h3>👥 Pimpinan KPK</h3>
+          <p><strong>5 orang</strong> (1 Ketua + 4 Wakil Ketua) • kolektif kolegial • pejabat negara.</p>
+        </div>
+        <div class="mini-card" style="border-top-color: var(--success);">
+          <h3>🧑‍💼 Pegawai KPK</h3>
+          <p>WNI yang diangkat karena keahlian • merupakan <strong>ASN</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">🎓</span> Persyaratan Pimpinan KPK (Pasal 29)</h2>
+      <div class="grid-2">
+        <ul>
+          <li>WNI, bertakwa kepada Tuhan YME</li>
+          <li>Sehat jasmani dan rohani</li>
+          <li>Sarjana hukum / sarjana lain dengan pengalaman <strong>min. 15 tahun</strong> di bidang hukum, ekonomi, keuangan, atau perbankan</li>
+          <li>Usia <strong>50–65 tahun</strong> saat proses pemilihan</li>
+        </ul>
+        <ul>
+          <li>Tidak pernah melakukan perbuatan tercela</li>
+          <li>Cakap, jujur, berintegritas, dan bereputasi baik</li>
+          <li>Tidak menjadi pengurus partai politik</li>
+          <li>Melepaskan jabatan struktural/lainnya & tidak menjalankan profesi</li>
+          <li>Mengumumkan kekayaan sebelum dan setelah menjabat</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card success">
+      <h2><span class="icon">🚪</span> Pemberhentian Pimpinan KPK (Pasal 32)</h2>
+      <p><strong>Alasan berhenti/diberhentikan:</strong></p>
+      <div class="grid-2">
+        <ul>
+          <li>Meninggal dunia</li>
+          <li>Berakhir masa jabatan</li>
+          <li>Melakukan perbuatan tercela</li>
+          <li>Menjadi terdakwa tindak pidana kejahatan</li>
+        </ul>
+        <ul>
+          <li>Berhalangan tetap / terus-menerus &gt;3 bulan</li>
+          <li>Mengundurkan diri</li>
+          <li>Dikenai sanksi berdasarkan UU</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>⚠️ Catatan:</strong> Pimpinan yang menjadi <em>tersangka</em> diberhentikan sementara. Pimpinan yang mengundurkan diri <strong>dilarang menduduki jabatan publik selama 5 tahun</strong>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🔁</span> Mekanisme Pengisian Kekosongan (Pasal 33)</h2>
+      <ol>
+        <li>Presiden mengajukan calon anggota pengganti kepada DPR.</li>
+        <li>Dipilih dari calon Pimpinan KPK yang <strong>tidak terpilih</strong> di DPR sepanjang masih memenuhi syarat Pasal 29.</li>
+        <li>Anggota pengganti melanjutkan <strong>sisa masa jabatan</strong> pimpinan yang digantikan.</li>
+      </ol>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: WEWENANG ===== -->
+  <section class="panel" id="wewenang">
+
+    <div class="card">
+      <h2><span class="icon">🎯</span> Tugas KPK (Pasal 6)</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Tindakan Pencegahan</h3>
+          <p>Mencegah agar tidak terjadi Tindak Pidana Korupsi.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Koordinasi</h3>
+          <p>Dengan instansi berwenang pemberantasan korupsi dan pelayanan publik.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Monitor</h3>
+          <p>Terhadap penyelenggaraan pemerintahan negara.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Supervisi</h3>
+          <p>Terhadap instansi berwenang melaksanakan pemberantasan korupsi.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Penyelidikan, Penyidikan, Penuntutan</h3>
+          <p>Terhadap Tindak Pidana Korupsi.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Pelaksanaan Penetapan Hakim</h3>
+          <p>Tindakan untuk melaksanakan penetapan hakim dan putusan berkekuatan hukum tetap.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">⚡</span> Wewenang Penindakan (Pasal 11)</h2>
+      <p>KPK berwenang menyelidiki, menyidik, dan menuntut korupsi yang:</p>
+      <div class="grid-2">
+        <div class="callout info" style="margin:0;">
+          <strong>(a)</strong> Melibatkan aparat penegak hukum, Penyelenggara Negara, dan/atau orang lain yang terkait.
+        </div>
+        <div class="callout info" style="margin:0;">
+          <strong>(b)</strong> Menyangkut kerugian negara <strong>paling sedikit Rp1.000.000.000,00</strong>.
+        </div>
+      </div>
+      <p style="margin-top:14px;">Jika tidak memenuhi ketentuan di atas, KPK <strong>wajib menyerahkan</strong> penyelidikan/penyidikan/penuntutan kepada kepolisian dan/atau kejaksaan, dengan tetap melakukan <strong>supervisi</strong>.</p>
+    </div>
+
+    <div class="card danger">
+      <h2><span class="icon">🔀</span> Pengambilalihan Perkara (Pasal 10A)</h2>
+      <p>KPK berwenang mengambil alih penyidikan/penuntutan dari kepolisian/kejaksaan dengan alasan:</p>
+      <div class="table-wrap" style="margin-top:10px;">
+        <table>
+          <thead>
+            <tr><th>Kode</th><th>Alasan Pengambilalihan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="badge badge-red">a</span></td><td>Laporan masyarakat tidak ditindaklanjuti</td></tr>
+            <tr><td><span class="badge badge-red">b</span></td><td>Penanganan tanpa penyelesaian atau tertunda tanpa alasan yang dapat dipertanggungjawabkan</td></tr>
+            <tr><td><span class="badge badge-red">c</span></td><td>Penanganan ditujukan untuk melindungi pelaku yang sesungguhnya</td></tr>
+            <tr><td><span class="badge badge-red">d</span></td><td>Penanganan mengandung unsur Tindak Pidana Korupsi</td></tr>
+            <tr><td><span class="badge badge-red">e</span></td><td>Ada campur tangan pemegang kekuasaan eksekutif, yudikatif, atau legislatif</td></tr>
+            <tr><td><span class="badge badge-red">f</span></td><td>Keadaan lain menurut pertimbangan kepolisian/kejaksaan: sulit dilaksanakan secara baik dan dapat dipertanggungjawabkan</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" style="margin-top:16px;">
+        <strong>⏱️ Batas Waktu:</strong> Kepolisian/kejaksaan wajib menyerahkan tersangka, berkas, alat bukti, dan dokumen lain <strong>paling lama 14 hari kerja</strong> sejak permintaan KPK. Penyerahan dituangkan dalam berita acara.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📡</span> Penyadapan (Pasal 12, 12A–12D)</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Mekanisme Izin</h3>
+          <ul>
+            <li>Permintaan tertulis dari Pimpinan KPK.</li>
+            <li>Izin tertulis dari <strong>Dewan Pengawas</strong>.</li>
+            <li>Dewan Pengawas memutus <strong>maks. 1×24 jam</strong> sejak permintaan.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Batas Waktu & Akuntabilitas</h3>
+          <ul>
+            <li>Penyadapan <strong>maks. 6 bulan</strong>, dapat diperpanjang 1 kali.</li>
+            <li>Laporan berkala kepada Pimpinan KPK.</li>
+            <li>Pertanggungjawaban kepada Pimpinan & Dewan Pengawas <strong>maks. 14 hari kerja</strong> setelah selesai.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:14px;">
+        <strong>🔒 Kerahasiaan:</strong> Hasil penyadapan bersifat rahasia, hanya untuk kepentingan peradilan. Hasil yang tidak terkait <strong>wajib dimusnahkan seketika</strong>; pelanggaran dapat dijatuhi hukuman pidana.
+      </div>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">🛠️</span> Wewenang Penyidikan Lainnya (Pasal 12 ayat 2)</h2>
+      <div class="grid-2">
+        <ul>
+          <li>Cekal seseorang ke luar negeri</li>
+          <li>Minta keterangan keuangan kepada bank/lembaga keuangan</li>
+          <li>Blokir rekening yang diduga hasil korupsi</li>
+          <li>Perintahkan pemberhentian sementara tersangka dari jabatannya</li>
+        </ul>
+        <ul>
+          <li>Minta data kekayaan dan perpajakan</li>
+          <li>Hentikan sementara transaksi keuangan/perdagangan/perjanjian atau cabut sementara izin, lisensi, konsesi</li>
+          <li>Minta bantuan Interpol / penegak hukum negara lain</li>
+          <li>Minta bantuan kepolisian untuk penangkapan, penahanan, penggeledahan, penyitaan</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card success">
+      <h2><span class="icon">⏳</span> Penghentian Penyidikan & Penuntutan (Pasal 40)</h2>
+      <ul>
+        <li>KPK dapat menghentikan perkara yang <strong>tidak selesai dalam 2 tahun</strong>.</li>
+        <li>Harus dilaporkan ke Dewan Pengawas <strong>maks. 1 minggu</strong> sejak surat perintah dikeluarkan.</li>
+        <li>Harus <strong>diumumkan kepada publik</strong>.</li>
+        <li>Dapat dicabut jika ada <strong>bukti baru</strong> atau berdasarkan <strong>putusan praperadilan</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🔍</span> Penggeledahan & Penyitaan (Pasal 47–47A)</h2>
+      <ul>
+        <li>Memerlukan <strong>izin tertulis Dewan Pengawas</strong> (diputuskan maks. 1×24 jam).</li>
+        <li>Wajib membuat <strong>berita acara</strong> pada hari pelaksanaan, memuat: nama/jenis/jumlah barang, tempat/waktu, pemilik, tanda tangan penyidik, dan tanda tangan pemilik.</li>
+        <li>Salinan berita acara disampaikan kepada tersangka/keluarga.</li>
+        <li>Hasil penggeledahan/penyitaan dapat <strong>dilelang</strong> (diatur dengan Peraturan Pemerintah).</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PENGAWASAN ===== -->
+  <section class="panel" id="pengawasan">
+
+    <div class="highlight-box">
+      <h3>🛡️ Dewan Pengawas — Organ Baru</h3>
+      <p>Dibentuk dalam rangka mengawasi pelaksanaan tugas dan wewenang KPK. Berjumlah <strong>5 orang</strong>, menjabat <strong>4 tahun</strong>, dan dapat dipilih kembali <strong>1 kali</strong> untuk masa jabatan yang sama.</p>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">📋</span> Tugas Dewan Pengawas (Pasal 37B)</h2>
+      <div class="grid-2">
+        <ul>
+          <li>Mengawasi pelaksanaan tugas dan wewenang KPK</li>
+          <li>Memberi izin/tidak memberi izin <strong>penyadapan, penggeledahan, dan/atau penyitaan</strong></li>
+          <li>Menyusun dan menetapkan kode etik Pimpinan dan Pegawai KPK</li>
+        </ul>
+        <ul>
+          <li>Menerima dan menindaklanjuti laporan masyarakat dugaan pelanggaran kode etik/ketentuan UU</li>
+          <li>Menyelenggarakan sidang pemeriksaan dugaan pelanggaran kode etik</li>
+          <li>Evaluasi kinerja Pimpinan dan Pegawai KPK <strong>1 kali/tahun</strong></li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">Dewan Pengawas menyusun laporan pelaksanaan tugas <strong>1 kali/tahun</strong> dan menyampaikannya kepada <strong>Presiden</strong> dan <strong>DPR</strong>.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🎓</span> Persyaratan Anggota Dewan Pengawas (Pasal 37D)</h2>
+      <div class="grid-2">
+        <ul>
+          <li>WNI, bertakwa kepada Tuhan YME</li>
+          <li>Sehat jasmani dan rohani</li>
+          <li>Memiliki integritas moral dan keteladanan</li>
+          <li>Berkelakuan baik</li>
+          <li>Tidak pernah dipidana penjara <strong>≥5 tahun</strong> berdasarkan putusan berkekuatan hukum tetap</li>
+          <li>Usia <strong>min. 55 tahun</strong></li>
+        </ul>
+        <ul>
+          <li>Pendidikan <strong>min. S1</strong></li>
+          <li>Tidak menjadi anggota/pengurus partai politik</li>
+          <li>Melepaskan jabatan struktural/lainnya</li>
+          <li>Tidak menjalankan profesi selama menjabat</li>
+          <li>Mengumumkan harta kekayaan sebelum dan setelah menjabat</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card success">
+      <h2><span class="icon">🏛️</span> Pengangkatan Dewan Pengawas (Pasal 37E)</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>1. Pembentukan Panitia Seleksi</h3>
+          <p>Oleh Presiden, terdiri atas unsur Pemerintah Pusat dan masyarakat.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2. Pengumuman & Pendaftaran</h3>
+          <p>Pendaftaran dilakukan <strong>14 hari kerja</strong> secara terus-menerus.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>3. Tanggapan Masyarakat</h3>
+          <p>Masyarakat dapat menanggapi nama calon <strong>maks. 1 bulan</strong> sejak diumumkan.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>4. Penyerahan Nama ke Presiden</h3>
+          <p>Panitia seleksi menentukan dan menyampaikan nama calon.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>5. Konsultasi ke DPR</h3>
+          <p>Presiden menyampaikan nama calon ke DPR dalam <strong>14 hari kerja</strong>.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>6. Penetapan</h3>
+          <p>Presiden menetapkan Ketua dan Anggota Dewan Pengawas <strong>maks. 14 hari kerja</strong> setelah konsultasi selesai.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card danger">
+      <h2><span class="icon">🚪</span> Pemberhentian Dewan Pengawas (Pasal 37F)</h2>
+      <div class="grid-2">
+        <ul>
+          <li>Meninggal dunia</li>
+          <li>Berakhir masa jabatan</li>
+          <li>Melakukan perbuatan tercela</li>
+        </ul>
+        <ul>
+          <li>Dipidana penjara berkekuatan hukum tetap</li>
+          <li>Mengundurkan diri secara tertulis</li>
+          <li>Tidak dapat melaksanakan tugas <strong>3 bulan berturut-turut</strong></li>
+        </ul>
+      </div>
+      <div class="callout" style="margin-top:12px;">
+        <strong>⚠️ Ketentuan:</strong> Yang menjadi tersangka diberhentikan sementara. Yang mengundurkan diri <strong>dilarang menduduki jabatan publik selama 5 tahun</strong>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🕊️</span> Sumpah/Janji (Pasal 37G)</h2>
+      <p>Sebelum memangku jabatan, Ketua dan Anggota Dewan Pengawas wajib mengucapkan sumpah/janji menurut agamanya di hadapan <strong>Presiden RI</strong>, dengan bunyi yang berlaku secara <em>mutatis mutandis</em> dengan sumpah/janji Ketua dan Wakil Ketua KPK (Pasal 35 ayat 2).</p>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">📅</span> Pengangkatan Pertama (Pasal 69A)</h2>
+      <ul>
+        <li>Ketua dan anggota Dewan Pengawas <strong>pertama kali</strong> ditunjuk dan diangkat oleh Presiden.</li>
+        <li>Kriteria sesuai Pasal 37D, termasuk dan tidak terbatas pada <strong>aparat penegak hukum yang sedang menjabat</strong> dengan pengalaman <strong>min. 15 tahun</strong>.</li>
+        <li>Untuk <strong>1 kali masa jabatan</strong> (4 tahun).</li>
+        <li>Dilaksanakan bersamaan dengan pengangkatan Pimpinan KPK periode <strong>2019–2023</strong>.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PERALIHAN ===== -->
+  <section class="panel" id="peralihan">
+
+    <div class="card">
+      <h2><span class="icon">🔄</span> Ketentuan Peralihan</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Pasal</th><th>Ketentuan</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>69A</strong></td>
+              <td>Pengangkatan pertama Dewan Pengawas oleh Presiden untuk 1 kali masa jabatan, bersamaan dengan Pimpinan KPK 2019–2023.</td>
+            </tr>
+            <tr>
+              <td><strong>69B</strong></td>
+              <td>Penyelidik/penyidik KPK yang belum berstatus ASN dapat diangkat menjadi ASN dalam <strong>2 tahun</strong> sejak UU berlaku, sepanjang memenuhi ketentuan dan telah lulus pendidikan penyelidikan/penyidikan.</td>
+            </tr>
+            <tr>
+              <td><strong>69C</strong></td>
+              <td>Pegawai KPK yang belum berstatus ASN dapat diangkat menjadi ASN dalam <strong>2 tahun</strong> sejak UU berlaku.</td>
+            </tr>
+            <tr>
+              <td><strong>69D</strong></td>
+              <td>Sebelum Dewan Pengawas terbentuk, pelaksanaan tugas dan kewenangan KPK dilakukan berdasarkan ketentuan <strong>sebelum</strong> UU ini diubah.</td>
+            </tr>
+            <tr>
+              <td><strong>70A</strong></td>
+              <td>Pengangkatan, pembinaan, dan pemberhentian Pegawai KPK dilaksanakan sesuai ketentuan peraturan perundang-undangan.</td>
+            </tr>
+            <tr>
+              <td><strong>70B</strong></td>
+              <td>Semua peraturan perundang-undangan yang bertentangan dengan UU ini <strong>dicabut dan dinyatakan tidak berlaku</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>70C</strong></td>
+              <td>Penyelidikan, penyidikan, dan penuntutan yang belum selesai dilakukan berdasarkan ketentuan <strong>UU ini</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">📜</span> Ketentuan Penutup (Pasal II)</h2>
+      <p>Undang-Undang ini mulai berlaku pada tanggal diundangkan, yaitu <strong>17 Oktober 2019</strong>.</p>
+      <p style="margin-top:8px;">Diundangkan di Jakarta oleh <strong>PLT. Menteri Hukum dan HAM RI, Tjahjo Kumolo</strong>, dan dinyatakan sah berdasarkan Pasal 20 ayat (5) UUD 1945.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📊</span> Rekap Perubahan Pasal</h2>
+      <div class="grid-3">
+        <div class="mini-card" style="border-top-color: var(--primary-light);">
+          <div class="num" style="font-size:1.5rem;">Pasal 1–15</div>
+          <p>Definisi, kedudukan, asas, tugas, dan kewajiban KPK.</p>
+        </div>
+        <div class="mini-card" style="border-top-color: var(--accent);">
+          <div class="num" style="font-size:1.5rem;">Pasal 19–37</div>
+          <p>Struktur, persyaratan, pemberhentian, dan pengisian kekosongan.</p>
+        </div>
+        <div class="mini-card" style="border-top-color: var(--success);">
+          <div class="num" style="font-size:1.5rem;">Pasal 37A–37G</div>
+          <p>Bab VA baru: Dewan Pengawas.</p>
+        </div>
+        <div class="mini-card" style="border-top-color: var(--danger);">
+          <div class="num" style="font-size:1.5rem;">Pasal 38–47A</div>
+          <p>Hukum acara, penghentian perkara, penyelidik/penyidik, penggeledahan/penyitaan.</p>
+        </div>
+        <div class="mini-card" style="border-top-color: #805ad5;">
+          <div class="num" style="font-size:1.5rem;">Pasal 69A–70C</div>
+          <p>Ketentuan peralihan dan penutup.</p>
+        </div>
+        <div class="mini-card" style="border-top-color: #dd6b20;">
+          <div class="num" style="font-size:1.5rem;">Pasal 12A–12D</div>
+          <p>Penyadapan: izin, jangka waktu, dan kerahasiaan hasil.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Resume <strong>UU No. 19 Tahun 2019</strong> tentang Perubahan Kedua UU No. 30 Tahun 2002 tentang KPK</p>
+  <p style="margin-top:6px;">Lembaran Negara RI No. 197 Tahun 2019 • Tambahan Lembaran Negara No. 6409 • Diundangkan 17 Oktober 2019</p>
+  <p style="margin-top:6px; font-size:0.8rem; opacity:0.7;">Dokumen ini merupakan ringkasan untuk memudahkan pemahaman, bukan pengganti teks resmi undang-undang.</p>
+</footer>
+
+<script>
+  // Tab navigation
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.panel;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+
+      // Scroll ke atas konten saat tab diklik (mobile friendly)
+      if (window.innerWidth < 640) {
+        document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
