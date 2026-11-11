@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Perubahan UU KPK (2002 → 2019) Per Pasal</title>
+<style>
+  :root {
+    --primary: #1a3a6b;
+    --primary-light: #2c5aa0;
+    --accent: #e8a020;
+    --accent-light: #f5c542;
+    --bg: #f4f6fa;
+    --card: #ffffff;
+    --text: #2d3748;
+    --text-light: #5a6a7e;
+    --border: #e2e8f0;
+    --success: #2f855a;
+    --danger: #c53030;
+    --warning: #d97706;
+    --info: #2b6cb0;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(26, 58, 107, 0.08);
+    --shadow-hover: 0 8px 30px rgba(26, 58, 107, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 60%, #3d6fb8 100%);
+    color: #fff;
+    padding: 50px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(232,160,32,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(232,160,32,0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent-light);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(1.5rem, 4vw, 2.3rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero p {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1100px;
+    margin: -50px auto 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== LEGEND ===== */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 24px;
+    background: var(--card);
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    font-size: 0.85rem;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .dot-tetap { background: var(--success); }
+  .dot-berubah { background: var(--danger); }
+  .dot-hapus { background: var(--warning); }
+  .dot-baru { background: var(--info); }
+
+  /* ===== TABS ===== */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    background: var(--card);
+    padding: 8px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    position: sticky;
+    top: 8px;
+    z-index: 50;
+  }
+  .tab-btn {
+    flex: 1 1 auto;
+    min-width: 110px;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { background: var(--bg); color: var(--primary); }
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(26,58,107,0.3);
+  }
+
+  /* ===== PANELS ===== */
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+  }
+
+  /* ===== DETAIL CARD ===== */
+  .detail-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+    overflow: hidden;
+    border-left: 5px solid var(--primary-light);
+    transition: box-shadow 0.3s;
+  }
+  .detail-card:hover { box-shadow: var(--shadow-hover); }
+  .detail-card.tetap { border-left-color: var(--success); }
+  .detail-card.berubah { border-left-color: var(--danger); }
+  .detail-card.hapus { border-left-color: var(--warning); }
+  .detail-card.baru { border-left-color: var(--info); }
+
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #f8fafd;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .card-head h3 {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pasal-tag {
+    background: var(--primary);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .badge-status {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .bg-tetap { background: #f0fff4; color: var(--success); border: 1px solid #9ae6b4; }
+  .bg-berubah { background: #fff5f5; color: var(--danger); border: 1px solid #feb2b2; }
+  .bg-hapus { background: #fffaf0; color: var(--warning); border: 1px solid #fbd38d; }
+  .bg-baru { background: #ebf8ff; color: var(--info); border: 1px solid #90cdf4; }
+
+  .card-body { padding: 18px 20px; }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 700px) {
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+
+  .compare-box {
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    position: relative;
+  }
+  .compare-box::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    opacity: 0.85;
+  }
+  .box-old {
+    background: #fff5f5;
+    border: 1px solid #feb2b2;
+    color: #742a2a;
+  }
+  .box-old::before { color: var(--danger); }
+  .box-new {
+    background: #f0fff4;
+    border: 1px solid #9ae6b4;
+    color: #22543d;
+  }
+  .box-new::before { color: var(--success); }
+  .box-keep {
+    background: #f7fafc;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .box-keep::before { color: var(--primary-light); }
+  .box-note {
+    background: #ebf8ff;
+    border: 1px solid #90cdf4;
+    color: #2a4365;
+    grid-column: 1 / -1;
+  }
+  .box-note::before { color: var(--info); }
+
+  .old-text { text-decoration: line-through; opacity: 0.85; }
+  .highlight-new { background: #fefcbf; padding: 1px 4px; border-radius: 3px; font-weight: 700; }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    background: linear-gradient(135deg, #fffaf0, #fff7e6);
+    border: 1px solid #f6d365;
+    border-left: 5px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 0.92rem;
+  }
+  .callout strong { color: #975a16; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 32px 20px 48px;
+    color: var(--text-light);
+    font-size: 0.82rem;
+  }
+  footer strong { color: var(--primary); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 40px 16px 70px; }
+    .container { margin-top: -40px; padding: 0 12px; }
+    .tabs { position: static; }
+    .tab-btn { min-width: 100%; font-size: 0.8rem; }
+    .card-head h3 { font-size: 0.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Rincian Per Pasal</span>
+    <h1>Detail Perubahan UU KPK<br><span>UU 30/2002 → UU 19/2019</span></h1>
+    <p>Rincian lengkap aspek-aspek yang tetap, berubah, dihapus, dan ditambahkan dalam UU KPK</p>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<div class="container">
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><span class="dot dot-tetap"></span> Tetap</div>
+    <div class="legend-item"><span class="dot dot-berubah"></span> Berubah</div>
+    <div class="legend-item"><span class="dot dot-hapus"></span> Dihapus</div>
+    <div class="legend-item"><span class="dot dot-baru"></span> Baru</div>
+  </div>
+
+  <!-- TABS -->
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-panel="bab1">📖 Ketentuan Umum</button>
+    <button class="tab-btn" data-panel="bab2">⚖️ Tugas & Wewenang</button>
+    <button class="tab-btn" data-panel="bab3">🛡️ Pengawasan</button>
+    <button class="tab-btn" data-panel="bab4">👥 Organisasi</button>
+    <button class="tab-btn" data-panel="bab5">🔍 Penindakan</button>
+    <button class="tab-btn" data-panel="bab6">🔄 Peralihan</button>
+  </nav>
+
+  <!-- ===== PANEL: BAB I - KETENTUAN UMUM ===== -->
+  <section class="panel active" id="bab1">
+    <h2 class="section-title">📖 BAB I — Ketentuan Umum</h2>
+
+    <!-- Pasal 1: Definisi -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 1</span> Definisi & Pengertian</h3>
+        <span class="badge-status bg-berubah">Berubah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            6 definisi: Tindak Pidana Korupsi, Penyelenggara Negara, Pemberantasan Tindak Pidana Korupsi. <em>(Tidak ada definisi KPK, Penyadapan, Pegawai KPK).</em>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>6 definisi diperluas</strong>, termasuk:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li><span class="highlight-new">Komisi Pemberantasan Korupsi</span> (lembaga negara dalam rumpun eksekutif).</li>
+              <li><span class="highlight-new">Penyadapan</span> (definisi teknis lengkap).</li>
+              <li><span class="highlight-new">Pegawai KPK</span> (adalah ASN).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 3: Kedudukan -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 3</span> Kedudukan KPK</h3>
+        <span class="badge-status bg-berubah">Berubah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            "Komisi Pemberantasan Korupsi adalah lembaga negara yang dalam melaksanakan tugas dan wewenangnya bersifat <strong>independen dan bebas dari pengaruh kekuasaan manapun</strong>."
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            "Komisi Pemberantasan Korupsi adalah <span class="highlight-new">lembaga negara dalam rumpun kekuasaan eksekutif</span> yang dalam melaksanakan tugas dan wewenangnya bersifat independen dan bebas dari pengaruh kekuasaan manapun."
+          </div>
+          <div class="compare-box box-note" data-label="Catatan Perubahan">
+            Penempatan KPK ke dalam rumpun eksekutif menimbulkan perdebatan. Secara historis, KPK sering dianggap sebagai lembaga independen yang setara dengan cabang kekuasaan. Perubahan ini mempertegas posisi KPK di bawah Presiden (meskipun tetap independen dalam menjalankan tugas).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 5: Asas -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 5</span> Asas KPK</h3>
+        <span class="badge-status bg-berubah">Diperluas</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            <strong>5 Asas:</strong>
+            <ol style="margin-top:6px; padding-left:18px;">
+              <li>Kepastian hukum</li>
+              <li>Keterbukaan</li>
+              <li>Akuntabilitas</li>
+              <li>Kepentingan umum</li>
+              <li>Proporsionalitas</li>
+            </ol>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>6 Asas:</strong> (5 asas lama + 1 asas baru)
+            <ol style="margin-top:6px; padding-left:18px;">
+              <li>Kepastian hukum</li>
+              <li>Keterbukaan</li>
+              <li>Akuntabilitas</li>
+              <li>Kepentingan umum</li>
+              <li>Proporsionalitas</li>
+              <li><span class="highlight-new">Penghormatan terhadap Hak Asasi Manusia (HAM)</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PANEL: BAB II - TUGAS & WEWENANG ===== -->
+  <section class="panel" id="bab2">
+    <h2 class="section-title">⚖️ BAB II — Tugas & Wewenang</h2>
+
+    <!-- Pasal 6: Tugas -->
+    <div class="detail-card tetap">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 6</span> Tugas KPK</h3>
+        <span class="badge-status bg-tetap">Tetap (Diperjelas)</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-keep" data-label="UU 30/2002 (Lama)">
+            5 tugas: Koordinasi, Supervisi, Penyelidikan/Penyidikan/Penuntutan, Pencegahan, Monitor.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>6 tugas</strong> (5 tugas lama + 1 tugas baru):
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Pencegahan</li>
+              <li>Koordinasi</li>
+              <li>Monitor</li>
+              <li>Supervisi</li>
+              <li>Penyelidikan, Penyidikan, Penuntutan</li>
+              <li><span class="highlight-new">Tindakan untuk melaksanakan penetapan hakim dan putusan pengadilan yang telah memperoleh kekuatan hukum tetap.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 11: Kewenangan Penindakan -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 11</span> Kewenangan Penindakan</h3>
+        <span class="badge-status bg-berubah">Berubah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            KPK berwenang menangani korupsi yang:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Melibatkan aparat penegak hukum / penyelenggara negara;</li>
+              <li><span class="old-text">Mendapat perhatian yang meresahkan masyarakat;</span> dan/atau</li>
+              <li>Menyangkut kerugian negara ≥ Rp1 Miliar.</li>
+            </ul>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            KPK berwenang menangani korupsi yang:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Melibatkan aparat penegak hukum / penyelenggara negara; dan/atau</li>
+              <li>Menyangkut kerugian negara ≥ Rp1 Miliar.</li>
+            </ul>
+            <p style="margin-top:8px;"><em>Unsur "meresahkan masyarakat" dihapus.</em></p>
+            <p style="margin-top:4px;"><strong>Tambahan (ayat 2 & 3):</strong> Jika tidak memenuhi syarat di atas, KPK <strong>wajib menyerahkan</strong> perkara ke Polisi/Kejaksaan dan cukup melakukan <strong>supervisi</strong>.</p>
+          </div>
+          <div class="compare-box box-note" data-label="Dampak Perubahan">
+            Penghapusan unsur "meresahkan masyarakat" mempersempit pintu masuk KPK untuk menangani kasus korupsi yang tidak melibatkan pejabat/penegak hukum atau kerugiannya di bawah Rp1 Miliar. Kewajiban penyerahan ke Polisi/Kejaksaan mempertegas posisi KPK bukan sebagai "superbody" yang memonopoli semua perkara korupsi.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 12: Penyadapan & Wewenang Penyidikan -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 12, 12A–12D</span> Penyadapan & Wewenang Penyidikan</h3>
+        <span class="badge-status bg-berubah">Berubah Drastis</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            <strong>Pasal 12 ayat (1):</strong> KPK berwenang:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li><span class="old-text">Melakukan penyadapan dan merekam pembicaraan</span> (tanpa izin pihak lain).</li>
+              <li>Melarang ke luar negeri, minta data keuangan, blokir rekening, cegah transaksi, minta data pajak, minta bantuan Interpol, minta bantuan Polri.</li>
+            </ul>
+            <p style="margin-top:6px;"><em>Tidak ada ketentuan tentang izin, jangka waktu, atau akuntabilitas penyadapan.</em></p>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>Pasal 12 ayat (1):</strong> KPK berwenang menyadap, <strong>tetapi</strong>:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Wajib mendapat <span class="highlight-new">izin tertulis Dewan Pengawas</span> (Pasal 12B).</li>
+              <li>Dewan Pengawas memutus maks. <strong>1×24 jam</strong>.</li>
+              <li>Penyadapan maks. <strong>6 bulan</strong>, dapat diperpanjang <strong>1 kali</strong>.</li>
+              <li>Laporan berkala ke Pimpinan KPK.</li>
+              <li>Pertanggungjawaban ke Pimpinan & Dewan Pengawas maks. <strong>14 hari kerja</strong>.</li>
+              <li>Hasil sadap <strong>rahasia</strong>; jika tidak terkait, <span class="highlight-new">wajib dimusnahkan seketika</span> (Pasal 12D).</li>
+            </ul>
+          </div>
+          <div class="compare-box box-note" data-label="Wewenang Penyidikan Lain (Tetap)">
+            Wewenang penyidikan lainnya (cekal, blokir rekening, minta data keuangan, hentikan transaksi sementara, minta bantuan Interpol, minta bantuan Polri) <strong>tetap ada</strong> dan tidak berubah.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 13: Pencegahan -->
+    <div class="detail-card tetap">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 13</span> Wewenang Pencegahan</h3>
+        <span class="badge-status bg-tetap">Tetap</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-keep" data-label="UU 30/2002 (Lama)">
+            <ul>
+              <li>Pendaftaran & pemeriksaan LHKPN.</li>
+              <li>Menerima laporan & menetapkan status gratifikasi.</li>
+              <li>Pendidikan antikorupsi.</li>
+              <li>Sosialisasi pemberantasan korupsi.</li>
+              <li>Kampanye antikorupsi.</li>
+              <li>Kerja sama bilateral/multilateral.</li>
+            </ul>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>Isi dan substansi tetap sama</strong>, hanya penomoran pasal yang berubah (menjadi Pasal 7). Tidak ada perubahan substansial.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 14: Monitor -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 14</span> Wewenang Monitor</h3>
+        <span class="badge-status bg-berubah">Dipindah & Diperjelas</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            KPK berwenang:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Mengkaji sistem administrasi di lembaga negara/pemerintah.</li>
+              <li>Memberi saran perubahan jika berpotensi korupsi.</li>
+              <li>Melaporkan ke Presiden, DPR, BPK jika saran tidak diindahkan.</li>
+            </ul>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Sama, namun dipindahkan ke <strong>Pasal 9</strong>. Substansi tidak berubah.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 15: Kewajiban -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 15</span> Kewajiban KPK</h3>
+        <span class="badge-status bg-berubah">Ditambah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            5 kewajiban:
+            <ol style="margin-top:6px; padding-left:18px;">
+              <li>Melindungi saksi/pelapor.</li>
+              <li>Memberi informasi kepada masyarakat.</li>
+              <li>Menyusun laporan tahunan ke Presiden, DPR, BPK.</li>
+              <li>Menegakkan sumpah jabatan.</li>
+              <li>Menjalankan tugas berdasarkan asas.</li>
+            </ol>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>6 kewajiban</strong> (5 lama + 1 baru):
+            <ol style="margin-top:6px; padding-left:18px;">
+              <li>Melindungi saksi/pelapor.</li>
+              <li>Memberi informasi kepada masyarakat.</li>
+              <li>Menyusun laporan tahunan ke Presiden, DPR, BPK.</li>
+              <li>Menegakkan sumpah jabatan.</li>
+              <li>Menjalankan tugas berdasarkan asas.</li>
+              <li><span class="highlight-new">Menyusun kode etik Pimpinan dan Pegawai KPK.</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 10A: Pengambilalihan Perkara -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 10A (Baru)</span> Pengambilalihan Perkara</h3>
+        <span class="badge-status bg-baru">Pasal Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Pengambilalihan perkara diatur dalam <strong>Pasal 8 & 9</strong>, dengan 6 alasan.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>Dipindahkan ke Pasal 10A</strong> dengan 6 alasan yang sama:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Laporan tidak ditindaklanjuti.</li>
+              <li>Proses tertunda tanpa alasan.</li>
+              <li>Melindungi pelaku sesungguhnya.</li>
+              <li>Mengandung unsur korupsi.</li>
+              <li>Campur tangan kekuasaan.</li>
+              <li>Keadaan lain yang sulit dilaksanakan.</li>
+            </ul>
+            <p style="margin-top:6px;"><strong>Tambahan:</strong> KPK wajib memberitahukan kepada penyidik/penuntut umum yang menangani (ayat 5).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PANEL: BAB III - PENGAWASAN ===== -->
+  <section class="panel" id="bab3">
+    <h2 class="section-title">🛡️ BAB III — Pengawasan (Dewan Pengawas)</h2>
+
+    <div class="callout">
+      <strong>💡 Catatan:</strong> BAB VA tentang Dewan Pengawas adalah <strong>bab yang benar-benar baru</strong> dalam UU KPK. Sebelumnya, tidak ada lembaga pengawas eksternal khusus.
+    </div>
+
+    <!-- Pasal 37A: Pembentukan -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 37A (Baru)</span> Pembentukan Dewan Pengawas</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            <strong>Tidak ada</strong> lembaga pengawas eksternal. Pengawasan dilakukan secara internal dan melalui laporan tahunan ke publik.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Dibentuk <strong>Dewan Pengawas</strong> yang bertugas mengawasi pelaksanaan tugas dan wewenang KPK.
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Berjumlah <strong>5 orang</strong>.</li>
+              <li>Masa jabatan <strong>4 tahun</strong>.</li>
+              <li>Dapat dipilih kembali <strong>1 kali</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 37B: Tugas -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 37B (Baru)</span> Tugas Dewan Pengawas</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Dewan Pengawas bertugas:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Mengawasi pelaksanaan tugas dan wewenang KPK.</li>
+              <li><span class="highlight-new">Memberi izin/tidak memberi izin penyadapan, penggeledahan, dan/atau penyitaan.</span></li>
+              <li>Menyusun dan menetapkan kode etik Pimpinan & Pegawai KPK.</li>
+              <li>Menerima dan menindaklanjuti laporan masyarakat atas dugaan pelanggaran kode etik.</li>
+              <li>Menyelenggarakan sidang pemeriksaan dugaan pelanggaran kode etik.</li>
+              <li>Evaluasi kinerja Pimpinan & Pegawai KPK <strong>1 kali/tahun</strong>.</li>
+            </ul>
+            <p style="margin-top:6px;">Dewan Pengawas wajib melaporkan pelaksanaan tugasnya <strong>1 kali/tahun</strong> kepada Presiden dan DPR.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 37D: Persyaratan -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 37D (Baru)</span> Persyaratan Anggota Dewan Pengawas</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Persyaratan:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>WNI, bertakwa kepada Tuhan YME.</li>
+              <li>Sehat jasmani dan rohani.</li>
+              <li>Memiliki integritas moral dan keteladanan.</li>
+              <li>Berkelakuan baik.</li>
+              <li>Tidak pernah dipidana penjara ≥5 tahun.</li>
+              <li>Usia <strong>min. 55 tahun</strong>.</li>
+              <li>Pendidikan <strong>min. S1</strong>.</li>
+              <li>Tidak menjadi anggota/pengurus partai politik.</li>
+              <li>Melepaskan jabatan struktural/lainnya.</li>
+              <li>Tidak menjalankan profesi selama menjabat.</li>
+              <li>Mengumumkan harta kekayaan.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 37E: Pengangkatan -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 37E (Baru)</span> Mekanisme Pengangkatan</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <ol style="padding-left:18px;">
+              <li>Presiden membentuk <strong>panitia seleksi</strong> (unsur Pemerintah + Masyarakat).</li>
+              <li>Pendaftaran <strong>14 hari kerja</strong>.</li>
+              <li>Masyarakat memberi tanggapan maks. <strong>1 bulan</strong>.</li>
+              <li>Panitia seleksi menyerahkan nama ke Presiden.</li>
+              <li>Presiden ajukan nama ke DPR dalam <strong>14 hari kerja</strong>.</li>
+              <li>Presiden menetapkan Dewan Pengawas dalam <strong>14 hari kerja</strong> setelah konsultasi selesai.</li>
+            </ol>
+            <p style="margin-top:6px;"><strong>Khusus pengangkatan pertama (Pasal 69A):</strong> Presiden menunjuk langsung, termasuk dari aparat penegak hukum yang menjabat dengan pengalaman min. 15 tahun.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 37F: Pemberhentian -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 37F (Baru)</span> Pemberhentian Dewan Pengawas</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Alasan berhenti/diberhentikan:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Meninggal dunia.</li>
+              <li>Berakhir masa jabatan.</li>
+              <li>Melakukan perbuatan tercela.</li>
+              <li>Dipidana penjara berkekuatan hukum tetap.</li>
+              <li>Mengundurkan diri.</li>
+              <li>Tidak dapat melaksanakan tugas <strong>3 bulan berturut-turut</strong>.</li>
+            </ul>
+            <p style="margin-top:6px;"><strong>Ketentuan khusus:</strong> Yang menjadi tersangka diberhentikan sementara. Yang mengundurkan diri <strong>dilarang menduduki jabatan publik 5 tahun</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PANEL: BAB IV - ORGANISASI ===== -->
+  <section class="panel" id="bab4">
+    <h2 class="section-title">👥 BAB IV — Organisasi & Kepegawaian</h2>
+
+    <!-- Pasal 21: Struktur -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 21</span> Struktur Organisasi KPK</h3>
+        <span class="badge-status bg-berubah">Berubah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            KPK terdiri atas:
+            <ol style="margin-top:6px; padding-left:18px;">
+              <li>Pimpinan KPK (5 orang).</li>
+              <li><span class="old-text">Tim Penasihat (4 orang).</span></li>
+              <li>Pegawai KPK.</li>
+            </ol>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            KPK terdiri atas:
+            <ol style="margin-top:6px; padding-left:18px;">
+              <li>Pimpinan KPK (5 orang).</li>
+              <li><span class="highlight-new">Dewan Pengawas (5 orang).</span></li>
+              <li>Pegawai KPK.</li>
+            </ol>
+            <p style="margin-top:6px;"><em>Tim Penasihat dihapus.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 22-23: Tim Penasihat -->
+    <div class="detail-card hapus">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 22 & 23</span> Tim Penasihat</h3>
+        <span class="badge-status bg-hapus">Dihapus</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Diatur mengenai:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Pengangkatan Tim Penasihat (4 orang).</li>
+              <li>Fungsi memberikan nasihat dan pertimbangan kepada KPK.</li>
+              <li>Seleksi oleh panitia seleksi yang dibentuk KPK.</li>
+            </ul>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>Pasal 22 dan 23 dihapus.</strong> Tim Penasihat tidak lagi diatur dalam struktur KPK. Fungsinya digantikan oleh Dewan Pengawas (dalam hal pengawasan) dan mekanisme internal KPK.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 24: Pegawai KPK -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 24</span> Status Pegawai KPK</h3>
+        <span class="badge-status bg-berubah">Berubah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Pegawai KPK adalah WNI yang karena keahliannya diangkat sebagai pegawai pada KPK. <em>(Tidak diatur secara eksplisit sebagai ASN).</em>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Pegawai KPK merupakan anggota <span class="highlight-new">Aparatur Sipil Negara (ASN)</span>.
+            <p style="margin-top:6px;"><strong>Ketentuan peralihan (Pasal 69B & 69C):</strong> Penyelidik/penyidik/pegawai KPK yang belum berstatus ASN dapat diangkat menjadi ASN dalam <strong>2 tahun</strong> sejak UU berlaku.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 29: Syarat Pimpinan -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 29</span> Persyaratan Pimpinan KPK</h3>
+        <span class="badge-status bg-berubah">Berubah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            <ul>
+              <li>Usia minimal <span class="old-text">40 tahun</span>, maks. 65 tahun.</li>
+              <li>Sarjana hukum/sarjana lain dengan pengalaman <strong>min. 15 tahun</strong>.</li>
+              <li>Tidak pernah berbuat tercela, cakap, jujur, berintegritas.</li>
+              <li>Tidak menjadi pengurus partai politik.</li>
+              <li>Melepaskan jabatan struktural & profesi.</li>
+              <li>Mengumumkan kekayaan.</li>
+            </ul>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <ul>
+              <li>Usia minimal <span class="highlight-new">50 tahun</span>, maks. 65 tahun.</li>
+              <li>Sarjana hukum/sarjana lain dengan pengalaman <strong>min. 15 tahun</strong> (tetap).</li>
+              <li>Tidak pernah berbuat tercela, cakap, jujur, berintegritas (tetap).</li>
+              <li>Tidak menjadi pengurus partai politik (tetap).</li>
+              <li>Melepaskan jabatan struktural & profesi (tetap).</li>
+              <li>Mengumumkan kekayaan (tetap).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 32: Pemberhentian Pimpinan -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 32</span> Pemberhentian Pimpinan KPK</h3>
+        <span class="badge-status bg-berubah">Ditambah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Alasan berhenti/diberhentikan:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Meninggal dunia.</li>
+              <li>Berakhir masa jabatan.</li>
+              <li>Menjadi terdakwa tindak pidana kejahatan.</li>
+              <li>Berhalangan tetap >3 bulan.</li>
+              <li>Mengundurkan diri.</li>
+              <li>Dikenai sanksi.</li>
+            </ul>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <ul>
+              <li>Meninggal dunia.</li>
+              <li>Berakhir masa jabatan.</li>
+              <li><span class="highlight-new">Melakukan perbuatan tercela.</span></li>
+              <li>Menjadi terdakwa tindak pidana kejahatan.</li>
+              <li>Berhalangan tetap >3 bulan.</li>
+              <li>Mengundurkan diri.</li>
+              <li>Dikenai sanksi.</li>
+            </ul>
+            <p style="margin-top:6px;"><strong>Tambahan (ayat 3):</strong> Pimpinan yang mengundurkan diri <span class="highlight-new">dilarang menduduki jabatan publik 5 tahun</span>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PANEL: BAB V - PENINDAKAN ===== -->
+  <section class="panel" id="bab5">
+    <h2 class="section-title">🔍 BAB V — Penindakan & Hukum Acara</h2>
+
+    <!-- Pasal 40: Penghentian Perkara -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 40</span> Penghentian Penyidikan & Penuntutan</h3>
+        <span class="badge-status bg-berubah">Berubah Fundamental</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            "Komisi Pemberantasan Korupsi <strong>TIDAK BERWENANG</strong> mengeluarkan surat perintah penghentian penyidikan dan penuntutan dalam perkara tindak pidana korupsi."
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            KPK <strong>DAPAT menghentikan</strong> penyidikan dan penuntutan jika:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Tidak selesai dalam <span class="highlight-new">2 tahun</span>.</li>
+              <li>Wajib dilaporkan ke Dewan Pengawas maks. <strong>1 minggu</strong>.</li>
+              <li>Wajib diumumkan kepada publik.</li>
+              <li>Dapat dicabut jika ada <strong>bukti baru</strong> atau <strong>putusan praperadilan</strong>.</li>
+            </ul>
+          </div>
+          <div class="compare-box box-note" data-label="Dampak Perubahan">
+            Ini adalah perubahan paling kontroversial. Sebelumnya KPK tidak mengenal SP3 (kecuali perkara tidak cukup bukti). Kini, KPK dapat menghentikan perkara yang macet 2 tahun, meskipun ada mekanisme kontrol (lapor Dewan Pengawas, umumkan, dan bisa dicabut dengan bukti baru).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 47: Penggeledahan & Penyitaan -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 47</span> Penggeledahan & Penyitaan</h3>
+        <span class="badge-status bg-berubah">Berubah</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Penyidik dapat melakukan penggeledahan dan penyitaan <strong>tanpa izin Ketua Pengadilan Negeri</strong> (cukup atas dasar dugaan kuat adanya bukti permulaan yang cukup).
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Wajib mendapat <span class="highlight-new">izin tertulis Dewan Pengawas</span>.
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Dewan Pengawas memutus maks. <strong>1×24 jam</strong>.</li>
+              <li>Wajib membuat berita acara rinci (nama, jenis, jumlah barang, tempat, waktu, pemilik, tanda tangan penyidik & pemilik).</li>
+              <li>Salinan berita acara disampaikan ke tersangka/keluarga.</li>
+              <li><span class="highlight-new">Hasil penggeledahan/penyitaan dapat dilelang</span> (diatur dengan PP).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 43, 45: Penyelidik & Penyidik -->
+    <div class="detail-card berubah">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 43 & 45</span> Penyelidik & Penyidik</h3>
+        <span class="badge-status bg-berubah">Ditambah Persyaratan</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Penyelidik dan Penyidik adalah pejabat KPK yang diangkat dan diberhentikan oleh KPK. Tidak diatur secara rinci persyaratan pendidikan/pelatihan.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>Pasal 43A & 45A (baru):</strong> Penyelidik/Penyidik harus memenuhi syarat:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Pendidikan minimal S1.</li>
+              <li>Lulus pendidikan penyelidikan/penyidikan (bekerja sama dengan Polri/Kejaksaan).</li>
+              <li>Sehat jasmani/rohani (surat dokter).</li>
+              <li>Memiliki kemampuan & integritas moral tinggi.</li>
+            </ul>
+            <p style="margin-top:6px;"><strong>Pemberhentian:</strong> Jika diberhentikan sebagai ASN, tidak lagi bertugas di bidang teknis penegakan hukum, atau atas permintaan sendiri.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 38-39: Hukum Acara -->
+    <div class="detail-card tetap">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 38</span> Hukum Acara</h3>
+        <span class="badge-status bg-tetap">Tetap</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-keep" data-label="UU 30/2002 (Lama)">
+            Segala kewenangan penyelidikan, penyidikan, dan penuntutan berdasarkan KUHAP berlaku juga bagi penyelidik, penyidik, dan penuntut umum pada KPK, kecuali ditentukan lain dalam UU ini.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>Tetap sama</strong> (Pasal 38).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 68-72: Peralihan -->
+    <div class="detail-card hapus">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 53–62</span> Pengadilan Tipikor (Bab VII)</h3>
+        <span class="badge-status bg-hapus">Dicabut dari UU KPK</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Bab VII (Pasal 53-62) mengatur tentang:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Pembentukan Pengadilan Tipikor.</li>
+              <li>Kewenangan Pengadilan Tipikor.</li>
+              <li>Hakim Karier dan Hakim ad hoc.</li>
+              <li>Hukum acara di Pengadilan Tipikor.</li>
+            </ul>
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <strong>Pasal 53-62 DICABUT</strong> dan dinyatakan tidak berlaku (Pasal 39 UU 46/2009 tentang Pengadilan Tipikor).
+            <p style="margin-top:6px;">Pengadilan Tipikor kini diatur dalam <strong>UU No. 46 Tahun 2009</strong> sebagai undang-undang tersendiri.</p>
+          </div>
+          <div class="compare-box box-note" data-label="Latar Belakang">
+            Mahkamah Konstitusi melalui Putusan No. 012-016-019/PUU-IV/2006 menyatakan bahwa pembentukan Pengadilan Tipikor dalam UU KPK bertentangan dengan UUD 1945 karena pengadilan khusus harus dibentuk dengan undang-undang tersendiri. Oleh karena itu, dibentuklah UU No. 46 Tahun 2009.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PANEL: BAB VI - PERALIHAN ===== -->
+  <section class="panel" id="bab6">
+    <h2 class="section-title">🔄 BAB VI — Ketentuan Peralihan & Penutup</h2>
+
+    <div class="callout">
+      <strong>💡 Catatan:</strong> Ketentuan peralihan (Pasal 69A–70C) adalah <strong>pasal-pasal baru</strong> yang mengatur masa transisi setelah UU ini berlaku.
+    </div>
+
+    <!-- Pasal 69A -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 69A (Baru)</span> Pengangkatan Pertama Dewan Pengawas</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <ul>
+              <li>Ketua dan anggota Dewan Pengawas <strong>pertama kali</strong> ditunjuk dan diangkat oleh Presiden.</li>
+              <li>Kriteria sesuai Pasal 37D, termasuk dan tidak terbatas pada <strong>aparat penegak hukum yang sedang menjabat</strong> dengan pengalaman <strong>min. 15 tahun</strong>.</li>
+              <li>Untuk <strong>1 kali masa jabatan</strong> (4 tahun).</li>
+              <li>Dilaksanakan bersamaan dengan pengangkatan Pimpinan KPK periode <strong>2019–2023</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 69B -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 69B (Baru)</span> Pengangkatan Penyelidik/Penyidik Menjadi ASN</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Penyelidik/penyidik KPK yang belum berstatus ASN dapat diangkat menjadi ASN dalam <strong>2 tahun</strong> sejak UU berlaku, sepanjang:
+            <ul style="margin-top:6px; padding-left:18px;">
+              <li>Memenuhi ketentuan peraturan perundang-undangan.</li>
+              <li>Telah mengikuti dan lulus pendidikan di bidang penyelidikan/penyidikan.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 69C -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 69C (Baru)</span> Pengangkatan Pegawai KPK Menjadi ASN</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Pegawai KPK yang belum berstatus ASN dapat diangkat menjadi ASN dalam <strong>2 tahun</strong> sejak UU berlaku, sesuai ketentuan peraturan perundang-undangan.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 69D -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 69D (Baru)</span> Sebelum Dewan Pengawas Terbentuk</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            Sebelum Dewan Pengawas terbentuk, pelaksanaan tugas dan kewenangan KPK dilakukan berdasarkan ketentuan <strong>sebelum</strong> UU ini diubah.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal 70A-70C -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal 70A–70C (Baru)</span> Ketentuan Penutup</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            Tidak ada.
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            <ul>
+              <li><strong>Pasal 70A:</strong> Pengangkatan, pembinaan, dan pemberhentian Pegawai KPK sesuai ketentuan peraturan perundang-undangan.</li>
+              <li><strong>Pasal 70B:</strong> Semua peraturan perundang-undangan yang bertentangan dengan UU ini dicabut dan dinyatakan tidak berlaku.</li>
+              <li><strong>Pasal 70C:</strong> Penyelidikan, penyidikan, dan penuntutan yang belum selesai dilakukan berdasarkan ketentuan UU ini.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasal II: Mulai Berlaku -->
+    <div class="detail-card baru">
+      <div class="card-head">
+        <h3><span class="pasal-tag">Pasal II (Baru)</span> Mulai Berlaku</h3>
+        <span class="badge-status bg-baru">Baru</span>
+      </div>
+      <div class="card-body">
+        <div class="compare-grid">
+          <div class="compare-box box-old" data-label="UU 30/2002 (Lama)">
+            UU 30/2002 mulai berlaku pada tanggal diundangkan (27 Desember 2002).
+          </div>
+          <div class="compare-box box-new" data-label="UU 19/2019 (Baru)">
+            UU 19/2019 mulai berlaku pada tanggal diundangkan, yaitu <strong>17 Oktober 2019</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Detail Perubahan <strong>UU No. 30 Tahun 2002</strong> → <strong>UU No. 19 Tahun 2019</strong> tentang KPK</p>
+  <p style="margin-top:6px; font-size:0.78rem; opacity:0.7;">Dokumen ini merupakan ringkasan per pasal untuk memudahkan pemahaman, bukan pengganti teks resmi undang-undang.</p>
+</footer>
+
+<script>
+  // Tab navigation
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.panel;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+
+      if (window.innerWidth < 640) {
+        document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
