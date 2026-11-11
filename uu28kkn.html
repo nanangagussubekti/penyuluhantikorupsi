@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume UU No. 28 Tahun 1999 - Penyelenggara Negara Bersih</title>
+<style>
+  :root {
+    --primary: #0f4c3a; /* Hijau tua, melambangkan bersih & integritas */
+    --primary-light: #1b7559;
+    --accent: #d97706; /* Oranye/emas */
+    --accent-light: #fbbf24;
+    --bg: #f3f7f5;
+    --card: #ffffff;
+    --text: #1f2937;
+    --text-light: #4b5563;
+    --border: #e5e7eb;
+    --danger: #b91c1c;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(15, 76, 58, 0.08);
+    --shadow-hover: 0 8px 30px rgba(15, 76, 58, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 70%, #238b68 100%);
+    color: #fff;
+    padding: 60px 24px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(251,191,36,0.2);
+    border: 1px solid var(--accent-light);
+    color: #fef3c7;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .meta-chip {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .meta-chip strong { color: var(--accent-light); }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1050px;
+    margin: -50px auto 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== NAV TABS ===== */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: var(--card);
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+    position: sticky;
+    top: 12px;
+    z-index: 50;
+  }
+  .tab-btn {
+    flex: 1 1 auto;
+    min-width: 130px;
+    padding: 12px 18px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { background: var(--bg); color: var(--primary); }
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(15, 76, 58, 0.3);
+  }
+
+  /* ===== PANELS ===== */
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    border-left: 5px solid var(--primary-light);
+    transition: box-shadow 0.3s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .card.accent { border-left-color: var(--accent); }
+  .card.danger { border-left-color: var(--danger); }
+
+  .card h2 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+  .card h2 .icon {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .card h3 {
+    font-size: 1.02rem;
+    color: var(--primary-light);
+    margin: 18px 0 8px;
+    font-weight: 700;
+  }
+  .card p { margin-bottom: 10px; color: var(--text); }
+  .card ul, .card ol { padding-left: 22px; margin-bottom: 10px; }
+  .card li { margin-bottom: 6px; }
+  .card li::marker { color: var(--primary-light); font-weight: 700; }
+
+  /* ===== GRID ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  /* ===== MINI CARD ===== */
+  .mini-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    border-top: 4px solid var(--primary-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .mini-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .mini-card .num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .mini-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 6px; }
+  .mini-card p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    background: linear-gradient(135deg, #fffaf0, #fff7e6);
+    border: 1px solid #f6d365;
+    border-left: 5px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .callout strong { color: #92400e; }
+  .callout.info {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-color: #86efac;
+    border-left-color: var(--primary-light);
+  }
+  .callout.info strong { color: var(--primary); }
+  .callout.danger {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border-color: #fca5a5;
+    border-left-color: var(--danger);
+  }
+  .callout.danger strong { color: var(--danger); }
+
+  /* ===== TABLE ===== */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 500px;
+  }
+  thead { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; }
+  th, td { padding: 13px 16px; text-align: left; }
+  th { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.4px; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:hover { background: #f0fdf4; }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::after {
+    content: '§';
+    position: absolute;
+    top: -30px; right: 20px;
+    font-size: 9rem;
+    opacity: 0.1;
+    font-family: Georgia, serif;
+  }
+  .highlight-box h3 { color: var(--accent-light); font-size: 1.1rem; margin-bottom: 10px; }
+  .highlight-box p { color: rgba(255,255,255,0.95); margin: 0; font-size: 0.98rem; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 32px 20px 48px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer strong { color: var(--primary); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 44px 18px 80px; }
+    .container { margin-top: -40px; padding: 0 14px; }
+    .card { padding: 22px 20px; }
+    .tab-btn { min-width: 100%; font-size: 0.85rem; padding: 10px 14px; }
+    .tabs { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Lembaran Negara No. 75 Tahun 1999</span>
+    <h1>UU No. 28 Tahun 1999<br><span>Penyelenggara Negara yang Bersih</span></h1>
+    <p>Bebas dari Korupsi, Kolusi, dan Nepotisme (KKN)</p>
+    <div class="hero-meta">
+      <div class="meta-chip">📅 <span>Disahkan <strong>19 Mei 1999</strong></span></div>
+      <div class="meta-chip">✍️ <span>Presiden <strong>B.J. Habibie</strong></span></div>
+      <div class="meta-chip">📜 <span>Tambahan LN No. <strong>3851</strong></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<div class="container">
+
+  <!-- TABS -->
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-panel="ringkasan">📋 Ringkasan</button>
+    <button class="tab-btn" data-panel="kewajiban">⚖️ Hak & Kewajiban</button>
+    <button class="tab-btn" data-panel="komisi">🕵️ Komisi Pemeriksa</button>
+    <button class="tab-btn" data-panel="sanksi">🚨 Sanksi</button>
+  </nav>
+
+  <!-- ===== PANEL: RINGKASAN ===== -->
+  <section class="panel active" id="ringkasan">
+
+    <div class="highlight-box">
+      <h3>🔑 Inti Undang-Undang</h3>
+      <p>UU ini meletakkan fondasi hukum bagi terciptanya <strong>Penyelenggara Negara yang bersih</strong>. Mengatur asas-asas umum pemerintahan, hak & kewajiban pejabat, peran masyarakat, serta membentuk <strong>Komisi Pemeriksa Kekayaan Penyelenggara Negara</strong> untuk mencegah praktik KKN.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="num">7</div>
+        <h3>Asas Umum</h3>
+        <p>Kepastian hukum, tertib, kepentingan umum, keterbukaan, proporsionalitas, profesionalitas, akuntabilitas.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">40-75</div>
+        <h3>Usia Komisioner</h3>
+        <p>Rentang usia untuk dapat diangkat sebagai Anggota Komisi Pemeriksa.</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">12</div>
+        <h3>Tahun Penjara</h3>
+        <p>Hukuman maksimal bagi pelaku kolusi dan nepotisme.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🎯</span> Siapa yang Dimaksud Penyelenggara Negara? (Pasal 2)</h2>
+      <ul>
+        <li>Pejabat Negara pada Lembaga Tertinggi dan Tinggi Negara</li>
+        <li>Menteri, Gubernur, dan Hakim</li>
+        <li>Pejabat negara lain sesuai peraturan perundang-undangan</li>
+        <li><strong>Pejabat lain yang memiliki fungsi strategis</strong> (rawan KKN), seperti:
+          <ul>
+            <li>Direksi/Komisaris BUMN/BUMD</li>
+            <li>Pimpinan Bank Indonesia & BPPN</li>
+            <li>Pimpinan Perguruan Tinggi Negeri</li>
+            <li>Pejabat Eselon I (sipil/militer/Polri)</li>
+            <li>Jaksa, Penyidik, dan Panitera Pengadilan</li>
+            <li>Pemimpin & Bendaharawan Proyek</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">✅</span> 7 Asas Umum Penyelenggaraan Negara (Pasal 3)</h2>
+      <div class="table-wrap" style="margin-top:10px;">
+        <table>
+          <thead>
+            <tr><th>Asas</th><th>Makna Ringkas</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Kepastian Hukum</strong></td><td>Mengutamakan landasan perundang-undangan, kepatutan, dan keadilan.</td></tr>
+            <tr><td><strong>Tertib</strong></td><td>Keteraturan, keserasian, dan keseimbangan dalam pengendalian negara.</td></tr>
+            <tr><td><strong>Kepentingan Umum</strong></td><td>Mendahulukan kesejahteraan umum secara aspiratif, akomodatif, selektif.</td></tr>
+            <tr><td><strong>Keterbukaan</strong></td><td>Membuka diri terhadap hak masyarakat atas informasi yang benar dan tidak diskriminatif.</td></tr>
+            <tr><td><strong>Proporsionalitas</strong></td><td>Keseimbangan antara hak dan kewajiban Penyelenggara Negara.</td></tr>
+            <tr><td><strong>Profesionalitas</strong></td><td>Mengutamakan keahlian berlandaskan kode etik dan peraturan.</td></tr>
+            <tr><td><strong>Akuntabilitas</strong></td><td>Setiap kegiatan harus dapat dipertanggungjawabkan kepada masyarakat/rakyat.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🤝</span> Peran Serta Masyarakat (Pasal 8-9)</h2>
+      <p>Masyarakat memiliki hak dan tanggung jawab untuk ikut mewujudkan Penyelenggara Negara yang bersih, meliputi:</p>
+      <div class="grid-2">
+        <ul>
+          <li>Mencari, memperoleh, dan memberi informasi tentang penyelenggaraan negara.</li>
+          <li>Memperoleh pelayanan yang sama dan adil.</li>
+        </ul>
+        <ul>
+          <li>Menyampaikan saran dan pendapat secara bertanggung jawab.</li>
+          <li>Memperoleh perlindungan hukum (termasuk sebagai saksi pelapor/ahli).</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: KEWAJIBAN ===== -->
+  <section class="panel" id="kewajiban">
+
+    <div class="card">
+      <h2><span class="icon">👤</span> Hak Penyelenggara Negara (Pasal 4)</h2>
+      <ul>
+        <li>Menerima gaji, tunjangan, dan fasilitas lainnya sesuai ketentuan.</li>
+        <li>Menggunakan hak jawab terhadap teguran, tindakan atasan, ancaman hukuman, dan kritik masyarakat.</li>
+        <li>Menyampaikan pendapat di muka umum secara bertanggung jawab.</li>
+        <li>Mendapatkan hak-hak lain sesuai peraturan perundang-undangan.</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">📜</span> Kewajiban Penyelenggara Negara (Pasal 5)</h2>
+      <p>Ini adalah pasal krusial yang mengikat setiap pejabat negara:</p>
+      <ol>
+        <li><strong>Mengucapkan sumpah/janji</strong> sesuai agama sebelum memangku jabatan.</li>
+        <li><strong>Bersedia diperiksa kekayaannya</strong> sebelum, selama, dan setelah menjabat.</li>
+        <li><strong>Melaporkan dan mengumumkan kekayaan</strong> sebelum dan setelah menjabat.</li>
+        <li><strong>Tidak melakukan KKN</strong> (Korupsi, Kolusi, Nepotisme).</li>
+        <li>Melaksanakan tugas <strong>tanpa membeda-bedakan</strong> suku, agama, ras, dan golongan.</li>
+        <li>Bekerja penuh tanggung jawab, <strong>tanpa pamrih</strong> (pribadi/keluarga/kroni), dan tanpa mengharap imbalan terlarang.</li>
+        <li><strong>Bersedia menjadi saksi</strong> dalam perkara KKN dan perkara lainnya.</li>
+      </ol>
+      <div class="callout info" style="margin-top:14px;">
+        <strong>💡 Catatan:</strong> Kewajiban ini juga berlaku bagi Penyelenggara Negara yang dijabat oleh anggota TNI dan Polri (Penjelasan Pasal 5).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🤝</span> Hubungan Antar-Penyelenggara Negara (Pasal 7)</h2>
+      <p>Hubungan antar-penyelenggara negara harus dilaksanakan dengan menaati <strong>norma kelembagaan, kesopanan, kesusilaan, dan etika</strong> yang berlandaskan Pancasila dan UUD 1945, serta berpegang teguh pada 7 Asas Umum Penyelenggaraan Negara.</p>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: KOMISI ===== -->
+  <section class="panel" id="komisi">
+
+    <div class="highlight-box">
+      <h3>🕵️ Komisi Pemeriksa Kekayaan Penyelenggara Negara</h3>
+      <p>Lembaga independen yang dibentuk Presiden dan bertanggung jawab langsung kepada Presiden. Bertugas mencegah praktik KKN melalui pemeriksaan harta kekayaan pejabat negara.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="margin-bottom:0;">
+        <h2><span class="icon">🏗️</span> Struktur & Keanggotaan</h2>
+        <ul>
+          <li>Unsur <strong>Pemerintah dan Masyarakat</strong>.</li>
+          <li>Diangkat/diberhentikan Presiden <strong>setelah persetujuan DPR</strong>.</li>
+          <li>Masa jabatan <strong>5 tahun</strong>, dapat diangkat kembali <strong>1 kali</strong>.</li>
+          <li>Usia <strong>40 s.d. 75 tahun</strong>.</li>
+        </ul>
+        <h3 style="margin-top:14px;">Susunan:</h3>
+        <ul>
+          <li>1 Ketua merangkap Anggota</li>
+          <li>4 Wakil Ketua merangkap Anggota</li>
+          <li>Minimal 20 Anggota (terbagi dalam 4 Sub Komisi)</li>
+        </ul>
+      </div>
+      <div class="card accent" style="margin-bottom:0;">
+        <h2><span class="icon">🗂️</span> 4 Sub Komisi</h2>
+        <ul>
+          <li>Sub Komisi Eksekutif</li>
+          <li>Sub Komisi Legislatif</li>
+          <li>Sub Komisi Yudikatif</li>
+          <li>Sub Komisi BUMN/BUMD</li>
+        </ul>
+        <p style="margin-top:10px;">Setiap anggota Sub Komisi diangkat sesuai keahlian dan bekerja secara <strong>kolegial</strong>.</p>
+        <p>Komisi Pemeriksa berkedudukan di Ibukota Negara dan wilayah kerjanya meliputi seluruh Indonesia. Dapat dibentuk Komisi Pemeriksa di daerah dengan Keputusan Presiden setelah pertimbangan DPRD.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h2><span class="icon">🎯</span> Tugas & Wewenang (Pasal 17)</h2>
+      <p>Komisi Pemeriksa berwenang memeriksa kekayaan Penyelenggara Negara <strong>sebelum, selama, dan setelah menjabat</strong>, dengan tugas:</p>
+      <ul>
+        <li>Memantau dan mengklarifikasi harta kekayaan Penyelenggara Negara.</li>
+        <li>Meneliti laporan/pengaduan masyarakat/LSM/instansi tentang dugaan KKN.</li>
+        <li>Melakukan penyelidikan atas inisiatif sendiri berdasarkan petunjuk KKN.</li>
+        <li>Mencari bukti, menghadirkan saksi, dan meminta dokumen terkait.</li>
+        <li>Meminta pejabat berwenang membuktikan dugaan KKN atas harta kekayaan yang diperiksa.</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">📤</span> Pelaporan Hasil Pemeriksaan (Pasal 18)</h2>
+      <ul>
+        <li>Disampaikan kepada <strong>Presiden, DPR, dan BPK</strong>.</li>
+        <li>Khusus hasil Sub Komisi Yudikatif, juga disampaikan ke <strong>Mahkamah Agung</strong>.</li>
+        <li>Jika ditemukan <strong>petunjuk KKN</strong>, hasil diserahkan ke instansi berwenang (BPKP, Kejaksaan Agung, Kepolisian) untuk ditindaklanjuti.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: SANKSI ===== -->
+  <section class="panel" id="sanksi">
+
+    <div class="card danger">
+      <h2><span class="icon">🚨</span> Sanksi Administratif (Pasal 20 ayat 1)</h2>
+      <p>Dikenakan bagi Penyelenggara Negara yang melanggar <strong>Pasal 5 angka 1, 2, 3, 5, dan 6</strong> (terkait sumpah, pemeriksaan kekayaan, pelaporan kekayaan, non-diskriminasi, dan tanggung jawab). Sanksi sesuai ketentuan peraturan perundang-undangan yang berlaku.</p>
+    </div>
+
+    <div class="card danger">
+      <h2><span class="icon">⚖️</span> Sanksi Pidana/Perdata (Pasal 20 ayat 2)</h2>
+      <p>Dikenakan bagi Penyelenggara Negara yang melanggar <strong>Pasal 5 angka 4 (melakukan KKN)</strong> atau <strong>angka 7 (menolak menjadi saksi)</strong>.</p>
+    </div>
+
+    <div class="card danger">
+      <h2><span class="icon">🔒</span> Hukuman Khusus Kolusi & Nepotisme (Pasal 21 & 22)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pelaku</th>
+              <th>Perbuatan</th>
+              <th>Pidana Penjara</th>
+              <th>Denda</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Penyelenggara Negara / Anggota Komisi Pemeriksa</td>
+              <td><strong>Kolusi</strong></td>
+              <td>Min. 2 tahun – Maks. <strong>12 tahun</strong></td>
+              <td>Rp200 juta – <strong>Rp1 miliar</strong></td>
+            </tr>
+            <tr>
+              <td>Penyelenggara Negara / Anggota Komisi Pemeriksa</td>
+              <td><strong>Nepotisme</strong></td>
+              <td>Min. 2 tahun – Maks. <strong>12 tahun</strong></td>
+              <td>Rp200 juta – <strong>Rp1 miliar</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout danger" style="margin-top:16px;">
+        <strong>⚠️ Ketentuan Peralihan (Pasal 23 & 24):</strong> Dalam waktu <strong>6 bulan</strong> sejak UU berlaku, setiap Penyelenggara Negara wajib melaporkan dan mengumumkan harta kekayaannya. UU ini mulai berlaku <strong>6 bulan</strong> sejak tanggal diundangkan (19 Mei 1999).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🛡️</span> Peran Masyarakat dalam Pengawasan</h2>
+      <p>Selain sanksi bagi pejabat, UU ini juga memberi ruang bagi masyarakat untuk mengontrol penyelenggaraan negara. Masyarakat yang diminta hadir sebagai saksi pelapor/ahli namun dengan sengaja tidak hadir dapat dikenakan sanksi sesuai peraturan perundang-undangan (Penjelasan Pasal 9).</p>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Resume <strong>UU No. 28 Tahun 1999</strong> tentang Penyelenggara Negara yang Bersih dan Bebas dari KKN</p>
+  <p style="margin-top:6px;">Lembaran Negara RI No. 75 Tahun 1999 • Tambahan Lembaran Negara No. 3851 • Disahkan 19 Mei 1999</p>
+  <p style="margin-top:6px; font-size:0.8rem; opacity:0.7;">Dokumen ini merupakan ringkasan untuk memudahkan pemahaman, bukan pengganti teks resmi undang-undang.</p>
+</footer>
+
+<script>
+  // Tab navigation logic
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.panel;
+
+      // Hapus kelas active dari semua tab dan panel
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      // Tambahkan kelas active ke tab dan panel yang dipilih
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+
+      // Scroll ke atas konten saat tab diklik (khusus mobile)
+      if (window.innerWidth < 640) {
+        document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
