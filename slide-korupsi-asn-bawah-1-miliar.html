@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Penanganan Kasus Korupsi ASN dengan Kerugian Negara di Bawah Rp1 Miliar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--red:#b3261e;--green:#1f7a5a;--paper:#f6f4ee;--ink:#16202c;--muted:#566272;--line:#e0dccf;
+--head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--navy);font-family:var(--body);color:var(--ink);-webkit-text-size-adjust:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transform:translateX(3%);transition:opacity .45s,transform .45s,visibility .45s}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-3%)}
+.slide.dark{color:#fff;background:radial-gradient(900px 520px at 90% 10%,rgba(42,107,168,.5),transparent 60%),linear-gradient(160deg,#091b33,var(--navy) 55%,var(--navy2))}
+.tag{position:absolute;top:max(18px,env(safe-area-inset-top));left:6vw;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.dark .tag{color:#b9c9dd}
+.tag i{width:22px;height:14px;border-radius:2px;background:linear-gradient(#d52b1e 50%,#fff 50%);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.frame{position:absolute;top:56px;bottom:84px;left:6vw;right:6vw;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.inner{width:100%;max-width:1100px;font-size:22px;line-height:1.55;margin:auto}
+h1,h2{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:2.5em;font-weight:800}
+h1.sec{font-size:2.1em;margin-bottom:.5em}
+h2{font-size:1.75em;font-weight:700;color:var(--navy);margin-bottom:.55em;display:flex;gap:.5em;align-items:baseline}
+.dark h2{color:#fff}
+.no{font-family:var(--head);color:var(--navy);background:var(--gold);min-width:1.6em;height:1.6em;border-radius:.45em;display:inline-grid;place-items:center;font-size:.75em;flex-shrink:0;transform:translateY(-.1em)}
+.kick{color:var(--gold);font-weight:700;font-size:.9em;margin-bottom:.8em}
+.lead{font-size:1.08em;color:var(--muted);margin-bottom:.9em}
+.dark .lead{color:#dbe6f3;border-left:4px solid var(--gold);padding-left:.9em}
+.dark p{color:#c9d8ea;margin-bottom:.8em}
+.hint{font-size:.8em;margin-top:2em}
+.cover .inner{max-width:900px;position:relative}
+.cover h1{margin-bottom:.5em}
+.ghost{position:absolute;right:-.1em;top:-.55em;z-index:-1;font-family:var(--head);font-weight:800;font-size:22em;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(242,183,5,.28);pointer-events:none}
+.cover .frame{overflow:hidden}
+.agenda{list-style:none;counter-reset:a;display:grid;gap:.6em}
+.agenda li{counter-increment:a;display:flex;gap:.9em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7em 1em;font-weight:600;color:var(--navy)}
+.agenda li::before{content:counter(a);font-family:var(--head);font-weight:800;background:var(--navy);color:var(--gold);width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.quote blockquote{font-family:var(--head);font-size:1.25em;line-height:1.6;color:var(--navy);border-left:6px solid var(--gold);padding:.3em 0 .3em 1em}
+.grid{display:grid;gap:14px}
+.n2{grid-template-columns:repeat(2,1fr)}.n3{grid-template-columns:repeat(3,1fr)}.n4{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 18px 18px 18px;padding:1em 1.1em;font-size:.92em}
+.card.bad{border-top-color:var(--red)}.card.sol{border-top-color:var(--green)}
+.card h3{font-family:var(--head);font-size:1.08em;color:var(--navy);margin-bottom:.35em;line-height:1.3}
+.card.bad h3{color:var(--red)}.card.sol h3{color:var(--green)}
+.card p{color:#2c3744}
+.big{font-family:var(--head);font-weight:800;font-size:2em;line-height:1;color:var(--gold);display:block;margin-bottom:.15em}
+.kids{margin-top:.8em}.kids .card{font-size:.95em;background:var(--paper)}
+.pts{list-style:none;display:grid;gap:.7em}
+.pts li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px 14px 14px 6px;padding:.8em 1.1em}
+.kes .lead{font-size:1.12em}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px max(5vw,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));z-index:5}
+.prog{flex:1;height:6px;border-radius:6px;background:rgba(120,130,150,.35);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.cnt{font-size:.85rem;font-weight:700;min-width:4.5em;text-align:center;color:#fff;mix-blend-mode:difference}
+.nb{width:46px;height:46px;border-radius:12px;border:none;background:var(--navy);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 0 0 2px rgba(242,183,5,.7)}
+.nb:hover{background:var(--navy2)}.nb:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.n3,.n2,.n4{grid-template-columns:1fr}.ghost{font-size:14em}.tag{left:5vw}.frame{left:5vw;right:5vw}}
+@media (max-height:520px){.frame{top:44px;bottom:70px}.nb{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}}
+.slide{isolation:isolate}
+.inner{position:relative}
+.src{font-size:.85em;color:#9fb3c8}
+.card.t-g{border-top-color:#c0392b}.t-g h3{color:#c0392b}
+.card.t-n{border-top-color:#d99a00}.t-n h3{color:#a86f00}
+.card.t-o{border-top-color:#2a6ba8}.t-o h3{color:#1e4b7a}
+.card.t-e{border-top-color:#1f7a5a}.t-e h3{color:#1f7a5a}
+.card .big{font-size:2em}.t-g .big{color:#c0392b}.t-o .big{color:#1e4b7a}.t-e .big{color:#1f7a5a}.t-n .big{color:#c99600}
+.card{font-size:.92em}
+.card h3 .no{margin-right:.4em;font-size:.85em}
+.sub{margin-top:.7em;padding:.6em .8em;background:var(--paper);border-radius:10px;border-left:4px solid var(--gold)}
+.sub b{display:block;font-size:.85em;color:var(--navy);margin-bottom:.15em}.sub p{font-size:.95em}
+.cols2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.col{display:grid;gap:10px;align-content:start}
+.colhead{font-family:var(--head);font-weight:700;color:#fff;padding:.6em 1em;border-radius:12px;font-size:1.05em}
+.colhead.r{background:#b3261e}.colhead.b{background:#1e4b7a}
+.col .card{margin:0;font-size:.88em;padding:.8em 1em}
+.nt{margin-top:.8em;padding:.8em 1.1em;background:#fff8e1;border-left:5px solid var(--gold);border-radius:8px;color:var(--navy)}
+.flow{display:grid;gap:24px}.flow.c2{grid-template-columns:repeat(2,1fr)}
+.flow .card{position:relative}
+.flow .card:not(:last-child)::after{content:'\203A';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:2.2em;color:#c99600;font-weight:800;line-height:1}
+.tbl{width:100%;border-collapse:separate;border-spacing:0 8px;font-size:.95em}
+.tbl th{background:var(--navy);color:#fff;padding:.7em 1em;text-align:left;font-family:var(--head)}
+.tbl th:nth-child(2){background:#1e4b7a}.tbl th:last-child{background:#b3261e;border-radius:0 12px 12px 0}.tbl th:first-child{border-radius:12px 0 0 12px}
+.tbl td{background:#fff;padding:.8em 1em;vertical-align:top;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tbl td:first-child{color:var(--navy);border-left:1px solid var(--line);border-radius:12px 0 0 12px}
+.tbl td:last-child{border-right:1px solid var(--line);border-radius:0 12px 12px 0}
+@media (max-width:820px){.cols2,.flow.c2{grid-template-columns:1fr}.flow .card:not(:last-child)::after{display:none}
+.tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}.tbl thead{display:none}.tbl tr{margin-bottom:12px}
+.tbl td{border-radius:0!important;border:1px solid var(--line);border-top:0}.tbl td:first-child{border-radius:12px 12px 0 0!important;border-top:1px solid var(--line)}.tbl td:last-child{border-radius:0 0 12px 12px!important}
+.tbl td[data-l]:not(:first-child)::before{content:attr(data-l);display:block;font-size:.78em;font-weight:700;color:var(--muted);margin-bottom:.15em}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark cover"><div class="tag"><i></i>Tinjauan Yuridis</div><div class="frame"><div class="inner"><p class="kick">TINJAUAN YURIDIS &amp; PROSEDURAL PENEGAKAN HUKUM</p><h1>Penanganan Kasus Korupsi ASN dengan Kerugian Negara di Bawah Rp1 Miliar</h1><p class="lead">Pembagian Kewenangan Aparat Penegak Hukum (Polri, Kejaksaan, KPK) serta Sinergi Pemeriksaan Internal APIP</p><p class="src">Dasar Hukum: UU No. 19 Tahun 2019 (UU KPK) | UU ASN | MoU Kemendagri, Kejaksaan RI &amp; Polri</p><p class="hint">Tekan tombol panah atau geser layar untuk lanjut</p><div class="ghost">§</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mekanisme Penanganan Tindak Pidana Korupsi ASN (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><p class="kick">LANDASAN YURIDIS</p><h2>Kewenangan Penanganan Berdasarkan Nilai Kerugian</h2><div class="nt"><strong>Prinsip Utama:</strong> Kasus korupsi dengan kerugian negara di bawah Rp1.000.000.000 ditangani oleh Kepolisian RI (Polri) dan Kejaksaan RI, bukan oleh KPK.</div><div class="grid n3" style="margin-top:14px"><div class="card t-o"><h3><span class="no">1</span>Kepolisian RI (Polri)</h3><div class="sub"><b>Unit Pelaksana</b><p>Unit Tindak Pidana Korupsi (Tipidkor) di tingkat Polres atau Polda.</p></div><div class="sub"><b>Wewenang</b><p>Melakukan penyelidikan dan penyidikan perkara korupsi di wilayah hukumnya.</p></div><div class="sub"><b>Pelimpahan</b><p>Menyerahkan berkas perkara ke Kejaksaan untuk proses penuntutan.</p></div></div><div class="card t-n"><h3><span class="no">2</span>Kejaksaan RI</h3><div class="sub"><b>Unit Pelaksana</b><p>Seksi Tindak Pidana Khusus (Pidsus) di Kejaksaan Negeri (Kejari) atau Kejati.</p></div><div class="sub"><b>Wewenang</b><p>Berwenang melakukan penyelidikan, penyidikan mandiri, sekaligus penuntutan.</p></div><div class="sub"><b>Pengadilan</b><p>Melimpahkan perkara ke Pengadilan Tipikor untuk disidangkan.</p></div></div><div class="card t-g"><h3><span class="no">3</span>Batasan KPK (UU 19/2019)</h3><div class="sub"><b>Pasal 11 UU KPK</b><p>KPK hanya berwenang menangani kerugian negara minimal Rp1 miliar.</p></div><div class="sub"><b>Tindak Lanjut Aduan</b><p>Laporan di bawah Rp1 miliar akan dilimpahkan ke Polri atau Kejaksaan.</p></div><div class="sub"><b>Peran KPK</b><p>Hanya bertindak sebagai pengawas (supervisi) jalannya penanganan.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mekanisme Penanganan Tindak Pidana Korupsi ASN (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><p class="kick">PROSEDUR PENANGANAN</p><h2>Mekanisme Khusus Pelaku ASN: Pendekatan Dua Pintu</h2><p class="lead">Berdasarkan Nota Kesepahaman (MoU) antara Kemendagri, Kejaksaan RI, dan Polri, penanganan dugaan korupsi oleh ASN memisahkan antara kesalahan administrasi dan tindak pidana:</p><div class="cols2"><div class="col"><div class="colhead b">PINTU 1: Jalur Internal (APIP / Inspektorat)</div><div class="card t-o"><h3>Pemeriksaan Awal</h3><p>Dugaan pelanggaran ASN ditelaah terlebih dahulu oleh Inspektorat Daerah atau Inspektorat Jenderal K/L.</p></div><div class="card t-o"><h3>Tujuan Audit</h3><p>Menentukan apakah temuan bersifat kesalahan administrasi atau mengandung niat jahat (mens rea).</p></div><div class="card t-o"><h3>Koordinasi APH</h3><p>APH (Polri/Kejaksaan) berkoordinasi dengan APIP sebelum melangkah ke tahap penyidikan pidana.</p></div><div class="card t-o"><h3>Efisiensi Hukum</h3><p>Mencegah kriminalisasi kebijakan atau kekeliruan administratif murni yang tidak merugikan secara sengaja.</p></div></div><div class="col"><div class="colhead r">PINTU 2: Jalur Hukum Pidana (APH)</div><div class="card t-g"><h3>Unsur Pidana Mutlak</h3><p>Ditemukan pemalsuan dokumen, suap, pungli, atau kesengajaan memperkaya diri sendiri/orang lain.</p></div><div class="card t-g"><h3>Pelimpahan Berkas</h3><p>APIP wajib menyerahkan hasil audit investigatif kepada Unit Tipidkor Polres atau Pidsus Kejari.</p></div><div class="card t-g"><h3>Laporan Masyarakat</h3><p>Jika laporan langsung masuk ke APH dan terbukti unsur pidananya, penyidikan langsung berjalan.</p></div><div class="card t-g"><h3>Proses Peradilan</h3><p>Diproses hingga persidangan di Pengadilan Tindak Pidana Korupsi (Tipikor).</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mekanisme Penanganan Tindak Pidana Korupsi ASN (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><p class="kick">KLASIFIKASI PELANGGARAN</p><h2>Perbandingan Jalur Administrasi dan Jalur Pidana ASN</h2><table class="tbl"><thead><tr><th>Aspek Pembeda</th><th>Kesalahan Administrasi (Non-Pidana)</th><th>Tindak Pidana Korupsi (Mens Rea)</th></tr></thead><tbody><tr><td data-l="Aspek Pembeda"><strong>Sifat Perbuatan</strong></td><td data-l="Kesalahan Administrasi (Non-Pidana)">Kelalaian prosedur, salah hitung, atau ketidaktahuan aturan tanpa niat jahat.</td><td data-l="Tindak Pidana Korupsi (Mens Rea)">Kesengajaan (mens rea), pemalsuan bukti, suap, mark-up, atau penyalahgunaan wewenang.</td></tr><tr><td data-l="Aspek Pembeda"><strong>Instansi Pemeriksa</strong></td><td data-l="Kesalahan Administrasi (Non-Pidana)">APIP (Inspektorat Daerah / Inspektorat Jenderal) dan BPKP.</td><td data-l="Tindak Pidana Korupsi (Mens Rea)">Kepolisian (Tipidkor Polres/Polda) atau Kejaksaan (Pidsus Kejari/Kejati).</td></tr><tr><td data-l="Aspek Pembeda"><strong>Penyelesaian Kerugian</strong></td><td data-l="Kesalahan Administrasi (Non-Pidana)">Tuntutan Ganti Rugi (TGR): wajib mengembalikan uang negara maksimal 60 hari.</td><td data-l="Tindak Pidana Korupsi (Mens Rea)">Penyitaan aset dan pidana uang pengganti berdasarkan putusan Pengadilan Tipikor.</td></tr><tr><td data-l="Aspek Pembeda"><strong>Sanksi bagi ASN</strong></td><td data-l="Kesalahan Administrasi (Non-Pidana)">Sanksi disiplin kepegawaian (ringan, sedang, hingga berat sesuai UU ASN).</td><td data-l="Tindak Pidana Korupsi (Mens Rea)">Pidana penjara, denda, serta pemberhentian tidak dengan hormat (PTDH) sebagai ASN.</td></tr></tbody></table></div></div></section>
+<section class="slide "><div class="tag"><i></i>Mekanisme Penanganan Tindak Pidana Korupsi ASN (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><p class="kick">SKEMA PROSEDURAL</p><h2>Alur Penanganan Dugaan Korupsi ASN (&lt; Rp1 Miliar)</h2><div class="flow c2"><div class="card t-o"><span class="big">1</span><h3>Sumber Informasi</h3><p>Aduan Masyarakat atau Temuan Audit Internal</p></div><div class="card t-n"><span class="big">2</span><h3>Pemeriksaan APIP</h3><p>Inspektorat menelaah ada tidaknya unsur niat jahat (mens rea)</p></div></div><div class="grid n2" style="margin-top:14px"><div class="card t-e"><h3>Jalur A: Kesalahan Administrasi</h3><p>Pengembalian kerugian negara (TGR maks. 60 hari) + Sanksi Disiplin ASN.</p></div><div class="card t-g"><h3>Jalur B: Unsur Pidana Korupsi</h3><p>Dilimpahkan ke Tipidkor Polri / Pidsus Kejaksaan → Penuntutan di Pengadilan Tipikor.</p></div></div><div class="nt"><strong>Catatan Penting:</strong> Pengembalian kerugian negara (TGR) tidak menghapuskan pidana apabila perbuatan korupsi terbukti dilakukan secara sengaja (Pasal 4 UU Tipikor). TGR hanya menjadi faktor yang meringankan hukuman di pengadilan.</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Ringkasan</div><div class="frame"><div class="inner"><h2>Ringkasan &amp; Poin Kunci Presentasi</h2><div class="grid n2"><div class="card t-o"><span class="big">1</span><h3>Kewenangan Penegak Hukum</h3><p>Kasus korupsi dengan kerugian negara di bawah Rp1 miliar ditangani oleh Kepolisian RI (Tipidkor) dan Kejaksaan RI (Pidsus). KPK tidak menyidik langsung namun dapat melakukan supervisi.</p></div><div class="card t-n"><span class="big">2</span><h3>Sinergi APIP dan APH</h3><p>Untuk pelaku berstatus ASN, koordinasi awal dilakukan bersama Inspektorat (APIP) guna memilah antara maladministrasi dan tindak pidana korupsi.</p></div><div class="card t-e"><span class="big">3</span><h3>Batas Pengembalian Kerugian</h3><p>Jika terbukti murni kesalahan administrasi, ASN wajib mengembalikan kerugian negara dalam waktu maksimal 60 hari disertai sanksi disiplin kepegawaian.</p></div><div class="card t-g"><span class="big">4</span><h3>Penegakan Hukum Pidana</h3><p>Jika ditemukan unsur niat jahat (mens rea), pemalsuan, atau suap, berkas wajib dilimpahkan ke Polri/Kejaksaan untuk disidangkan di Pengadilan Tipikor.</p></div></div></div></div></section>
+</main>
+<nav class="bar" aria-label="Navigasi slide">
+  <button class="nb" id="prev" aria-label="Slide sebelumnya">&#8592;</button>
+  <div class="prog"><b id="pb"></b></div>
+  <span class="cnt" id="cnt"></span>
+  <button class="nb" id="fs" aria-label="Layar penuh">&#9974;</button>
+  <button class="nb" id="next" aria-label="Slide berikutnya">&#8594;</button>
+</nav>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(s){const f=s.querySelector('.frame'),n=s.querySelector('.inner');let z=Math.max(14,Math.min(26,innerWidth/58));if(innerHeight<520)z=Math.min(z,innerHeight/22);n.style.fontSize=z+'px';while(n.offsetHeight>f.clientHeight&&z>11){z-=.5;n.style.fontSize=z+'px'}}
+function fitAll(){S.forEach(fit)}
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});
+ document.getElementById('cnt').textContent=(i+1)+' / '+S.length;document.getElementById('pb').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();go(i-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);else if(k==='f'||k==='F')document.getElementById('fs').click()});
+let x0=null;
+addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',fitAll);
+fitAll();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitAll);
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
