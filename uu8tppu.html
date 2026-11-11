@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume UU No. 8 Tahun 2010 - Pencegahan Pencucian Uang</title>
+<style>
+  :root {
+    --primary: #0c4a6e; /* Biru laut tua */
+    --primary-light: #0284c7;
+    --accent: #0d9488; /* Teal/Cyan */
+    --accent-light: #14b8a6;
+    --bg: #f0f9ff;
+    --card: #ffffff;
+    --text: #1e293b;
+    --text-light: #475569;
+    --border: #e2e8f0;
+    --danger: #b91c1c;
+    --danger-light: #fef2f2;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(12, 74, 110, 0.08);
+    --shadow-hover: 0 8px 30px rgba(12, 74, 110, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 60px 24px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(20, 184, 166, 0.2);
+    border: 1px solid var(--accent-light);
+    color: #ccfbf1;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 28px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .meta-chip {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .meta-chip strong { color: var(--accent-light); }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1050px;
+    margin: -50px auto 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== NAV TABS ===== */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: var(--card);
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+    position: sticky;
+    top: 12px;
+    z-index: 50;
+  }
+  .tab-btn {
+    flex: 1 1 auto;
+    min-width: 130px;
+    padding: 12px 18px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { background: var(--bg); color: var(--primary); }
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(12, 74, 110, 0.3);
+  }
+
+  /* ===== PANELS ===== */
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    border-left: 5px solid var(--primary-light);
+    transition: box-shadow 0.3s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .card.accent { border-left-color: var(--accent); }
+  .card.danger { border-left-color: var(--danger); }
+
+  .card h2 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+  .card h2 .icon {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .card h3 {
+    font-size: 1.02rem;
+    color: var(--primary-light);
+    margin: 18px 0 8px;
+    font-weight: 700;
+  }
+  .card p { margin-bottom: 10px; color: var(--text); }
+  .card ul, .card ol { padding-left: 22px; margin-bottom: 10px; }
+  .card li { margin-bottom: 6px; }
+  .card li::marker { color: var(--primary-light); font-weight: 700; }
+
+  /* ===== GRID ===== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  /* ===== MINI CARD ===== */
+  .mini-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    border-top: 4px solid var(--primary-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .mini-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .mini-card .num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .mini-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 6px; }
+  .mini-card p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+    border: 1px solid #5eead4;
+    border-left: 5px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .callout strong { color: #115e59; }
+  .callout.info {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-color: #7dd3fc;
+    border-left-color: var(--primary-light);
+  }
+  .callout.info strong { color: var(--primary); }
+  .callout.danger {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border-color: #fca5a5;
+    border-left-color: var(--danger);
+  }
+  .callout.danger strong { color: var(--danger); }
+
+  /* ===== TABLE ===== */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 500px;
+  }
+  thead { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; }
+  th, td { padding: 13px 16px; text-align: left; }
+  th { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.4px; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:hover { background: #f0fdfa; }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::after {
+    content: '💸';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-size: 7rem;
+    opacity: 0.1;
+  }
+  .highlight-box h3 { color: var(--accent-light); font-size: 1.1rem; margin-bottom: 10px; }
+  .highlight-box p { color: rgba(255,255,255,0.95); margin: 0; font-size: 0.98rem; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 32px 20px 48px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer strong { color: var(--primary); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 44px 18px 80px; }
+    .container { margin-top: -40px; padding: 0 14px; }
+    .card { padding: 22px 20px; }
+    .tab-btn { min-width: 100%; font-size: 0.85rem; padding: 10px 14px; }
+    .tabs { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Lembaran Negara No. 122 Tahun 2010</span>
+    <h1>UU No. 8 Tahun 2010<br><span>Pencegahan & Pemberantasan Pencucian Uang</span></h1>
+    <p>Landasan hukum komprehensif untuk melacak, menyita, dan memulihkan aset hasil tindak pidana (TPPU).</p>
+    <div class="hero-meta">
+      <div class="meta-chip">📅 <span>Disahkan <strong>22 Oktober 2010</strong></span></div>
+      <div class="meta-chip">✍️ <span>Presiden <strong>Susilo Bambang Yudhoyono</strong></span></div>
+      <div class="meta-chip">📜 <span>Tambahan LN No. <strong>5164</strong></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<div class="container">
+
+  <!-- TABS -->
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-panel="ringkasan">📋 Ringkasan</button>
+    <button class="tab-btn" data-panel="pidana">⚖️ Ketentuan Pidana</button>
+    <button class="tab-btn" data-panel="pelaporan">🏦 Pelaporan & PPATK</button>
+    <button class="tab-btn" data-panel="proses">🔍 Proses Hukum</button>
+  </nav>
+
+  <!-- ===== PANEL: RINGKASAN ===== -->
+  <section class="panel active" id="ringkasan">
+
+    <div class="highlight-box">
+      <h3>🔑 Inti Undang-Undang</h3>
+      <p>UU ini menggantikan UU No. 15/2002 & UU No. 25/2003. Fokus utamanya adalah <strong>memutus mata rantai kejahatan</strong> dengan cara melacak dan merampas harta kekayaan yang berasal dari tindak pidana (korupsi, narkotika, dll) agar pelaku tidak bisa menikmati hasil kejahatannya.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="num">20</div>
+        <h3>Tahun Penjara</h3>
+        <p>Hukuman maksimal untuk pelaku TPPU (Pasal 3 & 4).</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">26</div>
+        <h3>Tindak Pidana Asal</h3>
+        <p>Dari korupsi, narkotika, hingga kehutanan (Pasal 2).</p>
+      </div>
+      <div class="mini-card">
+        <div class="num">Rp100 M</div>
+        <h3>Denda Korporasi</h3>
+        <p>Sanksi denda maksimal jika TPPU dilakukan oleh korporasi.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">📌</span> Apa itu Pencucian Uang?</h2>
+      <p>Berdasarkan <strong>Pasal 1 angka 1</strong>, Pencucian Uang adalah segala perbuatan yang memenuhi unsur-unsur tindak pidana sesuai dengan ketentuan dalam Undang-Undang ini.</p>
+      <p>Secara sederhana, TPPU adalah upaya untuk <strong>menyembunyikan atau menyamarkan asal-usul</strong> harta kekayaan yang diperoleh dari kejahatan, sehingga seolah-olah harta tersebut berasal dari sumber yang sah.</p>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">🎯</span> 26 Tindak Pidana Asal (Pasal 2)</h2>
+      <p>Harta kekayaan yang diperoleh dari tindak pidana berikut ini dapat dijerat dengan TPPU:</p>
+      <div class="grid-3" style="margin-top:10px;">
+        <ul>
+          <li>Korupsi & Penyuapan</li>
+          <li>Narkotika & Psikotropika</li>
+          <li>Penyelundupan tenaga kerja/migran</li>
+          <li>Perbankan, Pasar Modal, Asuransi</li>
+          <li>Kepabeanan & Cukai</li>
+        </ul>
+        <ul>
+          <li>Perdagangan orang & senjata gelap</li>
+          <li>Terorisme & Pendanaan Terorisme</li>
+          <li>Penculikan, Pencurian, Penggelapan</li>
+          <li>Penipuan & Pemalsuan uang</li>
+          <li>Perjudian & Prostitusi</li>
+        </ul>
+        <ul>
+          <li>Perpajakan</li>
+          <li>Kehutanan</li>
+          <li>Lingkungan Hidup</li>
+          <li>Kelautan & Perikanan</li>
+          <li><strong>Tindak pidana lain dengan ancaman ≥ 4 tahun penjara</strong></li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PIDANA ===== -->
+  <section class="panel" id="pidana">
+
+    <div class="card danger">
+      <h2><span class="icon">🚨</span> Perbuatan yang Dilarang (Pasal 3-5)</h2>
+      <p>Setiap orang yang <strong>menempatkan, mentransfer, mengalihkan, membelanjakan, membayarkan, menghibahkan, menitipkan, membawa ke luar negeri, mengubah bentuk, atau menukarkan</strong> Harta Kekayaan yang diketahui atau patut diduga merupakan hasil tindak pidana, dengan tujuan menyembunyikan asal-usulnya, dapat dipidana.</p>
+    </div>
+
+    <div class="card danger">
+      <h2><span class="icon">⚖️</span> Sanksi Pidana (Pasal 3-5)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pasal</th>
+              <th>Perbuatan</th>
+              <th>Pidana Penjara</th>
+              <th>Denda</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pasal 3</strong></td>
+              <td>Menempatkan, mentransfer, mengalihkan, membelanjakan, membayarkan, menghibahkan, menitipkan, membawa ke luar negeri, mengubah bentuk, menukarkan.</td>
+              <td>Maks. <strong>20 tahun</strong></td>
+              <td>Maks. <strong>Rp10 Miliar</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 4</strong></td>
+              <td>Menyembunyikan atau menyamarkan asal usul, sumber, lokasi, peruntukan, pengalihan hak, atau kepemilikan yang sebenarnya.</td>
+              <td>Maks. <strong>20 tahun</strong></td>
+              <td>Maks. <strong>Rp5 Miliar</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Pasal 5</strong></td>
+              <td>Menerima atau menguasai penempatan, transfer, pembayaran, hibah, sumbangan, penitipan, penukaran, atau menggunakan Harta Kekayaan hasil tindak pidana.</td>
+              <td>Maks. <strong>5 tahun</strong></td>
+              <td>Maks. <strong>Rp1 Miliar</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout info" style="margin-top:14px;">
+        <strong>💡 Catatan:</strong> Ketentuan Pasal 5 tidak berlaku bagi Pihak Pelapor yang melaksanakan kewajiban pelaporan sesuai UU ini.
+      </div>
+    </div>
+
+    <div class="card danger">
+      <h2><span class="icon">🏢</span> Sanksi untuk Korporasi (Pasal 6-9)</h2>
+      <p>Jika TPPU dilakukan oleh Korporasi, pidana dijatuhkan kepada Korporasi dan/atau Personil Pengendali Korporasi. Pidana denda maksimal untuk Korporasi adalah <strong>Rp100 Miliar</strong>.</p>
+      <h3>Pidana Tambahan untuk Korporasi (Pasal 7 ayat 2):</h3>
+      <div class="grid-2">
+        <ul>
+          <li>Pengumuman putusan hakim</li>
+          <li>Pembekuan sebagian/seluruh kegiatan usaha</li>
+          <li>Pencabutan izin usaha</li>
+        </ul>
+        <ul>
+          <li>Pembubaran dan/atau pelarangan Korporasi</li>
+          <li>Perampasan aset Korporasi untuk negara</li>
+          <li>Pengambilalihan Korporasi oleh negara</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🤝</span> Pidana Percobaan & Permufakatan Jahat (Pasal 10)</h2>
+      <p>Setiap orang yang berada di dalam atau di luar wilayah Indonesia yang <strong>turut serta melakukan percobaan, pembantuan, atau Permufakatan Jahat</strong> untuk melakukan TPPU dipidana dengan pidana yang sama dengan pelaku utama (Pasal 3, 4, dan 5).</p>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PELAPORAN ===== -->
+  <section class="panel" id="pelaporan">
+
+    <div class="highlight-box">
+      <h3>🏦 Siapa yang Wajib Lapor? (Pihak Pelapor - Pasal 17)</h3>
+      <p>UU ini mewajibkan <strong>Penyedia Jasa Keuangan</strong> dan <strong>Penyedia Barang/Jasa Lain</strong> untuk melaporkan transaksi tertentu kepada PPATK.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="margin-bottom:0;">
+        <h2><span class="icon">🏦</span> Penyedia Jasa Keuangan</h2>
+        <ul>
+          <li>Bank</li>
+          <li>Perusahaan Pembiayaan</li>
+          <li>Asuransi & Pialang Asuransi</li>
+          <li>Dana Pensiun</li>
+          <li>Perusahaan Efek, Manajer Investasi, Kustodian, Wali Amanat</li>
+          <li>Pedagang Valuta Asing</li>
+          <li>Penyelenggara Kartu, E-Money, E-Wallet</li>
+          <li>Koperasi Simpan Pinjam & Pegadaian</li>
+          <li>Perdagangan Berjangka Komoditi</li>
+          <li>Penyelenggara Pengiriman Uang</li>
+        </ul>
+      </div>
+      <div class="card accent" style="margin-bottom:0;">
+        <h2><span class="icon">🏪</span> Penyedia Barang/Jasa Lain</h2>
+        <ul>
+          <li>Perusahaan/Agen Properti</li>
+          <li>Pedagang Kendaraan Bermotor</li>
+          <li>Pedagang Permata, Perhiasan, & Logam Mulia</li>
+          <li>Pedagang Barang Seni & Antik</li>
+          <li>Balai Lelang</li>
+        </ul>
+        <p style="margin-top:10px;">Pihak pelapor lain dapat diatur lebih lanjut dengan Peraturan Pemerintah.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h2><span class="icon">📝</span> Apa yang Harus Dilaporkan? (Pasal 23)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Jenis Laporan</th>
+              <th>Batas Waktu Pelaporan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Transaksi Keuangan Mencurigakan (TKM)</strong></td>
+              <td>Paling lama <strong>3 hari kerja</strong> sejak diketahui.</td>
+            </tr>
+            <tr>
+              <td><strong>Transaksi Keuangan Tunai</strong> ≥ Rp500 Juta (dalam 1 hari kerja)</td>
+              <td>Paling lama <strong>14 hari kerja</strong> sejak transaksi.</td>
+            </tr>
+            <tr>
+              <td><strong>Transaksi Transfer Dana</strong> dari dan ke luar negeri</td>
+              <td>Paling lama <strong>14 hari kerja</strong> sejak transaksi.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">🛡️</span> Prinsip Mengenali Pengguna Jasa (Pasal 18)</h2>
+      <p>Pihak Pelapor wajib menerapkan <em>Customer Due Diligence</em> (CDD) yang meliputi:</p>
+      <ul>
+        <li><strong>Identifikasi</strong> Pengguna Jasa;</li>
+        <li><strong>Verifikasi</strong> Pengguna Jasa; dan</li>
+        <li><strong>Pemantauan</strong> Transaksi Pengguna Jasa.</li>
+      </ul>
+      <p>Diterapkan saat: membuat hubungan usaha, transaksi ≥ Rp100 juta, ada TKM, atau ada keraguan atas kebenaran informasi.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🏛️</span> PPATK (Pusat Pelaporan & Analisis Transaksi Keuangan)</h2>
+      <p><strong>Pasal 37:</strong> PPATK adalah lembaga independen, bebas dari campur tangan kekuasaan mana pun, dan bertanggung jawab kepada Presiden.</p>
+      <h3>Tugas & Fungsi Utama:</h3>
+      <ul>
+        <li>Mencegah dan memberantas TPPU.</li>
+        <li>Mengelola data dan informasi transaksi keuangan.</li>
+        <li>Mengawasi kepatuhan Pihak Pelapor.</li>
+        <li>Menganalisis laporan transaksi keuangan yang berindikasi TPPU.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== PANEL: PROSES ===== -->
+  <section class="panel" id="proses">
+
+    <div class="card">
+      <h2><span class="icon">🔍</span> Penyidikan & Penuntutan</h2>
+      <ul>
+        <li><strong>Pasal 69:</strong> Untuk menyidik TPPU, <strong>tidak wajib</strong> dibuktikan terlebih dahulu tindak pidana asalnya.</li>
+        <li><strong>Pasal 74:</strong> Penyidikan dilakukan oleh <strong>penyidik tindak pidana asal</strong> (Polri, Kejaksaan, KPK, BNN, Ditjen Pajak, Ditjen Bea Cukai).</li>
+        <li><strong>Pasal 75:</strong> Jika penyidik menemukan bukti permulaan TPPU dan tindak pidana asal, penyidikan dapat <strong>digabungkan</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">⚖️</span> Pembuktian Terbalik (Pasal 77-78)</h2>
+      <p>Dalam pemeriksaan di sidang pengadilan, <strong>terdakwa wajib membuktikan</strong> bahwa Harta Kekayaannya bukan merupakan hasil tindak pidana.</p>
+      <div class="callout info" style="margin-top:14px;">
+        <strong>💡 Catatan:</strong> Ini adalah penerapan asas <em>reversal of burden of proof</em> yang terbatas pada harta kekayaan yang diduga berasal dari tindak pidana.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🧊</span> Penghentian Sementara Transaksi (Pasal 65-67)</h2>
+      <ul>
+        <li>PPATK dapat meminta Penyedia Jasa Keuangan untuk <strong>menghentikan sementara</strong> seluruh/sebagian transaksi.</li>
+        <li>Jangka waktu: <strong>5 hari kerja</strong>, dapat diperpanjang <strong>15 hari kerja</strong>.</li>
+        <li>Jika tidak ada keberatan dalam 20 hari, PPATK menyerahkan harta kekayaan ke penyidik.</li>
+        <li>Jika pelaku tidak ditemukan dalam 30 hari, penyidik dapat mengajukan permohonan ke pengadilan untuk memutuskan harta tersebut sebagai <strong>aset negara</strong> atau dikembalikan kepada yang berhak.</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <h2><span class="icon">💵</span> Pembawaan Uang Tunai ke Luar Negeri (Pasal 34-35)</h2>
+      <ul>
+        <li>Wajib melapor ke <strong>Direktorat Jenderal Bea dan Cukai</strong> jika membawa uang tunai/instrumen pembayaran lain <strong>≥ Rp100 juta</strong> ke dalam atau ke luar daerah pabean Indonesia.</li>
+        <li>Jika tidak melapor atau jumlahnya lebih besar dari yang dilaporkan, dikenai sanksi administratif berupa <strong>denda 10%</strong> dari jumlah uang (maksimal Rp300 juta).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🛡️</span> Perlindungan Pelapor & Saksi (Pasal 83-87)</h2>
+      <ul>
+        <li>Pelapor dan saksi <strong>wajib diberi perlindungan khusus</strong> oleh negara dari ancaman yang membahayakan diri, jiwa, dan/atau hartanya, termasuk keluarganya.</li>
+        <li>Pelapor dan/atau saksi <strong>tidak dapat dituntut</strong> secara perdata maupun pidana atas laporan/kesaksian yang diberikan (kecuali memberikan keterangan palsu).</li>
+        <li>Identitas pelapor <strong>wajib dirahasiakan</strong> oleh pejabat PPATK, penyidik, penuntut umum, dan hakim.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🌐</span> Kerja Sama Internasional (Pasal 88-92)</h2>
+      <p>PPATK dapat melakukan kerja sama pertukaran informasi dengan:</p>
+      <div class="grid-2">
+        <ul>
+          <li>Instansi penegak hukum</li>
+          <li>Lembaga pengawas jasa keuangan</li>
+          <li>BPK</li>
+        </ul>
+        <ul>
+          <li>Lembaga terkait TPPU lainnya</li>
+          <li><em>Financial Intelligence Unit</em> (FIU) negara lain</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">Dapat juga dilakukan kerja sama <em>Mutual Legal Assistance</em> (MLA) berdasarkan perjanjian bilateral/multilateral atau prinsip resiprositas.</p>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Resume <strong>UU No. 8 Tahun 2010</strong> tentang Pencegahan dan Pemberantasan Tindak Pidana Pencucian Uang</p>
+  <p style="margin-top:6px;">Lembaran Negara RI No. 122 Tahun 2010 • Tambahan Lembaran Negara No. 5164 • Disahkan 22 Oktober 2010</p>
+  <p style="margin-top:6px; font-size:0.8rem; opacity:0.7;">Dokumen ini merupakan ringkasan untuk memudahkan pemahaman, bukan pengganti teks resmi undang-undang.</p>
+</footer>
+
+<script>
+  // Tab navigation logic
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.panel;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+
+      if (window.innerWidth < 640) {
+        document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
