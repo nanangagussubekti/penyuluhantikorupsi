@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kelanjutan Perkara OTT dengan Barang Bukti di Bawah Rp1 Miliar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--red:#b3261e;--green:#1f7a5a;--paper:#f6f4ee;--ink:#16202c;--muted:#566272;--line:#e0dccf;
+--head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--navy);font-family:var(--body);color:var(--ink);-webkit-text-size-adjust:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transform:translateX(3%);transition:opacity .45s,transform .45s,visibility .45s}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-3%)}
+.slide.dark{color:#fff;background:radial-gradient(900px 520px at 90% 10%,rgba(42,107,168,.5),transparent 60%),linear-gradient(160deg,#091b33,var(--navy) 55%,var(--navy2))}
+.tag{position:absolute;top:max(18px,env(safe-area-inset-top));left:6vw;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.dark .tag{color:#b9c9dd}
+.tag i{width:22px;height:14px;border-radius:2px;background:linear-gradient(#d52b1e 50%,#fff 50%);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.frame{position:absolute;top:56px;bottom:84px;left:6vw;right:6vw;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.inner{width:100%;max-width:1100px;font-size:22px;line-height:1.55;margin:auto}
+h1,h2{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:2.5em;font-weight:800}
+h1.sec{font-size:2.1em;margin-bottom:.5em}
+h2{font-size:1.75em;font-weight:700;color:var(--navy);margin-bottom:.55em;display:flex;gap:.5em;align-items:baseline}
+.dark h2{color:#fff}
+.no{font-family:var(--head);color:var(--navy);background:var(--gold);min-width:1.6em;height:1.6em;border-radius:.45em;display:inline-grid;place-items:center;font-size:.75em;flex-shrink:0;transform:translateY(-.1em)}
+.kick{color:var(--gold);font-weight:700;font-size:.9em;margin-bottom:.8em}
+.lead{font-size:1.08em;color:var(--muted);margin-bottom:.9em}
+.dark .lead{color:#dbe6f3;border-left:4px solid var(--gold);padding-left:.9em}
+.dark p{color:#c9d8ea;margin-bottom:.8em}
+.hint{font-size:.8em;margin-top:2em}
+.cover .inner{max-width:900px;position:relative}
+.cover h1{margin-bottom:.5em}
+.ghost{position:absolute;right:-.1em;top:-.55em;z-index:-1;font-family:var(--head);font-weight:800;font-size:22em;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(242,183,5,.28);pointer-events:none}
+.cover .frame{overflow:hidden}
+.agenda{list-style:none;counter-reset:a;display:grid;gap:.6em}
+.agenda li{counter-increment:a;display:flex;gap:.9em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7em 1em;font-weight:600;color:var(--navy)}
+.agenda li::before{content:counter(a);font-family:var(--head);font-weight:800;background:var(--navy);color:var(--gold);width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.quote blockquote{font-family:var(--head);font-size:1.25em;line-height:1.6;color:var(--navy);border-left:6px solid var(--gold);padding:.3em 0 .3em 1em}
+.grid{display:grid;gap:14px}
+.n2{grid-template-columns:repeat(2,1fr)}.n3{grid-template-columns:repeat(3,1fr)}.n4{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 18px 18px 18px;padding:1em 1.1em;font-size:.92em}
+.card.bad{border-top-color:var(--red)}.card.sol{border-top-color:var(--green)}
+.card h3{font-family:var(--head);font-size:1.08em;color:var(--navy);margin-bottom:.35em;line-height:1.3}
+.card.bad h3{color:var(--red)}.card.sol h3{color:var(--green)}
+.card p{color:#2c3744}
+.big{font-family:var(--head);font-weight:800;font-size:2em;line-height:1;color:var(--gold);display:block;margin-bottom:.15em}
+.kids{margin-top:.8em}.kids .card{font-size:.95em;background:var(--paper)}
+.pts{list-style:none;display:grid;gap:.7em}
+.pts li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px 14px 14px 6px;padding:.8em 1.1em}
+.kes .lead{font-size:1.12em}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px max(5vw,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));z-index:5}
+.prog{flex:1;height:6px;border-radius:6px;background:rgba(120,130,150,.35);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.cnt{font-size:.85rem;font-weight:700;min-width:4.5em;text-align:center;color:#fff;mix-blend-mode:difference}
+.nb{width:46px;height:46px;border-radius:12px;border:none;background:var(--navy);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 0 0 2px rgba(242,183,5,.7)}
+.nb:hover{background:var(--navy2)}.nb:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.n3,.n2,.n4{grid-template-columns:1fr}.ghost{font-size:14em}.tag{left:5vw}.frame{left:5vw;right:5vw}}
+@media (max-height:520px){.frame{top:44px;bottom:70px}.nb{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}}
+.slide{isolation:isolate}
+.inner{position:relative}
+.src{font-size:.85em;color:#9fb3c8}
+.card.t-g{border-top-color:#c0392b}.t-g h3{color:#c0392b}
+.card.t-n{border-top-color:#d99a00}.t-n h3{color:#a86f00}
+.card.t-o{border-top-color:#2a6ba8}.t-o h3{color:#1e4b7a}
+.card.t-e{border-top-color:#1f7a5a}.t-e h3{color:#1f7a5a}
+.card .big{font-size:1.8em;color:#c99600}
+.card{font-size:.92em}
+.card.one{padding:1.05em 1.3em}
+.pledge .card.one p{font-weight:600;color:var(--navy)}
+.sech{font-family:var(--head);color:var(--navy);margin:.2em 0 .6em;font-size:1.2em}
+.tahap{display:inline-block;font-size:.7em;font-weight:800;letter-spacing:.08em;background:var(--navy);color:var(--gold);padding:.2em .7em;border-radius:99px;margin-bottom:.5em}
+.cols2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.col{display:grid;gap:10px;align-content:start}
+.colhead{font-family:var(--head);font-weight:700;color:#fff;background:#a86f00;padding:.6em 1em;border-radius:12px;font-size:1.02em;line-height:1.3}
+.colhead.r{background:#b3261e}.colhead.b{background:#1e4b7a}.colhead.g{background:#1f7a5a}
+.col .card{margin:0;font-size:.88em;padding:.8em 1em}
+.nt{margin-top:.9em;padding:.8em 1.1em;background:#fff8e1;border-left:5px solid var(--gold);border-radius:8px;color:var(--navy)}
+.flow{display:grid;gap:24px}.flow.c4{grid-template-columns:repeat(4,1fr)}
+.flow .card{position:relative}
+.flow .card:not(:last-child)::after{content:'\203A';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:2.2em;color:#c99600;font-weight:800;line-height:1}
+.tbl{width:100%;border-collapse:separate;border-spacing:0 8px;font-size:.92em}
+.tbl th{background:var(--navy);color:#fff;padding:.7em 1em;text-align:left;font-family:var(--head)}
+.tbl th:nth-child(2){background:#1e4b7a}.tbl th:nth-child(3){background:#c99600;color:#1a1400}.tbl th:nth-child(4){background:#b3261e}
+.tbl th:first-child{border-radius:12px 0 0 12px}.tbl th:last-child{border-radius:0 12px 12px 0}
+.tbl td{background:#fff;padding:.75em 1em;vertical-align:top;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tbl td:first-child{color:var(--navy);border-left:1px solid var(--line);border-radius:12px 0 0 12px}
+.tbl td:last-child{border-right:1px solid var(--line);border-radius:0 12px 12px 0}
+@media (max-width:820px){.cols2,.cols3,.flow.c4{grid-template-columns:1fr}.flow .card:not(:last-child)::after{display:none}
+.tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}.tbl thead{display:none}.tbl tr{margin-bottom:12px}
+.tbl td{border-radius:0!important;border:1px solid var(--line);border-top:0}.tbl td:first-child{border-radius:12px 12px 0 0!important;border-top:1px solid var(--line)}.tbl td:last-child{border-radius:0 0 12px 12px!important}
+.tbl td[data-l]:not(:first-child)::before{content:attr(data-l);display:block;font-size:.78em;font-weight:700;color:var(--muted);margin-bottom:.15em}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark cover"><div class="tag"><i></i>Materi Hukum</div><div class="frame"><div class="inner"><p class="kick">MATERI HUKUM TINDAK PIDANA KORUPSI</p><h1>Kelanjutan Perkara Operasi Tangkap Tangan (OTT) dengan Barang Bukti di Bawah Rp1 Miliar</h1><p class="lead">Kewenangan Aparat Penegak Hukum, Alur Proses 1x24 Jam, serta Konstruksi Pasal Suap, Gratifikasi, dan Pemerasan dalam Jabatan</p><p class="src">Dasar Hukum: UU No. 31 Tahun 1999 jo. UU No. 20 Tahun 2001 (UU Tipikor) | UU No. 19 Tahun 2019 (UU KPK) | KUHAP</p><p class="hint">Tekan tombol panah atau geser layar untuk lanjut</p><div class="ghost">§</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kelanjutan Perkara OTT (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><h2><span class="no">1</span>Karakteristik Hukum OTT &amp; Kewenangan Polri / Kejaksaan</h2><p class="lead">Mengapa nilai barang bukti di bawah Rp1 miliar tidak menghentikan proses pidana pada OTT</p><div class="card t-n"><h3>Prinsip Dasar OTT: Delik Formil (Bukan Penghitungan Kerugian Negara)</h3><p>OTT menyasar tindak pidana suap, gratifikasi, atau pemerasan (pungli). Tindak pidana dianggap selesai seketika saat transaksi/penerimaan terjadi tanpa perlu menunggu audit kerugian keuangan negara. Unsur niat jahat (mens rea) terbukti langsung di lokasi kejadian.</p></div><div class="cols2" style="margin-top:14px"><div class="col"><div class="colhead b">Jika OTT Dilakukan oleh POLRI atau KEJAKSAAN</div><div class="card t-o"><h3>Tidak Ada Batas Minimal Nominal</h3><p>Polri (Tipidkor) dan Kejaksaan (Pidsus) berwenang memproses kasus korupsi berapa pun nilai barang buktinya, termasuk jutaan rupiah.</p></div><div class="card t-o"><h3>Langsung Berlanjut ke Penyidikan</h3><p>Perkara langsung diproses tanpa hambatan administratif. Pelaku ditetapkan sebagai tersangka dalam 1x24 jam dan dapat langsung ditahan.</p></div><div class="card t-o"><h3>Jalur APIP/Inspektorat Gugur</h3><p>Karena tertangkap tangan (red-handed), penyelesaian internal melalui pengembalian uang (TGR) tidak berlaku.</p></div></div><div class="col"><div class="colhead r">Jika OTT Dilakukan oleh KPK (Pasal 11 UU KPK)</div><div class="card t-g"><h3>Syarat Bersifat Alternatif ('Dan/Atau')</h3><p>KPK berwenang menangani kasus jika memenuhi SALAH SATU dari dua syarat Pasal 11 ayat (1) UU No. 19 Tahun 2019.</p></div><div class="card t-g"><h3>Syarat 1 (Subjek Pelaku)</h3><p>Melibatkan Aparat Penegak Hukum (APH), Penyelenggara Negara, dan pihak lain yang terkait dengan mereka.</p></div><div class="card t-g"><h3>Syarat 2 (Nilai Kerugian)</h3><p>Menyangkut kerugian keuangan negara paling sedikit Rp1.000.000.000 (satu miliar rupiah).</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kelanjutan Perkara OTT (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><h2><span class="no">2</span>Dua Skenario Kelanjutan OTT KPK (&lt; Rp1 Miliar)</h2><p class="lead">Penentuan status penanganan perkara oleh KPK berdasarkan profil pelaku dan konstruksi transaksi</p><div class="cols2"><div class="col"><div class="colhead g">SKENARIO A: KPK Tetap Melanjutkan Penyidikan</div><div class="card t-e"><h3>Kondisi 1: Pelaku Adalah Penyelenggara Negara / APH</h3><p>Pihak yang tertangkap berstatus Kepala Daerah, Anggota DPRD, Hakim, Jaksa, Polisi, atau Pejabat Eselon tertentu. Syarat pertama Pasal 11 terpenuhi sehingga nominal di bawah Rp1 miliar tetap sah ditangani KPK hingga Pengadilan Tipikor.</p></div><div class="card t-e"><h3>Kondisi 2: Barang Bukti Merupakan Uang Muka (Commitment Fee)</h3><p>Uang tunai yang diamankan saat OTT (misal Rp100 juta) terbukti hanya merupakan cicilan awal dari total kesepakatan suap yang nilainya melebihi Rp1 miliar.</p></div><div class="card t-e"><h3>Kondisi 3: Pintu Masuk Perkara Besar</h3><p>OTT menjadi bukti permulaan untuk membongkar skema korupsi pengadaan atau perizinan bernilai besar yang melibatkan aktor utama di level pejabat tinggi.</p></div></div><div class="col"><div class="colhead b">SKENARIO B: KPK Melimpahkan ke Polri / Kejaksaan</div><div class="card t-o"><h3>Kondisi 1: Pelaku Bukan Penyelenggara Negara / APH</h3><p>Pihak yang tertangkap tangan hanya berstatus staf ASN pelaksana biasa, perangkat/kepala desa, atau pihak swasta murni tanpa keterlibatan pejabat tinggi.</p></div><div class="card t-o"><h3>Kondisi 2: Total Nilai Kasus Memang di Bawah Rp1 Miliar</h3><p>Setelah pemeriksaan awal 1x24 jam, total nilai transaksi suap atau pungli terbukti berdiri sendiri di bawah Rp1 miliar dan tidak mengarah ke proyek besar.</p></div><div class="card t-n"><h3>Tindak Lanjut &amp; Peran KPK Pasca-Pelimpahan</h3><p>KPK menyerahkan tersangka beserta barang bukti ke Kejaksaan atau Kepolisian setempat untuk diproses pidana. KPK beralih fungsi melakukan supervisi hingga kasus berkekuatan hukum tetap.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kelanjutan Perkara OTT (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><h2><span class="no">3</span>Alur Kritis 1x24 Jam Pasca-OTT</h2><p class="lead">Tahapan penentuan status hukum dan konstruksi perkara berdasarkan KUHAP</p><div class="flow c4"><div class="card t-o"><span class="tahap">TAHAP 1</span><h3>Penangkapan &amp; Penyitaan</h3><p>Tim penindak mengamankan para pihak di lokasi kejadian beserta barang bukti (uang tunai, bukti transfer, dokumen, alat komunikasi). Status pihak terperiksa adalah terperiksa/saksi.</p></div><div class="card t-n"><span class="tahap">TAHAP 2</span><h3>Pemeriksaan Intensif</h3><p>Penyidik memeriksa keterangan seluruh pihak yang diamankan secara terpisah untuk menggali kronologi, sumber dana, inisiatif pemberian, dan keterkaitan jabatan.</p></div><div class="card t-g"><span class="tahap">TAHAP 3</span><h3>Gelar Perkara (Ekspose)</h3><p>Dilakukan sebelum batas waktu 1x24 jam berakhir. Pimpinan dan penyidik menentukan kecukupan minimal dua alat bukti, menetapkan tersangka, dan memilih pasal sangkaan.</p></div><div class="card t-e"><span class="tahap">TAHAP 4</span><h3>Penahanan / Pelimpahan</h3><p>Tersangka ditahan untuk penyidikan lanjutan. Khusus KPK, jika syarat Pasal 11 tidak terpenuhi, berkas dan tersangka dilimpahkan ke Polri atau Kejaksaan setempat.</p></div></div><div class="nt"><strong>Catatan Penting:</strong> Jika dalam 1x24 jam alat bukti dinilai belum mencukupi untuk menetapkan tersangka, penyidik wajib melepaskan pihak yang diamankan sambil tetap melanjutkan penyelidikan.</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kelanjutan Perkara OTT (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><h2><span class="no">4</span>Perbedaan Konstruksi Hukum: Suap, Gratifikasi, dan Pemerasan</h2><p class="lead">Penentuan jenis delik berdasarkan inisiatif, kesepakatan, dan unsur paksaan saat transaksi OTT</p><table class="tbl"><thead><tr><th>Aspek Pembeda</th><th>Suap (Bribery)</th><th>Gratifikasi (Gratification)</th><th>Pemerasan (Extortion)</th></tr></thead><tbody><tr><td data-l="Aspek Pembeda"><strong>Inisiatif Transaksi</strong></td><td data-l="Suap (Bribery)">Bisa berasal dari pihak pemberi maupun penerima.</td><td data-l="Gratifikasi (Gratification)">Umumnya berasal dari pihak pemberi (tanpa diminta).</td><td data-l="Pemerasan (Extortion)">Mutlak berasal dari penerima (pejabat / ASN).</td></tr><tr><td data-l="Aspek Pembeda"><strong>Kesepakatan (Meeting of Minds)</strong></td><td data-l="Suap (Bribery)">Ada kesepakatan jelas untuk berbuat atau tidak berbuat sesuatu dalam jabatan.</td><td data-l="Gratifikasi (Gratification)">Tidak ada kesepakatan langsung pada saat pemberian terjadi (bersifat tanam budi).</td><td data-l="Pemerasan (Extortion)">Tidak ada kesepakatan; pemberi menyerahkan uang karena terpaksa.</td></tr><tr><td data-l="Aspek Pembeda"><strong>Unsur Paksaan</strong></td><td data-l="Suap (Bribery)">Tidak ada paksaan (bersifat transaksional / saling menguntungkan).</td><td data-l="Gratifikasi (Gratification)">Tidak ada paksaan (pemberian sukarela terkait jabatan).</td><td data-l="Pemerasan (Extortion)">Ada paksaan, ancaman, atau penyalahgunaan wewenang agar urusan tidak dipersulit.</td></tr><tr><td data-l="Aspek Pembeda"><strong>Status Tersangka &amp; Pidana</strong></td><td data-l="Suap (Bribery)">Keduanya dipidana (Pemberi dan Penerima sama-sama menjadi tersangka).</td><td data-l="Gratifikasi (Gratification)">Hanya Penerima dipidana (jika tertangkap OTT sebelum melapor ke KPK dalam 30 hari kerja).</td><td data-l="Pemerasan (Extortion)">Hanya Penerima dipidana (Pemberi dilindungi hukum sebagai korban / saksi kunci).</td></tr></tbody></table></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kelanjutan Perkara OTT (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><h2><span class="no">5</span>Rincian Pasal UU Tipikor dan Ancaman Pidana</h2><p class="lead">Dasar penjeratan hukum pada perkara OTT menurut UU No. 31 Tahun 1999 jo. UU No. 20 Tahun 2001</p><div class="cols3"><div class="col"><div class="colhead b">PASAL SUAP</div><div class="card t-o"><h3>Pemberi Suap (Pasal 5 ayat 1 / Pasal 13)</h3><p>Memberi atau menjanjikan sesuatu kepada pegawai negeri/penyelenggara negara. Pidana penjara maksimal 5 tahun.</p></div><div class="card t-o"><h3>Penerima Suap (Pasal 12 huruf a / b)</h3><p>Menerima hadiah/janji untuk menggerakkan agar berbuat/tidak berbuat yang bertentangan dengan kewajiban. Pidana 4–20 tahun penjara atau seumur hidup.</p></div><div class="card t-o"><h3>Pasal 11 (Suap Jabatan)</h3><p>Menerima hadiah karena kekuasaan yang berhubungan dengan jabatan (belum tentu bertentangan dengan kewajiban). Pidana 1–5 tahun penjara.</p></div></div><div class="col"><div class="colhead ">PASAL GRATIFIKASI</div><div class="card t-n"><h3>Pasal 12B jo. Pasal 12C</h3><p>Setiap gratifikasi kepada pegawai negeri/penyelenggara negara dianggap suap apabila berhubungan dengan jabatan dan berlawanan dengan kewajiban.</p></div><div class="card t-n"><h3>Batas Pelaporan 30 Hari Kerja</h3><p>Pidana hapus jika penerima melapor ke KPK paling lambat 30 hari kerja. Dalam kasus OTT, pelaku tertangkap sebelum sempat melapor sehingga langsung dijerat Pasal 12B.</p></div><div class="card t-n"><h3>Ancaman Pidana Berat</h3><p>Penjara minimal 4 tahun dan maksimal 20 tahun atau seumur hidup, serta denda Rp200 juta hingga Rp1 miliar.</p></div></div><div class="col"><div class="colhead r">PASAL PEMERASAN</div><div class="card t-g"><h3>Pasal 12 huruf e</h3><p>Pegawai negeri atau penyelenggara negara yang dengan maksud menguntungkan diri sendiri/orang lain secara melawan hukum memaksa seseorang memberikan sesuatu atau membayar.</p></div><div class="card t-g"><h3>Konteks Pungli &amp; Perizinan</h3><p>Sering diterapkan pada OTT pungutan liar layanan publik, pemotongan anggaran, atau pemaksaan fee proyek oleh oknum pejabat.</p></div><div class="card t-g"><h3>Ancaman Pidana &amp; Perlindungan Korban</h3><p>Pidana penjara minimal 4 tahun dan maksimal 20 tahun. Pemberi uang tidak dipidana dan berstatus sebagai saksi korban.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kelanjutan Perkara OTT (&lt; Rp1 Miliar)</div><div class="frame"><div class="inner"><h2><span class="no">6</span>Strategi Pasal Berlapis &amp; Kesimpulan Utama</h2><p class="lead">Dinamika pembuktian pasca-OTT dan ringkasan pokok perkara</p><h3 class="sech">Mengapa Penyidik Sering Menerapkan Pasal Berlapis (Alternatif)?</h3><div class="grid n2"><div class="card t-n"><h3>Keterbatasan Waktu 1x24 Jam</h3><p>Pada tahap penetapan tersangka awal, penyidik sering memasang pasal alternatif (misal: Pasal 12 huruf a atau Pasal 12 huruf e atau Pasal 11) untuk mengamankan konstruksi hukum.</p></div><div class="card t-n"><h3>Pendalaman Inisiatif &amp; Bukti Elektronik</h3><p>Kepastian apakah pemberi berniat menyuap (tersangka) atau dipaksa membayar (korban pemerasan) sering kali baru terungkap utuh setelah penyidik menganalisis percakapan digital dan rekaman penyadapan.</p></div></div></div></div></section>
+<section class="slide dark pledge"><div class="tag"><i></i>Ringkasan</div><div class="frame"><div class="inner"><h1 class="sec" style="font-size:1.8em">RINGKASAN POIN KUNCI</h1><div class="grid n2"><div class="card one neu"><span class="big">1</span><p>Barang bukti OTT di bawah Rp1 miliar TIDAK menghentikan proses pidana karena OTT merupakan delik formil (suap/pemerasan), bukan penghitungan kerugian negara.</p></div><div class="card one neu"><span class="big">2</span><p>OTT oleh Polri atau Kejaksaan langsung diproses hingga pengadilan tanpa batas minimal nilai uang dan tanpa melewati pemeriksaan internal APIP/Inspektorat.</p></div><div class="card one neu"><span class="big">3</span><p>OTT oleh KPK tetap dilanjutkan KPK jika pelakunya Penyelenggara Negara/APH atau uang tersebut adalah uang muka dari transaksi &gt; Rp1 miliar; jika tidak, perkara dilimpahkan ke Polri/Kejaksaan.</p></div><div class="card one neu"><span class="big">4</span><p>Perbedaan status hukum pemberi uang ditentukan oleh pasal yang terbukti: dipidana pada kasus Suap, namun dilindungi sebagai saksi korban pada kasus Pemerasan dalam Jabatan.</p></div></div></div></div></section>
+</main>
+<nav class="bar" aria-label="Navigasi slide">
+  <button class="nb" id="prev" aria-label="Slide sebelumnya">&#8592;</button>
+  <div class="prog"><b id="pb"></b></div>
+  <span class="cnt" id="cnt"></span>
+  <button class="nb" id="fs" aria-label="Layar penuh">&#9974;</button>
+  <button class="nb" id="next" aria-label="Slide berikutnya">&#8594;</button>
+</nav>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(s){const f=s.querySelector('.frame'),n=s.querySelector('.inner');let z=Math.max(14,Math.min(26,innerWidth/58));if(innerHeight<520)z=Math.min(z,innerHeight/22);n.style.fontSize=z+'px';while(n.offsetHeight>f.clientHeight&&z>11){z-=.5;n.style.fontSize=z+'px'}}
+function fitAll(){S.forEach(fit)}
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});
+ document.getElementById('cnt').textContent=(i+1)+' / '+S.length;document.getElementById('pb').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();go(i-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);else if(k==='f'||k==='F')document.getElementById('fs').click()});
+let x0=null;
+addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',fitAll);
+fitAll();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitAll);
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
