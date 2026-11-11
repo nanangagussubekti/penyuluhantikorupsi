@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bab 15 | Cermin Integritas: Benarkah Kita Antikorupsi?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--red:#b3261e;--green:#1f7a5a;--paper:#f6f4ee;--ink:#16202c;--muted:#566272;--line:#e0dccf;
+--head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--navy);font-family:var(--body);color:var(--ink);-webkit-text-size-adjust:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transform:translateX(3%);transition:opacity .45s,transform .45s,visibility .45s}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-3%)}
+.slide.dark{color:#fff;background:radial-gradient(900px 520px at 90% 10%,rgba(42,107,168,.5),transparent 60%),linear-gradient(160deg,#091b33,var(--navy) 55%,var(--navy2))}
+.tag{position:absolute;top:max(18px,env(safe-area-inset-top));left:6vw;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.dark .tag{color:#b9c9dd}
+.tag i{width:22px;height:14px;border-radius:2px;background:linear-gradient(#d52b1e 50%,#fff 50%);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.frame{position:absolute;top:56px;bottom:84px;left:6vw;right:6vw;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.inner{width:100%;max-width:1100px;font-size:22px;line-height:1.55;margin:auto}
+h1,h2{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:2.5em;font-weight:800}
+h1.sec{font-size:2.1em;margin-bottom:.5em}
+h2{font-size:1.75em;font-weight:700;color:var(--navy);margin-bottom:.55em;display:flex;gap:.5em;align-items:baseline}
+.dark h2{color:#fff}
+.no{font-family:var(--head);color:var(--navy);background:var(--gold);min-width:1.6em;height:1.6em;border-radius:.45em;display:inline-grid;place-items:center;font-size:.75em;flex-shrink:0;transform:translateY(-.1em)}
+.kick{color:var(--gold);font-weight:700;font-size:.9em;margin-bottom:.8em}
+.lead{font-size:1.08em;color:var(--muted);margin-bottom:.9em}
+.dark .lead{color:#dbe6f3;border-left:4px solid var(--gold);padding-left:.9em}
+.dark p{color:#c9d8ea;margin-bottom:.8em}
+.hint{font-size:.8em;margin-top:2em}
+.cover .inner{max-width:900px;position:relative}
+.cover h1{margin-bottom:.5em}
+.ghost{position:absolute;right:-.1em;top:-.55em;z-index:-1;font-family:var(--head);font-weight:800;font-size:22em;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(242,183,5,.28);pointer-events:none}
+.cover .frame{overflow:hidden}
+.agenda{list-style:none;counter-reset:a;display:grid;gap:.6em}
+.agenda li{counter-increment:a;display:flex;gap:.9em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7em 1em;font-weight:600;color:var(--navy)}
+.agenda li::before{content:counter(a);font-family:var(--head);font-weight:800;background:var(--navy);color:var(--gold);width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.quote blockquote{font-family:var(--head);font-size:1.25em;line-height:1.6;color:var(--navy);border-left:6px solid var(--gold);padding:.3em 0 .3em 1em}
+.grid{display:grid;gap:14px}
+.n2{grid-template-columns:repeat(2,1fr)}.n3{grid-template-columns:repeat(3,1fr)}.n4{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 18px 18px 18px;padding:1em 1.1em;font-size:.92em}
+.card.bad{border-top-color:var(--red)}.card.sol{border-top-color:var(--green)}
+.card h3{font-family:var(--head);font-size:1.08em;color:var(--navy);margin-bottom:.35em;line-height:1.3}
+.card.bad h3{color:var(--red)}.card.sol h3{color:var(--green)}
+.card p{color:#2c3744}
+.big{font-family:var(--head);font-weight:800;font-size:2em;line-height:1;color:var(--gold);display:block;margin-bottom:.15em}
+.kids{margin-top:.8em}.kids .card{font-size:.95em;background:var(--paper)}
+.pts{list-style:none;display:grid;gap:.7em}
+.pts li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px 14px 14px 6px;padding:.8em 1.1em}
+.kes .lead{font-size:1.12em}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px max(5vw,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));z-index:5}
+.prog{flex:1;height:6px;border-radius:6px;background:rgba(120,130,150,.35);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.cnt{font-size:.85rem;font-weight:700;min-width:4.5em;text-align:center;color:#fff;mix-blend-mode:difference}
+.nb{width:46px;height:46px;border-radius:12px;border:none;background:var(--navy);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 0 0 2px rgba(242,183,5,.7)}
+.nb:hover{background:var(--navy2)}.nb:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.n3,.n2,.n4{grid-template-columns:1fr}.ghost{font-size:14em}.tag{left:5vw}.frame{left:5vw;right:5vw}}
+@media (max-height:520px){.frame{top:44px;bottom:70px}.nb{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}}
+.slide{isolation:isolate}
+.inner{position:relative}
+.ghost.n{font-size:13em;right:0;top:-.3em}
+.kick2{color:#b9c9dd;font-weight:700;letter-spacing:.08em;font-size:.85em;margin:-.5em 0 1em}
+.src{font-size:.85em;color:#9fb3c8}
+.card.t-g{border-top-color:#c0392b}.t-g h3{color:#c0392b}
+.card.t-n{border-top-color:#d99a00}.t-n h3{color:#a86f00}
+.card.t-o{border-top-color:#2a6ba8}.t-o h3{color:#1e4b7a}
+.card.t-e{border-top-color:#1f7a5a}.t-e h3{color:#1f7a5a}
+.card .big{font-size:2em}.t-g .big{color:#c0392b}.t-o .big{color:#1e4b7a}.t-e .big{color:#1f7a5a}.t-n .big{color:#c99600}
+.card.one{padding:1.05em 1.3em}
+.xl .card{font-size:1.1em;padding:1.3em 1.4em}
+.tiles3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 16px 16px 16px;padding:.7em 1em;display:flex;align-items:center;gap:.8em}
+.tile b{font-family:var(--head);font-size:2em;line-height:1;color:#c99600}
+.tile span{font-weight:700;color:var(--navy);font-size:1.1em}
+.flow{display:grid;gap:24px}.flow.c3{grid-template-columns:repeat(3,1fr)}.flow.c4{grid-template-columns:repeat(4,1fr)}
+.flow .card{position:relative}
+.flow .card:not(:last-child)::after{content:'\203A';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:2.2em;color:#c99600;font-weight:800;line-height:1}
+.nt{margin-top:1em;padding:.8em 1.1em;background:#fff8e1;border-left:5px solid var(--gold);border-radius:8px;font-weight:600;color:var(--navy)}
+.card{font-size:.95em}
+@media (max-width:820px){.ghost.n{font-size:6em}.tiles3{grid-template-columns:1fr}.flow.c3,.flow.c4{grid-template-columns:1fr}.flow .card:not(:last-child)::after{display:none}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark cover"><div class="tag"><i></i>Bab 15</div><div class="frame"><div class="inner"><p class="kick">BAB 15</p><p class="kick2">MATERI ANTI KORUPSI DASAR</p><h1>MARI BERKACA DI CERMIN INTEGRITAS</h1><p class="lead">Benarkah Kita Antikorupsi?</p><p class="src">Refleksi diri berdasarkan materi Pusat Edukasi Antikorupsi (ACLC) KPK</p><p class="hint">Tekan tombol panah atau geser layar untuk lanjut</p><div class="ghost n">15</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Antikorupsi Bukan Sekadar Ucapan</h2><div class="grid n2 xl"><div class="card t-n"><h3>Yang diucapkan</h3><p>Kita dapat dengan mudah mengatakan bahwa kita antikorupsi.</p></div><div class="card t-e"><h3>Yang tercermin</h3><p>Sikap antikorupsi harus selaras dengan perbuatan yang menunjukkan nilai integritas.</p></div></div><p class="lead" style="margin-top:1em">Pertanyaan utamanya: apakah perilaku kita konsisten dengan nilai yang kita yakini?</p></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Apa Itu “Cermin Integritas”?</h2><div class="card one t-o" style="margin-bottom:14px"><h3>Alat refleksi diri</h3><p>“Cermin integritas” adalah cara untuk melihat dan menilai diri sendiri melalui pertanyaan-pertanyaan reflektif tentang sikap kita terhadap korupsi.</p></div><div class="grid n3"><div class="card t-e"><h3>Jujur</h3><p>Menjawab berdasarkan perilaku nyata.</p></div><div class="card t-n"><h3>Konsisten</h3><p>Membandingkan nilai dengan tindakan.</p></div><div class="card t-g"><h3>Berani berubah</h3><p>Mengakui dan memperbaiki kesalahan.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>9 Nilai Integritas</h2><div class="tiles3"><div class="tile"><b>01</b><span>Jujur</span></div><div class="tile"><b>02</b><span>Peduli</span></div><div class="tile"><b>03</b><span>Mandiri</span></div><div class="tile"><b>04</b><span>Disiplin</span></div><div class="tile"><b>05</b><span>Tanggung jawab</span></div><div class="tile"><b>06</b><span>Kerja keras</span></div><div class="tile"><b>07</b><span>Sederhana</span></div><div class="tile"><b>08</b><span>Berani</span></div><div class="tile"><b>09</b><span>Adil</span></div></div><p class="lead" style="margin-top:1em">Menurut KPK, nilai-nilai tersebut perlu tercermin dalam perbuatan dan perilaku sehari-hari.</p></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Cermin Integritas • Pertanyaan 1–3</h2><div class="grid n3"><div class="card t-o"><span class="big">01</span><h3>Apakah saya memiliki nilai-nilai yang diyakini selaras dengan sikap antikorupsi?</h3><p>Nilai integritas harus dipraktikkan, bukan sekadar diketahui.</p></div><div class="card t-o"><span class="big">02</span><h3>Apakah saya mampu menguraikan tindakan untuk mempraktikkan dan mempertahankan kebenaran?</h3><p>Pengetahuan membantu kita mencegah tindakan koruptif.</p></div><div class="card t-o"><span class="big">03</span><h3>Apakah saya mengakui pelanggaran atau kesalahan integritas yang pernah dilakukan?</h3><p>Mengakui kesalahan adalah langkah menuju perbaikan.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Cermin Integritas • Pertanyaan 4–6</h2><div class="grid n3"><div class="card t-n"><span class="big">04</span><h3>Apakah saya memperbaiki pelanggaran atau kesalahan integritas yang pernah dilakukan?</h3><p>Identifikasi celah, perbaiki, dan bertekad tidak mengulanginya.</p></div><div class="card t-n"><span class="big">05</span><h3>Apakah saya mengingatkan orang lain yang bertindak tidak sesuai nilai atau norma?</h3><p>Lingkungan antikorupsi sulit terwujud jika pelanggaran didiamkan.</p></div><div class="card t-n"><span class="big">06</span><h3>Apakah saya berani menegur orang lain karena melanggar nilai dan norma?</h3><p>Keberanian diperlukan untuk menyuarakan pelanggaran.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Cermin Integritas • Pertanyaan 7–9</h2><div class="grid n3"><div class="card t-g"><span class="big">07</span><h3>Apakah saya berani menyatakan kepada atasan yang melanggar nilai atau norma?</h3><p>Pelanggaran tetap perlu dihadapi meskipun dilakukan oleh atasan.</p></div><div class="card t-g"><span class="big">08</span><h3>Apakah saya berani menyampaikan kebenaran dalam situasi yang sulit?</h3><p>Keberanian tumbuh dari nilai integritas yang kuat.</p></div><div class="card t-g"><span class="big">09</span><h3>Apakah saya pernah mengalami kerugian pribadi akibat menyampaikan kebenaran?</h3><p>Sikap antikorupsi kadang memiliki konsekuensi sosial atau finansial.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Berhenti Sejenak: Berkaca pada Diri Sendiri</h2><div class="grid n3"><div class="card t-o"><h3>NILAI</h3><p>Apa yang saya yakini?</p></div><div class="card t-n"><h3>TINDAKAN</h3><p>Apa yang benar-benar saya lakukan?</p></div><div class="card t-e"><h3>KONSISTENSI</h3><p>Apakah nilai dan tindakan saya selaras?</p></div></div><div class="nt">Refleksi yang jujur adalah awal dari integritas yang lebih kuat.</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Mengakui Kesalahan Adalah Bagian dari Integritas</h2><div class="flow c3"><div class="card t-o"><h3>AKUI</h3><p>Kenali pelanggaran atau kesalahan integritas yang terjadi.</p></div><div class="card t-n"><h3>PERBAIKI</h3><p>Tutup celah yang memungkinkan kesalahan terjadi kembali.</p></div><div class="card t-e"><h3>LAPORKAN</h3><p>Untuk kondisi yang relevan, gunakan mekanisme pelaporan yang berlaku, termasuk pelaporan gratifikasi.</p></div></div><div class="nt">KPK menempatkan pengakuan dan tindakan perbaikan sebagai bagian dari sikap berintegritas.</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Speak Up: Jangan Mendiamkan Pelanggaran</h2><div class="flow c4"><div class="card t-o"><h3>Lihat</h3><p>Kenali perilaku yang tidak sesuai nilai atau norma.</p></div><div class="card t-n"><h3>Tegur</h3><p>Sampaikan keberatan secara tepat dan bertanggung jawab.</p></div><div class="card t-g"><h3>Laporkan</h3><p>Gunakan saluran pelaporan yang tersedia jika diperlukan.</p></div><div class="card t-e"><h3>Lindungi</h3><p>Tujuannya mencegah dampak yang lebih besar.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Ketika Kebenaran Tidak Mudah Disampaikan</h2><div class="grid n2 xl"><div class="card t-g"><h3>Tantangan</h3><p>Melaporkan atasan, pejabat, atau menegur teman dekat dapat menimbulkan tekanan, penentangan, atau kekhawatiran terhadap karier.</p></div><div class="card t-e"><h3>Prinsip</h3><p>Menurut materi KPK, keberanian menyampaikan kebenaran perlu ditopang nilai integritas yang kuat.</p></div></div><div class="nt">Integritas diuji bukan hanya ketika situasi mudah, tetapi ketika pilihan yang benar memiliki konsekuensi.</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Dari Refleksi Menjadi Kebiasaan</h2><div class="grid n3"><div class="card t-e"><h3>SETIAP HARI</h3><p>Praktikkan 9 nilai integritas.</p></div><div class="card t-n"><h3>SAAT RAGU</h3><p>Berhenti dan cek apakah ada konflik kepentingan.</p></div><div class="card t-o"><h3>SAAT SALAH</h3><p>Akui, perbaiki, dan cegah pengulangan.</p></div><div class="card t-g"><h3>SAAT MELIHAT</h3><p>Jangan diam; gunakan mekanisme yang tepat.</p></div><div class="card t-n"><h3>SAAT TERTEKAN</h3><p>Tetap pegang prinsip dan sampaikan kebenaran.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Bab 15</div><div class="frame"><div class="inner"><h2>Tiga Pesan Utama</h2><div class="grid n3"><div class="card t-o"><span class="big">1</span><h3>Berkaca</h3><p>Antikorupsi perlu diuji melalui perilaku nyata, bukan hanya pernyataan.</p></div><div class="card t-g"><span class="big">2</span><h3>Berani</h3><p>Integritas menuntut keberanian mengakui kesalahan dan menyampaikan kebenaran.</p></div><div class="card t-e"><span class="big">3</span><h3>Bertindak</h3><p>Nilai integritas harus diwujudkan dalam tindakan dan kebiasaan sehari-hari.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>ACLC KPK • Cermin Integritas</div><div class="frame"><div class="inner"><h2>Sumber</h2><ul class="pts"><li>ACLC KPK, “Mari Berkaca di Cermin Integritas, Benarkah Kita Antikorupsi?”, 22 Mei 2022.</li><li>Materi memuat sembilan nilai integritas: jujur, peduli, mandiri, disiplin, tanggung jawab, kerja keras, sederhana, berani, dan adil.</li><li>Seluruh 9 pertanyaan reflektif dalam presentasi ini diringkas dari artikel ACLC KPK.</li></ul><div class="nt">Catatan: PPT ini merupakan bahan edukasi/presentasi dan bukan pengganti ketentuan hukum atau mekanisme pelaporan resmi.</div></div></div></section>
+</main>
+<nav class="bar" aria-label="Navigasi slide">
+  <button class="nb" id="prev" aria-label="Slide sebelumnya">&#8592;</button>
+  <div class="prog"><b id="pb"></b></div>
+  <span class="cnt" id="cnt"></span>
+  <button class="nb" id="fs" aria-label="Layar penuh">&#9974;</button>
+  <button class="nb" id="next" aria-label="Slide berikutnya">&#8594;</button>
+</nav>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(s){const f=s.querySelector('.frame'),n=s.querySelector('.inner');let z=Math.max(14,Math.min(26,innerWidth/58));if(innerHeight<520)z=Math.min(z,innerHeight/22);n.style.fontSize=z+'px';while(n.offsetHeight>f.clientHeight&&z>11){z-=.5;n.style.fontSize=z+'px'}}
+function fitAll(){S.forEach(fit)}
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});
+ document.getElementById('cnt').textContent=(i+1)+' / '+S.length;document.getElementById('pb').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();go(i-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);else if(k==='f'||k==='F')document.getElementById('fs').click()});
+let x0=null;
+addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',fitAll);
+fitAll();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitAll);
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
