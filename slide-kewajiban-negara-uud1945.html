@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resume Kewajiban Negara terhadap Rakyat | UUD 1945</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--red:#b3261e;--green:#1f7a5a;--paper:#f6f4ee;--ink:#16202c;--muted:#566272;--line:#e0dccf;
+--head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--navy);font-family:var(--body);color:var(--ink);-webkit-text-size-adjust:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transform:translateX(3%);transition:opacity .45s,transform .45s,visibility .45s}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-3%)}
+.slide.dark{color:#fff;background:radial-gradient(900px 520px at 90% 10%,rgba(42,107,168,.5),transparent 60%),linear-gradient(160deg,#091b33,var(--navy) 55%,var(--navy2))}
+.tag{position:absolute;top:max(18px,env(safe-area-inset-top));left:6vw;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.dark .tag{color:#b9c9dd}
+.tag i{width:22px;height:14px;border-radius:2px;background:linear-gradient(#d52b1e 50%,#fff 50%);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.frame{position:absolute;top:56px;bottom:84px;left:6vw;right:6vw;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.inner{width:100%;max-width:1100px;font-size:22px;line-height:1.55;margin:auto}
+h1,h2{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:2.5em;font-weight:800}
+h1.sec{font-size:2.1em;margin-bottom:.5em}
+h2{font-size:1.75em;font-weight:700;color:var(--navy);margin-bottom:.55em;display:flex;gap:.5em;align-items:baseline}
+.dark h2{color:#fff}
+.no{font-family:var(--head);color:var(--navy);background:var(--gold);min-width:1.6em;height:1.6em;border-radius:.45em;display:inline-grid;place-items:center;font-size:.75em;flex-shrink:0;transform:translateY(-.1em)}
+.kick{color:var(--gold);font-weight:700;font-size:.9em;margin-bottom:.8em}
+.lead{font-size:1.08em;color:var(--muted);margin-bottom:.9em}
+.dark .lead{color:#dbe6f3;border-left:4px solid var(--gold);padding-left:.9em}
+.dark p{color:#c9d8ea;margin-bottom:.8em}
+.hint{font-size:.8em;margin-top:2em}
+.cover .inner{max-width:900px;position:relative}
+.cover h1{margin-bottom:.5em}
+.ghost{position:absolute;right:-.1em;top:-.55em;z-index:-1;font-family:var(--head);font-weight:800;font-size:22em;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(242,183,5,.28);pointer-events:none}
+.cover .frame{overflow:hidden}
+.agenda{list-style:none;counter-reset:a;display:grid;gap:.6em}
+.agenda li{counter-increment:a;display:flex;gap:.9em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7em 1em;font-weight:600;color:var(--navy)}
+.agenda li::before{content:counter(a);font-family:var(--head);font-weight:800;background:var(--navy);color:var(--gold);width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.quote blockquote{font-family:var(--head);font-size:1.25em;line-height:1.6;color:var(--navy);border-left:6px solid var(--gold);padding:.3em 0 .3em 1em}
+.grid{display:grid;gap:14px}
+.n2{grid-template-columns:repeat(2,1fr)}.n3{grid-template-columns:repeat(3,1fr)}.n4{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 18px 18px 18px;padding:1em 1.1em;font-size:.92em}
+.card.bad{border-top-color:var(--red)}.card.sol{border-top-color:var(--green)}
+.card h3{font-family:var(--head);font-size:1.08em;color:var(--navy);margin-bottom:.35em;line-height:1.3}
+.card.bad h3{color:var(--red)}.card.sol h3{color:var(--green)}
+.card p{color:#2c3744}
+.big{font-family:var(--head);font-weight:800;font-size:2em;line-height:1;color:var(--gold);display:block;margin-bottom:.15em}
+.kids{margin-top:.8em}.kids .card{font-size:.95em;background:var(--paper)}
+.pts{list-style:none;display:grid;gap:.7em}
+.pts li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px 14px 14px 6px;padding:.8em 1.1em}
+.kes .lead{font-size:1.12em}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px max(5vw,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));z-index:5}
+.prog{flex:1;height:6px;border-radius:6px;background:rgba(120,130,150,.35);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.cnt{font-size:.85rem;font-weight:700;min-width:4.5em;text-align:center;color:#fff;mix-blend-mode:difference}
+.nb{width:46px;height:46px;border-radius:12px;border:none;background:var(--navy);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 0 0 2px rgba(242,183,5,.7)}
+.nb:hover{background:var(--navy2)}.nb:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.n3,.n2,.n4{grid-template-columns:1fr}.ghost{font-size:14em}.tag{left:5vw}.frame{left:5vw;right:5vw}}
+@media (max-height:520px){.frame{top:44px;bottom:70px}.nb{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}}
+.slide{isolation:isolate}
+.inner{position:relative}
+.ghost.w{font-size:9em;right:0;top:-.3em;-webkit-text-stroke-width:1.5px}
+.pokok{color:#b9c9dd;font-weight:700;letter-spacing:.08em;font-size:.8em;margin:.3em 0 .5em}
+.pill{display:inline-block;padding:.3em .9em;border-radius:99px;border:1px solid rgba(242,183,5,.55);color:#fde9a6;font-weight:600;font-size:.82em;margin:.2em .3em .2em 0}
+.pill b{color:var(--gold)}
+.card.t-g{border-top-color:#c0392b}.t-g h3{color:#c0392b}
+.card.t-n{border-top-color:#d99a00}.t-n h3{color:#a86f00}
+.card.t-o{border-top-color:#2a6ba8}.t-o h3{color:#1e4b7a}
+.card.t-e{border-top-color:#1f7a5a}.t-e h3{color:#1f7a5a}
+.card{font-size:.92em}.card p+p{margin-top:.6em}
+.xl .card{font-size:1.1em;padding:1.3em 1.4em}
+.tahap{display:inline-block;font-size:.7em;font-weight:800;letter-spacing:.06em;background:var(--navy);color:var(--gold);padding:.25em .8em;border-radius:99px;margin-bottom:.5em}
+.flow{display:grid;gap:24px}.flow.c2{grid-template-columns:repeat(2,1fr)}
+.flow .card{position:relative}
+.flow .card:not(:last-child)::after{content:'\203A';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:2.2em;color:#c99600;font-weight:800;line-height:1}
+.mandat{margin-top:16px;padding:1.1em 1.4em;background:var(--navy);color:#fff;border-radius:16px;border-left:6px solid var(--gold)}
+.mandat .tahap{background:var(--gold);color:#1a1400}.mandat p{font-size:1.02em;line-height:1.55}
+@media (max-width:820px){.ghost.w{font-size:5em}.flow.c2{grid-template-columns:1fr}.flow .card:not(:last-child)::after{display:none}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark cover"><div class="tag"><i></i>Resume Konstitusional</div><div class="frame"><div class="inner"><p class="kick">RESUME KONSTITUSIONAL INDONESIA</p><h1>Kewajiban Negara terhadap Rakyatnya</h1><p class="lead">Berdasarkan Pembukaan dan Batang Tubuh UUD 1945 beserta Amandemen I–IV (1999–2002)</p><p class="pokok">4 Mandat Utama</p><div><span class="pill"><b>Pembukaan Alinea ke-4</b></span><span class="pill"><b>Perlindungan HAM</b> Pasal 28A – 28J (Amandemen II)</span><span class="pill"><b>Pendidikan &amp; Budaya</b> Pasal 31 – 32 (Amandemen IV)</span><span class="pill"><b>Kesejahteraan Sosial</b> Pasal 27, 33, 34 (Amandemen IV)</span></div><p class="hint">Tekan tombol panah atau geser layar untuk lanjut</p><div class="ghost w">1945</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kewajiban Negara UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">1</span>Kewajiban Dasar dalam Pembukaan UUD 1945</h2><p class="lead">Empat Tujuan Bernegara dalam Alinea ke-4 sebagai Landasan Konstitusional Tertinggi</p><div class="grid n2"><div class="card t-o"><span class="tahap">MANDAT PERTAMA</span><h3>Melindungi Segenap Bangsa &amp; Tumpah Darah</h3><p>Negara wajib menjaga kedaulatan wilayah dari ancaman luar dan gangguan keamanan dalam negeri. Perlindungan ini mencakup keselamatan seluruh warga negara di dalam maupun di luar negeri.</p></div><div class="card t-n"><span class="tahap">MANDAT KEDUA</span><h3>Memajukan Kesejahteraan Umum</h3><p>Negara bertugas menciptakan sistem ekonomi dan sosial yang memungkinkan setiap warga memenuhi kebutuhan dasarnya secara adil melalui pemerataan pembangunan hingga pelosok daerah.</p></div><div class="card t-e"><span class="tahap">MANDAT KETIGA</span><h3>Mencerdaskan Kehidupan Bangsa</h3><p>Negara bertanggung jawab membebaskan rakyat dari kebodohan dan ketertinggalan melalui sistem pendidikan bermutu guna membentuk manusia Indonesia yang berakhlak mulia dan menguasai IPTEK.</p></div><div class="card t-g"><span class="tahap">MANDAT KEEMPAT</span><h3>Ikut Melaksanakan Ketertiban Dunia</h3><p>Negara wajib menjalankan politik luar negeri bebas aktif berlandaskan kemerdekaan, perdamaian abadi, dan keadilan sosial demi terciptanya lingkungan global yang aman bagi rakyat.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kewajiban Negara UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">2</span>Kewajiban Menjamin Hak Asasi Manusia (Bagian 1)</h2><p class="lead">Pasal 28I Ayat (4): Perlindungan, Pemajuan, Penegakan, dan Pemenuhan HAM adalah Tanggung Jawab Negara</p><div class="grid n3"><div class="card t-o"><span class="tahap">PASAL 28A – 28B</span><h3>Hak Hidup dan Perlindungan Anak</h3><p>Negara wajib menjamin hak setiap orang untuk hidup dan mempertahankan hidupnya. Khusus bagi anak, negara wajib melindungi mereka dari kekerasan dan diskriminasi serta menjamin hak tumbuh kembang.</p></div><div class="card t-n"><span class="tahap">PASAL 28D &amp; 28I AYAT (2)</span><h3>Kepastian Hukum dan Kesetaraan</h3><p>Negara wajib menyediakan sistem peradilan yang adil, transparan, dan tidak memihak tanpa memandang status sosial, serta melarang segala bentuk kebijakan diskriminatif berbasis SARA.</p></div><div class="card t-e"><span class="tahap">PASAL 28E &amp; PASAL 29</span><h3>Kebebasan Beragama dan Berpendapat</h3><p>Negara menjamin kemerdekaan tiap penduduk untuk memeluk agama dan beribadat menurut kepercayaannya, serta melindungi kebebasan berserikat, berkumpul, dan menyampaikan pendapat secara sah.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kewajiban Negara UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">2</span>Kewajiban Menjamin Hak Asasi Manusia (Bagian 2)</h2><p class="lead">Jaminan Rasa Aman, Keterbukaan Informasi, serta Lingkungan Hidup dan Kesehatan (Amandemen II)</p><div class="grid n2 xl"><div class="card t-o"><span class="tahap">PASAL 28F &amp; 28G</span><h3>Hak atas Rasa Aman dan Akses Informasi</h3><p>Negara berkewajiban melindungi diri pribadi, keluarga, kehormatan, martabat, dan harta benda warga negara dari ancaman ketakutan.</p><p>Selain itu, negara wajib menjamin kebebasan berkomunikasi dan keterbukaan informasi publik untuk pengembangan diri dan lingkungan sosial.</p></div><div class="card t-e"><span class="tahap">PASAL 28H AYAT (1)</span><h3>Hak atas Lingkungan Hidup dan Kesehatan</h3><p>Negara wajib menjamin setiap warga negara dapat bertempat tinggal serta mendapatkan lingkungan hidup yang baik dan sehat.</p><p>Pasal ini juga mengamanatkan bahwa setiap orang berhak memperoleh pelayanan kesehatan yang layak dari negara.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kewajiban Negara UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">3</span>Kewajiban di Bidang Pendidikan dan Kebudayaan</h2><p class="lead">Amanat Pasal 31 dan Pasal 32 UUD 1945 (Hasil Amandemen IV Tahun 2002)</p><div class="grid n2"><div class="card t-o"><span class="tahap">PASAL 31 AYAT (1) &amp; (2)</span><h3>Membiayai Pendidikan Dasar</h3><p>Setiap warga negara berhak mendapat pendidikan dan wajib mengikuti pendidikan dasar. Pemerintah diwajibkan secara konstitusional untuk membiayai pendidikan dasar tanpa pungutan biaya.</p></div><div class="card t-n"><span class="tahap">PASAL 31 AYAT (4)</span><h3>Alokasi Minimal 20% Anggaran Pendidikan</h3><p>Negara wajib memprioritaskan anggaran pendidikan sekurang-kurangnya 20% dari APBN dan APBD guna memenuhi seluruh kebutuhan penyelenggaraan pendidikan nasional.</p></div><div class="card t-e"><span class="tahap">PASAL 31 AYAT (5)</span><h3>Memajukan Ilmu Pengetahuan &amp; Teknologi</h3><p>Pemerintah wajib memajukan IPTEK dengan menjunjung tinggi nilai-nilai agama dan persatuan bangsa untuk kemajuan peradaban serta kesejahteraan umat manusia.</p></div><div class="card t-g"><span class="tahap">PASAL 32 AYAT (1) &amp; (2)</span><h3>Memajukan Kebudayaan &amp; Bahasa Daerah</h3><p>Negara wajib memajukan kebudayaan nasional Indonesia di tengah peradaban dunia serta menghormati dan memelihara bahasa daerah sebagai kekayaan budaya nasional.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kewajiban Negara UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">4</span>Kewajiban di Bidang Ekonomi dan Kesejahteraan Sosial</h2><p class="lead">Perwujudan Negara Kesejahteraan (Welfare State) dalam Pasal 27, 33, dan 34 (Amandemen IV)</p><div class="grid n3"><div class="card t-o"><span class="tahap">PASAL 27 AYAT (2)</span><h3>Pekerjaan &amp; Penghidupan Layak</h3><p>Negara wajib menciptakan lapangan kerja dan menjaga iklim ekonomi agar tiap warga memperoleh penghidupan yang layak bagi kemanusiaan.</p></div><div class="card t-n"><span class="tahap">PASAL 33 AYAT (2) &amp; (3)</span><h3>Pengelolaan SDA untuk Rakyat</h3><p>Cabang produksi penting serta bumi, air, dan kekayaan alam dikuasai negara untuk dipergunakan sebesar-besar kemakmuran rakyat.</p></div><div class="card t-e"><span class="tahap">PASAL 34 AYAT (1)</span><h3>Pemeliharaan Fakir Miskin</h3><p>Fakir miskin dan anak-anak yang terlantar dipelihara oleh negara melalui bantuan sosial, panti asuhan, dan pemberdayaan ekonomi.</p></div><div class="card t-g"><span class="tahap">PASAL 34 AYAT (2)</span><h3>Sistem Jaminan Sosial Nasional</h3><p>Negara wajib mengembangkan sistem jaminan sosial bagi seluruh rakyat dan memberdayakan masyarakat lemah sesuai martabat kemanusiaan.</p></div><div class="card t-o"><span class="tahap">PASAL 34 AYAT (3)</span><h3>Fasilitas Kesehatan &amp; Layanan Umum</h3><p>Negara bertanggung jawab penuh menyediakan fasilitas pelayanan kesehatan (RS/Puskesmas) dan fasilitas pelayanan umum yang layak.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kewajiban Negara UUD 1945</div><div class="frame"><div class="inner"><h2>Kesimpulan Inti: Pergeseran Paradigma Peran Negara</h2><p class="lead">Transformasi Negara Pasca-Amandemen UUD 1945 (1999–2002)</p><div class="flow c2"><div class="card t-g"><span class="tahap">SEBELUM AMANDEMEN</span><h3>Negara sebagai Penyelenggara Kekuasaan</h3><p>Pengaturan hak warga negara dan kewajiban pemerintah masih bersifat umum dan singkat, sehingga banyak bergantung pada penafsiran penguasa saat itu.</p></div><div class="card t-e"><span class="tahap">SESUDAH AMANDEMEN I–IV</span><h3>Negara sebagai Pelayan &amp; Pelindung Hak Rakyat</h3><p>Kewajiban negara dirumuskan secara eksplisit, rinci, dan mengikat secara hukum—mulai dari perlindungan HAM, anggaran pendidikan 20%, hingga jaminan sosial.</p></div></div><div class="mandat"><span class="tahap">MANDAT KONSTITUSIONAL UTAMA PEMERINTAH</span><p>Negara tidak hanya dilarang melanggar hak asasi rakyat (kewajiban pasif), tetapi juga diwajibkan secara aktif menyediakan fasilitas dasar—hukum yang adil, pendidikan dasar gratis, layanan kesehatan, serta jaminan sosial—agar setiap warga negara dapat hidup sejahtera dan bermartabat.</p></div></div></div></section>
+</main>
+<nav class="bar" aria-label="Navigasi slide">
+  <button class="nb" id="prev" aria-label="Slide sebelumnya">&#8592;</button>
+  <div class="prog"><b id="pb"></b></div>
+  <span class="cnt" id="cnt"></span>
+  <button class="nb" id="fs" aria-label="Layar penuh">&#9974;</button>
+  <button class="nb" id="next" aria-label="Slide berikutnya">&#8594;</button>
+</nav>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(s){const f=s.querySelector('.frame'),n=s.querySelector('.inner');let z=Math.max(14,Math.min(26,innerWidth/58));if(innerHeight<520)z=Math.min(z,innerHeight/22);n.style.fontSize=z+'px';while(n.offsetHeight>f.clientHeight&&z>11){z-=.5;n.style.fontSize=z+'px'}}
+function fitAll(){S.forEach(fit)}
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});
+ document.getElementById('cnt').textContent=(i+1)+' / '+S.length;document.getElementById('pb').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();go(i-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);else if(k==='f'||k==='F')document.getElementById('fs').click()});
+let x0=null;
+addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',fitAll);
+fitAll();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitAll);
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
