@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kajian Konstitusi UUD 1945 | Kewajiban Negara, Hak Milik Pribadi & Integritas Jabatan Publik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--red:#b3261e;--green:#1f7a5a;--paper:#f6f4ee;--ink:#16202c;--muted:#566272;--line:#e0dccf;
+--head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--navy);font-family:var(--body);color:var(--ink);-webkit-text-size-adjust:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transform:translateX(3%);transition:opacity .45s,transform .45s,visibility .45s}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-3%)}
+.slide.dark{color:#fff;background:radial-gradient(900px 520px at 90% 10%,rgba(42,107,168,.5),transparent 60%),linear-gradient(160deg,#091b33,var(--navy) 55%,var(--navy2))}
+.tag{position:absolute;top:max(18px,env(safe-area-inset-top));left:6vw;display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.dark .tag{color:#b9c9dd}
+.tag i{width:22px;height:14px;border-radius:2px;background:linear-gradient(#d52b1e 50%,#fff 50%);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.frame{position:absolute;top:56px;bottom:84px;left:6vw;right:6vw;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.inner{width:100%;max-width:1100px;font-size:22px;line-height:1.55;margin:auto}
+h1,h2{font-family:var(--head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:2.5em;font-weight:800}
+h1.sec{font-size:2.1em;margin-bottom:.5em}
+h2{font-size:1.75em;font-weight:700;color:var(--navy);margin-bottom:.55em;display:flex;gap:.5em;align-items:baseline}
+.dark h2{color:#fff}
+.no{font-family:var(--head);color:var(--navy);background:var(--gold);min-width:1.6em;height:1.6em;border-radius:.45em;display:inline-grid;place-items:center;font-size:.75em;flex-shrink:0;transform:translateY(-.1em)}
+.kick{color:var(--gold);font-weight:700;font-size:.9em;margin-bottom:.8em}
+.lead{font-size:1.08em;color:var(--muted);margin-bottom:.9em}
+.dark .lead{color:#dbe6f3;border-left:4px solid var(--gold);padding-left:.9em}
+.dark p{color:#c9d8ea;margin-bottom:.8em}
+.hint{font-size:.8em;margin-top:2em}
+.cover .inner{max-width:900px;position:relative}
+.cover h1{margin-bottom:.5em}
+.ghost{position:absolute;right:-.1em;top:-.55em;z-index:-1;font-family:var(--head);font-weight:800;font-size:22em;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(242,183,5,.28);pointer-events:none}
+.cover .frame{overflow:hidden}
+.agenda{list-style:none;counter-reset:a;display:grid;gap:.6em}
+.agenda li{counter-increment:a;display:flex;gap:.9em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7em 1em;font-weight:600;color:var(--navy)}
+.agenda li::before{content:counter(a);font-family:var(--head);font-weight:800;background:var(--navy);color:var(--gold);width:1.9em;height:1.9em;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.quote blockquote{font-family:var(--head);font-size:1.25em;line-height:1.6;color:var(--navy);border-left:6px solid var(--gold);padding:.3em 0 .3em 1em}
+.grid{display:grid;gap:14px}
+.n2{grid-template-columns:repeat(2,1fr)}.n3{grid-template-columns:repeat(3,1fr)}.n4{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:6px 18px 18px 18px;padding:1em 1.1em;font-size:.92em}
+.card.bad{border-top-color:var(--red)}.card.sol{border-top-color:var(--green)}
+.card h3{font-family:var(--head);font-size:1.08em;color:var(--navy);margin-bottom:.35em;line-height:1.3}
+.card.bad h3{color:var(--red)}.card.sol h3{color:var(--green)}
+.card p{color:#2c3744}
+.big{font-family:var(--head);font-weight:800;font-size:2em;line-height:1;color:var(--gold);display:block;margin-bottom:.15em}
+.kids{margin-top:.8em}.kids .card{font-size:.95em;background:var(--paper)}
+.pts{list-style:none;display:grid;gap:.7em}
+.pts li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px 14px 14px 6px;padding:.8em 1.1em}
+.kes .lead{font-size:1.12em}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px max(5vw,env(safe-area-inset-left)) max(12px,env(safe-area-inset-bottom));z-index:5}
+.prog{flex:1;height:6px;border-radius:6px;background:rgba(120,130,150,.35);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.cnt{font-size:.85rem;font-weight:700;min-width:4.5em;text-align:center;color:#fff;mix-blend-mode:difference}
+.nb{width:46px;height:46px;border-radius:12px;border:none;background:var(--navy);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 0 0 2px rgba(242,183,5,.7)}
+.nb:hover{background:var(--navy2)}.nb:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.n3,.n2,.n4{grid-template-columns:1fr}.ghost{font-size:14em}.tag{left:5vw}.frame{left:5vw;right:5vw}}
+@media (max-height:520px){.frame{top:44px;bottom:70px}.nb{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}}
+.slide{isolation:isolate}
+.inner{position:relative}
+.ghost.w{font-size:9em;right:0;top:-.3em;-webkit-text-stroke-width:1.5px}
+.pill{display:inline-block;padding:.3em .9em;border-radius:99px;border:1px solid rgba(242,183,5,.55);color:#fde9a6;font-weight:600;font-size:.82em;margin:.2em .3em .2em 0}
+.pill b{color:var(--gold)}
+.card.t-g{border-top-color:#c0392b}.t-g h3{color:#c0392b}
+.card.t-n{border-top-color:#d99a00}.t-n h3{color:#a86f00}
+.card.t-o{border-top-color:#2a6ba8}.t-o h3{color:#1e4b7a}
+.card.t-e{border-top-color:#1f7a5a}.t-e h3{color:#1f7a5a}
+.card .big{color:#c99600;font-size:2em}
+.card{font-size:.92em}
+.psub{color:var(--muted);font-weight:600;font-size:.9em;margin-bottom:.2em}
+.sech{font-family:var(--head);color:var(--navy);margin:.2em 0 .6em;font-size:1.15em}
+.sub{margin-top:.6em;padding:.55em .8em;background:var(--paper);border-radius:10px;border-left:4px solid var(--gold)}
+.sub b{display:block;font-size:.85em;color:var(--navy);margin-bottom:.15em}.sub p{font-size:.95em}
+.cols2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.col{display:grid;gap:10px;align-content:start}
+.colhead{font-family:var(--head);font-weight:700;color:#fff;background:#a86f00;padding:.6em 1em;border-radius:12px;font-size:1.05em;line-height:1.3}
+.colhead.r{background:#b3261e}.colhead.b{background:#1e4b7a}.colhead.g{background:#1f7a5a}
+.col .card{margin:0;font-size:.9em;padding:.85em 1.1em}
+h2 small{font-size:.5em;font-weight:600;color:var(--muted)}
+.tbl{width:100%;border-collapse:separate;border-spacing:0 8px;font-size:.88em}
+.tbl th{background:var(--navy);color:#fff;padding:.6em .8em;text-align:left;font-family:var(--head)}
+.tbl th:nth-child(2){background:#1f7a5a}.tbl th:nth-child(3){background:#1e4b7a}.tbl th:nth-child(4){background:#a86f00}.tbl th:nth-child(5){background:#b3261e;border-radius:0 12px 12px 0}.tbl th:first-child{border-radius:12px 0 0 12px}
+.tbl td{background:#fff;padding:.7em .8em;vertical-align:top;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tbl td:first-child{color:var(--navy);border-left:1px solid var(--line);border-radius:12px 0 0 12px}
+.tbl td:last-child{border-right:1px solid var(--line);border-radius:0 12px 12px 0}
+@media (max-width:820px){.ghost.w{font-size:5em}.cols2{grid-template-columns:1fr}
+.tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}.tbl thead{display:none}.tbl tr{margin-bottom:12px}
+.tbl td{border-radius:0!important;border:1px solid var(--line);border-top:0}.tbl td:first-child{border-radius:12px 12px 0 0!important;border-top:1px solid var(--line)}.tbl td:last-child{border-radius:0 0 12px 12px!important}
+.tbl td[data-l]:not(:first-child)::before{content:attr(data-l);display:block;font-size:.78em;font-weight:700;color:var(--muted);margin-bottom:.15em}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark cover"><div class="tag"><i></i>Kajian Konstitusi</div><div class="frame"><div class="inner"><p class="kick">KAJIAN KONSTITUSI UUD 1945 &amp; AMANDEMEN I–IV</p><h1>Kewajiban Negara terhadap Rakyat, Hak Milik Pribadi, dan Integritas Jabatan Publik</h1><p class="lead">Analisis lengkap mandat Pembukaan &amp; Batang Tubuh UUD 1945, perbandingan sistem ekonomi-politik (Pancasila vs. Kapitalis, Sosialis, Komunis), serta analisis konstitusional korupsi pejabat publik.</p><div><span class="pill"><b>01 | Mandat Dasar</b> Pembukaan UUD 1945 &amp; Kewajiban Negara</span><span class="pill"><b>02 | Jaminan HAM &amp; Sosial</b> Pasal 27–34 Hasil Amandemen I–IV</span><span class="pill"><b>03 | Republik &amp; Hak Milik</b> Komparasi Sistem Ekonomi-Politik</span><span class="pill"><b>04 | Antikorupsi</b> Batas Ranah Privat &amp; Jabatan Publik</span></div><p class="hint">Tekan tombol panah atau geser layar untuk lanjut</p><div class="ghost w">1945</div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">1</span>Kewajiban Dasar Negara dalam Pembukaan UUD 1945</h2><p class="lead">Alinea ke-4 memuat empat tujuan bernegara yang mengikat seluruh penyelenggara pemerintahan.</p><div class="grid n2"><div class="card t-o"><h3>Melindungi Segenap Bangsa &amp; Tumpah Darah</h3><div class="sub"><b>Kedaulatan Wilayah</b><p>Menjaga keutuhan negara dari ancaman luar dan gangguan keamanan dalam negeri.</p></div><div class="sub"><b>Keselamatan Warga</b><p>Melindungi seluruh rakyat Indonesia di mana pun berada, baik di dalam maupun luar negeri.</p></div></div><div class="card t-n"><h3>Memajukan Kesejahteraan Umum</h3><div class="sub"><b>Keadilan Sosial-Ekonomi</b><p>Menciptakan sistem ekonomi yang memungkinkan setiap warga memenuhi kebutuhan dasar secara layak.</p></div><div class="sub"><b>Pemerataan Pembangunan</b><p>Memastikan hasil pembangunan menjangkau seluruh lapisan masyarakat hingga daerah terpencil.</p></div></div><div class="card t-e"><h3>Mencerdaskan Kehidupan Bangsa</h3><div class="sub"><b>Akses Pendidikan Bermutu</b><p>Membebaskan rakyat dari ketertinggalan melalui layanan pendidikan yang merata dan terjangkau.</p></div><div class="sub"><b>Kualitas Manusia</b><p>Membentuk warga negara yang beriman, berakhlak mulia, dan menguasai ilmu pengetahuan.</p></div></div><div class="card t-g"><h3>Ikut Melaksanakan Ketertiban Dunia</h3><div class="sub"><b>Politik Bebas Aktif</b><p>Berperan menjaga perdamaian global berlandaskan kemerdekaan dan keadilan sosial.</p></div><div class="sub"><b>Stabilitas Nasional</b><p>Menciptakan lingkungan internasional yang damai demi keamanan dan kepentingan rakyat di dalam negeri.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">2</span>Kewajiban Menjamin Hak Asasi Manusia (Amandemen II)</h2><p class="lead">Pasal 28I ayat (4) menegaskan bahwa perlindungan, pemajuan, penegakan, dan pemenuhan HAM adalah tanggung jawab negara.</p><div class="grid n2"><div class="card t-o"><h3>Hak Hidup &amp; Perlindungan Anak (Pasal 28A–28B)</h3><div class="sub"><b>Hak Hidup</b><p>Menjamin hak setiap orang untuk hidup, mempertahankan kehidupan, dan bebas dari penyiksaan.</p></div><div class="sub"><b>Perlindungan Anak</b><p>Melindungi anak dari kekerasan dan diskriminasi serta menjamin hak tumbuh kembangnya.</p></div></div><div class="card t-n"><h3>Kepastian Hukum &amp; Kesetaraan (Pasal 28D &amp; 28I)</h3><div class="sub"><b>Persamaan di Hadapan Hukum</b><p>Menjamin peradilan yang adil, transparan, dan tidak memihak tanpa memandang status sosial.</p></div><div class="sub"><b>Bebas Diskriminasi</b><p>Melarang kebijakan diskriminatif berdasarkan suku, agama, ras, maupun golongan.</p></div></div><div class="card t-e"><h3>Kebebasan Beragama &amp; Berpendapat (Pasal 28E &amp; 29)</h3><div class="sub"><b>Kemerdekaan Beragama</b><p>Menjamin hak setiap penduduk memeluk agama dan beribadat menurut kepercayaannya.</p></div><div class="sub"><b>Kebebasan Sipil</b><p>Melindungi hak berserikat, berkumpul, dan menyampaikan pendapat secara lisan maupun tulisan.</p></div></div><div class="card t-g"><h3>Rasa Aman, Informasi &amp; Lingkungan (Pasal 28F–28H)</h3><div class="sub"><b>Keamanan &amp; Informasi</b><p>Melindungi martabat, harta benda warga, serta menjamin keterbukaan informasi publik.</p></div><div class="sub"><b>Lingkungan &amp; Kesehatan</b><p>Menjamin hak atas tempat tinggal layak, lingkungan sehat, dan pelayanan kesehatan.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">3</span>Kewajiban Pendidikan, Kebudayaan &amp; Kesejahteraan Sosial</h2><p class="lead">Amandemen IV mempertegas peran negara kesejahteraan (welfare state) melalui jaminan anggaran dan layanan publik.</p><h3 class="sech">Bidang Pendidikan &amp; Kebudayaan (Pasal 31 – 32)</h3><div class="grid n2"><div class="card t-o"><h3>Pembiayaan Pendidikan Dasar (Pasal 31 ayat 2)</h3><p>Setiap warga wajib mengikuti pendidikan dasar dan pemerintah wajib membiayainya tanpa pungutan.</p></div><div class="card t-o"><h3>Anggaran Minimal 20% (Pasal 31 ayat 4)</h3><p>Negara wajib memprioritaskan anggaran pendidikan sekurang-kurangnya 20% dari APBN dan APBD.</p></div><div class="card t-o"><h3>Pengembangan IPTEK (Pasal 31 ayat 5)</h3><p>Pemerintah memajukan ilmu pengetahuan dan teknologi dengan menjunjung tinggi nilai agama dan persatuan.</p></div><div class="card t-o"><h3>Pelestarian Kebudayaan (Pasal 32 ayat 1–2)</h3><p>Negara memajukan kebudayaan nasional serta menghormati dan memelihara bahasa daerah sebagai kekayaan bangsa.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">3</span>Kewajiban Pendidikan, Kebudayaan &amp; Kesejahteraan Sosial <small>(lanjutan)</small></h2><h3 class="sech">Bidang Ekonomi &amp; Kesejahteraan Sosial (Pasal 27, 33 &amp; 34)</h3><div class="grid n2"><div class="card t-e"><h3>Pekerjaan &amp; Penghidupan Layak (Pasal 27 ayat 2)</h3><p>Negara wajib menciptakan iklim ekonomi dan lapangan kerja agar warga hidup layak bagi kemanusiaan.</p></div><div class="card t-e"><h3>Penguasaan SDA untuk Rakyat (Pasal 33 ayat 2–3)</h3><p>Cabang produksi vital serta bumi, air, dan kekayaan alam dikuasai negara untuk kemakmuran rakyat.</p></div><div class="card t-e"><h3>Pemeliharaan Fakir Miskin (Pasal 34 ayat 1)</h3><p>Fakir miskin dan anak-anak yang terlantar dipelihara secara aktif oleh negara.</p></div><div class="card t-e"><h3>Jaminan Sosial &amp; Layanan Umum (Pasal 34 ayat 2–3)</h3><p>Negara mengembangkan sistem jaminan sosial serta menyediakan fasilitas kesehatan dan layanan umum yang layak.</p></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">4</span>Bentuk Negara Republik dan Pengakuan Hak Milik Pribadi</h2><p class="lead">UUD 1945 menyeimbangkan kebebasan kepemilikan individu dengan fungsi sosial demi kepentingan umum.</p><div class="grid n3"><div class="card t-o"><h3>Makna Negara Republik</h3><p class="psub">Pasal 1 ayat (1) &amp; (2) UUD 1945</p><div class="sub"><b>Res Publica (Kepentingan Umum)</b><p>Negara bukan milik penguasa, melainkan alat rakyat untuk mewujudkan keadilan dan kemakmuran bersama.</p></div><div class="sub"><b>Kedaulatan Rakyat</b><p>Kekuasaan tertinggi berada di tangan rakyat dan dijalankan menurut undang-undang dasar.</p></div><div class="sub"><b>Mandat Pelayan Publik</b><p>Pemerintah bertugas melindungi hak setiap warga negara tanpa terkecuali.</p></div></div><div class="card t-n"><h3>Jaminan Hak Milik Pribadi</h3><p class="psub">Pasal 28H ayat (4) UUD 1945</p><div class="sub"><b>Hak Konstitusional</b><p>Setiap orang berhak mempunyai hak milik pribadi untuk menunjang kehidupan dan martabatnya.</p></div><div class="sub"><b>Perlindungan dari Perampasan</b><p>Hak milik pribadi tidak boleh diambil alih secara sewenang-wenang oleh siapa pun.</p></div><div class="sub"><b>Kepastian Hukum</b><p>Negara menjamin legalitas aset, tanah, dan hasil usaha warga yang diperoleh secara sah.</p></div></div><div class="card t-e"><h3>Batasan &amp; Fungsi Sosial</h3><p class="psub">Pasal 28J &amp; Pasal 33 UUD 1945</p><div class="sub"><b>Tidak Bersifat Mutlak</b><p>Pelaksanaan hak individu dibatasi undang-undang demi menghormati hak orang lain dan ketertiban umum.</p></div><div class="sub"><b>Larangan Monopoli Vital</b><p>Sumber daya alam dan cabang produksi yang menguasai hajat hidup orang banyak dikuasai negara.</p></div><div class="sub"><b>Keseimbangan</b><p>Hak pribadi tumbuh bebas selama tidak merugikan kepentingan kolektif bangsa.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">5</span>Perbandingan Sistem Indonesia vs. Kapitalis, Sosialis &amp; Komunis</h2><p class="lead">Posisi Republik Pancasila menempati jalan tengah yang melindungi hak individu sekaligus menjamin keadilan sosial.</p><table class="tbl"><thead><tr><th>Aspek Pembanding</th><th>Indonesia (Republik Pancasila)</th><th>Sistem Kapitalis</th><th>Sistem Sosialis</th><th>Sistem Komunis</th></tr></thead><tbody><tr><td data-l="Aspek Pembanding"><strong>Hak Milik Pribadi</strong></td><td data-l="Indonesia (Republik Pancasila)">Diakui &amp; dilindungi (Pasal 28H), tetapi dibatasi fungsi sosial dan kepentingan umum (Pasal 28J).</td><td data-l="Sistem Kapitalis">Sangat mutlak dan menjadi pilar utama. Negara dilarang mencampuri kepemilikan individu.</td><td data-l="Sistem Sosialis">Dibatasi secara ketat. Individu hanya memiliki barang konsumsi, bukan alat produksi besar.</td><td data-l="Sistem Komunis">Dihapuskan sepenuhnya. Seluruh properti dan aset menjadi milik kolektif negara.</td></tr><tr><td data-l="Aspek Pembanding"><strong>Penguasaan Alat Produksi &amp; SDA</strong></td><td data-l="Indonesia (Republik Pancasila)">Campuran berimbang. SDA &amp; sektor vital dikuasai negara (Pasal 33), sektor lain dibuka untuk swasta &amp; koperasi.</td><td data-l="Sistem Kapitalis">Dikuasai swasta/individu. Mekanisme pasar bebas menentukan produksi dan distribusi.</td><td data-l="Sistem Sosialis">Dikuasai negara. Industri besar, perbankan, dan SDA dikelola pemerintah untuk pemerataan.</td><td data-l="Sistem Komunis">100% dikuasai negara di bawah kendali partai tunggal tanpa ruang bagi sektor swasta.</td></tr></tbody></table></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">5</span>Perbandingan Sistem Indonesia vs. Kapitalis, Sosialis &amp; Komunis <small>(lanjutan)</small></h2><table class="tbl"><thead><tr><th>Aspek Pembanding</th><th>Indonesia (Republik Pancasila)</th><th>Sistem Kapitalis</th><th>Sistem Sosialis</th><th>Sistem Komunis</th></tr></thead><tbody><tr><td data-l="Aspek Pembanding"><strong>Peran Negara dalam Ekonomi</strong></td><td data-l="Indonesia (Republik Pancasila)">Regulator &amp; pelaku aktif (BUMN) untuk menjaga keadilan sosial dan melindungi fakir miskin (Pasal 34).</td><td data-l="Sistem Kapitalis">Minimalis (laissez-faire). Negara hanya menjaga keamanan dan penegakan kontrak hukum.</td><td data-l="Sistem Sosialis">Dominan &amp; terpusat. Negara mengatur distribusi pendapatan dan layanan publik secara luas.</td><td data-l="Sistem Komunis">Totaliter &amp; terpusat. Negara merencanakan seluruh aspek produksi, harga, dan pekerjaan.</td></tr><tr><td data-l="Aspek Pembanding"><strong>Tujuan Utama</strong></td><td data-l="Indonesia (Republik Pancasila)">Keadilan sosial bagi seluruh rakyat dengan tetap menghargai hak dan kreativitas individu.</td><td data-l="Sistem Kapitalis">Kebebasan individu dan akumulasi keuntungan modal sebesar-besarnya.</td><td data-l="Sistem Sosialis">Pemerataan kesejahteraan dan pengurangan kesenjangan antar-kelas sosial.</td><td data-l="Sistem Komunis">Masyarakat tanpa kelas dengan menghapus kepemilikan pribadi dan pasar bebas.</td></tr></tbody></table></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2><span class="no">6</span>Hak Milik Pribadi vs. Korupsi dalam Jabatan Publik</h2><p class="lead">Penyalahgunaan kekuasaan republik untuk memperkaya diri/kelompok merupakan pengkhianatan ganda terhadap konstitusi.</p><div class="cols2"><div class="col"><div class="colhead b">Benturan Kepentingan: Privat vs. Publik</div><div class="card t-o"><h3>Batas Sah Hak Milik (Pasal 28H)</h3><p>Harta pribadi dilindungi konstitusi hanya jika diperoleh secara sah (usaha, kerja, warisan), bukan dari perampasan hak publik.</p></div><div class="card t-o"><h3>Hakikat Jabatan Republik</h3><p>Anggaran (APBN/APBD) dan kewenangan negara adalah milik rakyat. Pejabat hanya pengelola amanah (fiduciary), bukan pemilik.</p></div><div class="card t-o"><h3>Penyimpangan Oligarkis</h3><p>Korupsi terjadi saat pejabat memperlakukan jabatan publik layaknya modal bisnis privat untuk memperkaya diri, keluarga, atau kroni.</p></div></div><div class="col"><div class="colhead r">Korupsi sebagai Perampasan Hak Rakyat</div><div class="card t-g"><h3>Menggagalkan Kewajiban Negara</h3><p>Dana yang dikorupsi merampas anggaran pendidikan (Pasal 31), pengelolaan SDA (Pasal 33), serta jaminan sosial fakir miskin (Pasal 34).</p></div><div class="card t-g"><h3>Melanggar Batasan HAM (Pasal 28J)</h3><p>Pejabat korup memaksakan ambisi kekayaan pribadi dengan mengorbankan hak jutaan warga atas layanan kesehatan dan infrastruktur layak.</p></div><div class="card t-g"><h3>Penyalahgunaan Wewenang</h3><p>Suap, gratifikasi, dan mark-up anggaran memusatkan kekayaan negara pada segelintir elite dan merusak keadilan sosial.</p></div></div></div></div></div></section>
+<section class="slide "><div class="tag"><i></i>Kajian Konstitusi UUD 1945</div><div class="frame"><div class="inner"><h2>Instrumen Konstitusional &amp; Hukum Penjaga Integritas Republik:</h2><div class="grid n3"><div class="card t-e"><h3>Pemisahan Harta (LHKPN)</h3><p>Kewajiban pelaporan harta kekayaan pejabat sebelum, selama, dan sesudah menjabat untuk mencegah pencampuran aset.</p></div><div class="card t-e"><h3>Perampasan Aset Ilegal</h3><p>Hukum tidak melindungi hak milik hasil korupsi; negara berwenang menyita dan mengembalikannya untuk rakyat.</p></div><div class="card t-e"><h3>Checks and Balances</h3><p>Pengawasan berlapis oleh DPR, BPK (Pasal 23E), KPK, dan peradilan merdeka (Pasal 24) agar kekuasaan terkendali.</p></div></div></div></div></section>
+<section class="slide dark sol"><div class="tag"><i></i>Kesimpulan</div><div class="frame"><div class="inner"><h2>Kesimpulan Inti: Sintesis Konstitusi UUD 1945</h2><div class="grid n3"><div class="card neu"><span class="big">01</span><h3>Negara sebagai Pelayan Konstitusional</h3><p>UUD 1945 hasil amandemen mewajibkan negara tidak hanya menghormati HAM, tetapi juga aktif membiayai pendidikan dasar, menjamin kesehatan, memelihara fakir miskin, dan mengelola SDA demi kemakmuran rakyat.</p></div><div class="card neu"><span class="big">02</span><h3>Keseimbangan Republik Pancasila</h3><p>Indonesia menolak pasar bebas mutlak ala kapitalisme maupun penghapusan kepemilikan pribadi ala komunisme. Hak milik pribadi diakui (Pasal 28H), tetapi dibatasi fungsi sosial dan kepentingan umum (Pasal 28J &amp; 33).</p></div><div class="card neu"><span class="big">03</span><h3>Jabatan Publik adalah Amanah, Bukan Modal Bisnis</h3><p>Pengakuan hak milik pribadi berlaku bagi warga negara dalam ranah privat yang sah. Ketika pejabat publik menggunakan kewenangan negara untuk memperkaya diri atau kelompok melalui korupsi, ia merampas hak rakyat sekaligus mengkhianati mandat Republik.</p></div></div></div></div></section>
+</main>
+<nav class="bar" aria-label="Navigasi slide">
+  <button class="nb" id="prev" aria-label="Slide sebelumnya">&#8592;</button>
+  <div class="prog"><b id="pb"></b></div>
+  <span class="cnt" id="cnt"></span>
+  <button class="nb" id="fs" aria-label="Layar penuh">&#9974;</button>
+  <button class="nb" id="next" aria-label="Slide berikutnya">&#8594;</button>
+</nav>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(s){const f=s.querySelector('.frame'),n=s.querySelector('.inner');let z=Math.max(14,Math.min(26,innerWidth/58));if(innerHeight<520)z=Math.min(z,innerHeight/22);n.style.fontSize=z+'px';while(n.offsetHeight>f.clientHeight&&z>11){z-=.5;n.style.fontSize=z+'px'}}
+function fitAll(){S.forEach(fit)}
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('past',j<i)});
+ document.getElementById('cnt').textContent=(i+1)+' / '+S.length;document.getElementById('pb').style.width=((i+1)/S.length*100)+'%';
+ document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=()=>go(i-1);
+document.getElementById('next').onclick=()=>go(i+1);
+document.getElementById('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(i+1)}
+ else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();go(i-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);else if(k==='f'||k==='F')document.getElementById('fs').click()});
+let x0=null;
+addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(i+(d<0?1:-1));x0=null});
+addEventListener('resize',fitAll);
+fitAll();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitAll);
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
