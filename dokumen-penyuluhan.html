@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--blue:#4aa3ff;--green:#34d399;--red:#ff6b6b;--tx:#f4f7fb;--mu:#a9b8cc;--bd:rgba(255,255,255,.12);--card:rgba(255,255,255,.06);
+:root{--navy:#0c2340;--navy2:#16406b;--gold:#f2b705;--blue:#4aa3ff;--green:#34d399;--red:#ff6b6b;--purple:#a78bfa;--tx:#f4f7fb;--mu:#a9b8cc;--bd:rgba(255,255,255,.12);--card:rgba(255,255,255,.06);
 --head:'Fraunces',Georgia,serif;--body:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -43,7 +43,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background-im
 .meta{color:var(--mu);font-size:.88rem;margin:0 2px 14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:20px}
 .card{--c:var(--blue);position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--bd);border-top:4px solid var(--c);border-radius:6px 22px 22px 22px;padding:24px;cursor:pointer;backdrop-filter:blur(8px);transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,border-color .3s;animation:up .5s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i)*70ms)}
-.card.t-e{--c:var(--green)}.card.t-n{--c:var(--gold)}
+.card.t-e{--c:var(--green)}.card.t-n{--c:var(--gold)}.card.t-s{--c:var(--red)}.card.t-r{--c:var(--purple)}
 .card::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:.3s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,0),rgba(255,255,255,.1),transparent 45%)}
 .card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.45);border-color:rgba(255,255,255,.28);border-top-color:var(--c)}
 .card:hover::before{opacity:1}
@@ -118,14 +118,21 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background-im
 </div>
 
 <script>
-const D=[{"id": "1igbzCH7k04i2OJoKnXCqiyNQ1z0gPJPR", "judul": "Proposal ke Sekretaris Daerah", "deskripsi": "Dokumen proposal yang ditujukan kepada Sekretaris Daerah", "tanggal": "05 November 2026", "tipe": "proposal"}, {"id": "1dpfv2Bt-RRMk6ysd5ziFAV-oQsMxxMXs", "judul": "Disposisi Sekretaris Daerah", "deskripsi": "Lembar disposisi dari Sekretaris Daerah", "tanggal": "05 November 2026", "tipe": "disposisi"}, {"id": "1HLMha7WiPXlRqlLcG_3BFWk9UhBN9pfy", "judul": "Undangan Penyuluhan Peserta PKL & Magang Gelombang 1", "deskripsi": "Undangan penyuluhan bagi peserta PKL dan Magang di lingkup Sekretariat Daerah - Gelombang 1", "tanggal": "12 November 2026", "tipe": "undangan"}];
+const D=[
+{"id": "1igbzCH7k04i2OJoKnXCqiyNQ1z0gPJPR", "judul": "Proposal ke Sekretaris Daerah", "deskripsi": "Dokumen proposal yang ditujukan kepada Sekretaris Daerah", "tanggal": "05 November 2026", "tipe": "proposal"},
+{"id": "1dpfv2Bt-RRMk6ysd5ziFAV-oQsMxxMXs", "judul": "Disposisi Sekretaris Daerah", "deskripsi": "Lembar disposisi dari Sekretaris Daerah", "tanggal": "05 November 2026", "tipe": "disposisi"},
+{"id": "1HLMha7WiPXlRqlLcG_3BFWk9UhBN9pfy", "judul": "Undangan Penyuluhan Peserta PKL & Magang Gelombang 1", "deskripsi": "Undangan penyuluhan bagi peserta PKL dan Magang di lingkup Sekretariat Daerah - Gelombang 1", "tanggal": "12 November 2026", "tipe": "undangan"},
+{"id": "1YQPlQGHuW8oFtDaOBsF6pPFmqK5YakYF", "judul": "Surat Mohon Bantuan Snack Penyuluhan Gelombang 1", "deskripsi": "Surat permohonan bantuan snack untuk kegiatan penyuluhan Gelombang 1", "tanggal": "12 November 2026", "tipe": "surat"},
+{"id": "1jsLgCsB7fX3jBaA51m-g3zPTcaSAcscj", "judul": "Proposal ke Rektor Universitas Tulungagung", "deskripsi": "Dokumen proposal yang ditujukan kepada Rektor Universitas Tulungagung", "tanggal": "10 November 2026", "tipe": "proposal"}
+];
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const IC={
  proposal:'<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>',
  disposisi:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.6 2.6L16 9.5"/></svg>',
- undangan:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>'};
-const T={proposal:{l:'Proposal',c:''},disposisi:{l:'Disposisi',c:'t-e'},undangan:{l:'Undangan',c:'t-n'}};
+ undangan:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+ surat:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>'};
+const T={proposal:{l:'Proposal',c:''},disposisi:{l:'Disposisi',c:'t-e'},undangan:{l:'Undangan',c:'t-n'},surat:{l:'Surat',c:'t-s'}};
 const CAL='<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>';
 D.forEach((d,n)=>d.n=n);
 let st={q:'',f:'all'},vis=[],cur=-1,opener=null;
