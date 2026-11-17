@@ -125,7 +125,9 @@ const D=[
 {"id": "1YQPlQGHuW8oFtDaOBsF6pPFmqK5YakYF", "judul": "Surat Mohon Bantuan Snack Penyuluhan Gelombang 1", "deskripsi": "Surat permohonan bantuan snack untuk kegiatan penyuluhan Gelombang 1", "tanggal": "12 November 2026", "tipe": "surat"},
 {"id": "1jsLgCsB7fX3jBaA51m-g3zPTcaSAcscj", "judul": "Proposal ke Rektor Universitas Tulungagung", "deskripsi": "Dokumen proposal yang ditujukan kepada Rektor Universitas Tulungagung", "tanggal": "10 November 2026", "tipe": "proposal"},
 {"id": "1kN4uwf-lE3oc3l7ACDrTfgliNvYlX-0t", "judul": "Surat Permohonan Narasumber dari Bapenda Tulungagung", "deskripsi": "Surat permohonan narasumber dari Badan Pendapatan Daerah (Bapenda) Tulungagung", "tanggal": "11 November 2026", "tipe": "surat"},
-{"id": "1au3RODfdQw5eOMBjr_Ud-NExwE0b-EOa", "judul": "Surat Permohonan Ijin Memakai Ruang Rapat untuk Penyuluhan Anti Korupsi Gelombang 1", "deskripsi": "Surat permohonan ijin memakai ruang rapat untuk kegiatan penyuluhan anti korupsi Gelombang 1", "tanggal": "12 November 2026", "tipe": "surat"}
+{"id": "1au3RODfdQw5eOMBjr_Ud-NExwE0b-EOa", "judul": "Surat Permohonan Ijin Memakai Ruang Rapat untuk Penyuluhan Anti Korupsi Gelombang 1", "deskripsi": "Surat permohonan ijin memakai ruang rapat untuk kegiatan penyuluhan anti korupsi Gelombang 1", "tanggal": "12 November 2026", "tipe": "surat"},
+{"id": "1UUXWSpWMJuM-Fxp4WawR1Z8ccXOS7uOa", "judul": "Daftar Hadir Penyuluhan Anti Korupsi Peserta Magang / PKL Gelombang 1", "deskripsi": "Daftar hadir peserta magang / PKL lingkup Setda Kabupaten Tulungagung pada kegiatan penyuluhan anti korupsi Gelombang 1", "tanggal": "17 November 2026", "tipe": "daftar_hadir"},
+{"id": "1VNZbr8uqFYY_C7tQdcwE9IdmvuIWcXYz", "judul": "Disposisi Pemberian Ijin Memakai Ruang Rapat untuk Penyuluhan Anti Korupsi Gelombang 1", "deskripsi": "Disposisi pemberian ijin memakai ruang rapat untuk kegiatan penyuluhan anti korupsi kepada peserta magang/PKL di lingkup Setda Kabupaten Tulungagung Gelombang 1", "tanggal": "12 November 2026", "tipe": "disposisi"}
 ];
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -133,8 +135,10 @@ const IC={
  proposal:'<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>',
  disposisi:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.6 2.6L16 9.5"/></svg>',
  undangan:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
- surat:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>'};
-const T={proposal:{l:'Proposal',c:''},disposisi:{l:'Disposisi',c:'t-e'},undangan:{l:'Undangan',c:'t-n'},surat:{l:'Surat',c:'t-s'}};
+ surat:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>',
+ daftar_hadir:'<svg viewBox="0 0 24 24"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8z"/><path d="M16 3v5h5"/><path d="M8 13h8M8 17h5"/></svg>'
+};
+const T={proposal:{l:'Proposal',c:''},disposisi:{l:'Disposisi',c:'t-e'},undangan:{l:'Undangan',c:'t-n'},surat:{l:'Surat',c:'t-s'},daftar_hadir:{l:'Daftar Hadir',c:'t-r'}};
 const CAL='<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>';
 D.forEach((d,n)=>d.n=n);
 let st={q:'',f:'all'},vis=[],cur=-1,opener=null;
